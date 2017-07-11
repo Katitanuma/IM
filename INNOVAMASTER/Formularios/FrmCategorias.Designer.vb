@@ -39,6 +39,7 @@ Partial Class FrmCategoria
         Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.GbDatos.SuspendLayout()
         CType(Me.DgvCategoria, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -272,7 +273,10 @@ Partial Class FrmCategoria
         Me.Controls.Add(Me.GbDatos)
         Me.Controls.Add(Me.LblFilas)
         Me.Controls.Add(Me.DgvCategoria)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmCategoria"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Categoría"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbDatos.ResumeLayout(False)
@@ -302,4 +306,5 @@ Partial Class FrmCategoria
     Friend WithEvents BtnActualizar As Button
     Friend WithEvents BtnInsertar As Button
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

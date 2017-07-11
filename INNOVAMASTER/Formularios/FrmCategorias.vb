@@ -7,6 +7,11 @@ Public Class FrmCategoria
         GbDatos.Enabled = False
         TxtIdCategoria.Enabled = False
         DgvCategoria.Enabled = True
+
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Categoría")
     End Sub
     Private Sub MostrarCategoria()
         Try

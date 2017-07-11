@@ -32,6 +32,7 @@ Partial Class ReporteCompras
         Me.ImprimirReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmsReporteCompras.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -125,8 +126,11 @@ Partial Class ReporteCompras
         Me.Controls.Add(Me.TxtBusqueda)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DgvReporteCompra)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ReporteCompras"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Compras"
         CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).EndInit()
@@ -146,4 +150,5 @@ Partial Class ReporteCompras
     Friend WithEvents VisualizarReporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimirReporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

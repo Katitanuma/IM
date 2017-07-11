@@ -80,6 +80,7 @@ Partial Class FrmEmpleado
         Me.BtnNuevo = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnInsertar = New System.Windows.Forms.Button()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.DgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbEmpleado.SuspendLayout()
         CType(Me.PbEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -750,7 +751,10 @@ Partial Class FrmEmpleado
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnInsertar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmEmpleado"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Empleados"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -823,4 +827,5 @@ Partial Class FrmEmpleado
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents BtnBusquedaCliente As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

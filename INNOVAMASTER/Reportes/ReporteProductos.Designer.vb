@@ -29,6 +29,7 @@ Partial Class ReporteProductos
         Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.DgvReporteProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,7 +123,10 @@ Partial Class ReporteProductos
         Me.Controls.Add(Me.TxtBusqueda)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.DgvReporteProductos)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "ReporteProductos"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Productos"
         CType(Me.DgvReporteProductos, System.ComponentModel.ISupportInitialize).EndInit()
@@ -140,4 +144,5 @@ Partial Class ReporteProductos
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

@@ -18,6 +18,12 @@ Public Class FrmProveedor
         DgvProveedor.AlternatingRowsDefaultCellStyle.BackColor = Color.PapayaWhip
         DgvProveedor.RowsDefaultCellStyle.BackColor = Color.Honeydew
         DgvProveedor.RowsDefaultCellStyle.SelectionBackColor = Color.Coral
+
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Registro Proveedor")
+
     End Sub
     Private Sub Mostrar()
         Try

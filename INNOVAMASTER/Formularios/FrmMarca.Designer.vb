@@ -39,6 +39,7 @@ Partial Class FrmMarca
         Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.GbMarca.SuspendLayout()
         CType(Me.DgvMarca, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -273,7 +274,10 @@ Partial Class FrmMarca
         Me.Controls.Add(Me.GbMarca)
         Me.Controls.Add(Me.LblFilas)
         Me.Controls.Add(Me.DgvMarca)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmMarca"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Marca"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbMarca.ResumeLayout(False)
@@ -302,4 +306,5 @@ Partial Class FrmMarca
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents BtnActualizar As Button
     Friend WithEvents BtnInsertar As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

@@ -17,6 +17,11 @@ Partial Public Class MenuPrincipal
 
         Me.LookAndFeel.SkinName = "Office 2007 Silver"
         Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2007 Silver"
+
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Principal")
     End Sub
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroClientes.ItemClick
 

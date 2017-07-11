@@ -20,7 +20,10 @@ Public Class FrmModelo
         DgvModelo.Enabled = True
         Call LlenarComboboxMarca()
 
-
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Modelo")
     End Sub
     Private Sub MostrarModelo()
         Try

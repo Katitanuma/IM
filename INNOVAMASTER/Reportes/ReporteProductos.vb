@@ -2,6 +2,12 @@
 Public Class ReporteProductos
     Private Sub ReporteProductos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Call MostrarDatosReporteProdcutos()
+
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Reporte Producto")
+
     End Sub
     Dim Connect As New Conexion
     Dim conec As New Conexion

@@ -109,6 +109,7 @@
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.pcFondo = New DevExpress.XtraEditors.PanelControl()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -737,10 +738,13 @@
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.Name = "MenuPrincipal"
         Me.Ribbon = Me.mainRibbonControl
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -837,4 +841,5 @@
     Friend WithEvents RibbonPageGroup8 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents pcFondo As DevExpress.XtraEditors.PanelControl
     Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

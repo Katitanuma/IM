@@ -62,6 +62,7 @@ Partial Class FrmProveedor
         Me.LblRelacionClienteVenta = New System.Windows.Forms.Label()
         Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -591,7 +592,10 @@ Partial Class FrmProveedor
         Me.Controls.Add(Me.LblRelacionClienteVenta)
         Me.Controls.Add(Me.BtnInsertar)
         Me.Controls.Add(Me.BtnEditar)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmProveedor"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Proveedor"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -645,4 +649,5 @@ Partial Class FrmProveedor
     Friend WithEvents Label15 As Label
     Friend WithEvents TxtDireccionContacto As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

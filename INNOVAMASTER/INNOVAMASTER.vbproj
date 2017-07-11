@@ -356,6 +356,7 @@
     <Compile Include="Funciones\Fproveedores.vb" />
     <Compile Include="Funciones\Fusuario.vb" />
     <Compile Include="Funciones\Fventa.vb" />
+    <Compile Include="HTMLHelpClass.vb" />
     <Compile Include="Modulos\Modulo1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -586,6 +587,9 @@
     <None Include="Conjunto de Datos\DsReportes.xss">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>
+    <Content Include="InnovaMasterAyuda2017.chm">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="INNOVAMASTER_1_TemporaryKey.pfx" />
     <None Include="INNOVAMASTER_2_TemporaryKey.pfx" />
     <None Include="INNOVAMASTER_TemporaryKey.pfx" />

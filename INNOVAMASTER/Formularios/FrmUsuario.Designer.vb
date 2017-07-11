@@ -55,6 +55,7 @@ Partial Class FrmUsuario
         Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.GbUsuario.SuspendLayout()
         CType(Me.DgvUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -473,7 +474,10 @@ Partial Class FrmUsuario
         Me.Controls.Add(Me.LblFilas)
         Me.Controls.Add(Me.DgvUsuario)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmUsuario"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Usuario"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -521,4 +525,5 @@ Partial Class FrmUsuario
     Friend WithEvents RdbInactivo As RadioButton
     Friend WithEvents RdbActivo As RadioButton
     Friend WithEvents Label6 As Label
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

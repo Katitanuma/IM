@@ -46,6 +46,7 @@ Partial Class FrmModelo
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TxtBusqueda = New System.Windows.Forms.TextBox()
         Me.CboBusqueda = New System.Windows.Forms.ComboBox()
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.GbModelo.SuspendLayout()
         CType(Me.DgvModelo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -337,7 +338,10 @@ Partial Class FrmModelo
         Me.Controls.Add(Me.GbModelo)
         Me.Controls.Add(Me.LblFilas)
         Me.Controls.Add(Me.DgvModelo)
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmModelo"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Modelo"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbModelo.ResumeLayout(False)
@@ -373,4 +377,5 @@ Partial Class FrmModelo
     Friend WithEvents TxtBusqueda As TextBox
     Friend WithEvents CboBusqueda As ComboBox
     Friend WithEvents BtnBusquedaCliente As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class

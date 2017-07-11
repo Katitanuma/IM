@@ -67,6 +67,7 @@ Partial Class FrmProducto
         Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.GbProducto.SuspendLayout()
         CType(Me.TxtGravado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PbProducto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -584,7 +585,10 @@ Partial Class FrmProducto
         Me.Controls.Add(Me.BtnInsertar)
         Me.Controls.Add(Me.BtnEditar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.HelpButton = True
+        Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmProducto"
+        Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "FrmProducto"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GbProducto.ResumeLayout(False)
@@ -645,4 +649,5 @@ Partial Class FrmProducto
     Friend WithEvents TxtGravado As DevExpress.XtraEditors.CalcEdit
     Friend WithEvents BtnCodigoProveedor As Button
     Friend WithEvents Button1 As Button
+    Friend WithEvents HelpProvider1 As HelpProvider
 End Class
