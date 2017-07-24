@@ -176,7 +176,7 @@ Public Class FrmProducto
                 Dim ms As New MemoryStream
 
                 If PbProducto.Image Is Nothing Then
-                    PbProducto.Image = Image.FromFile("C:\Archivo.PNG")
+                    PbProducto.Image = My.Resources.NULLA
                 End If
                 PbProducto.Image.Save(ms, PbProducto.Image.RawFormat)
                 datos.gImagen = ms.GetBuffer
@@ -330,7 +330,7 @@ Public Class FrmProducto
                 Dim ms As New MemoryStream
 
                 If PbProducto.Image Is Nothing Then
-                    PbProducto.Image = Image.FromFile("C:\Archivo.PNG")
+                    PbProducto.Image = My.Resources.NULLA
                 End If
                 PbProducto.Image.Save(ms, PbProducto.Image.RawFormat)
                 datos.gImagen = ms.GetBuffer
