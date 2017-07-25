@@ -110,6 +110,8 @@
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.pcFondo = New DevExpress.XtraEditors.PanelControl()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BarButtonItem30 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,9 +121,9 @@
         'mainRibbonControl
         '
         Me.mainRibbonControl.ExpandCollapseItem.Id = 0
-        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BtnRegistroClientes, Me.BarButtonItem2, Me.BtnRegistroEmpleado, Me.BarButtonItem4, Me.BtnRegistroUsuarios, Me.BtnReportesUsuarios, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BtnRegistroVenta, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BtnCambiarUsuario, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BtnProfesion, Me.BtnCargo, Me.BarButtonItem23, Me.BarButtonItem24, Me.BtnF, Me.BarButtonItem1, Me.BarButtonItem3, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarButtonItem16, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29})
+        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BtnRegistroClientes, Me.BarButtonItem2, Me.BtnRegistroEmpleado, Me.BarButtonItem4, Me.BtnRegistroUsuarios, Me.BtnReportesUsuarios, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BtnRegistroVenta, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BtnCambiarUsuario, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BtnProfesion, Me.BtnCargo, Me.BarButtonItem23, Me.BarButtonItem24, Me.BtnF, Me.BarButtonItem1, Me.BarButtonItem3, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarButtonItem16, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30})
         Me.mainRibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.mainRibbonControl.MaxItemId = 48
+        Me.mainRibbonControl.MaxItemId = 49
         Me.mainRibbonControl.Name = "mainRibbonControl"
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage, Me.RibbonPage12, Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage5, Me.RibbonPage9, Me.RibbonPage10, Me.RibbonPage4, Me.RibbonPage8, Me.RibbonPage7, Me.PgAuditoria, Me.RibbonPage11})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
@@ -524,6 +526,7 @@
         Me.PagProductos.ItemLinks.Add(Me.BarButtonItem23)
         Me.PagProductos.ItemLinks.Add(Me.BarButtonItem24)
         Me.PagProductos.ItemLinks.Add(Me.BarButtonItem11)
+        Me.PagProductos.ItemLinks.Add(Me.BarButtonItem30)
         Me.PagProductos.Name = "PagProductos"
         Me.PagProductos.Text = "Acciones"
         '
@@ -721,6 +724,24 @@
         Me.pcFondo.Size = New System.Drawing.Size(871, 251)
         Me.pcFondo.TabIndex = 17
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(723, 67)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(10, 10)
+        Me.Button1.TabIndex = 23
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.Visible = False
+        '
+        'BarButtonItem30
+        '
+        Me.BarButtonItem30.Caption = "Productos Poco Existencia"
+        Me.BarButtonItem30.Glyph = CType(resources.GetObject("BarButtonItem30.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem30.Id = 48
+        Me.BarButtonItem30.LargeGlyph = CType(resources.GetObject("BarButtonItem30.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem30.Name = "BarButtonItem30"
+        '
         'MenuPrincipal
         '
         Me.Appearance.BackColor = System.Drawing.Color.White
@@ -729,6 +750,7 @@
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.ClientSize = New System.Drawing.Size(871, 416)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.pcFondo)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.LblIdUsuario)
@@ -842,4 +864,6 @@
     Friend WithEvents pcFondo As DevExpress.XtraEditors.PanelControl
     Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents Button1 As Button
+    Friend WithEvents BarButtonItem30 As DevExpress.XtraBars.BarButtonItem
 End Class

@@ -373,6 +373,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Reportes\FrmProductosBajaExistencia.Designer.vb">
+      <DependentUpon>FrmProductosBajaExistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmProductosBajaExistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\ReporteClientes.Designer.vb">
       <DependentUpon>ReporteClientes.vb</DependentUpon>
     </Compile>
@@ -538,6 +544,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmProductosBajaExistencia.resx">
+      <DependentUpon>FrmProductosBajaExistencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteClientes.resx">
       <DependentUpon>ReporteClientes.vb</DependentUpon>

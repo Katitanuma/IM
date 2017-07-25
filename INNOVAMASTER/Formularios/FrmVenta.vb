@@ -19,6 +19,7 @@ Public Class FrmVenta
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Registro Venta")
 
+
     End Sub
     Private Sub Mostrar()
         Try
@@ -73,6 +74,9 @@ Public Class FrmVenta
         CboFormaVenta.Text = Nothing
         CboTipoVenta.Text = Nothing
         TxtDescuentoExtra.Text = Nothing
+        CboFormaVenta.Text = "Unitario"
+        CboTipoVenta.Text = "Contado"
+        TxtFechaVencimientos.Value = DateTime.Now.AddDays(15)
     End Sub
     Private Sub BtnNuevoEditar_Click_1(sender As Object, e As EventArgs) Handles BtnNuevoEditar.Click
 
@@ -329,7 +333,7 @@ Public Class FrmVenta
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         TxtFechaVencimientos.Value = DateTime.Now.AddDays(15)
     End Sub
 End Class

@@ -72,7 +72,6 @@ Public Class FrmFacturacionVenta
                         End If
                         dr.Close()
                     Else
-                        DgvDetalle.Rows(e.RowIndex).Cells(1).ErrorText = "Ingrese el Codigo del Producto"
                         Dim a, b As Integer
                         a = DgvDetalle.Rows.Count
                         b = e.RowIndex + 1
@@ -82,10 +81,11 @@ Public Class FrmFacturacionVenta
                             DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
                             LlenarTextBox()
                         End If
+
                     End If
 
                 Catch ex As Exception
-                    MsgBox(ex.ToString)
+
                 Finally
                     Conec.Desconectarse()
 
@@ -176,7 +176,6 @@ Public Class FrmFacturacionVenta
                         End If
                         dr.Close()
                     Else
-                        DgvDetalle.Rows(e.RowIndex).Cells(2).ErrorText = "Ingrese el Nombre del Producto"
                         Dim a, b As Integer
                         a = DgvDetalle.Rows.Count
                         b = e.RowIndex + 1
@@ -191,8 +190,10 @@ Public Class FrmFacturacionVenta
                 Catch ex As Exception
                     DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
                     DgvDetalle.Rows(e.RowIndex).Cells(2).Value = Nothing
-                    MsgBox("Producto no registrado", MsgBoxStyle.Information)
-                    DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
+
+
+
+
 
                 Finally
                     Conec.Desconectarse()
@@ -769,6 +770,9 @@ Public Class FrmFacturacionVenta
         HelpProvider1.HelpNamespace = NombreArchivo
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Factura")
+        CboFormaVenta.Text = "Unitario"
+        CboTipoVenta.Text = "Contado"
+        TxtFechaVencimientos.Value = DateTime.Now.AddDays(15)
 
     End Sub
     Private Sub LlenarIdCliente()
@@ -1123,8 +1127,8 @@ Public Class FrmFacturacionVenta
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        TxtFechaVencimientos.Value = DateTime.Now.AddDays(15)
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter

@@ -7,9 +7,11 @@ Imports System.ComponentModel
 Partial Public Class MenuPrincipal
     Inherits DevExpress.XtraBars.Ribbon.RibbonForm
 
+
     Public Sub New()
         InitializeComponent()
     End Sub
+
     Private Sub MenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DevExpress.Skins.SkinManager.EnableMdiFormSkins()
         DevExpress.UserSkins.BonusSkins.Register()
@@ -22,6 +24,15 @@ Partial Public Class MenuPrincipal
         HelpProvider1.HelpNamespace = NombreArchivo
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Principal")
+
+        FrmProductosBajaExistencia.Location = New Point(285, 220)
+        FrmProductosBajaExistencia.ShowDialog()
+        FrmProductosBajaExistencia.Focus()
+
+
+
+
+
     End Sub
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroClientes.ItemClick
 
@@ -259,5 +270,18 @@ Partial Public Class MenuPrincipal
         Else
             pcFondo.Visible = False
         End If
+    End Sub
+
+    Private Sub MenuPrincipal_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+
+
+    End Sub
+
+    Private Sub BarButtonItem30_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem30.ItemClick
+
+        FrmProductosBajaExistencia.Location = New Point(285, 220)
+        FrmProductosBajaExistencia.Show()
+        FrmProductosBajaExistencia.Focus()
+
     End Sub
 End Class

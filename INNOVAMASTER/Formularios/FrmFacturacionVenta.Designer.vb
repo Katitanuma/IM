@@ -33,7 +33,6 @@ Partial Class FrmFacturacionVenta
         Me.Label6 = New System.Windows.Forms.Label()
         Me.BtnFacturar = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button3 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TxtDescuentoExtra = New DevExpress.XtraEditors.CalcEdit()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -161,7 +160,6 @@ Partial Class FrmFacturacionVenta
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button3)
         Me.GroupBox1.Controls.Add(Me.Panel1)
         Me.GroupBox1.Controls.Add(Me.CboTipoVenta)
         Me.GroupBox1.Controls.Add(Me.CboFormaVenta)
@@ -181,15 +179,6 @@ Partial Class FrmFacturacionVenta
         Me.GroupBox1.Size = New System.Drawing.Size(1300, 102)
         Me.GroupBox1.TabIndex = 72
         Me.GroupBox1.TabStop = False
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(1169, 31)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(89, 21)
-        Me.Button3.TabIndex = 89
-        Me.Button3.Text = "15 Dias"
-        Me.Button3.UseVisualStyleBackColor = True
         '
         'Panel1
         '
@@ -733,7 +722,6 @@ Partial Class FrmFacturacionVenta
     Friend WithEvents Label15 As Label
     Friend WithEvents LblNombre As Label
     Friend WithEvents Label10 As Label
-    Friend WithEvents Button3 As Button
     Friend WithEvents Label12 As Label
     Friend WithEvents HelpProvider1 As HelpProvider
 End Class
