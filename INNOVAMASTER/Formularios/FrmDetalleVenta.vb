@@ -185,78 +185,92 @@ Public Class FrmDetalleVenta
             End Try
 
         ElseIf column = 3 Then
-            Conec.Conectarse()
-            Dim dr2 As SqlDataReader
+            If DgvDetalle.Rows(e.RowIndex).Cells(2).Value <> Nothing And DgvDetalle.Rows(e.RowIndex).Cells(1).Value <> Nothing Then
+                Conec.Conectarse()
+                Dim dr2 As SqlDataReader
 
-            cmd = New SqlCommand("Select Gravado from Producto Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "'")
-            cmd.CommandType = CommandType.Text
-            cmd.Connection = Conec.Con
-            dr2 = cmd.ExecuteReader
-            If dr2.Read() Then
-                DgvDetalle.Rows(e.RowIndex).Cells(7).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(dr2.GetValue(0)), 2)
-            End If
-
-
-            DgvDetalle.Rows(e.RowIndex).Cells(8).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(DgvDetalle.Rows(e.RowIndex).Cells(4).Value), 2)
-            If DgvDetalle.CurrentRow.Cells(3).Value = Nothing Or DgvDetalle.CurrentRow.Cells(3).Value = 0 Then
-                DgvDetalle.Rows(e.RowIndex).Cells(3).Value = 1
-
-            End If
-            Conec.Conectarse()
-            Dim dr As SqlDataReader
-            cmd = New SqlCommand("Select Existencia from Producto Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "'", Conec.Con)
-            cmd.CommandType = CommandType.Text
-            dr = cmd.ExecuteReader
-            Dim existencia, existencia2 As Integer
-
-            If dr.Read Then
-                existencia = CInt(dr.GetValue(0)) - 5
-                existencia2 = CInt(dr.GetValue(0)) - 10
-                If (DgvDetalle.Rows(e.RowIndex).Cells(3).Value - CDbl(LblCant.Text)) > existencia Then
-                    MsgBox("Se sobrepasa de la existencia estimada. Existencia= " + Str(existencia + CDbl(LblCant.Text)), MsgBoxStyle.Critical)
-                    DgvDetalle.Rows(e.RowIndex).Cells(3).Value = existencia + CDbl(LblCant.Text)
-
-                ElseIf DgvDetalle.Rows(e.RowIndex).Cells(3).Value > existencia2 Then
-
-                    MsgBox("Advertencia. Hay poca existencia", MsgBoxStyle.Information)
-                    DgvDetalle.Rows(e.RowIndex).Cells(3).Value = DgvDetalle.Rows(e.RowIndex).Cells(3).Value
-                Else
-                    DgvDetalle.Rows(e.RowIndex).Cells(3).Value = DgvDetalle.Rows(e.RowIndex).Cells(3).Value
+                cmd = New SqlCommand("Select Gravado from Producto Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "'")
+                cmd.CommandType = CommandType.Text
+                cmd.Connection = Conec.Con
+                dr2 = cmd.ExecuteReader
+                If dr2.Read() Then
+                    DgvDetalle.Rows(e.RowIndex).Cells(7).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(dr2.GetValue(0)), 2)
                 End If
 
+
+                DgvDetalle.Rows(e.RowIndex).Cells(8).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(DgvDetalle.Rows(e.RowIndex).Cells(4).Value), 2)
+                If DgvDetalle.CurrentRow.Cells(3).Value = Nothing Or DgvDetalle.CurrentRow.Cells(3).Value = 0 Or DgvDetalle.CurrentRow.Cells(3).Value <= 0 Then
+                    DgvDetalle.Rows(e.RowIndex).Cells(3).Value = 1
+
+                End If
+                Conec.Conectarse()
+                Dim dr As SqlDataReader
+                cmd = New SqlCommand("Select Existencia from Producto Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "'", Conec.Con)
+                cmd.CommandType = CommandType.Text
+                dr = cmd.ExecuteReader
+                Dim existencia, existencia2 As Integer
+
+                If dr.Read Then
+                    existencia = CInt(dr.GetValue(0)) - 5
+                    existencia2 = CInt(dr.GetValue(0)) - 10
+                    If (DgvDetalle.Rows(e.RowIndex).Cells(3).Value - CDbl(LblCant.Text)) > existencia Then
+                        MsgBox("Se sobrepasa de la existencia estimada. Existencia= " + Str(existencia + CDbl(LblCant.Text)), MsgBoxStyle.Critical)
+                        DgvDetalle.Rows(e.RowIndex).Cells(3).Value = existencia + CDbl(LblCant.Text)
+
+                    ElseIf DgvDetalle.Rows(e.RowIndex).Cells(3).Value > existencia2 Then
+
+                        MsgBox("Advertencia. Hay poca existencia", MsgBoxStyle.Information)
+                        DgvDetalle.Rows(e.RowIndex).Cells(3).Value = DgvDetalle.Rows(e.RowIndex).Cells(3).Value
+                    Else
+                        DgvDetalle.Rows(e.RowIndex).Cells(3).Value = DgvDetalle.Rows(e.RowIndex).Cells(3).Value
+                    End If
+
+                End If
+                dr.Close()
+
+                DgvDetalle.Rows(e.RowIndex).Cells(8).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(DgvDetalle.Rows(e.RowIndex).Cells(4).Value), 2)
+                DgvDetalle.Rows(e.RowIndex).Cells(7).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(dr2.GetValue(0)), 2)
+                dr2.Close()
+                DgvDetalle.Rows(e.RowIndex).Cells(6).Value = FormatCurrency((DgvDetalle.Rows(e.RowIndex).Cells(5).Value / 100) * DgvDetalle.CurrentRow.Cells(8).Value)
+
+                If DgvDetalle.CurrentRow.Cells(3).Value = CDbl(LblCant.Text) Then
+                ElseIf DgvDetalle.CurrentRow.Cells(3).Value > CDbl(LblCant.Text) Then
+                    Dim cant As Double = CDbl(LblCant.Text)
+                    cmd = New SqlCommand("ReducirInventario", Conec.Con)
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.AddWithValue("@IdProducto", DgvDetalle.Rows(e.RowIndex).Cells(1).Value.ToString)
+                    cmd.Parameters.AddWithValue("@Cantidad", CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) - cant)
+                    cmd.ExecuteNonQuery()
+                ElseIf DgvDetalle.CurrentRow.Cells(3).Value < CDbl(LblCant.Text) Then
+                    Dim cant As Double = CDbl(LblCant.Text)
+                    cmd = New SqlCommand("AumentarInventario", Conec.Con)
+                    cmd.CommandType = CommandType.StoredProcedure
+                    cmd.Parameters.AddWithValue("@IdProducto", DgvDetalle.Rows(e.RowIndex).Cells(1).Value.ToString)
+                    cmd.Parameters.AddWithValue("@Cantidad", cant - CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value))
+                    cmd.ExecuteNonQuery()
+
+                End If
+            Else
+                Dim a, b As Integer
+                a = DgvDetalle.Rows.Count
+                b = e.RowIndex + 1
+
+                If a = b Then
+                Else
+                    DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
+                    LlenarTextBox()
+                End If
             End If
-            dr.Close()
 
-            DgvDetalle.Rows(e.RowIndex).Cells(8).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(DgvDetalle.Rows(e.RowIndex).Cells(4).Value), 2)
-            DgvDetalle.Rows(e.RowIndex).Cells(7).Value = FormatCurrency(CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) * CDbl(dr2.GetValue(0)), 2)
-            dr2.Close()
-            DgvDetalle.Rows(e.RowIndex).Cells(6).Value = FormatCurrency((DgvDetalle.Rows(e.RowIndex).Cells(5).Value / 100) * DgvDetalle.CurrentRow.Cells(8).Value)
 
-            If DgvDetalle.CurrentRow.Cells(3).Value = CDbl(LblCant.Text) Then
-            ElseIf DgvDetalle.CurrentRow.Cells(3).Value > CDbl(LblCant.Text) Then
-                Dim cant As Double = CDbl(LblCant.Text)
-                cmd = New SqlCommand("ReducirInventario", Conec.Con)
-                cmd.CommandType = CommandType.StoredProcedure
-                cmd.Parameters.AddWithValue("@IdProducto", DgvDetalle.Rows(e.RowIndex).Cells(1).Value.ToString)
-                cmd.Parameters.AddWithValue("@Cantidad", CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value) - cant)
-                cmd.ExecuteNonQuery()
-            ElseIf DgvDetalle.CurrentRow.Cells(3).Value < CDbl(LblCant.Text) Then
-                Dim cant As Double = CDbl(LblCant.Text)
-                cmd = New SqlCommand("AumentarInventario", Conec.Con)
-                cmd.CommandType = CommandType.StoredProcedure
-                cmd.Parameters.AddWithValue("@IdProducto", DgvDetalle.Rows(e.RowIndex).Cells(1).Value.ToString)
-                cmd.Parameters.AddWithValue("@Cantidad", cant - CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value))
-                cmd.ExecuteNonQuery()
-
-            End If
         ElseIf column = 5 Then
-            If DgvDetalle.CurrentRow.Cells(5).Value = Nothing Then
-                DgvDetalle.Rows(e.RowIndex).Cells(5).Value = 0
-            End If
-            DgvDetalle.Rows(e.RowIndex).Cells(6).Value = FormatCurrency((DgvDetalle.Rows(e.RowIndex).Cells(5).Value / 100) * DgvDetalle.CurrentRow.Cells(8).Value)
+                If DgvDetalle.CurrentRow.Cells(5).Value = Nothing Then
+                    DgvDetalle.Rows(e.RowIndex).Cells(5).Value = 0
+                End If
+                DgvDetalle.Rows(e.RowIndex).Cells(6).Value = FormatCurrency((DgvDetalle.Rows(e.RowIndex).Cells(5).Value / 100) * DgvDetalle.CurrentRow.Cells(8).Value)
 
-        ElseIf column = 6 Then
-            If DgvDetalle.CurrentRow.Cells(6).Value = Nothing Then
+            ElseIf column = 6 Then
+                If DgvDetalle.CurrentRow.Cells(6).Value = Nothing Then
                 DgvDetalle.Rows(e.RowIndex).Cells(6).Value = FormatCurrency(0)
             End If
             DgvDetalle.Rows(e.RowIndex).Cells(5).Value = FormatNumber(((DgvDetalle.CurrentRow.Cells(6).Value / DgvDetalle.CurrentRow.Cells(8).Value) * 100), 2)
