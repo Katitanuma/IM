@@ -88,6 +88,9 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo BUeno.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -585,6 +588,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Logo BUeno.ico" />
     <None Include="Conjunto de Datos\DsReportes.xsc">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>
