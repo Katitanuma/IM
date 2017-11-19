@@ -56,7 +56,8 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MARCIOMARTINEZ;Initial Catalog=INNOVAMASTERBD;User ID=sa;Password=123"& _ 
+            "")>  _
         Public Property Conect1() As String
             Get
                 Return CType(Me("Conect1"),String)
@@ -69,12 +70,24 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MARCIOMARTINEZ\SQLEXPRESS;Initial Catalog=INNOVAMASTERBD;User ID=Usua"& _ 
-            "rio;Password=master17")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=MARCIOMARTINEZ;Initial Catalog=INNOVAMASTERBD;User ID=sa;Password=123"& _ 
+            "")>  _
         Public ReadOnly Property Conect() As String
             Get
                 Return CType(Me("Conect"),String)
             End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Tema() As String
+            Get
+                Return CType(Me("Tema"),String)
+            End Get
+            Set
+                Me("Tema") = value
+            End Set
         End Property
     End Class
 End Namespace

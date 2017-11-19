@@ -3,6 +3,7 @@ Imports DevExpress.XtraLayout.Helpers
 Imports System.ComponentModel.DataAnnotations
 Imports System.IO
 Imports System.ComponentModel
+Imports DevExpress.XtraBars.Helpers
 
 Partial Public Class MenuPrincipal
     Inherits DevExpress.XtraBars.Ribbon.RibbonForm
@@ -16,39 +17,42 @@ Partial Public Class MenuPrincipal
         DevExpress.Skins.SkinManager.EnableMdiFormSkins()
         DevExpress.UserSkins.BonusSkins.Register()
 
+        DevExpress.Skins.SkinManager.EnableFormSkins()
+        DevExpress.UserSkins.BonusSkins.Register()
+        SkinHelper.InitSkinGallery(SkinRibbonGalleryBarItem1, True)
 
-        Me.LookAndFeel.SkinName = "Office 2007 Silver"
-        Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2007 Silver"
+        'Me.LookAndFeel.SkinName = "Office 2007 Silver"
+        'Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2007 Silver"
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Principal")
 
+        If My.Settings.Tema <> Nothing Then
+            DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = My.Settings.Tema
+        End If
+
         FrmProductosBajaExistencia.Location = New Point(285, 220)
         FrmProductosBajaExistencia.ShowDialog()
         FrmProductosBajaExistencia.Focus()
 
-
-
-
-
     End Sub
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroClientes.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmCliente.MdiParent = Me
         FrmCliente.Focus()
         FrmCliente.Show()
         FrmCliente.Focus()
     End Sub
     Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroEmpleado.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmEmpleado.MdiParent = Me
         FrmEmpleado.Focus()
         FrmEmpleado.Show()
     End Sub
     Private Sub BarButtonItem5_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroUsuarios.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmUsuario.MdiParent = Me
         FrmUsuario.Focus()
         FrmUsuario.Show()
@@ -57,7 +61,7 @@ Partial Public Class MenuPrincipal
 
     End Sub
     Private Sub BarButtonItem9_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem9.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmProducto.MdiParent = Me
         FrmProducto.Focus()
         FrmProducto.Show()
@@ -67,13 +71,13 @@ Partial Public Class MenuPrincipal
 
     End Sub
     Private Sub BarButtonItem14_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem14.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmConfiguracion.ShowDialog()
 
 
     End Sub
     Private Sub BarButtonItem15_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem15.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmBackup.ShowDialog()
     End Sub
     Private Sub BarButtonItem16_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCambiarUsuario.ItemClick
@@ -90,7 +94,7 @@ Partial Public Class MenuPrincipal
 
 
     Private Sub BarButtonItem17_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem17.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmCategoria.MdiParent = Me
         FrmCategoria.Focus()
         FrmCategoria.Show()
@@ -98,49 +102,49 @@ Partial Public Class MenuPrincipal
 
     Private Sub BarButtonItem18_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem18.ItemClick
         'Formulario de Pais
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmPais.MdiParent = Me
         FrmPais.Show()
         FrmPais.Focus()
     End Sub
 
     Private Sub BarButtonItem19_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem19.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmDepartamento.MdiParent = Me
-
         FrmDepartamento.Show()
         FrmDepartamento.Focus()
     End Sub
 
     Private Sub BarButtonItem20_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem20.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmMunicipio.MdiParent = Me
         FrmMunicipio.Focus()
         FrmMunicipio.Show()
     End Sub
 
     Private Sub BarButtonItem22_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnCargo.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         frmCargo.MdiParent = Me
         frmCargo.Focus()
         frmCargo.Show()
     End Sub
 
     Private Sub BarButtonItem21_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnProfesion.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmProfesiones.MdiParent = Me
         FrmProfesiones.Focus()
         FrmProfesiones.Show()
     End Sub
 
     Private Sub BarButtonItem23_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem23.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmMarca.MdiParent = Me
         FrmMarca.Focus()
         FrmMarca.Show()
     End Sub
 
     Private Sub BarButtonItem24_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem24.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmModelo.MdiParent = Me
         FrmModelo.Focus()
         FrmModelo.Show()
@@ -160,7 +164,8 @@ Partial Public Class MenuPrincipal
         ElseIf MessageBox.Show("¿Desea Salir del Sistema?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.No Then
             e.Cancel = True
         Else
-
+            My.Settings.Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
+            My.Settings.Save()
             Application.Exit()
         End If
 
@@ -184,14 +189,14 @@ Partial Public Class MenuPrincipal
     End Sub
 
     Private Sub BarButtonItem1_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmProveedor.MdiParent = Me
         FrmProveedor.Focus()
         FrmProveedor.Show()
     End Sub
 
     Private Sub BarButtonItem3_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmCompras.MdiParent = Me
         FrmCompras.Focus()
         FrmCompras.Show()
@@ -200,14 +205,14 @@ Partial Public Class MenuPrincipal
 
 
     Private Sub BarButtonItem6_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem6.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmPedidos.MdiParent = Me
         FrmPedidos.Focus()
         FrmPedidos.Show()
     End Sub
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         ReporteClientes.Location = New Point(285, 220)
         ReporteClientes.Show()
 
@@ -215,12 +220,13 @@ Partial Public Class MenuPrincipal
     End Sub
 
     Private Sub BarButtonItem21_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem21.ItemClick
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         ReportePedido.Location = New Point(285, 220)
         ReportePedido.Show()
     End Sub
 
     Private Sub BarButtonItem16_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem16.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         ReporteCompras.Location = New Point(285, 220)
         ReporteCompras.Show()
     End Sub
@@ -231,35 +237,39 @@ Partial Public Class MenuPrincipal
     End Sub
 
     Private Sub BarButtonItem11_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem11.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         ReporteProductos.Location = New Point(285, 220)
         ReporteProductos.Show()
     End Sub
 
     Private Sub BarButtonItem25_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem25.ItemClick
 
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         Acerca_de_InnovaMaster.Show()
     End Sub
 
     Private Sub BarButtonItem26_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem26.ItemClick
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmFacturacionVenta.MdiParent = Me
         FrmFacturacionVenta.Focus()
         FrmFacturacionVenta.Show()
     End Sub
 
     Private Sub BarButtonItem28_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem28.ItemClick
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         ReporteVentas.Location = New Point(285, 220)
         ReporteVentas.Show()
     End Sub
 
     Private Sub BarButtonItem27_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem27.ItemClick
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmVenta.MdiParent = Me
         FrmVenta.Focus()
         FrmVenta.Show()
     End Sub
 
     Private Sub BarButtonItem29_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem29.ItemClick
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmLogAuditoria.Location = New Point(285, 220)
         FrmLogAuditoria.Show()
     End Sub
@@ -278,10 +288,9 @@ Partial Public Class MenuPrincipal
     End Sub
 
     Private Sub BarButtonItem30_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem30.ItemClick
-
+        Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         FrmProductosBajaExistencia.Location = New Point(285, 220)
         FrmProductosBajaExistencia.Show()
         FrmProductosBajaExistencia.Focus()
-
     End Sub
 End Class
