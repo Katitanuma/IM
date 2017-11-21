@@ -219,6 +219,12 @@
     <Compile Include="Formularios\FrmPedidos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmPermisos.Designer.vb">
+      <DependentUpon>FrmPermisos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmPermisos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmPresentacion.Designer.vb">
       <DependentUpon>FrmPresentacion.vb</DependentUpon>
     </Compile>
@@ -489,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPedidos.resx">
       <DependentUpon>FrmPedidos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmPermisos.resx">
+      <DependentUpon>FrmPermisos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPresentacion.resx">
       <DependentUpon>FrmPresentacion.vb</DependentUpon>

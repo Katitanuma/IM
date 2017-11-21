@@ -294,4 +294,10 @@ Partial Public Class MenuPrincipal
         FrmProductosBajaExistencia.Show()
         FrmProductosBajaExistencia.Focus()
     End Sub
+
+    Private Sub BarButtonItem31_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem31.ItemClick
+        FrmPermisos.MdiParent = Me
+        FrmPermisos.Focus()
+        FrmPermisos.Show()
+    End Sub
 End Class
