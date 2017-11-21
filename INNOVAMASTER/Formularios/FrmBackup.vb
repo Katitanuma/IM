@@ -32,6 +32,23 @@ Public Class FrmBackup
         HelpProvider1.SetHelpKeyword(Me, "Respaldo")
 
     End Sub
+
+
+    Private Sub txtBackupName_EditValueChanged_1(sender As Object, e As EventArgs) Handles txtBackupName.EditValueChanged
+        If Not String.IsNullOrWhiteSpace(txtBackupName.Text) Then
+            btnBackup.Enabled = True
+        Else
+            btnBackup.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnSelectDir_Click_1(sender As Object, e As EventArgs) Handles btnSelectDir.Click
+        Dim FBD As New FolderBrowserDialog
+        If FBD.ShowDialog() = DialogResult.OK Then
+            txtPath.Text = FBD.SelectedPath
+        End If
+    End Sub
+
     Private Sub btnBackup_Click(sender As Object, e As EventArgs) Handles btnBackup.Click
         btnBackup.Text = "Respaldando..."
         btnBackup.Enabled = False
@@ -55,18 +72,5 @@ Public Class FrmBackup
             btnBackup.Text = "Respaldar"
             btnBackup.Enabled = True
         End Try
-    End Sub
-    Private Sub btnSelectDir_Click(sender As Object, e As EventArgs) Handles btnSelectDir.Click
-        Dim FBD As New FolderBrowserDialog
-        If FBD.ShowDialog() = DialogResult.OK Then
-            txtPath.Text = FBD.SelectedPath
-        End If
-    End Sub
-    Private Sub txtBackupName_TextChanged(sender As Object, e As EventArgs) Handles txtBackupName.TextChanged
-        If Not String.IsNullOrWhiteSpace(txtBackupName.Text) Then
-            btnBackup.Enabled = True
-        Else
-            btnBackup.Enabled = False
-        End If
     End Sub
 End Class
