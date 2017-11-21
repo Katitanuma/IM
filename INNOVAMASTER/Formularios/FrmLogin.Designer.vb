@@ -91,6 +91,7 @@ Partial Class FrmLogin
         Me.TxtContrasena.Name = "TxtContrasena"
         Me.TxtContrasena.Size = New System.Drawing.Size(176, 19)
         Me.TxtContrasena.TabIndex = 2
+        Me.TxtContrasena.Text = "hola"
         Me.TxtContrasena.UseSystemPasswordChar = True
         '
         'TxtUsuario
@@ -101,6 +102,7 @@ Partial Class FrmLogin
         Me.TxtUsuario.Name = "TxtUsuario"
         Me.TxtUsuario.Size = New System.Drawing.Size(176, 19)
         Me.TxtUsuario.TabIndex = 1
+        Me.TxtUsuario.Text = "MarcioM98"
         '
         'FrmLogin
         '

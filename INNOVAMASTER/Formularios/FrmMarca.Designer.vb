@@ -208,7 +208,7 @@ Partial Class FrmMarca
         Me.BtnActualizar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnActualizar.Image = Global.INNOVAMASTER.My.Resources.Resources.actualizarb
         Me.BtnActualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnActualizar.Location = New System.Drawing.Point(245, 461)
+        Me.BtnActualizar.Location = New System.Drawing.Point(245, 383)
         Me.BtnActualizar.Name = "BtnActualizar"
         Me.BtnActualizar.Size = New System.Drawing.Size(82, 86)
         Me.BtnActualizar.TabIndex = 99

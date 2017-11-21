@@ -24,24 +24,12 @@ Partial Class FrmMunicipio
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmMunicipio))
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.LblFilas = New System.Windows.Forms.Label()
         Me.CboDepartamento = New DevExpress.XtraEditors.LookUpEdit()
         Me.TxtIdMunicipio = New DevExpress.XtraEditors.TextEdit()
         Me.TxtMunicipio = New DevExpress.XtraEditors.TextEdit()
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.BtnNuevo = New System.Windows.Forms.Button()
-        Me.BtnCancelar = New System.Windows.Forms.Button()
-        Me.BtnActualizar = New System.Windows.Forms.Button()
-        Me.BtnInsertar = New System.Windows.Forms.Button()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
         Me.DgvMunicipio = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -50,7 +38,6 @@ Partial Class FrmMunicipio
         Me.ColDepartamento = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
-        Me.CboBusqueda = New DevExpress.XtraEditors.DropDownButton()
         Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
@@ -59,43 +46,27 @@ Partial Class FrmMunicipio
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
-        Me.TxtBusqueda = New DevExpress.XtraEditors.TextEdit()
         Me.GbMunicipio = New DevExpress.XtraEditors.GroupControl()
+        Me.Codigo = New DevExpress.XtraEditors.LabelControl()
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnEditar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnCancelar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.CboDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvMunicipio, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TxtBusqueda.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GbMunicipio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbMunicipio.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(861, 72)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(130, 19)
-        Me.Label12.TabIndex = 97
-        Me.Label12.Text = "Lista de Municipios"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(83, 38)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(154, 43)
-        Me.Label13.TabIndex = 95
-        Me.Label13.Text = "Municipio"
         '
         'LblFilas
         '
@@ -142,36 +113,6 @@ Partial Class FrmMunicipio
         Me.SimpleButton3.TabIndex = 105
         Me.SimpleButton3.Text = "..."
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(27, 110)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(95, 19)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Departamento"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(55, 67)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(67, 19)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Municipio"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(8, 24)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 19)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Código Municipio"
-        '
         'PictureBox2
         '
         Me.PictureBox2.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.aguascalientes
@@ -182,120 +123,12 @@ Partial Class FrmMunicipio
         Me.PictureBox2.TabIndex = 96
         Me.PictureBox2.TabStop = False
         '
-        'BtnEditar
-        '
-        Me.BtnEditar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEditar.FlatAppearance.BorderSize = 0
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEditar.Image = Global.INNOVAMASTER.My.Resources.Resources.editar1
-        Me.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnEditar.Location = New System.Drawing.Point(152, 455)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnEditar.TabIndex = 86
-        Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnEditar.UseVisualStyleBackColor = False
-        '
-        'BtnNuevo
-        '
-        Me.BtnNuevo.BackColor = System.Drawing.Color.Transparent
-        Me.BtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNuevo.FlatAppearance.BorderSize = 0
-        Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNuevo.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNuevo.Image = Global.INNOVAMASTER.My.Resources.Resources.nuevo
-        Me.BtnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(57, 455)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(82, 86)
-        Me.BtnNuevo.TabIndex = 85
-        Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNuevo.UseVisualStyleBackColor = False
-        '
-        'BtnCancelar
-        '
-        Me.BtnCancelar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCancelar.FlatAppearance.BorderSize = 0
-        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancelar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelar.Image = Global.INNOVAMASTER.My.Resources.Resources.cancelb
-        Me.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnCancelar.Location = New System.Drawing.Point(351, 455)
-        Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnCancelar.TabIndex = 88
-        Me.BtnCancelar.Text = "&Cancelar"
-        Me.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnCancelar.UseVisualStyleBackColor = False
-        Me.BtnCancelar.Visible = False
-        '
-        'BtnActualizar
-        '
-        Me.BtnActualizar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnActualizar.FlatAppearance.BorderSize = 0
-        Me.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnActualizar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnActualizar.Image = Global.INNOVAMASTER.My.Resources.Resources.actualizarb
-        Me.BtnActualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnActualizar.Location = New System.Drawing.Point(250, 455)
-        Me.BtnActualizar.Name = "BtnActualizar"
-        Me.BtnActualizar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnActualizar.TabIndex = 89
-        Me.BtnActualizar.Text = "&Actualizar"
-        Me.BtnActualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnActualizar.UseVisualStyleBackColor = False
-        Me.BtnActualizar.Visible = False
-        '
-        'BtnInsertar
-        '
-        Me.BtnInsertar.BackColor = System.Drawing.Color.Transparent
-        Me.BtnInsertar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnInsertar.FlatAppearance.BorderSize = 0
-        Me.BtnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnInsertar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInsertar.Image = Global.INNOVAMASTER.My.Resources.Resources.guardar
-        Me.BtnInsertar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnInsertar.Location = New System.Drawing.Point(250, 455)
-        Me.BtnInsertar.Name = "BtnInsertar"
-        Me.BtnInsertar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnInsertar.TabIndex = 87
-        Me.BtnInsertar.Text = "&Guardar"
-        Me.BtnInsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnInsertar.UseVisualStyleBackColor = False
-        Me.BtnInsertar.Visible = False
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.lapiz1
-        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox3.Location = New System.Drawing.Point(791, 28)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox3.TabIndex = 101
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.search
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(504, 26)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 100
-        Me.PictureBox1.TabStop = False
-        '
         'GCPrincipal
         '
-        Me.GCPrincipal.Location = New System.Drawing.Point(504, 94)
+        Me.GCPrincipal.Location = New System.Drawing.Point(504, 31)
         Me.GCPrincipal.MainView = Me.DgvMunicipio
         Me.GCPrincipal.Name = "GCPrincipal"
-        Me.GCPrincipal.Size = New System.Drawing.Size(819, 364)
+        Me.GCPrincipal.Size = New System.Drawing.Size(819, 427)
         Me.GCPrincipal.TabIndex = 102
         Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvMunicipio})
         '
@@ -411,15 +244,6 @@ Partial Class FrmMunicipio
         Me.SimpleButton2.TabIndex = 104
         Me.SimpleButton2.Text = "Exportar Excel"
         '
-        'CboBusqueda
-        '
-        Me.CboBusqueda.DropDownControl = Me.PopupMenu1
-        Me.CboBusqueda.Location = New System.Drawing.Point(542, 28)
-        Me.CboBusqueda.Name = "CboBusqueda"
-        Me.CboBusqueda.Size = New System.Drawing.Size(243, 29)
-        Me.CboBusqueda.TabIndex = 105
-        Me.CboBusqueda.Text = "Municipio"
-        '
         'PopupMenu1
         '
         Me.PopupMenu1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2)})
@@ -476,20 +300,13 @@ Partial Class FrmMunicipio
         Me.barDockControlRight.Location = New System.Drawing.Point(1352, 0)
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 573)
         '
-        'TxtBusqueda
-        '
-        Me.TxtBusqueda.Location = New System.Drawing.Point(829, 33)
-        Me.TxtBusqueda.Name = "TxtBusqueda"
-        Me.TxtBusqueda.Size = New System.Drawing.Size(494, 20)
-        Me.TxtBusqueda.TabIndex = 106
-        '
         'GbMunicipio
         '
+        Me.GbMunicipio.Controls.Add(Me.LabelControl2)
+        Me.GbMunicipio.Controls.Add(Me.LabelControl1)
+        Me.GbMunicipio.Controls.Add(Me.Codigo)
         Me.GbMunicipio.Controls.Add(Me.CboDepartamento)
-        Me.GbMunicipio.Controls.Add(Me.Label1)
-        Me.GbMunicipio.Controls.Add(Me.Label2)
         Me.GbMunicipio.Controls.Add(Me.TxtIdMunicipio)
-        Me.GbMunicipio.Controls.Add(Me.Label3)
         Me.GbMunicipio.Controls.Add(Me.SimpleButton3)
         Me.GbMunicipio.Controls.Add(Me.TxtMunicipio)
         Me.GbMunicipio.Location = New System.Drawing.Point(32, 96)
@@ -498,28 +315,109 @@ Partial Class FrmMunicipio
         Me.GbMunicipio.TabIndex = 111
         Me.GbMunicipio.Text = "Datos Municipio"
         '
+        'Codigo
+        '
+        Me.Codigo.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.Codigo.Location = New System.Drawing.Point(18, 24)
+        Me.Codigo.Name = "Codigo"
+        Me.Codigo.Size = New System.Drawing.Size(105, 19)
+        Me.Codigo.TabIndex = 121
+        Me.Codigo.Text = "Código Municipio"
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Image = CType(resources.GetObject("BtnNuevo.Image"), System.Drawing.Image)
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(20, 455)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(98, 68)
+        Me.BtnNuevo.TabIndex = 116
+        Me.BtnNuevo.Text = "Nuevo"
+        '
+        'BtnEditar
+        '
+        Me.BtnEditar.Image = CType(resources.GetObject("BtnEditar.Image"), System.Drawing.Image)
+        Me.BtnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEditar.Location = New System.Drawing.Point(127, 455)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnEditar.TabIndex = 117
+        Me.BtnEditar.Text = "Editar"
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Image = CType(resources.GetObject("BtnActualizar.Image"), System.Drawing.Image)
+        Me.BtnActualizar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnActualizar.Location = New System.Drawing.Point(231, 455)
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnActualizar.TabIndex = 118
+        Me.BtnActualizar.Text = "Actualizar"
+        '
+        'BtnCancelar
+        '
+        Me.BtnCancelar.Image = CType(resources.GetObject("BtnCancelar.Image"), System.Drawing.Image)
+        Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnCancelar.Location = New System.Drawing.Point(335, 455)
+        Me.BtnCancelar.Name = "BtnCancelar"
+        Me.BtnCancelar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnCancelar.TabIndex = 119
+        Me.BtnCancelar.Text = "Cancelar"
+        '
+        'BtnInsertar
+        '
+        Me.BtnInsertar.Image = CType(resources.GetObject("BtnInsertar.Image"), System.Drawing.Image)
+        Me.BtnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnInsertar.Location = New System.Drawing.Point(231, 455)
+        Me.BtnInsertar.Name = "BtnInsertar"
+        Me.BtnInsertar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnInsertar.TabIndex = 120
+        Me.BtnInsertar.Text = "Guardar"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl1.Location = New System.Drawing.Point(65, 67)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(58, 19)
+        Me.LabelControl1.TabIndex = 122
+        Me.LabelControl1.Text = "Municipio"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl2.Location = New System.Drawing.Point(37, 111)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(86, 19)
+        Me.LabelControl2.TabIndex = 123
+        Me.LabelControl2.Text = "Departamento"
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl3.Location = New System.Drawing.Point(97, 41)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(137, 43)
+        Me.LabelControl3.TabIndex = 124
+        Me.LabelControl3.Text = "Municipio"
+        '
         'FrmMunicipio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1352, 573)
-        Me.Controls.Add(Me.GbMunicipio)
-        Me.Controls.Add(Me.TxtBusqueda)
-        Me.Controls.Add(Me.CboBusqueda)
-        Me.Controls.Add(Me.SimpleButton2)
-        Me.Controls.Add(Me.SimpleButton1)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.LblFilas)
+        Me.Controls.Add(Me.LabelControl3)
+        Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnNuevo)
-        Me.Controls.Add(Me.BtnCancelar)
-        Me.Controls.Add(Me.BtnActualizar)
-        Me.Controls.Add(Me.BtnInsertar)
+        Me.Controls.Add(Me.GbMunicipio)
+        Me.Controls.Add(Me.SimpleButton2)
+        Me.Controls.Add(Me.SimpleButton1)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.LblFilas)
         Me.Controls.Add(Me.GCPrincipal)
+        Me.Controls.Add(Me.BtnInsertar)
+        Me.Controls.Add(Me.BtnActualizar)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
@@ -534,13 +432,10 @@ Partial Class FrmMunicipio
         CType(Me.TxtIdMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvMunicipio, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TxtBusqueda.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GbMunicipio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbMunicipio.ResumeLayout(False)
         Me.GbMunicipio.PerformLayout()
@@ -548,21 +443,8 @@ Partial Class FrmMunicipio
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents BtnEditar As Button
-    Friend WithEvents BtnNuevo As Button
-    Friend WithEvents BtnCancelar As Button
-    Friend WithEvents BtnActualizar As Button
-    Friend WithEvents BtnInsertar As Button
-    Friend WithEvents Label12 As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents LblFilas As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents HelpProvider1 As HelpProvider
     Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
     Friend WithEvents DgvMunicipio As DevExpress.XtraGrid.Views.Grid.GridView
@@ -572,7 +454,6 @@ Partial Class FrmMunicipio
     Friend WithEvents TxtIdMunicipio As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TxtMunicipio As DevExpress.XtraEditors.TextEdit
     Friend WithEvents CboDepartamento As DevExpress.XtraEditors.LookUpEdit
-    Friend WithEvents CboBusqueda As DevExpress.XtraEditors.DropDownButton
     Friend WithEvents PopupMenu1 As DevExpress.XtraBars.PopupMenu
     Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
@@ -581,9 +462,17 @@ Partial Class FrmMunicipio
     Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
     Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
-    Friend WithEvents TxtBusqueda As DevExpress.XtraEditors.TextEdit
     Friend WithEvents ColIdMunicipio As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColMunicipio As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColDepartamento As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GbMunicipio As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents BtnInsertar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnCancelar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnActualizar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEditar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Codigo As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
 End Class

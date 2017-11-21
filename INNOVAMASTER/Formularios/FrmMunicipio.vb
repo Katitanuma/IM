@@ -37,12 +37,10 @@ Public Class FrmMunicipio
                 LblFilas.Visible = False
                 GCPrincipal.DataSource = dt
 
-                TxtBusqueda.Enabled = True
             Else
                 LblFilas.Visible = True
                 GCPrincipal.DataSource = Nothing
 
-                TxtBusqueda.Enabled = False
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -80,7 +78,63 @@ Public Class FrmMunicipio
 
     End Sub
 
-    Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
+    'Private Sub DgvMunicipio_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
+    '    If var = 1 Then
+    '        FrmCliente.LlenarComboMunicipio()
+    '        FrmCliente.CboMunicipio.Text = DgvMunicipio.CurrentRow.Cells(1).Value.ToString
+    '        Me.Close()
+    '    ElseIf var = 2 Then
+    '        FrmEmpleado.LlenarComboMunicipio()
+    '        FrmEmpleado.CmbMunicipio.Text = DgvMunicipio.CurrentRow.Cells(1).Value.ToString
+    '        Me.Close()
+    '    ElseIf var = 3 Then
+    '        FrmProveedor.LlenarComboMunicipio()
+    '        FrmProveedor.CboMunicipio.Text = DgvMunicipio.CurrentRow.Cells(1).Value.ToString
+    '        Me.Close()
+    '    End If
+    'End Sub
+
+    Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
+        With FrmDepartamento
+            FrmDepartamento.var = 1
+            .MdiParent = MenuPrincipal
+            .Dock = DockStyle.Fill
+            .Show()
+        End With
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        GCPrincipal.ShowPrintPreview()
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
+        If var = 1 Then
+            FrmCliente.LlenarComboMunicipio()
+            FrmCliente.CboMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColMunicipio)
+            Me.Close()
+        ElseIf var = 2 Then
+            FrmEmpleado.LlenarComboMunicipio()
+            FrmEmpleado.CmbMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColMunicipio)
+            Me.Close()
+        ElseIf var = 3 Then
+            FrmProveedor.LlenarComboMunicipio()
+            FrmProveedor.CboMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColMunicipio)
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
+        Dim FilaActual As Integer = DgvMunicipio.FocusedRowHandle
+        TxtIdMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColIdMunicipio)
+        TxtMunicipio.Text = DgvMunicipio.GetRowCellValue(FilaActual, ColMunicipio)
+        CboDepartamento.Text = DgvMunicipio.GetRowCellValue(FilaActual, ColDepartamento)
+    End Sub
+
+    Private Sub BtnNuevo_Click_1(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         GbMunicipio.Enabled = True
         TxtIdMunicipio.EditValue = Nothing
         TxtMunicipio.EditValue = Nothing
@@ -92,11 +146,8 @@ Public Class FrmMunicipio
         GCPrincipal.Enabled = False
     End Sub
 
-
-
     Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         If TxtIdMunicipio.Text <> Nothing Then
-
             GbMunicipio.Enabled = True
             BtnNuevo.Visible = False
             BtnEditar.Visible = False
@@ -105,33 +156,12 @@ Public Class FrmMunicipio
             BtnInsertar.Visible = False
             TxtIdMunicipio.Visible = True
             GCPrincipal.Enabled = False
-
-
-
         Else
             MessageBox.Show("Seleccione el Municipio a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
-    Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If r = DialogResult.Yes Then
-            GbMunicipio.Enabled = False
-            TxtIdMunicipio.EditValue = Nothing
-            TxtMunicipio.EditValue = Nothing
-            CboDepartamento.EditValue = Nothing
-            BtnNuevo.Visible = True
-            BtnEditar.Visible = True
-            BtnInsertar.Visible = False
-            BtnCancelar.Visible = False
-            BtnActualizar.Visible = False
-            GCPrincipal.Enabled = True
-
-        End If
-    End Sub
-
-    Private Sub Btninsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
+    Private Sub BtnInsertar_Click_1(sender As Object, e As EventArgs) Handles BtnInsertar.Click
         If TxtMunicipio.Text = Nothing Then
             MessageBox.Show("Ingrese el Nombre del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtMunicipio.Focus()
@@ -221,100 +251,21 @@ Public Class FrmMunicipio
         End If
     End Sub
 
+    Private Sub BtnCancelar_Click_1(sender As Object, e As EventArgs) Handles BtnCancelar.Click
+        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
+        If r = DialogResult.Yes Then
+            GbMunicipio.Enabled = False
+            TxtIdMunicipio.EditValue = Nothing
+            TxtMunicipio.EditValue = Nothing
+            CboDepartamento.EditValue = Nothing
+            BtnNuevo.Visible = True
+            BtnEditar.Visible = True
+            BtnInsertar.Visible = False
+            BtnCancelar.Visible = False
+            BtnActualizar.Visible = False
+            GCPrincipal.Enabled = True
 
-
-
-    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs)
-        With FrmDepartamento
-            FrmDepartamento.var = 1
-            .MdiParent = MenuPrincipal
-            .Dock = DockStyle.Fill
-            .Show()
-        End With
-    End Sub
-
-
-
-    'Private Sub DgvMunicipio_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs)
-    '    If var = 1 Then
-    '        FrmCliente.LlenarComboMunicipio()
-    '        FrmCliente.CboMunicipio.Text = DgvMunicipio.CurrentRow.Cells(1).Value.ToString
-    '        Me.Close()
-    '    ElseIf var = 2 Then
-    '        FrmEmpleado.LlenarComboMunicipio()
-    '        FrmEmpleado.CmbMunicipio.Text = DgvMunicipio.CurrentRow.Cells(1).Value.ToString
-    '        Me.Close()
-    '    ElseIf var = 3 Then
-    '        FrmProveedor.LlenarComboMunicipio()
-    '        FrmProveedor.CboMunicipio.Text = DgvMunicipio.CurrentRow.Cells(1).Value.ToString
-    '        Me.Close()
-    '    End If
-    'End Sub
-
-    Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
-        With FrmDepartamento
-            FrmDepartamento.var = 1
-            .MdiParent = MenuPrincipal
-            .Dock = DockStyle.Fill
-            .Show()
-        End With
-    End Sub
-
-    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
-        CboBusqueda.Text = "Municipio"
-    End Sub
-
-    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
-        CboBusqueda.Text = "Departamento"
-    End Sub
-
-    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        GCPrincipal.ShowPrintPreview()
-    End Sub
-
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
-        Exportar_a_Excel(GCPrincipal, Me.Text)
-    End Sub
-
-    Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
-        If var = 1 Then
-            FrmCliente.LlenarComboMunicipio()
-            FrmCliente.CboMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColMunicipio)
-            Me.Close()
-        ElseIf var = 2 Then
-            FrmEmpleado.LlenarComboMunicipio()
-            FrmEmpleado.CmbMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColMunicipio)
-            Me.Close()
-        ElseIf var = 3 Then
-            FrmProveedor.LlenarComboMunicipio()
-            FrmProveedor.CboMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColMunicipio)
-            Me.Close()
-        End If
-    End Sub
-
-    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
-        Dim FilaActual As Integer = DgvMunicipio.FocusedRowHandle
-        TxtIdMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColIdMunicipio)
-        TxtMunicipio.Text = DgvMunicipio.GetRowCellValue(FilaActual, ColMunicipio)
-        CboDepartamento.Text = DgvMunicipio.GetRowCellValue(FilaActual, ColDepartamento)
-    End Sub
-
-    Private Sub TxtBusqueda_EditValueChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.EditValueChanged
-        Dim ds As New DataSet
-        Dim dv As New DataView
-
-        ds.Tables.Add(dt.Copy)
-        dv = New DataView(ds.Tables(0))
-
-        dv.RowFilter = CboBusqueda.Text & " like '" & TxtBusqueda.EditValue & "%'"
-
-        If dv.Count <> 0 Then
-            LblFilas.Visible = False
-            GCPrincipal.DataSource = dv
-        Else
-            LblFilas.Visible = True
-            GCPrincipal.DataSource = Nothing
         End If
     End Sub
 End Class
