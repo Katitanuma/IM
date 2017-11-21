@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmMarca
 
     Dim dt As New DataTable
@@ -8,7 +10,7 @@ Public Class FrmMarca
         MostrarMarca()
         GbMarca.Enabled = False
         TxtIdMarca.Enabled = False
-        DgvMarca.Enabled = True
+        GCPrincipal.Enabled = True
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
@@ -23,51 +25,29 @@ Public Class FrmMarca
 
             If dt.Rows.Count <> 0 Then
                 LblFilas.Visible = False
-                DgvMarca.DataSource = dt
+                GCPrincipal.DataSource = dt
 
-                TxtBusqueda.Enabled = True
             Else
                 LblFilas.Visible = True
-                DgvMarca.DataSource = Nothing
+                GCPrincipal.DataSource = Nothing
 
-                TxtBusqueda.Enabled = False
+
             End If
         Catch ex As Exception
 
         End Try
     End Sub
-    Private Sub DgvMarca_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvMarca.CellClick
-        TxtIdMarca.Text = DgvMarca.SelectedCells.Item(0).Value
-        TxtMarca.Text = DgvMarca.SelectedCells.Item(1).Value
-    End Sub
 
-    Private Sub txtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        Dim ds As New DataSet
-        Dim dv As New DataView
-
-        ds.Tables.Add(dt.Copy)
-        dv = New DataView(ds.Tables(0))
-
-        dv.RowFilter = "Marca" & " like '" & TxtBusqueda.Text & "%'"
-
-        If dv.Count <> 0 Then
-            LblFilas.Visible = False
-            DgvMarca.DataSource = dv
-        Else
-            LblFilas.Visible = True
-            DgvMarca.DataSource = Nothing
-        End If
-    End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         GbMarca.Enabled = True
-        TxtIdMarca.Clear()
-        TxtMarca.Clear()
+        TxtIdMarca.EditValue = Nothing
+        TxtMarca.EditValue = Nothing
         BtnNuevo.Visible = False
         BtnEditar.Visible = False
         BtnInsertar.Visible = True
         BtnCancelar.Visible = True
-        DgvMarca.Enabled = False
+        GCPrincipal.Enabled = False
 
     End Sub
 
@@ -82,11 +62,11 @@ Public Class FrmMarca
             BtnInsertar.Visible = False
             TxtIdMarca.Visible = True
             GbMarca.Enabled = True
-            DgvMarca.Enabled = False
+            GCPrincipal.Enabled = False
 
 
         Else
-            MessageBox.Show("Seleccione la Marca a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Seleccione la Marca a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
 
@@ -94,18 +74,18 @@ Public Class FrmMarca
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If r = DialogResult.Yes Then
             GbMarca.Enabled = False
-            TxtIdMarca.Clear()
-            TxtMarca.Clear()
+            BtnNuevo.Visible = False
+            BtnEditar.Visible = False
             BtnNuevo.Visible = True
             BtnEditar.Visible = True
             BtnInsertar.Visible = False
             BtnCancelar.Visible = False
             BtnActualizar.Visible = False
-            DgvMarca.Enabled = True
+            GCPrincipal.Enabled = True
 
 
         End If
@@ -115,7 +95,7 @@ Public Class FrmMarca
     Private Sub Btninsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
         If TxtMarca.Text = Nothing Then
 
-            MessageBox.Show("Ingrese el Nombre de la Marca", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre de la Marca", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtMarca.Focus()
         Else
             Try
@@ -123,20 +103,20 @@ Public Class FrmMarca
                 Dim datos As New DatosMarca
                 Dim funcion As New FMarca
 
-                datos.gMarca = TxtMarca.Text
+                datos.gMarca = TxtMarca.EditValue
 
                 If funcion.Insertar(datos) Then
-                    MessageBox.Show("Marca Insertada con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Marca Insertada con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbMarca.Enabled = False
-                    TxtIdMarca.Clear()
-                    TxtMarca.Clear()
+                    BtnNuevo.Visible = False
+                    BtnEditar.Visible = False
                     BtnNuevo.Visible = True
                     BtnEditar.Visible = True
                     BtnInsertar.Visible = False
                     BtnCancelar.Visible = False
                     BtnActualizar.Visible = False
-                    DgvMarca.Enabled = True
+                    GCPrincipal.Enabled = True
 
                     MostrarMarca()
 
@@ -156,7 +136,7 @@ Public Class FrmMarca
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         If TxtMarca.Text = Nothing Then
 
-            MessageBox.Show("Ingrese el Nombre de la Marca", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre de la Marca", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtMarca.Focus()
         Else
             Try
@@ -164,21 +144,21 @@ Public Class FrmMarca
                 Dim datos As New DatosMarca
                 Dim funcion As New FMarca
 
-                datos.gMarca = TxtMarca.Text
-                datos.gIdMarca = TxtIdMarca.Text
+                datos.gMarca = TxtMarca.EditValue
+                datos.gIdMarca = TxtIdMarca.EditValue
 
                 If funcion.Actualizar(datos) Then
-                    MessageBox.Show("Marca Insertada con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Marca Actulizada con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbMarca.Enabled = False
-                    TxtIdMarca.Clear()
-                    TxtMarca.Clear()
+                    BtnNuevo.Visible = False
+                    BtnEditar.Visible = False
                     BtnNuevo.Visible = True
                     BtnEditar.Visible = True
                     BtnInsertar.Visible = False
                     BtnCancelar.Visible = False
                     BtnActualizar.Visible = False
-                    DgvMarca.Enabled = True
+                    GCPrincipal.Enabled = True
 
                     MostrarMarca()
 
@@ -194,14 +174,19 @@ Public Class FrmMarca
 
     End Sub
 
+    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
+        Dim index As Integer = DgvMarca.FocusedRowHandle
+        TxtIdMarca.EditValue = DgvMarca.GetRowCellValue(index, ColIdMarca)
+        TxtMarca.EditValue = DgvMarca.GetRowCellValue(index, ColMarca)
 
-    Private Sub DgvMarca_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvMarca.CellDoubleClick
-        If var = 1 Then
-            FrmModelo.LlenarComboboxMarca()
-            FrmModelo.CboMarca.Text = DgvMarca.CurrentRow.Cells(1).Value.ToString
-            Me.Close()
-        End If
     End Sub
 
 
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        GCPrincipal.ShowPrintPreview()
+    End Sub
 End Class
