@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmMunicipio
 
     Dim dt As New DataTable
@@ -157,16 +159,16 @@ Public Class FrmMunicipio
             TxtIdMunicipio.Visible = True
             GCPrincipal.Enabled = False
         Else
-            MessageBox.Show("Seleccione el Municipio a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Seleccione el Municipio a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
     Private Sub BtnInsertar_Click_1(sender As Object, e As EventArgs) Handles BtnInsertar.Click
         If TxtMunicipio.Text = Nothing Then
-            MessageBox.Show("Ingrese el Nombre del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtMunicipio.Focus()
         ElseIf CboDepartamento.EditValue = Nothing Then
-            MessageBox.Show("Seleccione el Departamento del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Seleccione el Departamento del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         Else
             Try
@@ -179,7 +181,7 @@ Public Class FrmMunicipio
                 datos.gIdDepartamento = CInt(CboDepartamento.EditValue)
 
                 If funcion.Insertar(datos) Then
-                    MessageBox.Show("Municipio Insertado con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Municipio Insertado con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbMunicipio.Enabled = False
                     TxtIdMunicipio.EditValue = Nothing
@@ -207,10 +209,10 @@ Public Class FrmMunicipio
 
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         If TxtMunicipio.Text = Nothing Then
-            MessageBox.Show("Ingrese el Nombre del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtMunicipio.Focus()
         ElseIf CboDepartamento.EditValue = Nothing Then
-            MessageBox.Show("Seleccione el Departamento del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Seleccione el Departamento del Municipio", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         Else
             Try
@@ -226,7 +228,7 @@ Public Class FrmMunicipio
 
 
                 If funcion.Actualizar(datos) Then
-                    MessageBox.Show("Municipio Modificado con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Municipio Modificado con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbMunicipio.Enabled = False
                     TxtIdMunicipio.EditValue = Nothing
@@ -252,7 +254,7 @@ Public Class FrmMunicipio
     End Sub
 
     Private Sub BtnCancelar_Click_1(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If r = DialogResult.Yes Then
             GbMunicipio.Enabled = False

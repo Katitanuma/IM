@@ -47,14 +47,14 @@ Partial Class FrmMunicipio
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
         Me.GbMunicipio = New DevExpress.XtraEditors.GroupControl()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.Codigo = New DevExpress.XtraEditors.LabelControl()
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnEditar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
-        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.CboDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -86,6 +86,7 @@ Partial Class FrmMunicipio
         Me.CboDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdDepartamento", 10, "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Departamento", 30, "Departamento"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Pais", "Pais")})
         Me.CboDepartamento.Properties.DisplayMember = "Departamento"
         Me.CboDepartamento.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains
+        Me.CboDepartamento.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CboDepartamento.Properties.ValueMember = "IdDepartamento"
         Me.CboDepartamento.Size = New System.Drawing.Size(203, 20)
         Me.CboDepartamento.TabIndex = 108
@@ -309,11 +310,29 @@ Partial Class FrmMunicipio
         Me.GbMunicipio.Controls.Add(Me.TxtIdMunicipio)
         Me.GbMunicipio.Controls.Add(Me.SimpleButton3)
         Me.GbMunicipio.Controls.Add(Me.TxtMunicipio)
-        Me.GbMunicipio.Location = New System.Drawing.Point(32, 96)
+        Me.GbMunicipio.Location = New System.Drawing.Point(31, 111)
         Me.GbMunicipio.Name = "GbMunicipio"
         Me.GbMunicipio.Size = New System.Drawing.Size(401, 152)
         Me.GbMunicipio.TabIndex = 111
         Me.GbMunicipio.Text = "Datos Municipio"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl2.Location = New System.Drawing.Point(37, 111)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(86, 19)
+        Me.LabelControl2.TabIndex = 123
+        Me.LabelControl2.Text = "Departamento"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl1.Location = New System.Drawing.Point(65, 67)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(58, 19)
+        Me.LabelControl1.TabIndex = 122
+        Me.LabelControl1.Text = "Municipio"
         '
         'Codigo
         '
@@ -328,7 +347,7 @@ Partial Class FrmMunicipio
         '
         Me.BtnNuevo.Image = CType(resources.GetObject("BtnNuevo.Image"), System.Drawing.Image)
         Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(20, 455)
+        Me.BtnNuevo.Location = New System.Drawing.Point(31, 453)
         Me.BtnNuevo.Name = "BtnNuevo"
         Me.BtnNuevo.Size = New System.Drawing.Size(98, 68)
         Me.BtnNuevo.TabIndex = 116
@@ -338,7 +357,7 @@ Partial Class FrmMunicipio
         '
         Me.BtnEditar.Image = CType(resources.GetObject("BtnEditar.Image"), System.Drawing.Image)
         Me.BtnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnEditar.Location = New System.Drawing.Point(127, 455)
+        Me.BtnEditar.Location = New System.Drawing.Point(135, 453)
         Me.BtnEditar.Name = "BtnEditar"
         Me.BtnEditar.Size = New System.Drawing.Size(98, 68)
         Me.BtnEditar.TabIndex = 117
@@ -348,49 +367,34 @@ Partial Class FrmMunicipio
         '
         Me.BtnActualizar.Image = CType(resources.GetObject("BtnActualizar.Image"), System.Drawing.Image)
         Me.BtnActualizar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnActualizar.Location = New System.Drawing.Point(231, 455)
+        Me.BtnActualizar.Location = New System.Drawing.Point(239, 453)
         Me.BtnActualizar.Name = "BtnActualizar"
         Me.BtnActualizar.Size = New System.Drawing.Size(98, 68)
         Me.BtnActualizar.TabIndex = 118
         Me.BtnActualizar.Text = "Actualizar"
+        Me.BtnActualizar.Visible = False
         '
         'BtnCancelar
         '
         Me.BtnCancelar.Image = CType(resources.GetObject("BtnCancelar.Image"), System.Drawing.Image)
         Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnCancelar.Location = New System.Drawing.Point(335, 455)
+        Me.BtnCancelar.Location = New System.Drawing.Point(343, 453)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.BtnCancelar.Size = New System.Drawing.Size(98, 68)
         Me.BtnCancelar.TabIndex = 119
         Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.Visible = False
         '
         'BtnInsertar
         '
         Me.BtnInsertar.Image = CType(resources.GetObject("BtnInsertar.Image"), System.Drawing.Image)
         Me.BtnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnInsertar.Location = New System.Drawing.Point(231, 455)
+        Me.BtnInsertar.Location = New System.Drawing.Point(239, 453)
         Me.BtnInsertar.Name = "BtnInsertar"
         Me.BtnInsertar.Size = New System.Drawing.Size(98, 68)
         Me.BtnInsertar.TabIndex = 120
         Me.BtnInsertar.Text = "Guardar"
-        '
-        'LabelControl1
-        '
-        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl1.Location = New System.Drawing.Point(65, 67)
-        Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(58, 19)
-        Me.LabelControl1.TabIndex = 122
-        Me.LabelControl1.Text = "Municipio"
-        '
-        'LabelControl2
-        '
-        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl2.Location = New System.Drawing.Point(37, 111)
-        Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(86, 19)
-        Me.LabelControl2.TabIndex = 123
-        Me.LabelControl2.Text = "Departamento"
+        Me.BtnInsertar.Visible = False
         '
         'LabelControl3
         '
