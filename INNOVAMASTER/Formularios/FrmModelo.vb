@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmModelo
     Dim dt As New DataTable
     Dim conec As New Conexion
@@ -13,11 +15,11 @@ Public Class FrmModelo
     End Sub
 
     Private Sub FrmModelo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CboBusqueda.Text = CboBusqueda.Items(0).ToString
+
         MostrarModelo()
         GbModelo.Enabled = False
         TxtIdModelo.Enabled = False
-        DgvModelo.Enabled = True
+        GCPrincipal.Enabled = True
         Call LlenarComboboxMarca()
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
@@ -32,54 +34,32 @@ Public Class FrmModelo
 
             If dt.Rows.Count <> 0 Then
                 LblFilas.Visible = False
-                DgvModelo.DataSource = dt
+                GCPrincipal.DataSource = dt
 
-                TxtBusqueda.Enabled = True
             Else
                 LblFilas.Visible = True
-                DgvModelo.DataSource = Nothing
+                GCPrincipal.DataSource = Nothing
 
-                TxtBusqueda.Enabled = False
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
     End Sub
 
-    Private Sub DgvModelo_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvModelo.CellClick
-        TxtIdModelo.Text = DgvModelo.SelectedCells.Item(0).Value
-        TxtModelo.Text = DgvModelo.SelectedCells.Item(1).Value
-        CboMarca.Text = DgvModelo.SelectedCells.Item(2).Value
-    End Sub
 
-    Private Sub txtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        Dim ds As New DataSet
-        Dim dv As New DataView
 
-        ds.Tables.Add(dt.Copy)
-        dv = New DataView(ds.Tables(0))
 
-        dv.RowFilter = CboBusqueda.Text & " like '" & TxtBusqueda.Text & "%'"
-
-        If dv.Count <> 0 Then
-            LblFilas.Visible = False
-            DgvModelo.DataSource = dv
-        Else
-            LblFilas.Visible = True
-            DgvModelo.DataSource = Nothing
-        End If
-    End Sub
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         GbModelo.Enabled = True
-        TxtIdModelo.Clear()
-        TxtModelo.Clear()
-        CboMarca.Text = Nothing
+        TxtIdModelo.EditValue = Nothing
+        TxtModelo.EditValue = Nothing
+        CboMarca.EditValue = Nothing
         BtnNuevo.Visible = False
         BtnEditar.Visible = False
         BtnInsertar.Visible = True
         BtnCancelar.Visible = True
-        DgvModelo.Enabled = False
+        GCPrincipal.Enabled = False
     End Sub
 
 
@@ -94,28 +74,28 @@ Public Class FrmModelo
             BtnCancelar.Visible = True
             BtnInsertar.Visible = False
             TxtIdModelo.Visible = True
-            DgvModelo.Enabled = False
+            GCPrincipal.Enabled = False
 
 
         Else
-            MessageBox.Show("Seleccione el Modelo a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Seleccione el Modelo a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If r = DialogResult.Yes Then
             GbModelo.Enabled = False
-            TxtIdModelo.Clear()
-            TxtModelo.Clear()
-            CboMarca.Text = Nothing
+            TxtIdModelo.EditValue = Nothing
+            TxtModelo.EditValue = Nothing
+            CboMarca.EditValue = Nothing
             BtnNuevo.Visible = True
             BtnEditar.Visible = True
             BtnInsertar.Visible = False
             BtnCancelar.Visible = False
             BtnActualizar.Visible = False
-            DgvModelo.Enabled = True
+            GCPrincipal.Enabled = True
 
         End If
 
@@ -123,10 +103,10 @@ Public Class FrmModelo
 
     Private Sub Btninsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
         If TxtModelo.Text = Nothing Then
-            MessageBox.Show("Ingrese el Nombre del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtModelo.Focus()
-        ElseIf CboMarca.SelectedItem = Nothing Then
-            MessageBox.Show("Seleccione la Marca del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf CboMarca.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione la Marca del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         Else
             Try
@@ -135,32 +115,24 @@ Public Class FrmModelo
                 Dim funcion As New FModelo
 
                 datos.gModelo = TxtModelo.Text
-                Dim cmd As SqlCommand
-                Dim dr As SqlDataReader
-                cmd = New SqlCommand(" Select IdMarca from MarcaVehiculo where Marca='" & CboMarca.Text & "'")
-                cmd.CommandType = CommandType.Text
-                cmd.Connection = conec.Con
-                dr = cmd.ExecuteReader
 
-                If dr.Read Then
-                    datos.gIdMarca = dr(0)
-                End If
+                datos.gIdMarca = CInt(CboMarca.EditValue)
 
 
 
                 If funcion.Insertar(datos) Then
-                    MessageBox.Show("Modelo Insertado con Exito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Modelo Insertado con Exito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbModelo.Enabled = False
-                    TxtIdModelo.Clear()
-                    TxtModelo.Clear()
-                    CboMarca.Text = Nothing
+                    TxtIdModelo.EditValue = Nothing
+                    TxtModelo.EditValue = Nothing
+                    CboMarca.EditValue = Nothing
                     BtnNuevo.Visible = True
                     BtnEditar.Visible = True
                     BtnInsertar.Visible = False
                     BtnCancelar.Visible = False
                     BtnActualizar.Visible = False
-                    DgvModelo.Enabled = True
+                    GCPrincipal.Enabled = True
 
                     MostrarModelo()
 
@@ -178,10 +150,10 @@ Public Class FrmModelo
     End Sub
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         If TxtModelo.Text = Nothing Then
-            MessageBox.Show("Ingrese el Nombre del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtModelo.Focus()
-        ElseIf CboMarca.SelectedItem = Nothing Then
-            MessageBox.Show("Seleccione la Marca del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf CboMarca.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione la Marca del Modelo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
 
         Else
             Try
@@ -191,32 +163,21 @@ Public Class FrmModelo
 
                 datos.gModelo = TxtModelo.Text
                 datos.gIdModelo = Int(TxtIdModelo.Text)
-                Dim cmd As SqlCommand
-                Dim dr As SqlDataReader
-                cmd = New SqlCommand(" Select IdMarca from MarcaVehiculo where Marca='" & CboMarca.Text & "'")
-                cmd.CommandType = CommandType.Text
-                cmd.Connection = conec.Con
-                dr = cmd.ExecuteReader
-
-                If dr.Read Then
-                    datos.gIdMarca = dr(0)
-                End If
-
-
+                datos.gIdMarca = CInt(CboMarca.EditValue)
 
                 If funcion.Actualizar(datos) Then
-                    MessageBox.Show("Modelo Modificado con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Modelo Modificado con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbModelo.Enabled = False
-                    TxtIdModelo.Clear()
-                    TxtModelo.Clear()
-                    CboMarca.Text = Nothing
+                    TxtIdModelo.EditValue = Nothing
+                    TxtModelo.EditValue = Nothing
+                    CboMarca.EditValue = Nothing
                     BtnNuevo.Visible = True
                     BtnEditar.Visible = True
                     BtnInsertar.Visible = False
                     BtnCancelar.Visible = False
                     BtnActualizar.Visible = False
-                    DgvModelo.Enabled = True
+                    GCPrincipal.Enabled = True
 
                     MostrarModelo()
 
@@ -234,20 +195,21 @@ Public Class FrmModelo
     End Sub
 
     Public Sub LlenarComboboxMarca()
-        CboMarca.Items.Clear()
+        Dim _Dt As New DataTable
+        Dim DA As SqlDataAdapter
 
         Try
             conec.Conectarse()
             Dim cmd As New SqlCommand
-            cmd = New SqlCommand("select Marca from MarcaVehiculo")
-            cmd.CommandType = CommandType.Text
+            cmd = New SqlCommand("MostrarMarcaVehiculo")
+            cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = conec.Con
-            Dim dr As SqlDataReader
-            dr = cmd.ExecuteReader
 
-            While dr.Read
-                CboMarca.Items.Add(dr(0))
-            End While
+            If cmd.ExecuteNonQuery Then
+                DA = New SqlDataAdapter(cmd)
+                DA.Fill(_Dt)
+                CboMarca.Properties.DataSource = _Dt
+            End If
 
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -269,11 +231,26 @@ Public Class FrmModelo
         End With
     End Sub
 
-    Private Sub DgvModelo_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvModelo.CellContentClick
+    Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
         If var = 1 Then
             FrmProducto.LlenarCombos()
-            FrmProducto.TxtModelo.Text = DgvModelo.CurrentRow.Cells(1).Value.ToString
+            FrmProducto.TxtModelo.Text = DgvModelo.GetRowCellValue(DgvModelo.FocusedRowHandle, ColModelo)
             Me.Close()
         End If
+    End Sub
+
+    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
+        Dim index As Integer = DgvModelo.FocusedRowHandle
+        TxtIdModelo.EditValue = DgvModelo.GetRowCellValue(index, ColIdModelo)
+        TxtModelo.EditValue = DgvModelo.GetRowCellValue(index, ColModelo)
+        CboMarca.Text = DgvModelo.GetRowCellValue(index, ColMarca)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        GCPrincipal.ShowPrintPreview()
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
     End Sub
 End Class
