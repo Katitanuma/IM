@@ -4,6 +4,7 @@ Imports System.ComponentModel.DataAnnotations
 Imports System.IO
 Imports System.ComponentModel
 Imports DevExpress.XtraBars.Helpers
+Imports DevExpress.XtraEditors
 
 Partial Public Class MenuPrincipal
     Inherits DevExpress.XtraBars.Ribbon.RibbonForm
@@ -161,7 +162,7 @@ Partial Public Class MenuPrincipal
         ElseIf EstaAbierto(FrmPedidos) Then
             FrmPedidos.Button1.PerformClick()
             e.Cancel = True
-        ElseIf MessageBox.Show("¿Desea Salir del Sistema?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.No Then
+        ElseIf XtraMessageBox.Show("¿Desea Salir del Sistema?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.No Then
             e.Cancel = True
         Else
             My.Settings.Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName

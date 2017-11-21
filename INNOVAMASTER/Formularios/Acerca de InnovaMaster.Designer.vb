@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class Acerca_de_InnovaMaster
-    Inherits System.Windows.Forms.Form
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -25,7 +25,6 @@ Partial Class Acerca_de_InnovaMaster
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Acerca_de_InnovaMaster))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -34,11 +33,13 @@ Partial Class Acerca_de_InnovaMaster
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.MemoEdit1 = New DevExpress.XtraEditors.MemoEdit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -61,18 +62,6 @@ Partial Class Acerca_de_InnovaMaster
         Me.Label2.Size = New System.Drawing.Size(98, 13)
         Me.Label2.TabIndex = 2
         Me.Label2.Text = "Copyrights 2017"
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Honeydew
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(489, 315)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 33)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "&Aceptar"
-        Me.Button1.UseVisualStyleBackColor = False
         '
         'Label3
         '
@@ -157,24 +146,31 @@ Partial Class Acerca_de_InnovaMaster
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Contáctanos en:"
         '
-        'RichTextBox1
+        'SimpleButton1
         '
-        Me.RichTextBox1.BackColor = System.Drawing.Color.DarkTurquoise
-        Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(252, 57)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(311, 149)
-        Me.RichTextBox1.TabIndex = 12
-        Me.RichTextBox1.Text = resources.GetString("RichTextBox1.Text")
+        Me.SimpleButton1.Location = New System.Drawing.Point(476, 321)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(87, 27)
+        Me.SimpleButton1.TabIndex = 13
+        Me.SimpleButton1.Text = "&Aceptar"
+        '
+        'MemoEdit1
+        '
+        Me.MemoEdit1.EditValue = resources.GetString("MemoEdit1.EditValue")
+        Me.MemoEdit1.Location = New System.Drawing.Point(250, 50)
+        Me.MemoEdit1.Name = "MemoEdit1"
+        Me.MemoEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.MemoEdit1.Properties.Appearance.Options.UseFont = True
+        Me.MemoEdit1.Size = New System.Drawing.Size(313, 172)
+        Me.MemoEdit1.TabIndex = 15
         '
         'Acerca_de_InnovaMaster
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.MediumTurquoise
         Me.ClientSize = New System.Drawing.Size(583, 357)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.MemoEdit1)
+        Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.PictureBox3)
@@ -182,7 +178,6 @@ Partial Class Acerca_de_InnovaMaster
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PictureBox1)
@@ -196,6 +191,7 @@ Partial Class Acerca_de_InnovaMaster
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -204,7 +200,6 @@ Partial Class Acerca_de_InnovaMaster
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents Label3 As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents LinkLabel1 As LinkLabel
@@ -212,6 +207,7 @@ Partial Class Acerca_de_InnovaMaster
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents RichTextBox1 As RichTextBox
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents MemoEdit1 As DevExpress.XtraEditors.MemoEdit
 End Class
