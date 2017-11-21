@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmCategoria
     Dim dt As New DataTable
     Public var As Integer = 0
@@ -6,7 +8,7 @@ Public Class FrmCategoria
         MostrarCategoria()
         GbDatos.Enabled = False
         TxtIdCategoria.Enabled = False
-        DgvCategoria.Enabled = True
+        GCPrincipal.Enabled = True
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
@@ -20,49 +22,28 @@ Public Class FrmCategoria
 
             If dt.Rows.Count <> 0 Then
                 LblFilas.Visible = False
-                DgvCategoria.DataSource = dt
+                GCPrincipal.DataSource = dt
 
-                TxtBusqueda.Enabled = True
             Else
                 LblFilas.Visible = True
-                DgvCategoria.DataSource = Nothing
+                GCPrincipal.DataSource = Nothing
 
-                TxtBusqueda.Enabled = False
+
             End If
         Catch ex As Exception
 
         End Try
     End Sub
-    Private Sub DgvCategoria_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvCategoria.CellClick
-        TxtIdCategoria.Text = DgvCategoria.SelectedCells.Item(0).Value
-        TxtCategoria.Text = DgvCategoria.SelectedCells.Item(1).Value
-    End Sub
-    Private Sub txtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        Dim ds As New DataSet
-        Dim dv As New DataView
 
-        ds.Tables.Add(dt.Copy)
-        dv = New DataView(ds.Tables(0))
-
-        dv.RowFilter = "Categoria" & " like '" & TxtBusqueda.Text & "%'"
-
-        If dv.Count <> 0 Then
-            LblFilas.Visible = False
-            DgvCategoria.DataSource = dv
-        Else
-            LblFilas.Visible = True
-            DgvCategoria.DataSource = Nothing
-        End If
-    End Sub
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         GbDatos.Enabled = True
-        TxtIdCategoria.Clear()
-        TxtCategoria.Clear()
+        TxtIdCategoria.EditValue = Nothing
+        TxtCategoria.EditValue = Nothing
         BtnNuevo.Visible = False
         BtnEditar.Visible = False
         BtnInsertar.Visible = True
         BtnCancelar.Visible = True
-        DgvCategoria.Enabled = False
+        GCPrincipal.Enabled = False
 
 
 
@@ -78,29 +59,30 @@ Public Class FrmCategoria
             BtnInsertar.Visible = False
             TxtIdCategoria.Visible = True
             GbDatos.Enabled = True
-            DgvCategoria.Enabled = False
+            GCPrincipal.Enabled = False
 
 
         Else
-            MessageBox.Show("Seleccione la Categoria a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Seleccione la Categoria a Actualizar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
 
 
     End Sub
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER ", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If r = DialogResult.Yes Then
             GbDatos.Enabled = False
-            TxtIdCategoria.Clear()
-            TxtCategoria.Clear()
+            TxtIdCategoria.EditValue = Nothing
+            TxtCategoria.EditValue = Nothing
             BtnNuevo.Visible = True
             BtnEditar.Visible = True
             BtnInsertar.Visible = False
             BtnCancelar.Visible = False
             BtnActualizar.Visible = False
-            DgvCategoria.Enabled = True
+            GCPrincipal.Enabled = True
 
 
         End If
@@ -109,7 +91,7 @@ Public Class FrmCategoria
     Private Sub Btninsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
         If TxtCategoria.Text = Nothing Then
 
-            MessageBox.Show("Ingrese el Nombre de la Categoría", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre de la Categoría", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtCategoria.Focus()
         Else
             Try
@@ -120,17 +102,17 @@ Public Class FrmCategoria
                 datos.gcategoria = TxtCategoria.Text
 
                 If funcion.Insertar(datos) Then
-                    MessageBox.Show("Categoria Insertada con Exito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Categoria Insertada con Exito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbDatos.Enabled = False
-                    TxtIdCategoria.Clear()
-                    TxtCategoria.Clear()
+                    TxtIdCategoria.EditValue = Nothing
+                    TxtCategoria.EditValue = Nothing
                     BtnNuevo.Visible = True
                     BtnEditar.Visible = True
                     BtnInsertar.Visible = False
                     BtnCancelar.Visible = False
                     BtnActualizar.Visible = False
-                    DgvCategoria.Enabled = True
+                    GCPrincipal.Enabled = True
 
                     MostrarCategoria()
 
@@ -149,7 +131,7 @@ Public Class FrmCategoria
     Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         If TxtCategoria.Text = Nothing Then
 
-            MessageBox.Show("Ingrese el Nombre de la Categoría", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            XtraMessageBox.Show("Ingrese el Nombre de la Categoría", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
             TxtCategoria.Focus()
         Else
             Try
@@ -161,17 +143,17 @@ Public Class FrmCategoria
                 datos.gidcategoria = TxtIdCategoria.Text
 
                 If funcion.Actualizar(datos) Then
-                    MessageBox.Show("Categoria Insertada con Exito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    XtraMessageBox.Show("Categoria Actualizada con Exito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                     GbDatos.Enabled = False
-                    TxtIdCategoria.Clear()
-                    TxtCategoria.Clear()
+                    TxtIdCategoria.EditValue = Nothing
+                    TxtCategoria.EditValue = Nothing
                     BtnNuevo.Visible = True
                     BtnEditar.Visible = True
                     BtnInsertar.Visible = False
                     BtnCancelar.Visible = False
                     BtnActualizar.Visible = False
-                    DgvCategoria.Enabled = True
+                    GCPrincipal.Enabled = True
 
                     MostrarCategoria()
 
@@ -189,12 +171,26 @@ Public Class FrmCategoria
     End Sub
 
 
+    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
+        Dim index As Integer = DgvCategoria.FocusedRowHandle
+        TxtIdCategoria.EditValue = DgvCategoria.GetRowCellValue(index, ColIdCategoria)
+        TxtCategoria.EditValue = DgvCategoria.GetRowCellValue(index, ColCategoria)
 
-    Private Sub DgvCategoria_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvCategoria.CellDoubleClick
+    End Sub
+
+    Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
         If var = 1 Then
             FrmProducto.LlenarCombos()
-            FrmProducto.CboCategoria.Text = DgvCategoria.CurrentRow.Cells(1).Value.ToString
+            FrmProducto.CboCategoria.Text = DgvCategoria.GetRowCellValue(DgvCategoria.FocusedRowHandle, ColCategoria)
             Me.Close()
         End If
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        GCPrincipal.ShowPrintPreview()
     End Sub
 End Class

@@ -46,10 +46,6 @@ Public Class FrmModelo
         End Try
     End Sub
 
-
-
-
-
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         GbModelo.Enabled = True
         TxtIdModelo.EditValue = Nothing
