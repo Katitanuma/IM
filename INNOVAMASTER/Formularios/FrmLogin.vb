@@ -141,4 +141,10 @@ Public Class FrmLogin
             BtnIniciar.PerformClick()
         End If
     End Sub
+
+    Private Sub TxtUsuario_KeyDown(sender As Object, e As KeyEventArgs) Handles TxtUsuario.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            BtnIniciar.PerformClick()
+        End If
+    End Sub
 End Class

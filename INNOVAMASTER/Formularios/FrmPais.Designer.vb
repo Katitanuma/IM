@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmPais
-    Inherits System.Windows.Forms.Form
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -23,7 +23,6 @@ Partial Class FrmPais
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.TxtBusqueda = New System.Windows.Forms.TextBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -33,16 +32,20 @@ Partial Class FrmPais
         Me.TxtIdPais = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LblFilas = New System.Windows.Forms.Label()
-        Me.DgvPais = New System.Windows.Forms.DataGridView()
         Me.BtnEditar = New System.Windows.Forms.Button()
         Me.BtnNuevo = New System.Windows.Forms.Button()
         Me.BtnCancelar = New System.Windows.Forms.Button()
         Me.BtnActualizar = New System.Windows.Forms.Button()
         Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
+        Me.DgvPais = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.ColIdPais = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColPais = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GboPais.SuspendLayout()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvPais, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -55,17 +58,6 @@ Partial Class FrmPais
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.TabIndex = 86
         Me.PictureBox1.TabStop = False
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(835, 67)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(103, 19)
-        Me.Label12.TabIndex = 85
-        Me.Label12.Text = "Lista de Países"
         '
         'TxtBusqueda
         '
@@ -110,7 +102,7 @@ Partial Class FrmPais
         '
         Me.TxtPais.Location = New System.Drawing.Point(94, 74)
         Me.TxtPais.Name = "TxtPais"
-        Me.TxtPais.Size = New System.Drawing.Size(241, 20)
+        Me.TxtPais.Size = New System.Drawing.Size(241, 21)
         Me.TxtPais.TabIndex = 2
         '
         'Label2
@@ -127,7 +119,7 @@ Partial Class FrmPais
         '
         Me.TxtIdPais.Location = New System.Drawing.Point(94, 28)
         Me.TxtIdPais.Name = "TxtIdPais"
-        Me.TxtIdPais.Size = New System.Drawing.Size(186, 20)
+        Me.TxtIdPais.Size = New System.Drawing.Size(186, 21)
         Me.TxtIdPais.TabIndex = 1
         '
         'Label1
@@ -145,24 +137,10 @@ Partial Class FrmPais
         Me.LblFilas.AutoSize = True
         Me.LblFilas.Location = New System.Drawing.Point(995, 330)
         Me.LblFilas.Name = "LblFilas"
-        Me.LblFilas.Size = New System.Drawing.Size(65, 13)
+        Me.LblFilas.Size = New System.Drawing.Size(61, 13)
         Me.LblFilas.TabIndex = 80
         Me.LblFilas.Text = "SIN DATOS"
         Me.LblFilas.Visible = False
-        '
-        'DgvPais
-        '
-        Me.DgvPais.AllowUserToAddRows = False
-        Me.DgvPais.AllowUserToDeleteRows = False
-        Me.DgvPais.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvPais.BackgroundColor = System.Drawing.Color.White
-        Me.DgvPais.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvPais.Location = New System.Drawing.Point(486, 86)
-        Me.DgvPais.Name = "DgvPais"
-        Me.DgvPais.ReadOnly = True
-        Me.DgvPais.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvPais.Size = New System.Drawing.Size(831, 459)
-        Me.DgvPais.TabIndex = 79
         '
         'BtnEditar
         '
@@ -252,25 +230,70 @@ Partial Class FrmPais
         Me.BtnInsertar.UseVisualStyleBackColor = False
         Me.BtnInsertar.Visible = False
         '
+        'GCPrincipal
+        '
+        Me.GCPrincipal.Location = New System.Drawing.Point(486, 80)
+        Me.GCPrincipal.MainView = Me.DgvPais
+        Me.GCPrincipal.Name = "GCPrincipal"
+        Me.GCPrincipal.Size = New System.Drawing.Size(834, 367)
+        Me.GCPrincipal.TabIndex = 92
+        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvPais})
+        '
+        'DgvPais
+        '
+        Me.DgvPais.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColIdPais, Me.ColPais})
+        Me.DgvPais.GridControl = Me.GCPrincipal
+        Me.DgvPais.Name = "DgvPais"
+        Me.DgvPais.OptionsView.ShowFooter = True
+        Me.DgvPais.OptionsView.ShowGroupPanel = False
+        '
+        'ColIdPais
+        '
+        Me.ColIdPais.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColIdPais.AppearanceCell.Options.UseFont = True
+        Me.ColIdPais.AppearanceCell.Options.UseTextOptions = True
+        Me.ColIdPais.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.ColIdPais.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColIdPais.AppearanceHeader.Options.UseFont = True
+        Me.ColIdPais.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColIdPais.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColIdPais.Caption = "ID"
+        Me.ColIdPais.FieldName = "IdPais"
+        Me.ColIdPais.Name = "ColIdPais"
+        Me.ColIdPais.Visible = True
+        Me.ColIdPais.VisibleIndex = 0
+        '
+        'ColPais
+        '
+        Me.ColPais.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColPais.AppearanceCell.Options.UseFont = True
+        Me.ColPais.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColPais.AppearanceHeader.Options.UseFont = True
+        Me.ColPais.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColPais.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColPais.Caption = "Pais"
+        Me.ColPais.FieldName = "Pais"
+        Me.ColPais.Name = "ColPais"
+        Me.ColPais.Visible = True
+        Me.ColPais.VisibleIndex = 1
+        '
         'FrmPais
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(1352, 573)
+        Me.Controls.Add(Me.GCPrincipal)
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnNuevo)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnActualizar)
         Me.Controls.Add(Me.BtnInsertar)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.TxtBusqueda)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.GboPais)
         Me.Controls.Add(Me.LblFilas)
-        Me.Controls.Add(Me.DgvPais)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmPais"
@@ -281,6 +304,7 @@ Partial Class FrmPais
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GboPais.ResumeLayout(False)
         Me.GboPais.PerformLayout()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvPais, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -288,7 +312,6 @@ Partial Class FrmPais
     End Sub
 
     Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label12 As Label
     Friend WithEvents TxtBusqueda As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Label13 As Label
@@ -298,11 +321,14 @@ Partial Class FrmPais
     Friend WithEvents TxtIdPais As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents LblFilas As Label
-    Friend WithEvents DgvPais As DataGridView
     Friend WithEvents BtnEditar As Button
     Friend WithEvents BtnNuevo As Button
     Friend WithEvents BtnCancelar As Button
     Friend WithEvents BtnActualizar As Button
     Friend WithEvents BtnInsertar As Button
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
+    Friend WithEvents DgvPais As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents ColIdPais As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColPais As DevExpress.XtraGrid.Columns.GridColumn
 End Class

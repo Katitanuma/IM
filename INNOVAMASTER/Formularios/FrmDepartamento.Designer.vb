@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmDepartamento
-    Inherits System.Windows.Forms.Form
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -22,85 +22,40 @@ Partial Class FrmDepartamento
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.TxtBusqueda = New System.Windows.Forms.TextBox()
-        Me.CboBusqueda = New System.Windows.Forms.ComboBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmDepartamento))
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.GbDepartamento = New System.Windows.Forms.GroupBox()
-        Me.BtnBusquedaCliente = New System.Windows.Forms.Button()
-        Me.CboPais = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.TxtDepartamento = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.TxtIdDepartamento = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CboPais = New DevExpress.XtraEditors.LookUpEdit()
         Me.LblFilas = New System.Windows.Forms.Label()
-        Me.DgvDepartamento = New System.Windows.Forms.DataGridView()
-        Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.BtnNuevo = New System.Windows.Forms.Button()
-        Me.BtnCancelar = New System.Windows.Forms.Button()
-        Me.BtnActualizar = New System.Windows.Forms.Button()
-        Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
+        Me.DgvDepartamento = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.ColIdDepartamento = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColDepartamento = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColPais = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.BtnCancelar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnEditar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
+        Me.TxtIdDepartamento = New DevExpress.XtraEditors.TextEdit()
+        Me.TxtDepartamento = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
+        Me.GbDepartamento = New DevExpress.XtraEditors.GroupControl()
+        Me.BtnBusquedaCliente = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GbDepartamento.SuspendLayout()
+        CType(Me.CboPais.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtIdDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GbDepartamento, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GbDepartamento.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.lapiz1
-        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox3.Location = New System.Drawing.Point(790, 32)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox3.TabIndex = 62
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.search
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(503, 30)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 61
-        Me.PictureBox1.TabStop = False
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.ForeColor = System.Drawing.Color.Black
-        Me.Label12.Location = New System.Drawing.Point(849, 75)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(158, 19)
-        Me.Label12.TabIndex = 60
-        Me.Label12.Text = "Lista de Departamentos"
-        '
-        'TxtBusqueda
-        '
-        Me.TxtBusqueda.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBusqueda.Location = New System.Drawing.Point(826, 37)
-        Me.TxtBusqueda.Name = "TxtBusqueda"
-        Me.TxtBusqueda.Size = New System.Drawing.Size(496, 21)
-        Me.TxtBusqueda.TabIndex = 54
-        '
-        'CboBusqueda
-        '
-        Me.CboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboBusqueda.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboBusqueda.FormattingEnabled = True
-        Me.CboBusqueda.Items.AddRange(New Object() {"Departamento", "Pais"})
-        Me.CboBusqueda.Location = New System.Drawing.Point(535, 35)
-        Me.CboBusqueda.Name = "CboBusqueda"
-        Me.CboBusqueda.Size = New System.Drawing.Size(217, 23)
-        Me.CboBusqueda.TabIndex = 53
         '
         'PictureBox2
         '
@@ -112,268 +67,334 @@ Partial Class FrmDepartamento
         Me.PictureBox2.TabIndex = 59
         Me.PictureBox2.TabStop = False
         '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(82, 37)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(209, 43)
-        Me.Label13.TabIndex = 58
-        Me.Label13.Text = "Departamento"
-        '
-        'GbDepartamento
-        '
-        Me.GbDepartamento.Controls.Add(Me.BtnBusquedaCliente)
-        Me.GbDepartamento.Controls.Add(Me.CboPais)
-        Me.GbDepartamento.Controls.Add(Me.Label3)
-        Me.GbDepartamento.Controls.Add(Me.TxtDepartamento)
-        Me.GbDepartamento.Controls.Add(Me.Label2)
-        Me.GbDepartamento.Controls.Add(Me.TxtIdDepartamento)
-        Me.GbDepartamento.Controls.Add(Me.Label1)
-        Me.GbDepartamento.Location = New System.Drawing.Point(31, 89)
-        Me.GbDepartamento.Name = "GbDepartamento"
-        Me.GbDepartamento.Size = New System.Drawing.Size(434, 153)
-        Me.GbDepartamento.TabIndex = 57
-        Me.GbDepartamento.TabStop = False
-        '
-        'BtnBusquedaCliente
-        '
-        Me.BtnBusquedaCliente.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBusquedaCliente.Location = New System.Drawing.Point(371, 98)
-        Me.BtnBusquedaCliente.Name = "BtnBusquedaCliente"
-        Me.BtnBusquedaCliente.Size = New System.Drawing.Size(33, 24)
-        Me.BtnBusquedaCliente.TabIndex = 51
-        Me.BtnBusquedaCliente.Text = " ..."
-        Me.BtnBusquedaCliente.UseVisualStyleBackColor = True
-        '
         'CboPais
         '
-        Me.CboPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboPais.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboPais.FormattingEnabled = True
-        Me.CboPais.Location = New System.Drawing.Point(163, 99)
+        Me.CboPais.Location = New System.Drawing.Point(151, 111)
         Me.CboPais.Name = "CboPais"
-        Me.CboPais.Size = New System.Drawing.Size(203, 23)
-        Me.CboPais.TabIndex = 3
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(124, 100)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(33, 19)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Pais"
-        '
-        'TxtDepartamento
-        '
-        Me.TxtDepartamento.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDepartamento.Location = New System.Drawing.Point(163, 63)
-        Me.TxtDepartamento.Name = "TxtDepartamento"
-        Me.TxtDepartamento.Size = New System.Drawing.Size(241, 21)
-        Me.TxtDepartamento.TabIndex = 2
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(62, 63)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(95, 19)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Departamento"
-        '
-        'TxtIdDepartamento
-        '
-        Me.TxtIdDepartamento.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtIdDepartamento.Location = New System.Drawing.Point(163, 26)
-        Me.TxtIdDepartamento.Name = "TxtIdDepartamento"
-        Me.TxtIdDepartamento.Size = New System.Drawing.Size(203, 21)
-        Me.TxtIdDepartamento.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(15, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(142, 19)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Código Departamento"
+        Me.CboPais.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboPais.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdPais", 10, "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Pais", 30, "Pais")})
+        Me.CboPais.Properties.DisplayMember = "Pais"
+        Me.CboPais.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains
+        Me.CboPais.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
+        Me.CboPais.Properties.ValueMember = "IdPais"
+        Me.CboPais.Size = New System.Drawing.Size(207, 20)
+        Me.CboPais.TabIndex = 106
         '
         'LblFilas
         '
         Me.LblFilas.AutoSize = True
         Me.LblFilas.Location = New System.Drawing.Point(990, 333)
         Me.LblFilas.Name = "LblFilas"
-        Me.LblFilas.Size = New System.Drawing.Size(65, 13)
+        Me.LblFilas.Size = New System.Drawing.Size(61, 13)
         Me.LblFilas.TabIndex = 56
         Me.LblFilas.Text = "SIN DATOS"
         Me.LblFilas.Visible = False
         '
+        'GCPrincipal
+        '
+        Me.GCPrincipal.Location = New System.Drawing.Point(503, 37)
+        Me.GCPrincipal.MainView = Me.DgvDepartamento
+        Me.GCPrincipal.Name = "GCPrincipal"
+        Me.GCPrincipal.Size = New System.Drawing.Size(819, 403)
+        Me.GCPrincipal.TabIndex = 105
+        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvDepartamento})
+        '
         'DgvDepartamento
         '
-        Me.DgvDepartamento.AllowUserToAddRows = False
-        Me.DgvDepartamento.AllowUserToDeleteRows = False
-        Me.DgvDepartamento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvDepartamento.BackgroundColor = System.Drawing.Color.White
-        Me.DgvDepartamento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvDepartamento.Location = New System.Drawing.Point(503, 97)
+        Me.DgvDepartamento.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvDepartamento.Appearance.Empty.Options.UseBackColor = True
+        Me.DgvDepartamento.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvDepartamento.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvDepartamento.Appearance.FocusedCell.ForeColor = System.Drawing.Color.White
+        Me.DgvDepartamento.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.DgvDepartamento.Appearance.FocusedCell.Options.UseFont = True
+        Me.DgvDepartamento.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.DgvDepartamento.Appearance.FocusedRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvDepartamento.Appearance.FocusedRow.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvDepartamento.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White
+        Me.DgvDepartamento.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.DgvDepartamento.Appearance.FocusedRow.Options.UseFont = True
+        Me.DgvDepartamento.Appearance.FocusedRow.Options.UseForeColor = True
+        Me.DgvDepartamento.Appearance.FooterPanel.Options.UseTextOptions = True
+        Me.DgvDepartamento.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.DgvDepartamento.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvDepartamento.Appearance.HideSelectionRow.Font = New System.Drawing.Font("Arial Black", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvDepartamento.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.White
+        Me.DgvDepartamento.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.DgvDepartamento.Appearance.HideSelectionRow.Options.UseFont = True
+        Me.DgvDepartamento.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.DgvDepartamento.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvDepartamento.Appearance.HorzLine.Options.UseBackColor = True
+        Me.DgvDepartamento.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvDepartamento.Appearance.Row.Options.UseBackColor = True
+        Me.DgvDepartamento.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvDepartamento.Appearance.VertLine.Options.UseBackColor = True
+        Me.DgvDepartamento.ColumnPanelRowHeight = 26
+        Me.DgvDepartamento.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColIdDepartamento, Me.ColDepartamento, Me.ColPais})
+        Me.DgvDepartamento.GridControl = Me.GCPrincipal
         Me.DgvDepartamento.Name = "DgvDepartamento"
-        Me.DgvDepartamento.ReadOnly = True
-        Me.DgvDepartamento.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvDepartamento.Size = New System.Drawing.Size(819, 445)
-        Me.DgvDepartamento.TabIndex = 55
+        Me.DgvDepartamento.OptionsBehavior.AllowIncrementalSearch = True
+        Me.DgvDepartamento.OptionsBehavior.Editable = False
+        Me.DgvDepartamento.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click
+        Me.DgvDepartamento.OptionsFind.AlwaysVisible = True
+        Me.DgvDepartamento.OptionsFind.FindNullPrompt = "Introduzca Departamento a buscar..."
+        Me.DgvDepartamento.OptionsView.EnableAppearanceEvenRow = True
+        Me.DgvDepartamento.OptionsView.EnableAppearanceOddRow = True
+        Me.DgvDepartamento.OptionsView.ShowFooter = True
+        Me.DgvDepartamento.OptionsView.ShowGroupPanel = False
+        Me.DgvDepartamento.RowHeight = 22
         '
-        'BtnEditar
+        'ColIdDepartamento
         '
-        Me.BtnEditar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEditar.FlatAppearance.BorderSize = 0
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEditar.Image = Global.INNOVAMASTER.My.Resources.Resources.editar1
-        Me.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnEditar.Location = New System.Drawing.Point(148, 456)
-        Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnEditar.TabIndex = 101
-        Me.BtnEditar.Text = "&Editar"
-        Me.BtnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnEditar.UseVisualStyleBackColor = False
+        Me.ColIdDepartamento.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColIdDepartamento.AppearanceCell.Options.UseFont = True
+        Me.ColIdDepartamento.AppearanceCell.Options.UseTextOptions = True
+        Me.ColIdDepartamento.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.ColIdDepartamento.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColIdDepartamento.AppearanceHeader.Options.UseFont = True
+        Me.ColIdDepartamento.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColIdDepartamento.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColIdDepartamento.Caption = "ID"
+        Me.ColIdDepartamento.FieldName = "IdDepartamento"
+        Me.ColIdDepartamento.Name = "ColIdDepartamento"
+        Me.ColIdDepartamento.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdDepartamento", "{0}")})
+        Me.ColIdDepartamento.Visible = True
+        Me.ColIdDepartamento.VisibleIndex = 0
+        Me.ColIdDepartamento.Width = 191
         '
-        'BtnNuevo
+        'ColDepartamento
         '
-        Me.BtnNuevo.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNuevo.FlatAppearance.BorderSize = 0
-        Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNuevo.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNuevo.Image = Global.INNOVAMASTER.My.Resources.Resources.nuevo
-        Me.BtnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(53, 456)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(82, 86)
-        Me.BtnNuevo.TabIndex = 100
-        Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNuevo.UseVisualStyleBackColor = False
+        Me.ColDepartamento.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColDepartamento.AppearanceCell.Options.UseFont = True
+        Me.ColDepartamento.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColDepartamento.AppearanceHeader.Options.UseFont = True
+        Me.ColDepartamento.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColDepartamento.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColDepartamento.Caption = "Departamento"
+        Me.ColDepartamento.FieldName = "Departamento"
+        Me.ColDepartamento.Name = "ColDepartamento"
+        Me.ColDepartamento.Visible = True
+        Me.ColDepartamento.VisibleIndex = 1
+        Me.ColDepartamento.Width = 556
+        '
+        'ColPais
+        '
+        Me.ColPais.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColPais.AppearanceCell.Options.UseFont = True
+        Me.ColPais.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColPais.AppearanceHeader.Options.UseFont = True
+        Me.ColPais.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColPais.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColPais.Caption = "Pais"
+        Me.ColPais.FieldName = "Pais"
+        Me.ColPais.Name = "ColPais"
+        Me.ColPais.Visible = True
+        Me.ColPais.VisibleIndex = 2
+        Me.ColPais.Width = 331
         '
         'BtnCancelar
         '
-        Me.BtnCancelar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCancelar.FlatAppearance.BorderSize = 0
-        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancelar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelar.Image = Global.INNOVAMASTER.My.Resources.Resources.cancelb
-        Me.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnCancelar.Location = New System.Drawing.Point(347, 456)
+        Me.BtnCancelar.Image = CType(resources.GetObject("BtnCancelar.Image"), System.Drawing.Image)
+        Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnCancelar.Location = New System.Drawing.Point(356, 460)
         Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnCancelar.TabIndex = 103
-        Me.BtnCancelar.Text = "&Cancelar"
-        Me.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnCancelar.UseVisualStyleBackColor = False
+        Me.BtnCancelar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnCancelar.TabIndex = 124
+        Me.BtnCancelar.Text = "Cancelar"
         Me.BtnCancelar.Visible = False
         '
-        'BtnActualizar
+        'BtnEditar
         '
-        Me.BtnActualizar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnActualizar.FlatAppearance.BorderSize = 0
-        Me.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnActualizar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnActualizar.Image = Global.INNOVAMASTER.My.Resources.Resources.actualizarb
-        Me.BtnActualizar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnActualizar.Location = New System.Drawing.Point(246, 456)
-        Me.BtnActualizar.Name = "BtnActualizar"
-        Me.BtnActualizar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnActualizar.TabIndex = 104
-        Me.BtnActualizar.Text = "&Actualizar"
-        Me.BtnActualizar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnActualizar.UseVisualStyleBackColor = False
-        Me.BtnActualizar.Visible = False
+        Me.BtnEditar.Image = CType(resources.GetObject("BtnEditar.Image"), System.Drawing.Image)
+        Me.BtnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEditar.Location = New System.Drawing.Point(148, 460)
+        Me.BtnEditar.Name = "BtnEditar"
+        Me.BtnEditar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnEditar.TabIndex = 122
+        Me.BtnEditar.Text = "Editar"
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Image = CType(resources.GetObject("BtnNuevo.Image"), System.Drawing.Image)
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(44, 460)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(98, 68)
+        Me.BtnNuevo.TabIndex = 121
+        Me.BtnNuevo.Text = "Nuevo"
         '
         'BtnInsertar
         '
-        Me.BtnInsertar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnInsertar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnInsertar.FlatAppearance.BorderSize = 0
-        Me.BtnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnInsertar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInsertar.Image = Global.INNOVAMASTER.My.Resources.Resources.guardar
-        Me.BtnInsertar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnInsertar.Location = New System.Drawing.Point(246, 456)
+        Me.BtnInsertar.Image = CType(resources.GetObject("BtnInsertar.Image"), System.Drawing.Image)
+        Me.BtnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnInsertar.Location = New System.Drawing.Point(252, 460)
         Me.BtnInsertar.Name = "BtnInsertar"
-        Me.BtnInsertar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnInsertar.TabIndex = 102
-        Me.BtnInsertar.Text = "&Guardar"
-        Me.BtnInsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnInsertar.UseVisualStyleBackColor = False
+        Me.BtnInsertar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnInsertar.TabIndex = 125
+        Me.BtnInsertar.Text = "Guardar"
         Me.BtnInsertar.Visible = False
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Image = CType(resources.GetObject("BtnActualizar.Image"), System.Drawing.Image)
+        Me.BtnActualizar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnActualizar.Location = New System.Drawing.Point(252, 460)
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnActualizar.TabIndex = 123
+        Me.BtnActualizar.Text = "Actualizar"
+        Me.BtnActualizar.Visible = False
+        '
+        'TxtIdDepartamento
+        '
+        Me.TxtIdDepartamento.Location = New System.Drawing.Point(151, 37)
+        Me.TxtIdDepartamento.Name = "TxtIdDepartamento"
+        Me.TxtIdDepartamento.Size = New System.Drawing.Size(241, 20)
+        Me.TxtIdDepartamento.TabIndex = 126
+        '
+        'TxtDepartamento
+        '
+        Me.TxtDepartamento.Location = New System.Drawing.Point(151, 74)
+        Me.TxtDepartamento.Name = "TxtDepartamento"
+        Me.TxtDepartamento.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtDepartamento.Size = New System.Drawing.Size(241, 20)
+        Me.TxtDepartamento.TabIndex = 127
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl1.Location = New System.Drawing.Point(93, 40)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(192, 43)
+        Me.LabelControl1.TabIndex = 126
+        Me.LabelControl1.Text = "Departamento"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl2.Location = New System.Drawing.Point(12, 36)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(133, 19)
+        Me.LabelControl2.TabIndex = 127
+        Me.LabelControl2.Text = "Código Departamento"
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl3.Location = New System.Drawing.Point(59, 73)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(86, 19)
+        Me.LabelControl3.TabIndex = 128
+        Me.LabelControl3.Text = "Departamento"
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl4.Location = New System.Drawing.Point(121, 112)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(24, 19)
+        Me.LabelControl4.TabIndex = 129
+        Me.LabelControl4.Text = "País"
+        '
+        'GbDepartamento
+        '
+        Me.GbDepartamento.Controls.Add(Me.BtnBusquedaCliente)
+        Me.GbDepartamento.Controls.Add(Me.CboPais)
+        Me.GbDepartamento.Controls.Add(Me.LabelControl4)
+        Me.GbDepartamento.Controls.Add(Me.TxtIdDepartamento)
+        Me.GbDepartamento.Controls.Add(Me.LabelControl3)
+        Me.GbDepartamento.Controls.Add(Me.TxtDepartamento)
+        Me.GbDepartamento.Controls.Add(Me.LabelControl2)
+        Me.GbDepartamento.Location = New System.Drawing.Point(31, 107)
+        Me.GbDepartamento.Name = "GbDepartamento"
+        Me.GbDepartamento.Size = New System.Drawing.Size(423, 156)
+        Me.GbDepartamento.TabIndex = 130
+        Me.GbDepartamento.Text = "Datos Departamento"
+        '
+        'BtnBusquedaCliente
+        '
+        Me.BtnBusquedaCliente.Location = New System.Drawing.Point(364, 109)
+        Me.BtnBusquedaCliente.Name = "BtnBusquedaCliente"
+        Me.BtnBusquedaCliente.Size = New System.Drawing.Size(28, 23)
+        Me.BtnBusquedaCliente.TabIndex = 131
+        Me.BtnBusquedaCliente.Text = "..."
+        '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
+        Me.SimpleButton2.Location = New System.Drawing.Point(986, 447)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton2.TabIndex = 132
+        Me.SimpleButton2.Text = "Exportar Excel"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.Location = New System.Drawing.Point(1157, 447)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton1.TabIndex = 131
+        Me.SimpleButton1.Text = "Vista Previa"
         '
         'FrmDepartamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSeaGreen
         Me.ClientSize = New System.Drawing.Size(1352, 573)
+        Me.Controls.Add(Me.SimpleButton2)
+        Me.Controls.Add(Me.SimpleButton1)
+        Me.Controls.Add(Me.GbDepartamento)
+        Me.Controls.Add(Me.LabelControl1)
+        Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnNuevo)
-        Me.Controls.Add(Me.BtnCancelar)
-        Me.Controls.Add(Me.BtnActualizar)
         Me.Controls.Add(Me.BtnInsertar)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.TxtBusqueda)
-        Me.Controls.Add(Me.CboBusqueda)
+        Me.Controls.Add(Me.BtnActualizar)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.GbDepartamento)
         Me.Controls.Add(Me.LblFilas)
-        Me.Controls.Add(Me.DgvDepartamento)
+        Me.Controls.Add(Me.GCPrincipal)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmDepartamento"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Departamento"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CboPais.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtIdDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtDepartamento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GbDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbDepartamento.ResumeLayout(False)
         Me.GbDepartamento.PerformLayout()
-        CType(Me.DgvDepartamento, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents TxtBusqueda As TextBox
-    Friend WithEvents CboBusqueda As ComboBox
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents GbDepartamento As GroupBox
-    Friend WithEvents CboPais As ComboBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents TxtDepartamento As TextBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents TxtIdDepartamento As TextBox
-    Friend WithEvents Label1 As Label
     Friend WithEvents LblFilas As Label
-    Friend WithEvents DgvDepartamento As DataGridView
-    Friend WithEvents BtnEditar As Button
-    Friend WithEvents BtnNuevo As Button
-    Friend WithEvents BtnCancelar As Button
-    Friend WithEvents BtnActualizar As Button
-    Friend WithEvents BtnInsertar As Button
-    Friend WithEvents BtnBusquedaCliente As Button
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
+    Friend WithEvents DgvDepartamento As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents ColIdDepartamento As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColDepartamento As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColPais As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CboPais As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents BtnCancelar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEditar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnInsertar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnActualizar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents TxtIdDepartamento As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TxtDepartamento As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents GbDepartamento As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents BtnBusquedaCliente As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 End Class
