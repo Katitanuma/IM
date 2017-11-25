@@ -51,13 +51,13 @@ Public Class FrmFactura
             conec.Conectarse()
             cmd = New SqlCommand("ReporteVenta", conec.Con)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add("@IdVenta", SqlDbType.NVarChar, 50).Value = ReporteVentas.DgvReporteVentas.CurrentRow.Cells(0).Value.ToString
+            cmd.Parameters.Add("@IdVenta", SqlDbType.NVarChar, 50).Value = ReporteVentas.DgvPrincipal.GetRowCellValue(ReporteVentas.DgvPrincipal.FocusedRowHandle, "IdVenta").ToString
             cmd.ExecuteNonQuery()
             Dim da As New SqlDataAdapter(cmd)
             da.Fill(ds, "ReporteVenta")
             rpt.SetDataSource(ds)
-            If ReporteVentas.DgvReporteVentas.CurrentRow.Cells(7).Value.ToString <> Nothing Then
-                rpt.SetParameterValue("Cambio", ReporteVentas.DgvReporteVentas.CurrentRow.Cells(7).Value.ToString)
+            If ReporteVentas.DgvPrincipal.GetRowCellValue(ReporteVentas.DgvPrincipal.FocusedRowHandle, "cambio").ToString <> Nothing Then
+                rpt.SetParameterValue("Cambio", ReporteVentas.DgvPrincipal.GetRowCellValue(ReporteVentas.DgvPrincipal.FocusedRowHandle, "cambio").ToString)
             Else
                 rpt.SetParameterValue("Cambio", "0.00")
             End If

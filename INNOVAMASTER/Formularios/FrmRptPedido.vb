@@ -18,7 +18,7 @@ Public Class FrmRptPedido
             conec.Conectarse()
             cmd = New SqlCommand("ReportePedido", conec.Con)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add("@IdPedido", SqlDbType.Int).Value = CInt(ReportePedido.DgvReportePedidos.CurrentRow.Cells(0).Value.ToString)
+            cmd.Parameters.Add("@IdPedido", SqlDbType.Int).Value = CInt(ReportePedido.DgvPrincipal.GetRowCellValue(ReportePedido.DgvPrincipal.FocusedRowHandle, "IdPedido").ToString)
             cmd.ExecuteNonQuery()
             Dim da As New SqlDataAdapter(cmd)
             da.Fill(ds, "ReportePedido")
