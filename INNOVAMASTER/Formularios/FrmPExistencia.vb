@@ -1,8 +1,7 @@
 ﻿Imports System.Data.SqlClient
-Public Class FrmProductosBajaExistencia
+Public Class FrmPExistencia
     Dim conec As New Conexion
-    Private Sub FrmProductosBajaExistencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub FrmPExistencia_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dt As New DataTable
         Try
             conec.Conectarse()
@@ -14,12 +13,9 @@ Public Class FrmProductosBajaExistencia
         Finally
             conec.Desconectarse()
         End Try
-
-
     End Sub
 
-    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
-
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         Dim dt As New DataTable
         Try
             conec.Conectarse()
@@ -31,19 +27,17 @@ Public Class FrmProductosBajaExistencia
         Finally
             conec.Desconectarse()
         End Try
-
     End Sub
 
-    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+    Private Sub BtnExportarPDF_Click(sender As Object, e As EventArgs) Handles BtnExportarPDF.Click
         Exportar_a_PDF(GCPrincipal, Me.Text)
     End Sub
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+    Private Sub BtnExportarExcel_Click(sender As Object, e As EventArgs) Handles BtnExportarExcel.Click
         Exportar_a_Excel(GCPrincipal, Me.Text)
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         GCPrincipal.ShowPrintPreview()
-
     End Sub
 End Class

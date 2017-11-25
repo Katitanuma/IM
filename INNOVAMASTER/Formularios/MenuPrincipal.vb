@@ -34,9 +34,7 @@ Partial Public Class MenuPrincipal
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = My.Settings.Tema
         End If
 
-        FrmProductosBajaExistencia.Location = New Point(285, 220)
-        FrmProductosBajaExistencia.ShowDialog()
-        FrmProductosBajaExistencia.Focus()
+
 
     End Sub
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BtnRegistroClientes.ItemClick
@@ -290,9 +288,7 @@ Partial Public Class MenuPrincipal
 
     Private Sub BarButtonItem30_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem30.ItemClick
         Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
-        FrmProductosBajaExistencia.Location = New Point(285, 220)
-        FrmProductosBajaExistencia.Show()
-        FrmProductosBajaExistencia.Focus()
+
     End Sub
 
     Private Sub BarButtonItem31_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem31.ItemClick

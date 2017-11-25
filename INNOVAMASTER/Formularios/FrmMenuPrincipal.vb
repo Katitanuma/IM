@@ -90,9 +90,9 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem16_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem16.ItemClick
-        FrmProductosBajaExistencia.Location = New Point(285, 220)
-        FrmProductosBajaExistencia.Show()
-        FrmProductosBajaExistencia.Focus()
+        FrmPExistencia.Location = New Point(285, 220)
+        FrmPExistencia.ShowDialog()
+        FrmPExistencia.Focus()
     End Sub
 
     Private Sub BarButtonItem17_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem17.ItemClick
@@ -180,9 +180,9 @@ Public Class FrmMenuPrincipal
             DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName = My.Settings.Tema
         End If
 
-        FrmProductosBajaExistencia.Location = New Point(285, 220)
-        FrmProductosBajaExistencia.ShowDialog()
-        FrmProductosBajaExistencia.Focus()
+        FrmPExistencia.Location = New Point(285, 220)
+        FrmPExistencia.ShowDialog()
+        FrmPExistencia.Focus()
     End Sub
 
     Private Sub FrmMenuPrincipal_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing

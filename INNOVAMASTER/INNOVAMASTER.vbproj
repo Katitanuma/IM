@@ -231,6 +231,12 @@
     <Compile Include="Formularios\FrmPermisos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmPExistencia.Designer.vb">
+      <DependentUpon>FrmPExistencia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmPExistencia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmPresentacion.Designer.vb">
       <DependentUpon>FrmPresentacion.vb</DependentUpon>
     </Compile>
@@ -415,12 +421,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Reportes\FrmProductosBajaExistencia.Designer.vb">
-      <DependentUpon>FrmProductosBajaExistencia.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\FrmProductosBajaExistencia.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Reportes\FrmReportesBase.Designer.vb">
       <DependentUpon>FrmReportesBase.vb</DependentUpon>
     </Compile>
@@ -514,6 +514,9 @@
     <EmbeddedResource Include="Formularios\FrmPermisos.resx">
       <DependentUpon>FrmPermisos.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmPExistencia.resx">
+      <DependentUpon>FrmPExistencia.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPresentacion.resx">
       <DependentUpon>FrmPresentacion.vb</DependentUpon>
     </EmbeddedResource>
@@ -598,9 +601,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\FrmProductosBajaExistencia.resx">
-      <DependentUpon>FrmProductosBajaExistencia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmReportesBase.resx">
       <DependentUpon>FrmReportesBase.vb</DependentUpon>

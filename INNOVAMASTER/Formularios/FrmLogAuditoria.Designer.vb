@@ -192,7 +192,7 @@ Partial Class FrmLogAuditoria
         'SimpleButton2
         '
         Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
-        Me.SimpleButton2.Location = New System.Drawing.Point(428, 377)
+        Me.SimpleButton2.Location = New System.Drawing.Point(397, 377)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(165, 45)
         Me.SimpleButton2.TabIndex = 152
@@ -201,7 +201,7 @@ Partial Class FrmLogAuditoria
         'SimpleButton1
         '
         Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(599, 377)
+        Me.SimpleButton1.Location = New System.Drawing.Point(568, 377)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(165, 45)
         Me.SimpleButton1.TabIndex = 151
@@ -219,7 +219,7 @@ Partial Class FrmLogAuditoria
         'SimpleButton5
         '
         Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
-        Me.SimpleButton5.Location = New System.Drawing.Point(86, 377)
+        Me.SimpleButton5.Location = New System.Drawing.Point(55, 377)
         Me.SimpleButton5.Name = "SimpleButton5"
         Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
         Me.SimpleButton5.TabIndex = 155
@@ -228,7 +228,7 @@ Partial Class FrmLogAuditoria
         'SimpleButton4
         '
         Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
-        Me.SimpleButton4.Location = New System.Drawing.Point(257, 377)
+        Me.SimpleButton4.Location = New System.Drawing.Point(226, 377)
         Me.SimpleButton4.Name = "SimpleButton4"
         Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
         Me.SimpleButton4.TabIndex = 154
