@@ -415,6 +415,12 @@
     <Compile Include="Reportes\FrmProductosBajaExistencia.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reportes\FrmReportesBase.Designer.vb">
+      <DependentUpon>FrmReportesBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReportesBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reportes\ReporteClientes.Designer.vb">
       <DependentUpon>ReporteClientes.vb</DependentUpon>
     </Compile>
@@ -586,6 +592,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmProductosBajaExistencia.resx">
       <DependentUpon>FrmProductosBajaExistencia.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmReportesBase.resx">
+      <DependentUpon>FrmReportesBase.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteClientes.resx">
       <DependentUpon>ReporteClientes.vb</DependentUpon>

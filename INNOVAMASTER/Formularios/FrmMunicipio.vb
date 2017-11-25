@@ -270,4 +270,19 @@ Public Class FrmMunicipio
 
         End If
     End Sub
+
+    Private Sub DgvMunicipio_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvMunicipio.FocusedRowChanged
+        Dim FilaActual As Integer = DgvMunicipio.FocusedRowHandle
+        TxtIdMunicipio.Text = DgvMunicipio.GetRowCellValue(DgvMunicipio.FocusedRowHandle, ColIdMunicipio)
+        TxtMunicipio.Text = DgvMunicipio.GetRowCellValue(FilaActual, ColMunicipio)
+        CboDepartamento.Text = DgvMunicipio.GetRowCellValue(FilaActual, ColDepartamento)
+    End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarMunicipio()
+    End Sub
 End Class

@@ -85,8 +85,10 @@ Partial Class FrmMunicipio
         Me.CboDepartamento.Location = New System.Drawing.Point(129, 112)
         Me.CboDepartamento.Name = "CboDepartamento"
         Me.CboDepartamento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboDepartamento.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.CboDepartamento.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdDepartamento", 10, "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Departamento", 30, "Departamento"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Pais", "Pais")})
         Me.CboDepartamento.Properties.DisplayMember = "Departamento"
+        Me.CboDepartamento.Properties.NullText = "Seleccione Departamento"
         Me.CboDepartamento.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains
         Me.CboDepartamento.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CboDepartamento.Properties.ValueMember = "IdDepartamento"
