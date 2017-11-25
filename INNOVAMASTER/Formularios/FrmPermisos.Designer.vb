@@ -233,7 +233,7 @@ Partial Class FrmPermisos
         Me.SplitContainerControl2.Panel1.Text = "Panel1"
         Me.SplitContainerControl2.Panel2.Controls.Add(Me.GCPD)
         Me.SplitContainerControl2.Panel2.Text = "Panel2"
-        Me.SplitContainerControl2.Size = New System.Drawing.Size(1362, 468)
+        Me.SplitContainerControl2.Size = New System.Drawing.Size(1362, 467)
         Me.SplitContainerControl2.SplitterPosition = 710
         Me.SplitContainerControl2.TabIndex = 0
         Me.SplitContainerControl2.Text = "SplitContainerControl2"
@@ -244,7 +244,7 @@ Partial Class FrmPermisos
         Me.GCPP.Location = New System.Drawing.Point(0, 0)
         Me.GCPP.MainView = Me.DgvD
         Me.GCPP.Name = "GCPP"
-        Me.GCPP.Size = New System.Drawing.Size(647, 468)
+        Me.GCPP.Size = New System.Drawing.Size(647, 467)
         Me.GCPP.TabIndex = 105
         Me.GCPP.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvD})
         '
@@ -347,7 +347,7 @@ Partial Class FrmPermisos
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(647, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(63, 468)
+        Me.Panel1.Size = New System.Drawing.Size(63, 467)
         Me.Panel1.TabIndex = 0
         '
         'SimpleButton2
@@ -372,7 +372,7 @@ Partial Class FrmPermisos
         '
         Me.SplitterControl1.Location = New System.Drawing.Point(0, 0)
         Me.SplitterControl1.Name = "SplitterControl1"
-        Me.SplitterControl1.Size = New System.Drawing.Size(5, 468)
+        Me.SplitterControl1.Size = New System.Drawing.Size(6, 467)
         Me.SplitterControl1.TabIndex = 0
         Me.SplitterControl1.TabStop = False
         '
@@ -382,7 +382,7 @@ Partial Class FrmPermisos
         Me.GCPD.Location = New System.Drawing.Point(0, 0)
         Me.GCPD.MainView = Me.DgvP
         Me.GCPD.Name = "GCPD"
-        Me.GCPD.Size = New System.Drawing.Size(647, 468)
+        Me.GCPD.Size = New System.Drawing.Size(646, 467)
         Me.GCPD.TabIndex = 106
         Me.GCPD.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvP})
         '
