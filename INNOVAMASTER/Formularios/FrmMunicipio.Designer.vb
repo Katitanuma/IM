@@ -56,6 +56,8 @@ Partial Class FrmMunicipio
         Me.BtnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.CboDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -135,7 +137,8 @@ Partial Class FrmMunicipio
         '
         'DgvMunicipio
         '
-        Me.DgvMunicipio.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvMunicipio.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvMunicipio.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvMunicipio.Appearance.Empty.Options.UseBackColor = True
         Me.DgvMunicipio.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
         Me.DgvMunicipio.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -192,7 +195,7 @@ Partial Class FrmMunicipio
         Me.ColIdMunicipio.Caption = "ID"
         Me.ColIdMunicipio.FieldName = "IdMunicipio"
         Me.ColIdMunicipio.Name = "ColIdMunicipio"
-        Me.ColIdMunicipio.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdMunicipio", "{0}")})
+        Me.ColIdMunicipio.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdMunicipio", "Total Municipios = {0}")})
         Me.ColIdMunicipio.Visible = True
         Me.ColIdMunicipio.VisibleIndex = 0
         Me.ColIdMunicipio.Width = 164
@@ -405,11 +408,31 @@ Partial Class FrmMunicipio
         Me.LabelControl3.TabIndex = 124
         Me.LabelControl3.Text = "Municipio"
         '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(816, 464)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 129
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(645, 464)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 130
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
         'FrmMunicipio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1352, 573)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
@@ -479,4 +502,6 @@ Partial Class FrmMunicipio
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
 End Class
