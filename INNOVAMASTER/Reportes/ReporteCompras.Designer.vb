@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class ReporteCompras
-    Inherits System.Windows.Forms.Form
+    Inherits FrmReportesBase
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -27,17 +27,20 @@ Partial Class ReporteCompras
         Me.CmsReporteCompras = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.VisualizarReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.DgvReporteCompra = New System.Windows.Forms.DataGridView()
-        Me.TxtBusqueda = New System.Windows.Forms.TextBox()
-        Me.CmsReporteCompras.SuspendLayout()
+        Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
+        Me.DgvPrincipal = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CmsReporteCompras.SuspendLayout()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'LblEtiqueta
+        '
+        Me.LblEtiqueta.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LblEtiqueta.Size = New System.Drawing.Size(251, 43)
+        Me.LblEtiqueta.Text = "Reporte de Compra"
         '
         'CmsReporteCompras
         '
@@ -59,84 +62,82 @@ Partial Class ReporteCompras
         Me.ImprimirReporteToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.ImprimirReporteToolStripMenuItem.Text = "Imprimir reporte"
         '
-        'PictureBox2
+        'GCPrincipal
         '
-        Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.business_sales_payment_paymentcard_card_money_2352
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Location = New System.Drawing.Point(216, 17)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(50, 51)
-        Me.PictureBox2.TabIndex = 68
-        Me.PictureBox2.TabStop = False
+        Me.GCPrincipal.ContextMenuStrip = Me.CmsReporteCompras
+        Me.GCPrincipal.Location = New System.Drawing.Point(12, 66)
+        Me.GCPrincipal.MainView = Me.DgvPrincipal
+        Me.GCPrincipal.Name = "GCPrincipal"
+        Me.GCPrincipal.Size = New System.Drawing.Size(849, 265)
+        Me.GCPrincipal.TabIndex = 140
+        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvPrincipal})
         '
-        'Label13
+        'DgvPrincipal
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label13.Location = New System.Drawing.Point(261, 20)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(280, 43)
-        Me.Label13.TabIndex = 62
-        Me.Label13.Text = "Reporte de Compras"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.search
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.PictureBox1.Location = New System.Drawing.Point(43, 84)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 60
-        Me.PictureBox1.TabStop = False
-        '
-        'DgvReporteCompra
-        '
-        Me.DgvReporteCompra.AllowUserToAddRows = False
-        Me.DgvReporteCompra.AllowUserToDeleteRows = False
-        Me.DgvReporteCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvReporteCompra.BackgroundColor = System.Drawing.Color.White
-        Me.DgvReporteCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvReporteCompra.ContextMenuStrip = Me.CmsReporteCompras
-        Me.DgvReporteCompra.Location = New System.Drawing.Point(43, 135)
-        Me.DgvReporteCompra.Name = "DgvReporteCompra"
-        Me.DgvReporteCompra.ReadOnly = True
-        Me.DgvReporteCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvReporteCompra.Size = New System.Drawing.Size(690, 234)
-        Me.DgvReporteCompra.TabIndex = 59
-        '
-        'TxtBusqueda
-        '
-        Me.TxtBusqueda.Location = New System.Drawing.Point(81, 91)
-        Me.TxtBusqueda.Name = "TxtBusqueda"
-        Me.TxtBusqueda.Size = New System.Drawing.Size(652, 20)
-        Me.TxtBusqueda.TabIndex = 61
+        Me.DgvPrincipal.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvPrincipal.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvPrincipal.Appearance.Empty.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvPrincipal.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvPrincipal.Appearance.FocusedCell.ForeColor = System.Drawing.Color.White
+        Me.DgvPrincipal.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.FocusedCell.Options.UseFont = True
+        Me.DgvPrincipal.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.DgvPrincipal.Appearance.FocusedRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvPrincipal.Appearance.FocusedRow.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvPrincipal.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.FocusedRow.Options.UseFont = True
+        Me.DgvPrincipal.Appearance.FooterPanel.Options.UseTextOptions = True
+        Me.DgvPrincipal.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.DgvPrincipal.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvPrincipal.Appearance.HideSelectionRow.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvPrincipal.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.White
+        Me.DgvPrincipal.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.HideSelectionRow.Options.UseFont = True
+        Me.DgvPrincipal.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.DgvPrincipal.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvPrincipal.Appearance.HorzLine.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvPrincipal.Appearance.Row.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvPrincipal.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.DgvPrincipal.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvPrincipal.Appearance.VertLine.Options.UseBackColor = True
+        Me.DgvPrincipal.ColumnPanelRowHeight = 26
+        Me.DgvPrincipal.GridControl = Me.GCPrincipal
+        Me.DgvPrincipal.Name = "DgvPrincipal"
+        Me.DgvPrincipal.OptionsBehavior.AllowIncrementalSearch = True
+        Me.DgvPrincipal.OptionsBehavior.AutoSelectAllInEditor = False
+        Me.DgvPrincipal.OptionsBehavior.Editable = False
+        Me.DgvPrincipal.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click
+        Me.DgvPrincipal.OptionsFind.AlwaysVisible = True
+        Me.DgvPrincipal.OptionsFind.FindNullPrompt = "Introduzca municipio a buscar..."
+        Me.DgvPrincipal.OptionsView.EnableAppearanceEvenRow = True
+        Me.DgvPrincipal.OptionsView.EnableAppearanceOddRow = True
+        Me.DgvPrincipal.OptionsView.ShowGroupPanel = False
+        Me.DgvPrincipal.RowHeight = 22
         '
         'ReporteCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.ClientSize = New System.Drawing.Size(776, 396)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.TxtBusqueda)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.DgvReporteCompra)
+        Me.ClientSize = New System.Drawing.Size(872, 396)
+        Me.Controls.Add(Me.GCPrincipal)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MostrarBotonImprimir = False
+        Me.MostrarBotonReporte = False
         Me.Name = "ReporteCompras"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Compras"
-        Me.CmsReporteCompras.ResumeLayout(False)
+        Me.Controls.SetChildIndex(Me.PictureBox2, 0)
+        Me.Controls.SetChildIndex(Me.LblEtiqueta, 0)
+        Me.Controls.SetChildIndex(Me.GCPrincipal, 0)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CmsReporteCompras.ResumeLayout(False)
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -144,10 +145,7 @@ Partial Class ReporteCompras
     Friend WithEvents CmsReporteCompras As ContextMenuStrip
     Friend WithEvents VisualizarReporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimirReporteToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents HelpProvider1 As HelpProvider
-    Friend WithEvents Label13 As Label
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents DgvReporteCompra As DataGridView
-    Friend WithEvents TxtBusqueda As TextBox
+    Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
+    Friend WithEvents DgvPrincipal As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

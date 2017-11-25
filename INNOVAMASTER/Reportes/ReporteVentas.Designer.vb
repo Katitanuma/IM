@@ -132,7 +132,7 @@ Partial Class ReporteVentas
         Me.Name = "ReporteVentas"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas"
         CType(Me.DgvReporteVentas, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ContextMenuStrip1.ResumeLayout(False)

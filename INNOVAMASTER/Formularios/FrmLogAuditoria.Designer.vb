@@ -250,7 +250,7 @@ Partial Class FrmLogAuditoria
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "FrmLogAuditoria"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Auditoría"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()

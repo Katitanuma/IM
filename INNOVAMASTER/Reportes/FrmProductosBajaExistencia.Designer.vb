@@ -94,7 +94,6 @@ Partial Class FrmProductosBajaExistencia
         Me.DgvProductos.OptionsFind.FindNullPrompt = "Introduzca modelo a buscar..."
         Me.DgvProductos.OptionsView.EnableAppearanceEvenRow = True
         Me.DgvProductos.OptionsView.EnableAppearanceOddRow = True
-        Me.DgvProductos.OptionsView.ShowFooter = True
         Me.DgvProductos.OptionsView.ShowGroupPanel = False
         Me.DgvProductos.RowHeight = 22
         '

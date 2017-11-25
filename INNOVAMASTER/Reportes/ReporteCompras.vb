@@ -1,20 +1,10 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class ReporteCompras
-    Private Sub ReporteClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Call MostrarDatosReporteClientes()
-
-        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
-        HelpProvider1.HelpNamespace = NombreArchivo
-        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
-        HelpProvider1.SetHelpKeyword(Me, "Reporte Compra")
-
-    End Sub
     Dim Connect As New Conexion
     Dim conec As New Conexion
 
-    Private Sub MostrarDatosReporteClientes()
-
+    Protected Overrides Sub MostrarDatos()
         Using cmd As New SqlCommand
             Try
                 Connect.Conectarse()
@@ -27,7 +17,7 @@ Public Class ReporteCompras
                 Dim AdaptadorReporteClientes As New SqlDataAdapter(cmd)
                 Dim dt As New DataTable
                 AdaptadorReporteClientes.Fill(dt)
-                DgvReporteCompra.DataSource = dt
+                GCPrincipal.DataSource = dt
 
             Catch ex As Exception
                 MessageBox.Show("Error al mostrar el reporte de los clientes " + ex.Message)
@@ -38,43 +28,13 @@ Public Class ReporteCompras
         End Using
     End Sub
 
-    Private Sub BusquedaFiltradaClientes()
-        Using cmd As New SqlCommand
-            Try
-                Connect.Conectarse()
-                With cmd
-                    .CommandText = "BusquedaCompraReporte"
-                    .CommandType = CommandType.StoredProcedure
-                    .Parameters.Add("@Parametro", SqlDbType.NVarChar, 50).Value = TxtBusqueda.Text.Trim
-                    .Connection = Connect.Con
-                End With
+    Protected Overrides Sub AyudaHTML()
 
-                Dim AdaptadorBusqueda As New SqlDataAdapter(cmd)
-                Dim dt As New DataTable
-                AdaptadorBusqueda.Fill(dt)
-                DgvReporteCompra.DataSource = dt
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Reporte Compra")
 
-
-            Catch ex As Exception
-                MessageBox.Show("Error al mostrar los datos " + ex.Message)
-            Finally
-                Connect.Desconectarse()
-            End Try
-
-        End Using
-    End Sub
-
-    Private Sub TxtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        If TxtBusqueda.Text = Nothing Then
-            MostrarDatosReporteClientes()
-        Else
-            BusquedaFiltradaClientes()
-        End If
-    End Sub
-
-    Private Sub VisualizarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VisualizarReporteToolStripMenuItem.Click
-        FrmRptCompra.var = 1
-        FrmRptCompra.ShowDialog()
     End Sub
 
     Private Sub ImprimirReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirReporteToolStripMenuItem.Click
@@ -86,7 +46,7 @@ Public Class ReporteCompras
             Dim cmd As New SqlCommand
             cmd = New SqlCommand("ReporteCompra", conec.Con)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add("@IdCompra", SqlDbType.Int).Value = CInt(DgvReporteCompra.CurrentRow.Cells(0).Value.ToString)
+            cmd.Parameters.Add("@IdCompra", SqlDbType.Int).Value = CInt(DgvPrincipal.GetRowCellValue(DgvPrincipal.FocusedRowHandle, "IdCompra").ToString)
             cmd.ExecuteNonQuery()
             Dim da As New SqlDataAdapter(cmd)
             da.Fill(ds, "ReporteCompra")
@@ -95,5 +55,42 @@ Public Class ReporteCompras
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub VisualizarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VisualizarReporteToolStripMenuItem.Click
+        FrmRptCompra.var = 1
+        FrmRptCompra.ShowDialog()
+    End Sub
+
+    Protected Overrides Sub ActualizarDatos()
+        Using cmd As New SqlCommand
+            Try
+                Connect.Conectarse()
+                With cmd
+                    .CommandText = "MostrarDatosCompraReporte"
+                    .CommandType = CommandType.StoredProcedure
+                    .Connection = Connect.Con
+                End With
+
+                Dim AdaptadorReporteClientes As New SqlDataAdapter(cmd)
+                Dim dt As New DataTable
+                AdaptadorReporteClientes.Fill(dt)
+                GCPrincipal.DataSource = dt
+
+            Catch ex As Exception
+                MessageBox.Show("Error al mostrar el reporte de los clientes " + ex.Message)
+            Finally
+                Connect.Desconectarse()
+            End Try
+
+        End Using
+    End Sub
+
+    Protected Overrides Sub ExportarExcel()
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Protected Overrides Sub ExportarPDF()
+        Exportar_a_PDF(GCPrincipal, Me.Text)
     End Sub
 End Class

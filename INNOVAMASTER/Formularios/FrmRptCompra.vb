@@ -19,7 +19,7 @@ Public Class FrmRptCompra
             conec.Conectarse()
             cmd = New SqlCommand("ReporteCompra", conec.Con)
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Parameters.Add("@IdCompra", SqlDbType.Int).Value = CInt(ReporteCompras.DgvReporteCompra.CurrentRow.Cells(0).Value.ToString)
+            cmd.Parameters.Add("@IdCompra", SqlDbType.Int).Value = CInt(ReporteCompras.DgvPrincipal.GetRowCellValue(ReporteCompras.DgvPrincipal.FocusedRowHandle, "IdCompra").ToString)
             cmd.ExecuteNonQuery()
             Dim da As New SqlDataAdapter(cmd)
             da.Fill(ds, "ReporteCompra")

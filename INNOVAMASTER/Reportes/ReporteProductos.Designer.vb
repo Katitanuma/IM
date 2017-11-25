@@ -105,7 +105,7 @@ Partial Class ReporteProductos
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "ReporteProductos"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Productos"
         Me.Controls.SetChildIndex(Me.PictureBox2, 0)
         Me.Controls.SetChildIndex(Me.LblEtiqueta, 0)
