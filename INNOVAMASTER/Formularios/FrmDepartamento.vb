@@ -240,4 +240,19 @@ Public Class FrmDepartamento
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         Exportar_a_Excel(GCPrincipal, Me.Text)
     End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarDepartamento()
+    End Sub
+
+    Private Sub DgvDepartamento_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvDepartamento.FocusedRowChanged
+        Dim index As Integer = DgvDepartamento.FocusedRowHandle
+        TxtIdDepartamento.EditValue = DgvDepartamento.GetRowCellValue(index, ColIdDepartamento)
+        TxtDepartamento.EditValue = DgvDepartamento.GetRowCellValue(index, ColDepartamento)
+        CboPais.Text = DgvDepartamento.GetRowCellValue(index, ColPais)
+    End Sub
 End Class

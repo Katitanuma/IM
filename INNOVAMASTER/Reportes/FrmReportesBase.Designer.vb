@@ -109,6 +109,7 @@ Partial Class FrmReportesBase
         Me.Controls.Add(Me.BtnExportarPDF)
         Me.Controls.Add(Me.BtnExportarExcel)
         Me.Controls.Add(Me.BtnImprimir)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmReportesBase"
         Me.Text = "FrmReportesBase"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()

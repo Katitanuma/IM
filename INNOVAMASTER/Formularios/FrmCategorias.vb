@@ -193,4 +193,19 @@ Public Class FrmCategoria
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         GCPrincipal.ShowPrintPreview()
     End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarCategoria()
+    End Sub
+
+    Private Sub DgvCategoria_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvCategoria.FocusedRowChanged
+        Dim index As Integer = DgvCategoria.FocusedRowHandle
+        TxtIdCategoria.EditValue = DgvCategoria.GetRowCellValue(index, ColIdCategoria)
+        TxtCategoria.EditValue = DgvCategoria.GetRowCellValue(index, ColCategoria)
+
+    End Sub
 End Class

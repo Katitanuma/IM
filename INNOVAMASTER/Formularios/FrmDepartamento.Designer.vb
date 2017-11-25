@@ -47,6 +47,8 @@ Partial Class FrmDepartamento
         Me.BtnBusquedaCliente = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CboPais.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,8 +74,10 @@ Partial Class FrmDepartamento
         Me.CboPais.Location = New System.Drawing.Point(151, 111)
         Me.CboPais.Name = "CboPais"
         Me.CboPais.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboPais.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.CboPais.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdPais", 10, "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Pais", 30, "Pais")})
         Me.CboPais.Properties.DisplayMember = "Pais"
+        Me.CboPais.Properties.NullText = "Seleccione Pais"
         Me.CboPais.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains
         Me.CboPais.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CboPais.Properties.ValueMember = "IdPais"
@@ -101,7 +105,8 @@ Partial Class FrmDepartamento
         '
         'DgvDepartamento
         '
-        Me.DgvDepartamento.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvDepartamento.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvDepartamento.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvDepartamento.Appearance.Empty.Options.UseBackColor = True
         Me.DgvDepartamento.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
         Me.DgvDepartamento.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -157,7 +162,7 @@ Partial Class FrmDepartamento
         Me.ColIdDepartamento.Caption = "ID"
         Me.ColIdDepartamento.FieldName = "IdDepartamento"
         Me.ColIdDepartamento.Name = "ColIdDepartamento"
-        Me.ColIdDepartamento.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdDepartamento", "{0}")})
+        Me.ColIdDepartamento.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdDepartamento", "Total Departamento = {0}")})
         Me.ColIdDepartamento.Visible = True
         Me.ColIdDepartamento.VisibleIndex = 0
         Me.ColIdDepartamento.Width = 191
@@ -265,7 +270,7 @@ Partial Class FrmDepartamento
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LabelControl1.Location = New System.Drawing.Point(93, 40)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(192, 43)
+        Me.LabelControl1.Size = New System.Drawing.Size(191, 43)
         Me.LabelControl1.TabIndex = 126
         Me.LabelControl1.Text = "Departamento"
         '
@@ -337,11 +342,31 @@ Partial Class FrmDepartamento
         Me.SimpleButton1.TabIndex = 131
         Me.SimpleButton1.Text = "Vista Previa"
         '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(644, 447)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 134
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(815, 447)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 133
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
         'FrmDepartamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1352, 573)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.SimpleButton2)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.GbDepartamento)
@@ -397,4 +422,6 @@ Partial Class FrmDepartamento
     Friend WithEvents BtnBusquedaCliente As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
 End Class

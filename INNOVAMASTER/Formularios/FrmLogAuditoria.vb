@@ -26,34 +26,6 @@ Public Class FrmLogAuditoria
 
         End Using
     End Sub
-    'Private Sub BusquedaFiltradasLogAuditoria()
-
-
-    '    Using cmd As New SqlCommand
-    '        Try
-    '            conec.Conectarse()
-
-    '            With cmd
-    '                .CommandText = "Sp_BusquedaLogAuditoria"
-    '                .CommandType = CommandType.StoredProcedure
-    '                .Parameters.Add("@Parametro", SqlDbType.NVarChar, 50).Value = TxtBusqueda.Text.Trim
-    '                .Connection = conec.Con
-    '            End With
-
-    '            Dim AdaptadorBusqueda As New SqlDataAdapter(cmd)
-    '            Dim dt As New DataTable
-    '            AdaptadorBusqueda.Fill(dt)
-    '            DgvLogAuditoria.DataSource = dt
-
-
-    '        Catch ex As Exception
-    '            MessageBox.Show("Error al mostrar los datos " + ex.Message)
-    '        Finally
-    '            conec.Desconectarse()
-    '        End Try
-
-    '    End Using
-    'End Sub
 
 
     Private Sub FrmLogAuditoria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -72,4 +44,14 @@ Public Class FrmLogAuditoria
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         GCPrincipal.ShowPrintPreview()
     End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarTodosLogAuditoria()
+    End Sub
+
+
 End Class

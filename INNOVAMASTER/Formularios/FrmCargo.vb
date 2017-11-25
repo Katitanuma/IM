@@ -173,4 +173,18 @@ Public Class frmCargo
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         GCPrincipal.ShowPrintPreview()
     End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarCargo()
+    End Sub
+
+    Private Sub DgvCargo_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvCargo.FocusedRowChanged
+        Dim index As Integer = DgvCargo.FocusedRowHandle
+        TxtIdCargo.EditValue = DgvCargo.GetRowCellValue(index, ColIdCargo)
+        TxtCargo.EditValue = DgvCargo.GetRowCellValue(index, ColCargo)
+    End Sub
 End Class

@@ -184,5 +184,16 @@ Public Class FrmPais
         GCPrincipal.ShowPrintPreview()
     End Sub
 
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
 
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarPais()
+    End Sub
+
+    Private Sub DgvPais_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvPais.FocusedRowChanged
+        TxtIdPais.EditValue = DgvPais.GetRowCellValue(DgvPais.FocusedRowHandle, ColIdPais)
+        TxtPais.EditValue = DgvPais.GetRowCellValue(DgvPais.FocusedRowHandle, ColPais)
+    End Sub
 End Class

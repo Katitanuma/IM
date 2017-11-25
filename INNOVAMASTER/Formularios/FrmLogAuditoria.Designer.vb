@@ -35,6 +35,8 @@ Partial Class FrmLogAuditoria
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvLogAuditoria, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,7 +63,8 @@ Partial Class FrmLogAuditoria
         '
         'DgvLogAuditoria
         '
-        Me.DgvLogAuditoria.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvLogAuditoria.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvLogAuditoria.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvLogAuditoria.Appearance.Empty.Options.UseBackColor = True
         Me.DgvLogAuditoria.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
         Me.DgvLogAuditoria.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -115,7 +118,7 @@ Partial Class FrmLogAuditoria
         Me.ColIdTrigger.Caption = "ID"
         Me.ColIdTrigger.FieldName = "IdTrigger"
         Me.ColIdTrigger.Name = "ColIdTrigger"
-        Me.ColIdTrigger.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "{0}")})
+        Me.ColIdTrigger.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "Total Acciones = {0}")})
         Me.ColIdTrigger.Visible = True
         Me.ColIdTrigger.VisibleIndex = 0
         Me.ColIdTrigger.Width = 91
@@ -213,11 +216,31 @@ Partial Class FrmLogAuditoria
         Me.LabelControl1.TabIndex = 153
         Me.LabelControl1.Text = "Registros de Auditoría"
         '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(86, 377)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 155
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(257, 377)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 154
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
         'FrmLogAuditoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(776, 430)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.SimpleButton2)
         Me.Controls.Add(Me.SimpleButton1)
@@ -248,4 +271,6 @@ Partial Class FrmLogAuditoria
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
 End Class

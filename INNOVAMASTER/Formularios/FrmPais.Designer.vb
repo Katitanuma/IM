@@ -43,6 +43,8 @@ Partial Class FrmPais
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.GboPais = New DevExpress.XtraEditors.GroupControl()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtPais.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdPais.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,7 +117,8 @@ Partial Class FrmPais
         '
         'DgvPais
         '
-        Me.DgvPais.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvPais.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvPais.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvPais.Appearance.Empty.Options.UseBackColor = True
         Me.DgvPais.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
         Me.DgvPais.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
@@ -172,7 +175,7 @@ Partial Class FrmPais
         Me.ColIdPais.Caption = "ID"
         Me.ColIdPais.FieldName = "IdPais"
         Me.ColIdPais.Name = "ColIdPais"
-        Me.ColIdPais.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdMunicipio", "{0}")})
+        Me.ColIdPais.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdMunicipio", "Total Pais = {0}")})
         Me.ColIdPais.Visible = True
         Me.ColIdPais.VisibleIndex = 0
         Me.ColIdPais.Width = 244
@@ -197,7 +200,7 @@ Partial Class FrmPais
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LabelControl1.Location = New System.Drawing.Point(97, 32)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(60, 43)
+        Me.LabelControl1.Size = New System.Drawing.Size(59, 43)
         Me.LabelControl1.TabIndex = 104
         Me.LabelControl1.Text = "País"
         '
@@ -284,11 +287,31 @@ Partial Class FrmPais
         Me.GboPais.TabIndex = 128
         Me.GboPais.Text = "Datos País"
         '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(646, 450)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 132
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(817, 450)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 131
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
         'FrmPais
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1352, 573)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.GboPais)
         Me.Controls.Add(Me.SimpleButton2)
         Me.Controls.Add(Me.SimpleButton1)
@@ -339,4 +362,6 @@ Partial Class FrmPais
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GboPais As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
 End Class

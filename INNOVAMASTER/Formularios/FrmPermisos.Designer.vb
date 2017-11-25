@@ -49,6 +49,7 @@ Partial Class FrmPermisos
         Me.ColIdUsuario2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColPermiso2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -341,6 +342,7 @@ Partial Class FrmPermisos
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.SimpleButton3)
         Me.Panel1.Controls.Add(Me.SimpleButton2)
         Me.Panel1.Controls.Add(Me.SimpleButton1)
         Me.Panel1.Controls.Add(Me.SplitterControl1)
@@ -490,6 +492,15 @@ Partial Class FrmPermisos
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.Width = 470
         '
+        'SimpleButton3
+        '
+        Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
+        Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.SimpleButton3.Location = New System.Drawing.Point(9, 174)
+        Me.SimpleButton3.Name = "SimpleButton3"
+        Me.SimpleButton3.Size = New System.Drawing.Size(49, 45)
+        Me.SimpleButton3.TabIndex = 3
+        '
         'FrmPermisos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -537,4 +548,5 @@ Partial Class FrmPermisos
     Friend WithEvents ColIdPermiso2 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColIdUsuario2 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents ColPermiso2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
 End Class

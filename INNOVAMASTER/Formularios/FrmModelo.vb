@@ -249,4 +249,19 @@ Public Class FrmModelo
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         Exportar_a_Excel(GCPrincipal, Me.Text)
     End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarModelo()
+    End Sub
+
+    Private Sub DgvModelo_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvModelo.FocusedRowChanged
+        Dim index As Integer = DgvModelo.FocusedRowHandle
+        TxtIdModelo.EditValue = DgvModelo.GetRowCellValue(index, ColIdModelo)
+        TxtModelo.EditValue = DgvModelo.GetRowCellValue(index, ColModelo)
+        CboMarca.Text = DgvModelo.GetRowCellValue(index, ColMarca)
+    End Sub
 End Class

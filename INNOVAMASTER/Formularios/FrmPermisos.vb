@@ -155,4 +155,8 @@ Public Class FrmPermisos
         MostrarPermisosPermitidos(CInt(DgvUsuario.GetRowCellValue(DgvUsuario.FocusedRowHandle, ColIdUsuario)))
         MostrarPermisosDenegados(CInt(DgvUsuario.GetRowCellValue(DgvUsuario.FocusedRowHandle, ColIdUsuario)))
     End Sub
+
+    Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
+        MostrarUsuario()
+    End Sub
 End Class

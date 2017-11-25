@@ -24,54 +24,20 @@ Partial Class ReporteCompras
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ReporteCompras))
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.TxtBusqueda = New System.Windows.Forms.TextBox()
-        Me.DgvReporteCompra = New System.Windows.Forms.DataGridView()
         Me.CmsReporteCompras = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.VisualizarReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ImprimirReporteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
-        CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.DgvReporteCompra = New System.Windows.Forms.DataGridView()
+        Me.TxtBusqueda = New System.Windows.Forms.TextBox()
         Me.CmsReporteCompras.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label13.Location = New System.Drawing.Point(261, 20)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(280, 43)
-        Me.Label13.TabIndex = 62
-        Me.Label13.Text = "Reporte de Compras"
-        '
-        'TxtBusqueda
-        '
-        Me.TxtBusqueda.Location = New System.Drawing.Point(81, 91)
-        Me.TxtBusqueda.Name = "TxtBusqueda"
-        Me.TxtBusqueda.Size = New System.Drawing.Size(652, 20)
-        Me.TxtBusqueda.TabIndex = 61
-        '
-        'DgvReporteCompra
-        '
-        Me.DgvReporteCompra.AllowUserToAddRows = False
-        Me.DgvReporteCompra.AllowUserToDeleteRows = False
-        Me.DgvReporteCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvReporteCompra.BackgroundColor = System.Drawing.Color.White
-        Me.DgvReporteCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvReporteCompra.ContextMenuStrip = Me.CmsReporteCompras
-        Me.DgvReporteCompra.Location = New System.Drawing.Point(43, 135)
-        Me.DgvReporteCompra.Name = "DgvReporteCompra"
-        Me.DgvReporteCompra.ReadOnly = True
-        Me.DgvReporteCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvReporteCompra.Size = New System.Drawing.Size(690, 234)
-        Me.DgvReporteCompra.TabIndex = 59
         '
         'CmsReporteCompras
         '
@@ -104,6 +70,18 @@ Partial Class ReporteCompras
         Me.PictureBox2.TabIndex = 68
         Me.PictureBox2.TabStop = False
         '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.Label13.ForeColor = System.Drawing.Color.Black
+        Me.Label13.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.Label13.Location = New System.Drawing.Point(261, 20)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(280, 43)
+        Me.Label13.TabIndex = 62
+        Me.Label13.Text = "Reporte de Compras"
+        '
         'PictureBox1
         '
         Me.PictureBox1.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.search
@@ -114,6 +92,28 @@ Partial Class ReporteCompras
         Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
         Me.PictureBox1.TabIndex = 60
         Me.PictureBox1.TabStop = False
+        '
+        'DgvReporteCompra
+        '
+        Me.DgvReporteCompra.AllowUserToAddRows = False
+        Me.DgvReporteCompra.AllowUserToDeleteRows = False
+        Me.DgvReporteCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.DgvReporteCompra.BackgroundColor = System.Drawing.Color.White
+        Me.DgvReporteCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DgvReporteCompra.ContextMenuStrip = Me.CmsReporteCompras
+        Me.DgvReporteCompra.Location = New System.Drawing.Point(43, 135)
+        Me.DgvReporteCompra.Name = "DgvReporteCompra"
+        Me.DgvReporteCompra.ReadOnly = True
+        Me.DgvReporteCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DgvReporteCompra.Size = New System.Drawing.Size(690, 234)
+        Me.DgvReporteCompra.TabIndex = 59
+        '
+        'TxtBusqueda
+        '
+        Me.TxtBusqueda.Location = New System.Drawing.Point(81, 91)
+        Me.TxtBusqueda.Name = "TxtBusqueda"
+        Me.TxtBusqueda.Size = New System.Drawing.Size(652, 20)
+        Me.TxtBusqueda.TabIndex = 61
         '
         'ReporteCompras
         '
@@ -133,22 +133,21 @@ Partial Class ReporteCompras
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Compras"
-        CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.CmsReporteCompras.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DgvReporteCompra, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents Label13 As Label
-    Friend WithEvents TxtBusqueda As TextBox
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents DgvReporteCompra As DataGridView
     Friend WithEvents CmsReporteCompras As ContextMenuStrip
     Friend WithEvents VisualizarReporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ImprimirReporteToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents Label13 As Label
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents DgvReporteCompra As DataGridView
+    Friend WithEvents TxtBusqueda As TextBox
 End Class

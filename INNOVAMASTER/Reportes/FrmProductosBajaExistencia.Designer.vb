@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmProductosBajaExistencia
-    Inherits System.Windows.Forms.Form
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,12 +20,19 @@ Partial Class FrmProductosBajaExistencia
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmProductosBajaExistencia))
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.DgvProductos = New System.Windows.Forms.DataGridView()
+        Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
+        Me.DgvProductos = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -39,44 +46,121 @@ Partial Class FrmProductosBajaExistencia
         Me.PictureBox2.TabIndex = 72
         Me.PictureBox2.TabStop = False
         '
-        'Label13
+        'GCPrincipal
         '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label13.Location = New System.Drawing.Point(198, 25)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(419, 43)
-        Me.Label13.TabIndex = 71
-        Me.Label13.Text = "Productos con baja Existencia"
+        Me.GCPrincipal.Location = New System.Drawing.Point(28, 82)
+        Me.GCPrincipal.MainView = Me.DgvProductos
+        Me.GCPrincipal.Name = "GCPrincipal"
+        Me.GCPrincipal.Size = New System.Drawing.Size(717, 283)
+        Me.GCPrincipal.TabIndex = 135
+        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvProductos})
         '
         'DgvProductos
         '
-        Me.DgvProductos.AllowUserToAddRows = False
-        Me.DgvProductos.AllowUserToDeleteRows = False
-        Me.DgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvProductos.BackgroundColor = System.Drawing.Color.White
-        Me.DgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvProductos.Location = New System.Drawing.Point(42, 87)
+        Me.DgvProductos.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvProductos.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvProductos.Appearance.Empty.Options.UseBackColor = True
+        Me.DgvProductos.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvProductos.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvProductos.Appearance.FocusedCell.ForeColor = System.Drawing.Color.White
+        Me.DgvProductos.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.DgvProductos.Appearance.FocusedCell.Options.UseFont = True
+        Me.DgvProductos.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.DgvProductos.Appearance.FocusedRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvProductos.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.DgvProductos.Appearance.FooterPanel.Options.UseTextOptions = True
+        Me.DgvProductos.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.DgvProductos.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvProductos.Appearance.HideSelectionRow.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvProductos.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.White
+        Me.DgvProductos.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.DgvProductos.Appearance.HideSelectionRow.Options.UseFont = True
+        Me.DgvProductos.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.DgvProductos.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvProductos.Appearance.HorzLine.Options.UseBackColor = True
+        Me.DgvProductos.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvProductos.Appearance.Row.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DgvProductos.Appearance.Row.Options.UseBackColor = True
+        Me.DgvProductos.Appearance.Row.Options.UseFont = True
+        Me.DgvProductos.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvProductos.Appearance.VertLine.Options.UseBackColor = True
+        Me.DgvProductos.ColumnPanelRowHeight = 26
+        Me.DgvProductos.GridControl = Me.GCPrincipal
         Me.DgvProductos.Name = "DgvProductos"
-        Me.DgvProductos.ReadOnly = True
-        Me.DgvProductos.Size = New System.Drawing.Size(690, 275)
-        Me.DgvProductos.TabIndex = 68
+        Me.DgvProductos.OptionsBehavior.AllowIncrementalSearch = True
+        Me.DgvProductos.OptionsBehavior.Editable = False
+        Me.DgvProductos.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click
+        Me.DgvProductos.OptionsFind.AlwaysVisible = True
+        Me.DgvProductos.OptionsFind.FindNullPrompt = "Introduzca modelo a buscar..."
+        Me.DgvProductos.OptionsView.EnableAppearanceEvenRow = True
+        Me.DgvProductos.OptionsView.EnableAppearanceOddRow = True
+        Me.DgvProductos.OptionsView.ShowFooter = True
+        Me.DgvProductos.OptionsView.ShowGroupPanel = False
+        Me.DgvProductos.RowHeight = 22
+        '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(43, 374)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 155
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(214, 374)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 154
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
+        Me.SimpleButton2.Location = New System.Drawing.Point(385, 374)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton2.TabIndex = 153
+        Me.SimpleButton2.Text = "Exportar Excel"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.Location = New System.Drawing.Point(556, 374)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton1.TabIndex = 152
+        Me.SimpleButton1.Text = "Vista Previa"
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl1.Location = New System.Drawing.Point(191, 23)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(402, 43)
+        Me.LabelControl1.TabIndex = 156
+        Me.LabelControl1.Text = "Productos con baja Existencia"
         '
         'FrmProductosBajaExistencia
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.ClientSize = New System.Drawing.Size(776, 383)
+        Me.ClientSize = New System.Drawing.Size(775, 431)
+        Me.Controls.Add(Me.LabelControl1)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
+        Me.Controls.Add(Me.SimpleButton2)
+        Me.Controls.Add(Me.SimpleButton1)
+        Me.Controls.Add(Me.GCPrincipal)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.DgvProductos)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmProductosBajaExistencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Productos"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvProductos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -84,6 +168,11 @@ Partial Class FrmProductosBajaExistencia
     End Sub
 
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents DgvProductos As DataGridView
+    Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
+    Friend WithEvents DgvProductos As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
 End Class

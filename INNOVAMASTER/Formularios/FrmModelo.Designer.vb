@@ -49,6 +49,8 @@ Partial Class FrmModelo
         Me.BtnBusquedaCliente = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.TxtModelo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdModelo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CboMarca.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -106,8 +108,10 @@ Partial Class FrmModelo
         Me.CboMarca.Location = New System.Drawing.Point(124, 118)
         Me.CboMarca.Name = "CboMarca"
         Me.CboMarca.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboMarca.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.CboMarca.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdMarca", 10, "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Marca", 30, "Marca")})
         Me.CboMarca.Properties.DisplayMember = "Marca"
+        Me.CboMarca.Properties.NullText = "SELECCIONE MARCA"
         Me.CboMarca.Properties.PopupFilterMode = DevExpress.XtraEditors.PopupFilterMode.Contains
         Me.CboMarca.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard
         Me.CboMarca.Properties.ValueMember = "IdMarca"
@@ -145,7 +149,8 @@ Partial Class FrmModelo
         '
         'DgvModelo
         '
-        Me.DgvModelo.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvModelo.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvModelo.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvModelo.Appearance.Empty.Options.UseBackColor = True
         Me.DgvModelo.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
         Me.DgvModelo.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -199,7 +204,7 @@ Partial Class FrmModelo
         Me.ColIdModelo.Caption = "ID"
         Me.ColIdModelo.FieldName = "IdModelo"
         Me.ColIdModelo.Name = "ColIdModelo"
-        Me.ColIdModelo.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "{0}")})
+        Me.ColIdModelo.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "Total Modelo = {0}")})
         Me.ColIdModelo.Visible = True
         Me.ColIdModelo.VisibleIndex = 0
         Me.ColIdModelo.Width = 92
@@ -337,11 +342,31 @@ Partial Class FrmModelo
         Me.SimpleButton1.TabIndex = 131
         Me.SimpleButton1.Text = "Vista Previa"
         '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(620, 466)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 134
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(791, 466)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 133
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
         'FrmModelo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1352, 573)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.SimpleButton2)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.GbModelo)
@@ -398,4 +423,6 @@ Partial Class FrmModelo
     Friend WithEvents BtnBusquedaCliente As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
 End Class
