@@ -1,4 +1,6 @@
-﻿Module ModuloBloques
+﻿Imports DevExpress.XtraEditors
+
+Module ModuloBloques
     Public Tema As String
     Public Sub Exportar_a_Excel(ByRef Grilla As DevExpress.XtraGrid.GridControl, ByVal Nombre As String)
         Dim Archivo As New SaveFileDialog
@@ -42,7 +44,7 @@
         Catch Ex As Exception
             Dim _st As New System.Diagnostics.StackTrace()
             Dim _miFuncion As String = _st.GetFrame(0).GetMethod().Name
-            Mi.ErrorMensaje(Ex.Message, _miFuncion, Me.Name, True)
+            XtraMessageBox.Show(Ex.Message)
         End Try
     End Sub
 End Module
