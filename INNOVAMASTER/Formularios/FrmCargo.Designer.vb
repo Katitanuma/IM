@@ -82,7 +82,8 @@ Partial Class frmCargo
         '
         'DgvCargo
         '
-        Me.DgvCargo.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvCargo.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvCargo.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvCargo.Appearance.Empty.Options.UseBackColor = True
         Me.DgvCargo.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
         Me.DgvCargo.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial Black", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -136,7 +137,7 @@ Partial Class frmCargo
         Me.ColIdCargo.Caption = "ID"
         Me.ColIdCargo.FieldName = "IdCargo"
         Me.ColIdCargo.Name = "ColIdCargo"
-        Me.ColIdCargo.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "{0}")})
+        Me.ColIdCargo.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "Total Cargos = {0}")})
         Me.ColIdCargo.Visible = True
         Me.ColIdCargo.VisibleIndex = 0
         Me.ColIdCargo.Width = 92
