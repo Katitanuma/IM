@@ -1,4 +1,6 @@
 ﻿Imports System.ComponentModel
+Imports DevExpress.XtraEditors
+Imports System.Data.SqlClient
 
 Public Class FrmLogin
 
@@ -36,7 +38,7 @@ Public Class FrmLogin
             FrmConfiguracion.txtUsername.Text = Nothing
             FrmConfiguracion.txtPassword.Text = Nothing
             FrmConfiguracion.txtDB.Text = Nothing
-            FrmConfiguracion.txtserver.Text = Nothing
+            FrmConfiguracion.txtServer.Text = Nothing
             FrmConfiguracion.Show()
             Me.Close()
             Exit Sub
@@ -47,6 +49,7 @@ Public Class FrmLogin
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Inicio de Sesión")
         Me.Focus()
+        FrmMenuPrincipal.Close()
     End Sub
 
 
@@ -69,30 +72,15 @@ Public Class FrmLogin
                 dr = cmd.ExecuteReader
                 If dr.Read Then
                     If dr("Estado").ToString = "Activo" Then
-                        MenuPrincipal.LblIdUsuario.Text = dr.GetValue(0).ToString
+                        FrmMenuPrincipal.LblIdUsuario.Text = dr.GetValue(0).ToString
                         If dr.GetValue(1).ToString = "Administrador" Then
-                            MenuPrincipal.PagEmpleados.Enabled = True
-                            MenuPrincipal.PagUsuarios.Enabled = True
-                            MenuPrincipal.PagProductos.Enabled = True
-                            MenuPrincipal.PagUbicacion.Enabled = True
-                            MenuPrincipal.PagConfiguracion.Enabled = True
-                            MenuPrincipal.PgProveedores.Enabled = True
-                            MenuPrincipal.PgAuditoria.Visible = True
-                            MenuPrincipal.PgCompra.Enabled = True
-                            MenuPrincipal.PgPedido.Enabled = True
-                        Else
-                            MenuPrincipal.PgAuditoria.Visible = False
-                            MenuPrincipal.PgCompra.Enabled = False
-                            MenuPrincipal.PgPedido.Enabled = False
-                            MenuPrincipal.PagEmpleados.Enabled = False
-                            MenuPrincipal.PagUsuarios.Enabled = False
-                            MenuPrincipal.PagProductos.Enabled = False
-                            MenuPrincipal.PagUbicacion.Enabled = False
-                            MenuPrincipal.PagConfiguracion.Enabled = False
-                            MenuPrincipal.PgProveedores.Enabled = False
+                            Permisos()
+                            Acerca_de_InnovaMaster.Close()
                             frmCargo.Close()
                             FrmBackup.Close()
                             FrmConfiguracion.Close()
+                            FrmCliente.Close()
+                            FrmCompras.Close()
                             FrmMunicipio.Close()
                             FrmDepartamento.Close()
                             FrmPais.Close()
@@ -104,16 +92,67 @@ Public Class FrmLogin
                             FrmEmpleado.Close()
                             FrmProfesiones.Close()
                             FrmProveedor.Close()
+                            FrmVenta.Close()
+                            FrmFactura.Close()
+                            FrmLogAuditoria.Close()
+                            FrmFacturacionVenta.Close()
+                            FrmPedidos.Close()
+                            FrmPermisos.Close()
+                            FrmRptCliente.Close()
+                            FrmRptCompra.Close()
+                            FrmRptPedido.Close()
+                            FrmRptProducto.Close()
+                            FrmProductosBajaExistencia.Close()
+                            ReporteClientes.Close()
+                            ReporteCompras.Close()
+                            ReportePedido.Close()
+                            ReporteProductos.Close()
+                            ReporteVentas.Close()
+                        Else
+                            Permisos()
+                            Acerca_de_InnovaMaster.Close()
+                            frmCargo.Close()
+                            FrmBackup.Close()
+                            FrmConfiguracion.Close()
+                            FrmCliente.Close()
+                            FrmCompras.Close()
+                            FrmMunicipio.Close()
+                            FrmDepartamento.Close()
+                            FrmPais.Close()
+                            FrmProducto.Close()
+                            FrmCategoria.Close()
+                            FrmMarca.Close()
+                            FrmModelo.Close()
+                            FrmUsuario.Close()
+                            FrmEmpleado.Close()
+                            FrmProfesiones.Close()
+                            FrmProveedor.Close()
+                            FrmVenta.Close()
+                            FrmFactura.Close()
+                            FrmLogAuditoria.Close()
+                            FrmFacturacionVenta.Close()
+                            FrmPedidos.Close()
+                            FrmPermisos.Close()
+                            FrmRptCliente.Close()
+                            FrmRptCompra.Close()
+                            FrmRptPedido.Close()
+                            FrmRptProducto.Close()
+                            FrmProductosBajaExistencia.Close()
+                            ReporteClientes.Close()
+                            ReporteCompras.Close()
+                            ReportePedido.Close()
+                            ReporteProductos.Close()
+                            ReporteVentas.Close()
                         End If
 
                         Me.Hide()
-                        MenuPrincipal.Show()
+                        FrmMenuPrincipal.Show()
                     Else
-                        MsgBox("Usuario Inactivo", MsgBoxStyle.Exclamation)
+                        XtraMessageBox.Show("Usuario Inactivo", "INNOVAMASTER")
                     End If
 
                 Else
-                        MsgBox("Usuario o Contraseña No Valido", MsgBoxStyle.Critical)
+                    MsgBox("Usuario o Contraseña No Valido", MsgBoxStyle.Critical)
                 End If
 
             Catch ex As Exception
@@ -146,5 +185,141 @@ Public Class FrmLogin
         If e.KeyCode = Keys.Enter Then
             BtnIniciar.PerformClick()
         End If
+    End Sub
+    Private Sub Permisos()
+        Try
+            Conec.Conectarse()
+            Dim ID As Integer
+            Dim dr As SqlClient.SqlDataReader
+            Dim cmd As New SqlClient.SqlCommand("Select IdUsuario From Usuario Where Usuario = '" & Replace(TxtUsuario.Text, "'", "") & "'", Conec.Con)
+            cmd.CommandType = CommandType.Text
+            dr = cmd.ExecuteReader()
+
+            If dr.Read Then
+                ID = CInt(dr(0))
+                MostrarPermisosDenegados(ID)
+                MostrarPermisosPermitidos(ID)
+            End If
+
+
+        Catch ex As Exception
+            XtraMessageBox.Show(ex.ToString)
+        End Try
+
+    End Sub
+
+    Private Sub MostrarPermisosDenegados(ByVal IdUsuario As Integer)
+
+        Try
+            Dim cmd As New SqlCommand
+            Dim dr As SqlClient.SqlDataReader
+            Conec.Conectarse()
+            cmd = New SqlCommand("SP_MostraPermisosDenegados")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = Conec.Con
+
+            cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = IdUsuario
+
+            dr = cmd.ExecuteReader
+
+            While dr.Read()
+                If dr.GetValue(2).ToString = "VENTAS" Then
+                    FrmMenuPrincipal.PagVentas.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "CLIENTES" Then
+                    FrmMenuPrincipal.PagClientes.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "EMPLEADOS" Then
+                    FrmMenuPrincipal.PagEmpleados.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "USUARIOS" Then
+                    FrmMenuPrincipal.PagUsuarios.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "PRODUCTOS" Then
+                    FrmMenuPrincipal.PagProductos.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "COMPRAS" Then
+                    FrmMenuPrincipal.PagCompras.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "PEDIDOS" Then
+                    FrmMenuPrincipal.PagPedidos.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "PROVEEDORES" Then
+                    FrmMenuPrincipal.PagProveedores.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "UBICACIÓN" Then
+                    FrmMenuPrincipal.PagUbicacion.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "CONFIGURACIÓN" Then
+                    FrmMenuPrincipal.PagConfiguracion.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "AUDITORÍA" Then
+                    FrmMenuPrincipal.PagAuditoria.Enabled = False
+                End If
+
+            End While
+
+        Catch ex As Exception
+            XtraMessageBox.Show(ex.ToString)
+        Finally
+            Conec.Desconectarse()
+        End Try
+    End Sub
+    Private Sub MostrarPermisosPermitidos(ByVal IdUsuario As Integer)
+
+        Try
+            Dim cmd As New SqlCommand
+            Dim dr As SqlClient.SqlDataReader
+            Conec.Conectarse()
+            cmd = New SqlCommand("SP_MostraPermisosPermitidos")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = Conec.Con
+
+            cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = IdUsuario
+
+            dr = cmd.ExecuteReader
+
+            While dr.Read()
+                If dr.GetValue(2).ToString = "VENTAS" Then
+                    FrmMenuPrincipal.PagVentas.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "CLIENTES" Then
+                    FrmMenuPrincipal.PagClientes.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "EMPLEADOS" Then
+                    FrmMenuPrincipal.PagEmpleados.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "USUARIOS" Then
+                    FrmMenuPrincipal.PagUsuarios.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "PRODUCTOS" Then
+                    FrmMenuPrincipal.PagProductos.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "COMPRAS" Then
+                    FrmMenuPrincipal.PagCompras.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "PEDIDOS" Then
+                    FrmMenuPrincipal.PagPedidos.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "PROVEEDORES" Then
+                    FrmMenuPrincipal.PagProveedores.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "UBICACIÓN" Then
+                    FrmMenuPrincipal.PagUbicacion.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "CONFIGURACIÓN" Then
+                    FrmMenuPrincipal.PagConfiguracion.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "AUDITORÍA" Then
+                    FrmMenuPrincipal.PagAuditoria.Enabled = True
+                End If
+
+            End While
+
+        Catch ex As Exception
+            XtraMessageBox.Show(ex.ToString)
+        Finally
+            Conec.Desconectarse()
+        End Try
     End Sub
 End Class
