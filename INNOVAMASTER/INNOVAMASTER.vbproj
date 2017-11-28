@@ -643,6 +643,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo BUeno.ico" />
+    <None Include="Resources\Delete Database_32px.png" />
+    <None Include="Resources\Receipt_32px.png" />
+    <None Include="Resources\Money Box_48px.png" />
+    <None Include="Resources\Cash in Hand_48px.png" />
+    <None Include="Resources\Color Palette_48px.png" />
+    <None Include="Resources\Cherry_48px.png" />
     <None Include="Conjunto de Datos\DsReportes.xsc">
       <DependentUpon>DsReportes.xsd</DependentUpon>
     </None>

@@ -170,7 +170,7 @@ Public Class FrmVenta
             MsgBox("Seleccione la Forma de la Venta", MsgBoxStyle.Critical, "Error")
         ElseIf CboTipoVenta.Text = Nothing Then
             MsgBox("Seleccione el Tipo de Venta", MsgBoxStyle.Critical, "Error")
-        ElseIf MenuPrincipal.LblIdUsuario.Text = Nothing Then
+        ElseIf FrmMenuPrincipal.LblIdUsuario.Text = Nothing Then
         ElseIf LblNombre.Text = "0" Then
             MsgBox("El Cliente No esta Registrado", MsgBoxStyle.Critical, "Error")
         Else
@@ -199,7 +199,7 @@ Public Class FrmVenta
                 datos.gCambio = 0
 
                 datos.gDescuentoExtra = CDbl(TxtDescuentoExtra.Text)
-                datos.gIdUsuario = Int(MenuPrincipal.LblIdUsuario.Text)
+                datos.gIdUsuario = Int(FrmMenuPrincipal.LblIdUsuario.Text)
 
                 If funcion.InsertarVenta(datos) Then
                     MsgBox("Venta Ingresada con éxito, ahora hay que ingresar los Productos a la Venta", MsgBoxStyle.Information, "Registro con Exito")

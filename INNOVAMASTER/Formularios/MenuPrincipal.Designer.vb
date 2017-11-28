@@ -100,7 +100,6 @@
         Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.LblIdUsuario = New System.Windows.Forms.Label()
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
@@ -660,17 +659,6 @@
         Me.Label1.Text = "Usuario Actual:"
         Me.Label1.Visible = False
         '
-        'LblIdUsuario
-        '
-        Me.LblIdUsuario.AutoSize = True
-        Me.LblIdUsuario.BackColor = System.Drawing.Color.Transparent
-        Me.LblIdUsuario.Location = New System.Drawing.Point(704, 64)
-        Me.LblIdUsuario.Name = "LblIdUsuario"
-        Me.LblIdUsuario.Size = New System.Drawing.Size(13, 13)
-        Me.LblIdUsuario.TabIndex = 3
-        Me.LblIdUsuario.Text = "3"
-        Me.LblIdUsuario.Visible = False
-        '
         'RibbonPageGroup3
         '
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
@@ -771,7 +759,6 @@
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.pcFondo)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.LblIdUsuario)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.mainRibbonControl)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -828,7 +815,6 @@
     Friend WithEvents BarButtonItem12 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem13 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents Label1 As Label
-    Friend WithEvents LblIdUsuario As Label
     Friend WithEvents BarButtonItem14 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem15 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents RibbonPage7 As DevExpress.XtraBars.Ribbon.RibbonPage

@@ -8,7 +8,7 @@ Public Class FrmFacturacionVenta
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellEndEdit
         Dim column As Integer = DgvDetalle.CurrentCell.ColumnIndex
         If column = 1 Then
-            If CboFormaVenta.SelectedItem <> Nothing Then
+            If CboFV.Text <> Nothing Then
 
                 Try
                     If DgvDetalle.Rows(e.RowIndex).Cells(1).Value <> Nothing Then
@@ -36,7 +36,7 @@ Public Class FrmFacturacionVenta
                                     LlenarTextBox()
                                 Else
                                     DgvDetalle.Rows(e.RowIndex).Cells(3).Value = 1
-                                    If CboFormaVenta.SelectedItem = "Mayoreo" Then
+                                    If CboFV.Text = "Mayoreo" Then
                                         DgvDetalle.Rows(e.RowIndex).Cells(4).Value = FormatCurrency(CDbl(dr(4)))
                                     Else
                                         DgvDetalle.Rows(e.RowIndex).Cells(4).Value = FormatCurrency(CDbl(dr(3)))
@@ -105,7 +105,7 @@ Public Class FrmFacturacionVenta
             End If
 
         ElseIf column = 2 Then
-            If CboFormaVenta.SelectedItem <> Nothing Then
+            If CboFV.Text <> Nothing Then
 
                 Try
                     If DgvDetalle.Rows(e.RowIndex).Cells(2).Value <> Nothing Then
@@ -137,7 +137,7 @@ Public Class FrmFacturacionVenta
                                     LlenarTextBox()
                                 Else
                                     DgvDetalle.Rows(e.RowIndex).Cells(3).Value = 1
-                                    If CboFormaVenta.Text = "Mayoreo" Then
+                                    If CboFV.Text = "Mayoreo" Then
                                         DgvDetalle.Rows(e.RowIndex).Cells(4).Value = FormatCurrency(CDbl(dr(4)))
                                     Else
                                         DgvDetalle.Rows(e.RowIndex).Cells(4).Value = FormatCurrency(CDbl(dr(3)))
@@ -447,13 +447,13 @@ Public Class FrmFacturacionVenta
 
     End Sub
     Private Sub LlenarTextBox()
-        TxtTotal.Clear()
+        TxtTotal.EditValue = Nothing
         TxtTotal.Text = 0
-        TxtSubtotal.Clear()
+        TxtSubtotal.EditValue = Nothing
         TxtSubtotal.Text = 0
-        TxtDescuento.Clear()
+        TxtDescuento.EditValue = Nothing
         TxtDescuento.Text = 0
-        TxtImpuesto.Clear()
+        TxtImpuesto.EditValue = Nothing
         TxtImpuesto.Text = 0
 
         Dim a, b, c, d As Double
@@ -492,11 +492,11 @@ Public Class FrmFacturacionVenta
 
     End Sub
 
-    Private Sub TxtDescuentoExtra_EditValueChanged(sender As Object, e As EventArgs) Handles TxtDescuentoExtra.EditValueChanged
+    Private Sub TxtDescuentoExtra_EditValueChanged(sender As Object, e As EventArgs)
         LlenarTextBox()
     End Sub
 
-    Private Sub RdbPorcentaje_CheckedChanged(sender As Object, e As EventArgs) Handles RdbPorcentaje.CheckedChanged
+    Private Sub RdbPorcentaje_CheckedChanged(sender As Object, e As EventArgs)
         If RdbPorcentaje.Checked = True Then
             TxtP.Visible = True
             LblP.Visible = True
@@ -510,7 +510,7 @@ Public Class FrmFacturacionVenta
         End If
     End Sub
 
-    Private Sub TxtP_TextChanged(sender As Object, e As EventArgs) Handles TxtP.TextChanged
+    Private Sub TxtP_TextChanged(sender As Object, e As EventArgs)
         Dim a, b As Double
         If TxtP.Text = Nothing Then
             a = 0
@@ -774,33 +774,33 @@ Public Class FrmFacturacionVenta
         TxtFechaVenta.Text = DateTime.Now.ToString("dd/MM/yyyy")
         LlenarIdCliente()
 
-        TxtIdCliente.Clear()
-        CboFormaVenta.Text = Nothing
-        CboTipoVenta.Text = Nothing
+        CboCliente.EditValue = Nothing
+        CboFV.Text = Nothing
+        CboTV.Text = Nothing
         TxtDescuentoExtra.Text = Nothing
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Factura")
-        CboFormaVenta.Text = "Unitario"
-        CboTipoVenta.Text = "Contado"
-        TxtFechaVencimientos.Value = DateTime.Now.AddDays(15)
+        CboFV.Text = "Unitario"
+        CboTV.Text = "Contado"
+        TxtFechaVencimiento.EditValue = DateTime.Now.AddDays(15)
 
     End Sub
     Private Sub LlenarIdCliente()
+        Dim _DT As New DataTable
+        Dim da As New SqlDataAdapter
         Try
             Conec.Conectarse()
-            cmd = New SqlCommand("Select IdCliente from Cliente", Conec.Con)
-            cmd.CommandType = CommandType.Text
-            Dim dr As SqlDataReader
-            dr = cmd.ExecuteReader
-            If dr.HasRows Then
-                While dr.Read
-                    TxtIdCliente.AutoCompleteCustomSource.Add(dr.GetValue(0).ToString)
-                End While
+            cmd = New SqlCommand("MostrarCliente", Conec.Con)
+            cmd.CommandType = CommandType.StoredProcedure
+
+            If (cmd.ExecuteNonQuery) Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT)
+                CboCliente.Properties.DataSource = _DT
             End If
-            dr.Close()
 
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -855,7 +855,7 @@ Public Class FrmFacturacionVenta
 
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar la Venta?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If r = DialogResult.Yes Then
 
@@ -925,7 +925,7 @@ Public Class FrmFacturacionVenta
 
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnEliminarTodo.Click
         Dim r As DialogResult = MessageBox.Show("¿Desea Eliminar Todos los Productos de la Venta?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If r = DialogResult.Yes Then
             Conec.Conectarse()
@@ -952,10 +952,10 @@ Public Class FrmFacturacionVenta
         End If
     End Sub
 
-    Private Sub TxtIdCliente_TextChanged(sender As Object, e As EventArgs) Handles TxtIdCliente.TextChanged
+    Private Sub TxtIdCliente_TextChanged(sender As Object, e As EventArgs)
         Try
             Conec.Conectarse()
-            cmd = New SqlCommand("Select NombreCliente, ApellidoCliente from Cliente Where IdCliente= '" & TxtIdCliente.Text & "'", Conec.Con)
+            cmd = New SqlCommand("Select NombreCliente, ApellidoCliente from Cliente Where IdCliente= '" & CboCliente.EditValue & "'", Conec.Con)
             cmd.CommandType = CommandType.Text
             Dim dr As SqlDataReader
             dr = cmd.ExecuteReader
@@ -976,9 +976,9 @@ Public Class FrmFacturacionVenta
         End Try
     End Sub
 
-    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs) Handles BtnBusquedaCliente.Click
+    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs) Handles BtnBusqueda.Click
         FrmCliente.LblRelacionClienteVenta.Text = "2"
-        FrmCliente.MdiParent = MenuPrincipal
+        FrmCliente.MdiParent = FrmMenuPrincipal
         FrmCliente.Dock = DockStyle.Fill
         FrmCliente.Show()
         FrmCliente.Focus()
@@ -988,21 +988,21 @@ Public Class FrmFacturacionVenta
         Dim estado As Boolean
         If TxtIdVenta.Text = Nothing Then
             estado = False
-        ElseIf TxtIdCliente.Text = Nothing Then
+        ElseIf CboCliente.EditValue = Nothing Then
             MsgBox("Ingrese el Código de Cliente", MsgBoxStyle.Critical, "Error")
             estado = False
         ElseIf TxtFechaVenta.Text = Nothing Then
             estado = False
-        ElseIf TxtFechaVencimientos.Text = Nothing Then
+        ElseIf TxtFechaVencimiento.Text = Nothing Then
             MsgBox("Ingrese la Fecha de Vencimiento de la Venta", MsgBoxStyle.Critical, "Error")
             estado = False
-        ElseIf CboFormaVenta.Text = Nothing Then
+        ElseIf CboFV.Text = Nothing Then
             MsgBox("Seleccione la Forma de la Venta", MsgBoxStyle.Critical, "Error")
             estado = False
-        ElseIf CboTipoVenta.Text = Nothing Then
+        ElseIf CboTV.Text = Nothing Then
             MsgBox("Seleccione el Tipo de Venta", MsgBoxStyle.Critical, "Error")
             estado = False
-        ElseIf MenuPrincipal.LblIdUsuario.Text = Nothing Then
+        ElseIf FrmMenuPrincipal.LblIdUsuario.Text = Nothing Then
             estado = False
         ElseIf LblNombre.Text = "0" Then
             MsgBox("El Cliente No esta Registrado", MsgBoxStyle.Critical, "Error")
@@ -1016,23 +1016,23 @@ Public Class FrmFacturacionVenta
                 End If
                 datos.gDescuentoExtra = CDbl(TxtDescuentoExtra.Text)
                 datos.gIdVenta = TxtIdVenta.Text
-                datos.gIdCliente = TxtIdCliente.Text
+                datos.gIdCliente = CboCliente.EditValue
                 datos.gFechaVenta = TxtFechaVenta.Text
-                datos.gFechaVencimiento = TxtFechaVencimientos.Text
-                If CboFormaVenta.Text = "Mayoreo" Then
+                datos.gFechaVencimiento = TxtFechaVencimiento.EditValue
+                If CboFV.Text = "Mayoreo" Then
                     datos.gIdFormaVenta = 1
                 Else
                     datos.gIdFormaVenta = 2
                 End If
                 datos.gCambio = 0
-                If CboTipoVenta.Text = "Contado" Then
+                If CboTV.Text = "Contado" Then
                     datos.gIdTipoVenta = 1
                 Else
                     datos.gIdTipoVenta = 2
                 End If
 
                 datos.gDescuentoExtra = CDbl(TxtDescuentoExtra.Text)
-                datos.gIdUsuario = Int(MenuPrincipal.LblIdUsuario.Text)
+                datos.gIdUsuario = Int(FrmMenuPrincipal.LblIdUsuario.Text)
 
                 If funcion.InsertarVenta(datos) Then
                     estado = True
@@ -1073,21 +1073,21 @@ Public Class FrmFacturacionVenta
         Dim estado As Boolean
         If TxtIdVenta.Text = Nothing Then
             estado = False
-        ElseIf TxtIdCliente.Text = Nothing Then
+        ElseIf CboCliente.EditValue = Nothing Then
             MsgBox("Ingrese el Código de Cliente", MsgBoxStyle.Critical, "Error")
             estado = False
         ElseIf TxtFechaVenta.Text = Nothing Then
             estado = False
-        ElseIf TxtFechaVencimientos.Text = Nothing Then
+        ElseIf TxtFechaVencimiento.EditValue = Nothing Then
             MsgBox("Ingrese la Fecha de Vencimiento de la Venta", MsgBoxStyle.Critical, "Error")
             estado = False
-        ElseIf CboFormaVenta.Text = Nothing Then
+        ElseIf CboFV.Text = Nothing Then
             MsgBox("Seleccione la Forma de la Venta", MsgBoxStyle.Critical, "Error")
             estado = False
-        ElseIf CboTipoVenta.Text = Nothing Then
+        ElseIf CboTV.Text = Nothing Then
             MsgBox("Seleccione el Tipo de Venta", MsgBoxStyle.Critical, "Error")
             estado = False
-        ElseIf MenuPrincipal.LblIdUsuario.Text = Nothing Then
+        ElseIf FrmMenuPrincipal.LblIdUsuario.Text = Nothing Then
             estado = False
         ElseIf LblNombre.Text = "0" Then
             MsgBox("El Cliente No esta Registrado", MsgBoxStyle.Critical, "Error")
@@ -1101,23 +1101,23 @@ Public Class FrmFacturacionVenta
                 End If
                 datos.gDescuentoExtra = CDbl(TxtDescuentoExtra.Text)
                 datos.gIdVenta = TxtIdVenta.Text
-                datos.gIdCliente = TxtIdCliente.Text
+                datos.gIdCliente = CboCliente.EditValue
                 datos.gFechaVenta = TxtFechaVenta.Text
-                datos.gFechaVencimiento = TxtFechaVencimientos.Text
-                If CboFormaVenta.Text = "Mayoreo" Then
+                datos.gFechaVencimiento = TxtFechaVencimiento.EditValue
+                If CboFV.Text = "Mayoreo" Then
                     datos.gIdFormaVenta = 1
                 Else
                     datos.gIdFormaVenta = 2
                 End If
 
-                If CboTipoVenta.Text = "Contado" Then
+                If CboTV.Text = "Contado" Then
                     datos.gIdTipoVenta = 1
                 Else
                     datos.gIdTipoVenta = 2
                 End If
 
                 datos.gDescuentoExtra = CDbl(TxtDescuentoExtra.Text)
-                datos.gIdUsuario = Int(MenuPrincipal.LblIdUsuario.Text)
+                datos.gIdUsuario = Int(FrmMenuPrincipal.LblIdUsuario.Text)
 
                 If funcion.EditarVenta(datos) Then
                     estado = True
@@ -1144,11 +1144,11 @@ Public Class FrmFacturacionVenta
 
     End Sub
 
-    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub CboFormaVenta_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CboFormaVenta.SelectedIndexChanged
+    Private Sub CboFormaVenta_SelectedIndexChanged(sender As Object, e As EventArgs)
 
         For Each Fila As DataGridViewRow In DgvDetalle.Rows
             If Fila.Cells(1).Value <> Nothing And Fila.Cells(2).Value <> Nothing And Fila.Cells(1).ErrorText = "" And Fila.Cells(2).ErrorText = "" Then
@@ -1156,7 +1156,7 @@ Public Class FrmFacturacionVenta
                 Conec.Conectarse()
                 Dim dr As SqlDataReader
                 cmd = New SqlCommand("Select IdProducto, Gravado, Gravado, PrecioUnitario, PrecioMayorista, Existencia, Estado from Producto Where IdProducto='" & Fila.Cells(1).Value & "'")
-                    cmd.CommandType = CommandType.Text
+                cmd.CommandType = CommandType.Text
                 cmd.Connection = Conec.Con
                 dr = cmd.ExecuteReader
 
@@ -1164,7 +1164,7 @@ Public Class FrmFacturacionVenta
 
 
 
-                    If CboFormaVenta.Text = "Mayoreo" Then
+                    If CboFV.Text = "Mayoreo" Then
                         Fila.Cells(4).Value = FormatCurrency(CDbl(dr(4)))
                     Else
                         Fila.Cells(4).Value = FormatCurrency(CDbl(dr(3)))
@@ -1188,5 +1188,21 @@ Public Class FrmFacturacionVenta
         LlenarTextBox()
 
 
+    End Sub
+
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+        CboFV.Text = "Unitario"
+    End Sub
+
+    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+        CboFV.Text = "Mayoreo"
+    End Sub
+
+    Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+        CboTV.Text = "Contado"
+    End Sub
+
+    Private Sub BarButtonItem5_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+        CboTV.Text = "Crédito"
     End Sub
 End Class

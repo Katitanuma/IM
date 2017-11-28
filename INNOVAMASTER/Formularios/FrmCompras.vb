@@ -624,7 +624,7 @@ Public Class FrmCompras
                         .CommandType = CommandType.StoredProcedure
                         .Connection = Conec.Con
                         .Parameters.Add("@Descuento", SqlDbType.Money).Value = CDbl(TxtDescuento.Text)
-                        .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(MenuPrincipal.LblIdUsuario.Text)
+                        .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(FrmMenuPrincipal.LblIdUsuario.Text)
                         .Parameters.Add("@FechaCompra", SqlDbType.Date).Value = TxtFechaCompra.Text
                         .ExecuteNonQuery()
                     End With

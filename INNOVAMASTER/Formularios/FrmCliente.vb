@@ -1,24 +1,23 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmCliente
     Dim dt As New DataTable
     Dim Conec As New Conexion
     Dim cmd As SqlCommand
     Public Var As Integer = 0
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CboBusqueda.Text = CboBusqueda.Items(0).ToString
         Focus()
         Mostrar()
         LlenarComboMunicipio()
         LlenarComboEstadoCivil()
-        llenarComboAños()
+        LlenarComboSexo()
         BtnInsertar.Visible = False
         BtnCancelar.Visible = False
-        BtnEditar.Visible = False
+        BtnEditar.Visible = True
+        BtnActualizar.Visible = False
         GbCliente.Enabled = False
-        DgvCliente.AlternatingRowsDefaultCellStyle.BackColor = Color.PapayaWhip
-        DgvCliente.RowsDefaultCellStyle.BackColor = Color.Honeydew
-        DgvCliente.RowsDefaultCellStyle.SelectionBackColor = Color.Coral
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
@@ -31,52 +30,31 @@ Public Class FrmCliente
             dt = funcion.MostrarCliente
 
             If dt.Rows.Count <> 0 Then
-                DgvCliente.DataSource = dt
+                GCPrincipal.DataSource = dt
                 Label11.Visible = False
-                TxtBusqueda.Enabled = True
-                CboBusqueda.Enabled = True
             Else
-                DgvCliente.DataSource = Nothing
+                GCPrincipal.DataSource = Nothing
                 Label11.Visible = True
-                TxtBusqueda.Enabled = False
-                CboBusqueda.Enabled = False
             End If
         Catch ex As Exception
             MsgBox(ex.ToString)
         End Try
     End Sub
-    Private Sub TxtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        Dim ds As New DataSet
-        ds.Tables.Add(dt.Copy)
-        Dim dv As New DataView(ds.Tables(0))
-
-        dv.RowFilter = CboBusqueda.Text & " like '" & TxtBusqueda.Text & "%'"
-
-        If dv.Count <> 0 Then
-            Label11.Visible = False
-            DgvCliente.DataSource = dv
-        Else
-            Label11.Visible = True
-            DgvCliente.DataSource = Nothing
-        End If
-
-    End Sub
     Public Sub LlenarComboMunicipio()
-        CboMunicipio.Items.Clear()
+        Dim _DT As New DataTable
+        Dim da As New SqlDataAdapter
         Try
             Conec.Conectarse()
-            cmd = New SqlCommand("Select Municipio from Municipio")
-            cmd.CommandType = CommandType.Text
+            cmd = New SqlCommand("MostrarMunicipio")
+            cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conec.Con
-            Dim dr As SqlDataReader
-            dr = cmd.ExecuteReader
 
-            If dr.HasRows Then
-                While dr.Read
-                    CboMunicipio.Items.Add(dr(0).ToString)
-                End While
+            If (cmd.ExecuteNonQuery()) Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT)
+                CboMunicipio.Properties.DataSource = _DT
             End If
-            dr.Close()
+
         Catch ex As Exception
             MsgBox(ex.Message)
         Finally
@@ -84,33 +62,46 @@ Public Class FrmCliente
         End Try
     End Sub
     Private Sub LlenarComboEstadoCivil()
-        CboEstadoCivil.Items.Clear()
+        Dim _DT As New DataTable
+        Dim da As New SqlDataAdapter
         Try
             Conec.Conectarse()
+            cmd = New SqlCommand("Select * From EstadoCivil")
             cmd.CommandType = CommandType.Text
-            cmd = New SqlCommand("Select EstadoCivil From EstadoCivil")
             cmd.Connection = Conec.Con
-            Dim dr As SqlDataReader
-            dr = cmd.ExecuteReader
 
-            If dr.HasRows Then
-                While dr.Read
-                    CboEstadoCivil.Items.Add(dr(0))
-                End While
+            If (cmd.ExecuteNonQuery()) Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT)
+                CboEstadoCivil.Properties.DataSource = _DT
             End If
-            dr.Close()
 
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            MsgBox(ex.Message)
         Finally
             Conec.Desconectarse()
         End Try
     End Sub
-    Private Sub llenarComboAños()
-        Dim n As Integer
-        For n = 1920 To 3000
-            CboAño.Items.Add(n)
-        Next
+    Public Sub LlenarComboSexo()
+        Dim _DT As New DataTable
+        Dim da As New SqlDataAdapter
+        Try
+            Conec.Conectarse()
+            cmd = New SqlCommand("Select * From Sexo")
+            cmd.CommandType = CommandType.Text
+            cmd.Connection = Conec.Con
+
+            If (cmd.ExecuteNonQuery()) Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT)
+                CboSexo.Properties.DataSource = _DT
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        Finally
+            Conec.Desconectarse()
+        End Try
     End Sub
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         TxtIdCliente.Enabled = True
@@ -119,90 +110,22 @@ Public Class FrmCliente
         BtnInsertar.Visible = True
         BtnCancelar.Visible = True
         BtnEditar.Visible = False
-        DgvCliente.Enabled = False
-        BtnNuevoEditar.Visible = False
-        TxtIdCliente.Clear()
-        TxtNombres.Clear()
-        TxtDireccion.Clear()
-        TxtApellidos.Clear()
-        TxtCorreo.Clear()
-        TxtTelefono.Clear()
-        RdbMasculino.Checked = False
-        RdbFemenino.Checked = False
-        CboDia.Text = "Dia"
-        CboMes.Text = "Mes"
-        CboAño.Text = "Año"
-        CboMunicipio.Text = Nothing
-        CboEstadoCivil.Text = Nothing
-
+        GCPrincipal.Enabled = False
+        TxtIdCliente.EditValue = Nothing
+        TxtNombre.EditValue = Nothing
+        TxtDireccion.EditValue = Nothing
+        TxtApellidos.EditValue = Nothing
+        TxtCorreo.EditValue = Nothing
+        TxtTelefono.EditValue = Nothing
+        TxtFecha.EditValue = Nothing
+        CboMunicipio.EditValue = Nothing
+        CboEstadoCivil.EditValue = Nothing
+        CboSexo.EditValue = Nothing
     End Sub
-    Private Sub DgvCliente_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvCliente.CellClick
-        TxtIdCliente.Text = DgvCliente.SelectedCells.Item(0).Value
-        TxtDireccion.Text = DgvCliente.SelectedCells.Item(2).Value
-        TxtTelefono.Text = DgvCliente.SelectedCells.Item(3).Value
-        TxtCorreo.Text = DgvCliente.SelectedCells.Item(4).Value
-        CboMunicipio.Text = DgvCliente.SelectedCells.Item(7).Value
-        CboEstadoCivil.Text = DgvCliente.SelectedCells.Item(8).Value
 
-        If DgvCliente.SelectedCells.Item(6).Value = "Masculino" Then
-            RdbMasculino.Select()
-        Else
-            RdbFemenino.Select()
-        End If
-
-        Dim cadena As String = DgvCliente.SelectedCells.Item(5).Value
-        Dim c As String() = cadena.Split("/")
-        CboDia.Text = c(0)
-        Select Case c(1)
-            Case "01" Or "1"
-                CboMes.Text = "Enero"
-            Case "02" Or "2"
-                CboMes.Text = "Febrero"
-            Case "03" Or "3"
-                CboMes.Text = "Marzo"
-            Case "04" Or "4"
-                CboMes.Text = "Abril"
-            Case "05" Or "5"
-                CboMes.Text = "Mayo"
-            Case "06" Or "6"
-                CboMes.Text = "Junio"
-            Case "07" Or "7"
-                CboMes.Text = "Julio"
-            Case "08" Or "8"
-                CboMes.Text = "Agosto"
-            Case "09" Or "9"
-                CboMes.Text = "Septiembre"
-            Case "10"
-                CboMes.Text = "Octubre"
-            Case "11"
-                CboMes.Text = "Noviembre"
-            Case "12"
-                CboMes.Text = "Diciembre"
-        End Select
-        CboAño.Text = c(2)
-        Try
-            Conec.Conectarse()
-            cmd.CommandType = CommandType.Text
-            cmd = New SqlCommand("Select NombreCliente, ApellidoCliente from Cliente Where IdCliente = '" & DgvCliente.SelectedCells.Item(0).Value & "'")
-            cmd.Connection = Conec.Con
-            Dim dr As SqlDataReader
-
-            dr = cmd.ExecuteReader
-
-            If dr.Read Then
-                TxtNombres.Text = dr(0)
-                TxtApellidos.Text = dr(1)
-            End If
-            dr.Close()
-
-        Catch ex As Exception
-        Finally
-            Conec.Desconectarse()
-        End Try
-    End Sub
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Dim R As DialogResult
-        R = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        R = XtraMessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 
         If R = DialogResult.Yes Then
             Limpiar()
@@ -211,102 +134,40 @@ Public Class FrmCliente
 
     End Sub
     Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
-        If TxtIdCliente.MaskFull = False Then
-            MsgBox("Ingrese el Numero de Identidad del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf TxtNombres.Text = Nothing Then
-            MsgBox("Ingrese el Nombre del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf TxtApellidos.Text = Nothing Then
-            MsgBox("Ingrese los Apellidos del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf TxtDireccion.Text = Nothing Then
-            MsgBox("Ingrese la Dirección del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboDia.Text = "Dia" Then
-            MsgBox("Seleccione el Dia de Nacimiento del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboMes.Text = "Mes" Then
-            MsgBox("Seleccione el Mes de Nacimiento del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboAño.Text = "Año" Then
-            MsgBox("Seleccione el Año de Nacimiento del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf RdbMasculino.Checked = False And RdbFemenino.Checked = False Then
-            MsgBox("Seleccione el Sexo del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboMunicipio.SelectedItem = Nothing Then
-            MsgBox("Seleccione el Municipio del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboEstadoCivil.Text = Nothing Then
-            MsgBox("Seleccione el Estado Civil del Cliente", MsgBoxStyle.Critical, "Error")
+        If TxtIdCliente.Text.Length < 15 Then
+            XtraMessageBox.Show("Ingrese el Numero de Identidad del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtNombre.EditValue = Nothing Then
+            XtraMessageBox.Show("Ingrese el Nombre del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtApellidos.EditValue = Nothing Then
+            XtraMessageBox.Show("Ingrese el apellido del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtDireccion.EditValue = Nothing Then
+            XtraMessageBox.Show("Ingrese la dirección del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf CboSexo.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione el sexo del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf CboMunicipio.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione el municipio del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf CboEstadoCivil.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione el estado civil del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtFecha.EditValue = Nothing
+            XtraMessageBox.Show("Seleccione la fecha del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             Try
                 Dim datos As New DatosCliente
                 Dim funcion As New Fcliente
-                Dim Mes As Integer
-                datos.gIdCliente = TxtIdCliente.Text
-                datos.gNombreCliente = TxtNombres.Text
-                datos.gApellidoCliente = TxtApellidos.Text
-                datos.gDireccionCliente = TxtDireccion.Text
-                datos.gTelefonoCliente = TxtTelefono.Text
-                datos.gCorreoCliente = TxtCorreo.Text
-                If CboMes.Text = "Enero" Then
-                    Mes = "1"
-                ElseIf CboMes.Text = "Febrero" Then
-                    Mes = "2"
-                ElseIf CboMes.Text = "Marzo" Then
-                    Mes = "3"
-                ElseIf CboMes.Text = "Abril" Then
-                    Mes = "4"
-                ElseIf CboMes.Text = "Mayo" Then
-                    Mes = "5"
-                ElseIf CboMes.Text = "Junio" Then
-                    Mes = "6"
-                ElseIf CboMes.Text = "Julio" Then
-                    Mes = "7"
-                ElseIf CboMes.Text = "Agosto" Then
-                    Mes = "8"
-                ElseIf CboMes.Text = "Septiembre" Then
-                    Mes = "9"
-                ElseIf CboMes.Text = "Octubre" Then
-                    Mes = "10"
-                ElseIf CboMes.Text = "Noviembre" Then
-                    Mes = "11"
-                ElseIf CboMes.Text = "Diciembre" Then
-                    Mes = "12"
-                End If
-                datos.gFechaNacimiento = CboAño.Text & "-" & Mes.ToString & "-" & CboDia.Text
+                datos.gIdCliente = TxtIdCliente.EditValue
+                datos.gNombreCliente = TxtNombre.EditValue
+                datos.gApellidoCliente = TxtApellidos.EditValue
+                datos.gDireccionCliente = TxtDireccion.EditValue
+                datos.gTelefonoCliente = TxtTelefono.EditValue
+                datos.gCorreoCliente = TxtCorreo.EditValue
+                datos.gFechaNacimiento = CDate(TxtFecha.EditValue)
+                datos.gIdSexo = CInt(CboSexo.EditValue)
+                datos.gIdMunicipio = CInt(CboMunicipio.EditValue)
+                datos.gIdEstadoCivil = CInt(CboEstadoCivil.EditValue)
 
-                If RdbMasculino.Checked = True Then
-                    datos.gIdSexo = 1
-                Else
-                    datos.gIdSexo = 2
-                End If
-                Conec.Conectarse()
-                Try
-                    cmd = New SqlCommand("Select IdMunicipio From Municipio Where Municipio= '" & CboMunicipio.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
-                    Dim dr As SqlDataReader
-                    dr = cmd.ExecuteReader
-
-                    If dr.Read Then
-                        datos.gIdMunicipio = dr(0)
-                    End If
-                    dr.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-
-                Try
-                    cmd = New SqlCommand("Select IdEstadoCivil From EstadoCivil Where EstadoCivil= '" & CboEstadoCivil.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
-                    Dim dr2 As SqlDataReader
-                    dr2 = cmd.ExecuteReader
-
-                    If dr2.Read Then
-                        datos.gIdEstadoCivil = dr2(0)
-                    End If
-                    dr2.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
 
                 If funcion.InsertarCliente(datos) Then
-                    MsgBox("Cliente Ingresado con Éxito", MsgBoxStyle.Information)
+                    XtraMessageBox.Show("Cliente Ingresado con Éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Limpiar()
                     Mostrar()
                     Focus()
@@ -326,140 +187,70 @@ Public Class FrmCliente
         BtnInsertar.Visible = False
         BtnNuevo.Visible = True
         BtnEditar.Visible = False
-        BtnNuevoEditar.Visible = True
+        BtnNuevo.Visible = True
         BtnCancelar.Visible = False
-        DgvCliente.Enabled = True
-        TxtIdCliente.Clear()
-        TxtNombres.Clear()
-        TxtDireccion.Clear()
-        TxtApellidos.Clear()
-        TxtCorreo.Clear()
-        TxtTelefono.Clear()
-        RdbMasculino.Checked = False
-        RdbFemenino.Checked = False
-        CboDia.Text = "Dia"
-        CboMes.Text = "Mes"
-        CboAño.Text = "Año"
-        CboMunicipio.Text = Nothing
-        CboEstadoCivil.Text = Nothing
+        GCPrincipal.Enabled = True
+        TxtIdCliente.EditValue = Nothing
+        TxtNombre.EditValue = Nothing
+        TxtDireccion.EditValue = Nothing
+        TxtFecha.EditValue = Nothing
+        TxtApellidos.EditValue = Nothing
+        TxtCorreo.EditValue = Nothing
+        TxtTelefono.EditValue = Nothing
+        CboMunicipio.EditValue = Nothing
+        CboEstadoCivil.EditValue = Nothing
+        CboSexo.EditValue = Nothing
     End Sub
-    Private Sub BtnNuevoEditar_Click(sender As Object, e As EventArgs) Handles BtnNuevoEditar.Click
-        If TxtNombres.Text <> Nothing Then
+    Private Sub BtnNuevoEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
+        If TxtNombre.EditValue <> Nothing Then
             GbCliente.Enabled = True
             BtnNuevo.Visible = False
             BtnInsertar.Visible = False
             BtnEditar.Visible = True
-            BtnNuevoEditar.Visible = False
+            BtnNuevo.Visible = False
             BtnCancelar.Visible = True
-            DgvCliente.Enabled = False
+            GCPrincipal.Enabled = False
             TxtIdCliente.Enabled = False
             Focus()
         Else
-            MessageBox.Show("Seleccione el Cliente a Editar", "Seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Seleccione el Cliente a Editar", "Seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
 
     End Sub
-    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
-        If TxtNombres.Text = Nothing Then
-            MsgBox("Ingrese el Nombre del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf TxtApellidos.Text = Nothing Then
-            MsgBox("Ingrese los Apellidos del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf TxtDireccion.Text = Nothing Then
-            MsgBox("Ingrese la Dirección del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf TxtApellidos.Text = Nothing Then
-            MsgBox("Ingrese los Apellidos del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboDia.Text = "Dia" Then
-            MsgBox("Ingrese el Dia de Nacimiento del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboMes.Text = "Mes" Then
-            MsgBox("Ingrese el Mes de Nacimiento del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboAño.Text = "Año" Then
-            MsgBox("Ingrese el Año de Nacimiento del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf RdbMasculino.Checked = False And RdbFemenino.Checked = False Then
-            MsgBox("Ingrese el Sexo del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboMunicipio.SelectedItem = Nothing Then
-            MsgBox("Seleccione el Municipio del Cliente", MsgBoxStyle.Critical, "Error")
-        ElseIf CboEstadoCivil.Text = Nothing Then
-            MsgBox("Ingrese el Estado Civil del Cliente", MsgBoxStyle.Critical, "Error")
+    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        If TxtIdCliente.Text.Length < 15 Then
+            XtraMessageBox.Show("Ingrese el Numero de Identidad del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtNombre.EditValue = Nothing Then
+            XtraMessageBox.Show("Ingrese el Nombre del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtApellidos.EditValue = Nothing Then
+            XtraMessageBox.Show("Ingrese el apellido del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtDireccion.EditValue = Nothing Then
+            XtraMessageBox.Show("Ingrese la dirección del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf CboSexo.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione el sexo del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf CboMunicipio.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione el municipio del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf CboEstadoCivil.EditValue = Nothing Then
+            XtraMessageBox.Show("Seleccione el estado civil del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf TxtFecha.EditValue = Nothing
+            XtraMessageBox.Show("Seleccione la fecha del Cliente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-
             Try
                 Dim datos As New DatosCliente
                 Dim funcion As New Fcliente
-
-                datos.gIdCliente = TxtIdCliente.Text
-                datos.gNombreCliente = TxtNombres.Text
-                datos.gApellidoCliente = TxtApellidos.Text
-                datos.gDireccionCliente = TxtDireccion.Text
-                datos.gTelefonoCliente = TxtTelefono.Text
-                datos.gCorreoCliente = TxtCorreo.Text
-
-                Dim Mes As String
-
-                If CboMes.Text = "Enero" Then
-                    Mes = "1"
-                ElseIf CboMes.Text = "Febrero" Then
-                    Mes = "2"
-                ElseIf CboMes.Text = "Marzo" Then
-                    Mes = "3"
-                ElseIf CboMes.Text = "Abril" Then
-                    Mes = "4"
-                ElseIf CboMes.Text = "Mayo" Then
-                    Mes = "5"
-                ElseIf CboMes.Text = "Junio" Then
-                    Mes = "6"
-                ElseIf CboMes.Text = "Julio" Then
-                    Mes = "7"
-                ElseIf CboMes.Text = "Agosto" Then
-                    Mes = "8"
-                ElseIf CboMes.Text = "Septiembre" Then
-                    Mes = "9"
-                ElseIf CboMes.Text = "Octubre" Then
-                    Mes = "10"
-                ElseIf CboMes.Text = "Noviembre" Then
-                    Mes = "11"
-                ElseIf CboMes.Text = "Diciembre" Then
-                    Mes = "12"
-                End If
-                datos.gFechaNacimiento = CboAño.Text & "-" & Mes.ToString & "-" & CboDia.Text
-
-                If RdbMasculino.Checked = True Then
-                    datos.gIdSexo = 1
-                Else
-                    datos.gIdSexo = 2
-                End If
-
-                Conec.Conectarse()
-                Try
-                    cmd = New SqlCommand("Select IdMunicipio From Municipio Where Municipio= '" & CboMunicipio.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
-                    Dim dr As SqlDataReader
-                    dr = cmd.ExecuteReader
-
-                    If dr.Read Then
-                        datos.gIdMunicipio = dr(0)
-                    End If
-                    dr.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-                Try
-                    cmd = New SqlCommand("Select IdEstadoCivil From EstadoCivil Where EstadoCivil= '" & CboEstadoCivil.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
-                    Dim dr2 As SqlDataReader
-                    dr2 = cmd.ExecuteReader
-
-                    If dr2.Read Then
-                        datos.gIdEstadoCivil = dr2(0)
-                    End If
-                    dr2.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+                datos.gIdCliente = TxtIdCliente.EditValue
+                datos.gNombreCliente = TxtNombre.EditValue
+                datos.gApellidoCliente = TxtApellidos.EditValue
+                datos.gDireccionCliente = TxtDireccion.EditValue
+                datos.gTelefonoCliente = TxtTelefono.EditValue
+                datos.gCorreoCliente = TxtCorreo.EditValue
+                datos.gFechaNacimiento = CDate(TxtFecha.EditValue)
+                datos.gIdSexo = CInt(CboSexo.EditValue)
+                datos.gIdMunicipio = CInt(CboMunicipio.EditValue)
+                datos.gIdEstadoCivil = CInt(CboEstadoCivil.EditValue)
                 If funcion.EditarCliente(datos) Then
-                    MsgBox("Cliente Editado con Éxito", MsgBoxStyle.Information)
+                    XtraMessageBox.Show("Cliente actualizado con Éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Limpiar()
                     Mostrar()
                     Focus()
@@ -473,25 +264,14 @@ Public Class FrmCliente
 
         End If
     End Sub
-    Private Sub DgvCliente_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvCliente.CellDoubleClick
-        If LblRelacionClienteVenta.Text = "1" Then
-            FrmVenta.TxtIdCliente.Text = DgvCliente.CurrentRow.Cells(0).Value.ToString
-            LblRelacionClienteVenta.Text = "0"
-            Me.Close()
-        ElseIf LblRelacionClienteVenta.Text = "2" Then
-            FrmFacturacionVenta.TxtIdCliente.Text = DgvCliente.CurrentRow.Cells(0).Value.ToString
-            LblRelacionClienteVenta.Text = "0"
-            Me.Close()
 
-        End If
-    End Sub
     Private Sub FrmCliente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         LblRelacionClienteVenta.Text = "0"
     End Sub
 
 
 
-    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs) Handles BtnBusquedaCliente.Click
+    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs)
         With FrmMunicipio
             FrmMunicipio.var = 1
             .MdiParent = MenuPrincipal
@@ -500,7 +280,97 @@ Public Class FrmCliente
         End With
     End Sub
 
-    Private Sub CboMunicipio_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CboMunicipio.SelectedIndexChanged
 
+    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
+        TxtIdCliente.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente)
+        TxtDireccion.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColDireccion)
+        TxtTelefono.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColTelefono)
+        TxtCorreo.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColCorreo)
+        CboMunicipio.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColMunicipio)
+        CboEstadoCivil.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColEstadoCivil)
+        CboSexo.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColSexo)
+        TxtFecha.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColFechaNacimiento)
+
+
+        Try
+            Conec.Conectarse()
+            cmd.CommandType = CommandType.Text
+            cmd = New SqlCommand("Select NombreCliente, ApellidoCliente from Cliente Where IdCliente = '" & DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente) & "'")
+            cmd.Connection = Conec.Con
+            Dim dr As SqlDataReader
+
+            dr = cmd.ExecuteReader
+
+            If dr.Read Then
+                TxtNombre.EditValue = dr(0)
+                TxtApellidos.EditValue = dr(1)
+            End If
+            dr.Close()
+
+        Catch ex As Exception
+        Finally
+            Conec.Desconectarse()
+        End Try
+    End Sub
+
+    Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
+        If LblRelacionClienteVenta.Text = "1" Then
+            FrmVenta.TxtIdCliente.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente)
+            LblRelacionClienteVenta.Text = "0"
+            Me.Close()
+        ElseIf LblRelacionClienteVenta.Text = "2" Then
+            FrmFacturacionVenta.CboCliente.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColNombreCompleto)
+            LblRelacionClienteVenta.Text = "0"
+            Me.Close()
+
+        End If
+    End Sub
+
+    Private Sub DgvClientes_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvClientes.FocusedRowChanged
+        TxtIdCliente.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente)
+        TxtDireccion.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColDireccion)
+        TxtTelefono.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColTelefono)
+        TxtCorreo.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColCorreo)
+        CboMunicipio.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColMunicipio)
+        CboEstadoCivil.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColEstadoCivil)
+        CboSexo.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColSexo)
+        TxtFecha.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColFechaNacimiento)
+
+
+        Try
+            Conec.Conectarse()
+            cmd.CommandType = CommandType.Text
+            cmd = New SqlCommand("Select NombreCliente, ApellidoCliente from Cliente Where IdCliente = '" & DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente) & "'")
+            cmd.Connection = Conec.Con
+            Dim dr As SqlDataReader
+
+            dr = cmd.ExecuteReader
+
+            If dr.Read Then
+                TxtNombre.EditValue = dr(0)
+                TxtApellidos.EditValue = dr(1)
+            End If
+            dr.Close()
+
+        Catch ex As Exception
+        Finally
+            Conec.Desconectarse()
+        End Try
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        Mostrar()
+    End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        GCPrincipal.ShowPrintPreview()
     End Sub
 End Class

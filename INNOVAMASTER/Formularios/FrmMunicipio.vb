@@ -99,7 +99,7 @@ Public Class FrmMunicipio
     Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         With FrmDepartamento
             FrmDepartamento.var = 1
-            .MdiParent = MenuPrincipal
+            .MdiParent = FrmMenuPrincipal
             .Dock = DockStyle.Fill
             .Show()
         End With

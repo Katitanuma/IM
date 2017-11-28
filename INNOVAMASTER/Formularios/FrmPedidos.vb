@@ -618,7 +618,7 @@ Public Class FrmPedidos
                         .CommandText = "InsertarPedido"
                         .CommandType = CommandType.StoredProcedure
                         .Connection = Conec.Con
-                        .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(MenuPrincipal.LblIdUsuario.Text)
+                        .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(FrmMenuPrincipal.LblIdUsuario.Text)
                         .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.SelectedValue.ToString
                         .Parameters.Add("@Fecha", SqlDbType.Date).Value = TxtFechaPedido.Text
                         .ExecuteNonQuery()
