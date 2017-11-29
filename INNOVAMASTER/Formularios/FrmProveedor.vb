@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmProveedor
 
     Dim dt As New DataTable
@@ -7,17 +9,14 @@ Public Class FrmProveedor
     Dim cmd As SqlCommand
     Public var As Integer = 0
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CboBusqueda.Text = CboBusqueda.Items(0).ToString
-        Focus()
+        Limpiar()
         Mostrar()
         LlenarComboMunicipio()
+        LlenarComboSexo()
         BtnInsertar.Visible = False
         BtnCancelar.Visible = False
-        BtnEditar.Visible = False
-        GbProveedor.Enabled = False
-        DgvProveedor.AlternatingRowsDefaultCellStyle.BackColor = Color.PapayaWhip
-        DgvProveedor.RowsDefaultCellStyle.BackColor = Color.Honeydew
-        DgvProveedor.RowsDefaultCellStyle.SelectionBackColor = Color.Coral
+        BtnEditar.Visible = True
+        GBProveedor.Enabled = False
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
@@ -31,54 +30,56 @@ Public Class FrmProveedor
             dt = funcion.MostrarProveedores
 
             If dt.Rows.Count <> 0 Then
-                DgvProveedor.DataSource = dt
-                Label11.Visible = False
-                TxtBusqueda.Enabled = True
-                CboBusqueda.Enabled = True
+                GCPrincipal.DataSource = dt
             Else
-                DgvProveedor.DataSource = Nothing
-                Label11.Visible = True
-                TxtBusqueda.Enabled = False
-                CboBusqueda.Enabled = False
+                GCPrincipal.DataSource = Nothing
+
             End If
         Catch ex As Exception
-            MsgBox(ex.ToString)
+            XtraMessageBox.Show(ex.ToString)
         End Try
     End Sub
-    Private Sub TxtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        Dim ds As New DataSet
-        ds.Tables.Add(dt.Copy)
-        Dim dv As New DataView(ds.Tables(0))
 
-        dv.RowFilter = CboBusqueda.Text & " like '" & TxtBusqueda.Text & "%'"
-
-        If dv.Count <> 0 Then
-            Label11.Visible = False
-            DgvProveedor.DataSource = dv
-        Else
-            Label11.Visible = True
-            DgvProveedor.DataSource = Nothing
-        End If
-
-    End Sub
     Public Sub LlenarComboMunicipio()
-        CboMunicipio.Items.Clear()
+        Dim da As SqlDataAdapter
+        Dim _DT As New DataTable
+        CboMunicipio.EditValue = Nothing
         Try
             Conec.Conectarse()
-            cmd = New SqlCommand("Select Municipio from Municipio")
+            cmd = New SqlCommand("Select IdMunicipio, Municipio from Municipio")
             cmd.CommandType = CommandType.Text
             cmd.Connection = Conec.Con
-            Dim dr As SqlDataReader
-            dr = cmd.ExecuteReader
 
-            If dr.HasRows Then
-                While dr.Read
-                    CboMunicipio.Items.Add(dr(0).ToString)
-                End While
+            If cmd.ExecuteNonQuery Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT)
+                CboMunicipio.Properties.DataSource = _DT
             End If
-            dr.Close()
+
         Catch ex As Exception
-            MsgBox(ex.Message)
+            XtraMessageBox.Show(ex.Message)
+        Finally
+            Conec.Desconectarse()
+        End Try
+    End Sub
+    Public Sub LlenarComboSexo()
+        Dim da As SqlDataAdapter
+        Dim _DT As New DataTable
+        CboMunicipio.EditValue = Nothing
+        Try
+            Conec.Conectarse()
+            cmd = New SqlCommand("Select * from Sexo")
+            cmd.CommandType = CommandType.Text
+            cmd.Connection = Conec.Con
+
+            If cmd.ExecuteNonQuery Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT)
+                CboSexo.Properties.DataSource = _DT
+            End If
+
+        Catch ex As Exception
+            XtraMessageBox.Show(ex.Message)
         Finally
             Conec.Desconectarse()
         End Try
@@ -87,45 +88,27 @@ Public Class FrmProveedor
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         TxtIdProveedor.Enabled = True
         TxtRTN.Enabled = True
-        GbProveedor.Enabled = True
+        GBProveedor.Enabled = True
         BtnNuevo.Visible = False
         BtnInsertar.Visible = True
         BtnCancelar.Visible = True
         BtnEditar.Visible = False
-        DgvProveedor.Enabled = False
-        BtnNuevoEditar.Visible = False
-        TxtIdProveedor.Clear()
-        TxtRTN.Clear()
-        TxtNombreContacto.Clear()
-        TxtDireccionEmpresa.Clear()
-        TxtNombreContacto.Clear()
-        TxtApellidosContacto.Clear()
-        TxtDireccionContacto.Clear()
-        TxtTelefono.Clear()
-        TxtCorreo.Clear()
-        RdbMasculino.Checked = False
-        RdbFemenino.Checked = False
+        GCPrincipal.Enabled = False
+        BtnActualizar.Visible = False
+        TxtIdProveedor.EditValue = Nothing
+        TxtRTN.EditValue = Nothing
+        TxtNombreContacto.EditValue = Nothing
+        TxtNombreEmpresa.EditValue = Nothing
+        TxtDireccionEmpresa.EditValue = Nothing
+        TxtNombreContacto.EditValue = Nothing
+        TxtApellidosContacto.EditValue = Nothing
+        TxtDireccionContacto.EditValue = Nothing
+        TxtTelefono.EditValue = Nothing
+        TxtCorreo.EditValue = Nothing
+        CboSexo.EditValue = Nothing
+        CboMunicipio.EditValue = Nothing
     End Sub
-    Private Sub DgvCliente_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvProveedor.CellClick
-        TxtIdProveedor.Text = DgvProveedor.SelectedCells.Item(0).Value
-        TxtRTN.Text = DgvProveedor.SelectedCells.Item(1).Value
-        TxtNombreEmpresa.Text = DgvProveedor.SelectedCells.Item(2).Value
-        TxtDireccionEmpresa.Text = DgvProveedor.SelectedCells.Item(3).Value
-        TxtNombreContacto.Text = DgvProveedor.SelectedCells.Item(4).Value
-        TxtApellidosContacto.Text = DgvProveedor.SelectedCells.Item(5).Value
-        TxtDireccionContacto.Text = DgvProveedor.SelectedCells.Item(6).Value
-        TxtTelefono.Text = DgvProveedor.SelectedCells.Item(7).FormattedValue
-        TxtCorreo.Text = DgvProveedor.SelectedCells.Item(8).FormattedValue
-        CboMunicipio.Text = DgvProveedor.SelectedCells.Item(9).Value
-        If DgvProveedor.SelectedCells.Item(10).Value = "Masculino" Then
-            RdbMasculino.Select()
-        Else
-            RdbFemenino.Select()
-        End If
 
-
-
-    End Sub
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Dim R As DialogResult
         R = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -137,29 +120,28 @@ Public Class FrmProveedor
 
     End Sub
     Private Sub BtnInsertar_Click(sender As Object, e As EventArgs) Handles BtnInsertar.Click
-        If TxtIdProveedor.MaskFull = False Then
-            MsgBox("Ingrese el Numero de Identidad del Contacto", MsgBoxStyle.Critical, "Error")
+        If TxtIdProveedor.Text.Length < 15 Then
+            XtraMessageBox.Show("Ingrese un Numero de Identidad Correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ElseIf TxtRTN.Text.Length < 15 Then
+            XtraMessageBox.Show("Ingrese un RTN Correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtNombreEmpresa.Text = Nothing Then
-            MsgBox("Ingrese el Nombre de la Empresa", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese el Nombre de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtDireccionEmpresa.Text = Nothing Then
-            MsgBox("Ingrese la Direccion de la Empresa", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese la Direccion de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtNombreContacto.Text = Nothing Then
-            MsgBox("Ingrese el Nombre del Contacto", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese el Nombre del Contacto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtApellidosContacto.Text = Nothing Then
-            MsgBox("Ingrese el Apellido del Contacto", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese el Apellido del Contacto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtDireccionContacto.Text = Nothing Then
-            MsgBox("Ingrese la Dirección del Contacto", MsgBoxStyle.Critical, "Error")
-        ElseIf RdbMasculino.Checked = False And RdbFemenino.Checked = False Then
-            MsgBox("Seleccione el Sexo del Contacto", MsgBoxStyle.Critical, "Error")
-        ElseIf CboMunicipio.SelectedItem = Nothing Then
-            MsgBox("Seleccione el Municipio del Contacto", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese la Dirección del Contacto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
         Else
             Try
                 Dim datos As New DatosProveedor
                 Dim funcion As New Fproveedores
 
                 datos.gIdProveedor = TxtIdProveedor.Text
-                If TxtRTN.MaskFull = True Then
+                If TxtRTN.Text.Length = 15 Then
                     datos.gRTN = TxtRTN.Text
                 Else
                     datos.gRTN = Nothing
@@ -173,11 +155,7 @@ Public Class FrmProveedor
                 datos.gCorreoContacto = TxtCorreo.Text
 
 
-                If RdbMasculino.Checked = True Then
-                    datos.gIdSexo = 1
-                Else
-                    datos.gIdSexo = 2
-                End If
+
                 Conec.Conectarse()
                 Try
                     cmd = New SqlCommand("Select IdMunicipio From Municipio Where Municipio= '" & CboMunicipio.Text & "'")
@@ -191,20 +169,35 @@ Public Class FrmProveedor
                     End If
                     dr.Close()
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    XtraMessageBox.Show(ex.Message)
+                End Try
+
+                Try
+                    cmd = New SqlCommand("Select IdSexo From Sexo Where Sexo= '" & CboSexo.Text & "'")
+                    cmd.CommandType = CommandType.Text
+                    cmd.Connection = Conec.Con
+                    Dim dr As SqlDataReader
+                    dr = cmd.ExecuteReader
+
+                    If dr.Read Then
+                        datos.gIdSexo = dr(0)
+                    End If
+                    dr.Close()
+                Catch ex As Exception
+                    XtraMessageBox.Show(ex.Message)
                 End Try
 
 
 
                 If funcion.InsertarProveedor(datos) Then
-                    MsgBox("Cliente Ingresado con Éxito", MsgBoxStyle.Information)
+                    XtraMessageBox.Show("Proveedor registrado correctamente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Limpiar()
                     Mostrar()
                     Focus()
                 End If
 
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                XtraMessageBox.Show(ex.ToString)
             Finally
                 Conec.Desconectarse()
             End Try
@@ -213,59 +206,55 @@ Public Class FrmProveedor
 
     End Sub
     Private Sub Limpiar()
-        GbProveedor.Enabled = False
+        GBProveedor.Enabled = False
         BtnInsertar.Visible = False
         BtnNuevo.Visible = True
-        BtnEditar.Visible = False
-        BtnNuevoEditar.Visible = True
+        BtnEditar.Visible = True
+        BtnActualizar.Visible = False
         BtnCancelar.Visible = False
-        DgvProveedor.Enabled = True
-        TxtIdProveedor.Clear()
-        TxtRTN.Clear()
-        TxtNombreContacto.Clear()
-        TxtDireccionEmpresa.Clear()
-        TxtNombreContacto.Clear()
-        TxtApellidosContacto.Clear()
-        TxtDireccionContacto.Clear()
-        TxtTelefono.Clear()
-        TxtCorreo.Clear()
-        RdbMasculino.Checked = False
-        RdbFemenino.Checked = False
+        GCPrincipal.Enabled = True
+        TxtIdProveedor.EditValue = Nothing
+        TxtRTN.EditValue = Nothing
+        TxtNombreEmpresa.EditValue = Nothing
+        TxtNombreContacto.EditValue = Nothing
+        TxtDireccionEmpresa.EditValue = Nothing
+        TxtNombreContacto.EditValue = Nothing
+        TxtApellidosContacto.EditValue = Nothing
+        TxtDireccionContacto.EditValue = Nothing
+        TxtTelefono.EditValue = Nothing
+        TxtCorreo.EditValue = Nothing
+        CboMunicipio.EditValue = Nothing
+        CboSexo.EditValue = Nothing
     End Sub
-    Private Sub BtnNuevoEditar_Click(sender As Object, e As EventArgs) Handles BtnNuevoEditar.Click
-        If TxtNombreEmpresa.Text <> Nothing Then
-            GbProveedor.Enabled = True
+    Private Sub BtnEditar_Click_1(sender As Object, e As EventArgs) Handles BtnEditar.Click
+        If TxtIdProveedor.Text <> Nothing Then
+            GBProveedor.Enabled = True
             BtnNuevo.Visible = False
             BtnInsertar.Visible = False
-            BtnEditar.Visible = True
-            BtnNuevoEditar.Visible = False
+            BtnActualizar.Visible = True
+            BtnEditar.Visible = False
             BtnCancelar.Visible = True
-            DgvProveedor.Enabled = False
+            GCPrincipal.Enabled = False
             TxtIdProveedor.Enabled = False
             Focus()
         Else
-            MessageBox.Show("Seleccione el Proveedor a Editar", "Seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            XtraMessageBox.Show("Seleccione el Proveedor a Editar", "Seleccionar", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
-
-
     End Sub
-    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
-        If TxtIdProveedor.MaskFull = False Then
-            MsgBox("Ingrese el Numero de Identidad del Contacto", MsgBoxStyle.Critical, "Error")
+    Private Sub BtnActualizar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
+        If TxtRTN.Text.Length < 15 Then
+            XtraMessageBox.Show("Ingrese un RTN Correcto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtNombreEmpresa.Text = Nothing Then
-            MsgBox("Ingrese el Nombre de la Empresa", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese el Nombre de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtDireccionEmpresa.Text = Nothing Then
-            MsgBox("Ingrese la Direccion de la Empresa", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese la Direccion de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtNombreContacto.Text = Nothing Then
-            MsgBox("Ingrese el Nombre del Contacto", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese el Nombre del Contacto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtApellidosContacto.Text = Nothing Then
-            MsgBox("Ingrese el Apellido del Contacto", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese el Apellido del Contacto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf TxtDireccionContacto.Text = Nothing Then
-            MsgBox("Ingrese la Dirección del Contacto", MsgBoxStyle.Critical, "Error")
-        ElseIf RdbMasculino.Checked = False And RdbFemenino.Checked = False Then
-            MsgBox("Seleccione el Sexo del Contacto", MsgBoxStyle.Critical, "Error")
-        ElseIf CboMunicipio.SelectedItem = Nothing Then
-            MsgBox("Seleccione el Municipio del Contacto", MsgBoxStyle.Critical, "Error")
+            XtraMessageBox.Show("Ingrese la Dirección del Contacto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
         Else
             Try
                 Dim datos As New DatosProveedor
@@ -273,7 +262,7 @@ Public Class FrmProveedor
 
                 datos.gIdProveedor = TxtIdProveedor.Text
 
-                If TxtRTN.MaskFull = True Then
+                If TxtRTN.Text.Length = 15 Then
                     datos.gRTN = TxtRTN.Text
                 Else
                     datos.gRTN = Nothing
@@ -285,14 +274,9 @@ Public Class FrmProveedor
                 datos.gApellidoContacto = TxtApellidosContacto.Text
                 datos.gDireccionContacto = TxtDireccionContacto.Text
                 datos.gTelefonoContacto = TxtTelefono.Text
-                datos.gCorreoContacto = TxtCorreo.Text
+                datos.gCorreoContacto = TxtCorreo.EditValue
 
 
-                If RdbMasculino.Checked = True Then
-                    datos.gIdSexo = 1
-                Else
-                    datos.gIdSexo = 2
-                End If
                 Conec.Conectarse()
                 Try
                     cmd = New SqlCommand("Select IdMunicipio From Municipio Where Municipio= '" & CboMunicipio.Text & "'")
@@ -306,48 +290,103 @@ Public Class FrmProveedor
                     End If
                     dr.Close()
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    XtraMessageBox.Show(ex.Message)
                 End Try
 
 
+                Try
+                    cmd = New SqlCommand("Select IdSexo From Sexo Where Sexo= '" & CboSexo.Text & "'")
+                    cmd.CommandType = CommandType.Text
+                    cmd.Connection = Conec.Con
+                    Dim dr As SqlDataReader
+                    dr = cmd.ExecuteReader
+
+                    If dr.Read Then
+                        datos.gIdSexo = dr(0)
+                    End If
+                    dr.Close()
+                Catch ex As Exception
+                    XtraMessageBox.Show(ex.Message)
+                End Try
 
                 If funcion.EditarProveedor(datos) Then
-                    MsgBox("Proveedor editado con Éxito", MsgBoxStyle.Information)
+                    XtraMessageBox.Show("Proveedor modificado correctamente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Limpiar()
                     Mostrar()
                     Focus()
                 End If
 
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                XtraMessageBox.Show(ex.ToString)
             Finally
                 Conec.Desconectarse()
             End Try
 
         End If
-
-    End Sub
-    Private Sub DgvCliente_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvProveedor.CellDoubleClick
-        If var = 2 Then
-            FrmPedidos.LlenarComboBoxProveedor()
-            FrmPedidos.CboProveedor.Text = DgvProveedor.CurrentRow.Cells(4).Value.ToString + " " + DgvProveedor.CurrentRow.Cells(5).Value.ToString
-            Me.Close()
-        End If
-    End Sub
-    Private Sub FrmCliente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        LblRelacionClienteVenta.Text = "0"
     End Sub
 
+    Private Sub BtnBusquedaMunicipio_Click(sender As Object, e As EventArgs) Handles BtnBusquedaMunicipio.Click
 
-
-    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs) Handles BtnBusquedaMunicipio.Click
         With FrmMunicipio
             FrmMunicipio.var = 3
-            .MdiParent = MenuPrincipal
+            .MdiParent = FrmMenuPrincipal
             .Dock = DockStyle.Fill
             .Show()
         End With
     End Sub
 
+    Private Sub FrmCliente_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        LblRelacionClienteVenta.Text = "0"
+    End Sub
 
+    Private Sub DgvProveedor_Click(sender As Object, e As EventArgs) Handles DgvProveedor.Click
+        TxtIdProveedor.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColIdProveedor)
+        TxtRTN.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColRTN)
+        TxtNombreEmpresa.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreEmpresa)
+        TxtDireccionEmpresa.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColDireccionEmpresa)
+        TxtNombreContacto.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreContacto)
+        TxtApellidosContacto.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColApellidoContacto)
+        TxtDireccionContacto.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColDireccionContacto)
+        TxtTelefono.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColTelefonoContacto)
+        TxtCorreo.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColCorreoContacto)
+        CboMunicipio.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColMunicipio)
+        CboSexo.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColSexo)
+    End Sub
+
+    Private Sub DgvProveedor_DoubleClick(sender As Object, e As EventArgs) Handles DgvProveedor.DoubleClick
+        Dim frm As FrmPedidos
+        frm.CboProveedor.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreContacto)
+    End Sub
+
+    Private Sub DgvProveedor_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvProveedor.FocusedRowChanged
+        TxtIdProveedor.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColIdProveedor)
+        TxtRTN.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColRTN)
+        TxtNombreEmpresa.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreEmpresa)
+        TxtDireccionEmpresa.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColDireccionEmpresa)
+        TxtNombreContacto.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreContacto)
+        TxtApellidosContacto.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColApellidoContacto)
+        TxtDireccionContacto.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColDireccionContacto)
+        TxtTelefono.EditValue = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColTelefonoContacto)
+        TxtCorreo.EditValue = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColCorreoContacto)
+        CboMunicipio.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColMunicipio)
+        CboSexo.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColSexo)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        GCPrincipal.ShowPrintPreview()
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        Mostrar()
+        LlenarComboMunicipio()
+        LlenarComboSexo()
+    End Sub
 End Class
