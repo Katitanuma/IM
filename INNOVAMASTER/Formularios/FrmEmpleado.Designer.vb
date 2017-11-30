@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmEmpleado
-    Inherits System.Windows.Forms.Form
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -23,106 +23,102 @@ Partial Class FrmEmpleado
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmEmpleado))
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.TxtBusqueda = New System.Windows.Forms.TextBox()
-        Me.CboBusqueda = New System.Windows.Forms.ComboBox()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.DgvEmpleado = New System.Windows.Forms.DataGridView()
-        Me.GbEmpleado = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.BtnBusquedaCliente = New System.Windows.Forms.Button()
-        Me.TxtIdEmpleado = New System.Windows.Forms.MaskedTextBox()
-        Me.TxtApellidos = New System.Windows.Forms.TextBox()
-        Me.TxtNombres = New System.Windows.Forms.TextBox()
-        Me.TxtCelular = New System.Windows.Forms.MaskedTextBox()
-        Me.TxtTelefono = New System.Windows.Forms.MaskedTextBox()
-        Me.PbEmpleado = New System.Windows.Forms.PictureBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.BtnEliminarImagen = New System.Windows.Forms.Button()
-        Me.BtnAgregarImagen = New System.Windows.Forms.Button()
-        Me.CboProfesion = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.CboSucursal = New System.Windows.Forms.ComboBox()
-        Me.CboCargo = New System.Windows.Forms.ComboBox()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.CboAñoC = New System.Windows.Forms.ComboBox()
-        Me.CboMesC = New System.Windows.Forms.ComboBox()
-        Me.CboDiaC = New System.Windows.Forms.ComboBox()
-        Me.Label12 = New System.Windows.Forms.Label()
-        Me.RdbFemenino = New System.Windows.Forms.RadioButton()
-        Me.CmbAñoN = New System.Windows.Forms.ComboBox()
-        Me.RdbMasculino = New System.Windows.Forms.RadioButton()
-        Me.CmbMesN = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.CmbDiaN = New System.Windows.Forms.ComboBox()
-        Me.CmbEstadoCivil = New System.Windows.Forms.ComboBox()
-        Me.CmbMunicipio = New System.Windows.Forms.ComboBox()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.TxtDireccion = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.BtnNuevoEditar = New System.Windows.Forms.Button()
-        Me.BtnCancelar = New System.Windows.Forms.Button()
-        Me.BtnNuevo = New System.Windows.Forms.Button()
-        Me.BtnEditar = New System.Windows.Forms.Button()
-        Me.BtnInsertar = New System.Windows.Forms.Button()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
+        Me.DgvEmpleado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.ColIdEmpleado = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColNombre = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColApellido = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColDireccion = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColTelefono = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColCel = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFechaN = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColFechaC = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColCargo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColMunicipio = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColEstadoC = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColProfesion = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColSexo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ColSucursal = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton6 = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnCancelar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnEditar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
+        Me.GbEmpleado = New DevExpress.XtraEditors.GroupControl()
+        Me.PbEmpleado = New System.Windows.Forms.PictureBox()
+        Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl13 = New DevExpress.XtraEditors.LabelControl()
+        Me.CboSexo = New DevExpress.XtraEditors.LookUpEdit()
+        Me.LabelControl14 = New DevExpress.XtraEditors.LabelControl()
+        Me.CmbEstadoCivil = New DevExpress.XtraEditors.LookUpEdit()
+        Me.BtnBProfesion = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl11 = New DevExpress.XtraEditors.LabelControl()
+        Me.CboSucursal = New DevExpress.XtraEditors.LookUpEdit()
+        Me.LabelControl12 = New DevExpress.XtraEditors.LabelControl()
+        Me.CboProfesion = New DevExpress.XtraEditors.LookUpEdit()
+        Me.BtnBCargo = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnBusquedaMunicipio = New DevExpress.XtraEditors.SimpleButton()
+        Me.DteFechaC = New DevExpress.XtraEditors.DateEdit()
+        Me.LabelControl10 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl9 = New DevExpress.XtraEditors.LabelControl()
+        Me.CboCargo = New DevExpress.XtraEditors.LookUpEdit()
+        Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
+        Me.CmbMunicipio = New DevExpress.XtraEditors.LookUpEdit()
+        Me.DteFechaNac = New DevExpress.XtraEditors.DateEdit()
+        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.TxtCelular = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.TxtTelefono = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
+        Me.TxtDireccion = New DevExpress.XtraEditors.MemoEdit()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.TxtApellidos = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.TxtNombres = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
+        Me.TxtIdEmpleado = New DevExpress.XtraEditors.TextEdit()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GbEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbEmpleado.SuspendLayout()
         CType(Me.PbEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl1.SuspendLayout()
+        CType(Me.CboSexo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbEstadoCivil.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CboSucursal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CboProfesion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DteFechaC.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DteFechaC.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CboCargo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DteFechaNac.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DteFechaNac.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtCelular.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtTelefono.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtDireccion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtApellidos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtNombres.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtIdEmpleado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.Black
-        Me.Label17.Location = New System.Drawing.Point(876, 41)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(130, 19)
-        Me.Label17.TabIndex = 61
-        Me.Label17.Text = "Lista de Empleados"
-        '
-        'TxtBusqueda
-        '
-        Me.TxtBusqueda.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtBusqueda.Location = New System.Drawing.Point(865, 11)
-        Me.TxtBusqueda.Name = "TxtBusqueda"
-        Me.TxtBusqueda.Size = New System.Drawing.Size(456, 21)
-        Me.TxtBusqueda.TabIndex = 54
-        '
-        'CboBusqueda
-        '
-        Me.CboBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboBusqueda.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboBusqueda.FormattingEnabled = True
-        Me.CboBusqueda.Items.AddRange(New Object() {"IdEmpleado", "NombreEmpleado", "ApellidoEmpleado", "Municipio", "Cargo", "Profesion", "Sexo"})
-        Me.CboBusqueda.Location = New System.Drawing.Point(603, 9)
-        Me.CboBusqueda.Name = "CboBusqueda"
-        Me.CboBusqueda.Size = New System.Drawing.Size(203, 23)
-        Me.CboBusqueda.TabIndex = 53
         '
         'Label16
         '
@@ -134,487 +130,6 @@ Partial Class FrmEmpleado
         Me.Label16.TabIndex = 59
         Me.Label16.Text = "Perfil del Empleado"
         '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(885, 265)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(98, 24)
-        Me.Label11.TabIndex = 57
-        Me.Label11.Text = "Sin Datos"
-        Me.Label11.Visible = False
-        '
-        'DgvEmpleado
-        '
-        Me.DgvEmpleado.AllowUserToAddRows = False
-        Me.DgvEmpleado.AllowUserToDeleteRows = False
-        Me.DgvEmpleado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.DgvEmpleado.BackgroundColor = System.Drawing.Color.White
-        Me.DgvEmpleado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DgvEmpleado.Location = New System.Drawing.Point(571, 61)
-        Me.DgvEmpleado.Name = "DgvEmpleado"
-        Me.DgvEmpleado.ReadOnly = True
-        Me.DgvEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DgvEmpleado.Size = New System.Drawing.Size(779, 485)
-        Me.DgvEmpleado.TabIndex = 56
-        '
-        'GbEmpleado
-        '
-        Me.GbEmpleado.BackColor = System.Drawing.Color.Transparent
-        Me.GbEmpleado.Controls.Add(Me.Button2)
-        Me.GbEmpleado.Controls.Add(Me.Button1)
-        Me.GbEmpleado.Controls.Add(Me.BtnBusquedaCliente)
-        Me.GbEmpleado.Controls.Add(Me.TxtIdEmpleado)
-        Me.GbEmpleado.Controls.Add(Me.TxtApellidos)
-        Me.GbEmpleado.Controls.Add(Me.TxtNombres)
-        Me.GbEmpleado.Controls.Add(Me.TxtCelular)
-        Me.GbEmpleado.Controls.Add(Me.TxtTelefono)
-        Me.GbEmpleado.Controls.Add(Me.PbEmpleado)
-        Me.GbEmpleado.Controls.Add(Me.Panel1)
-        Me.GbEmpleado.Controls.Add(Me.CboProfesion)
-        Me.GbEmpleado.Controls.Add(Me.Label15)
-        Me.GbEmpleado.Controls.Add(Me.CboSucursal)
-        Me.GbEmpleado.Controls.Add(Me.CboCargo)
-        Me.GbEmpleado.Controls.Add(Me.Label13)
-        Me.GbEmpleado.Controls.Add(Me.Label14)
-        Me.GbEmpleado.Controls.Add(Me.CboAñoC)
-        Me.GbEmpleado.Controls.Add(Me.CboMesC)
-        Me.GbEmpleado.Controls.Add(Me.CboDiaC)
-        Me.GbEmpleado.Controls.Add(Me.Label12)
-        Me.GbEmpleado.Controls.Add(Me.RdbFemenino)
-        Me.GbEmpleado.Controls.Add(Me.CmbAñoN)
-        Me.GbEmpleado.Controls.Add(Me.RdbMasculino)
-        Me.GbEmpleado.Controls.Add(Me.CmbMesN)
-        Me.GbEmpleado.Controls.Add(Me.Label5)
-        Me.GbEmpleado.Controls.Add(Me.CmbDiaN)
-        Me.GbEmpleado.Controls.Add(Me.CmbEstadoCivil)
-        Me.GbEmpleado.Controls.Add(Me.CmbMunicipio)
-        Me.GbEmpleado.Controls.Add(Me.Label10)
-        Me.GbEmpleado.Controls.Add(Me.Label9)
-        Me.GbEmpleado.Controls.Add(Me.Label6)
-        Me.GbEmpleado.Controls.Add(Me.Label7)
-        Me.GbEmpleado.Controls.Add(Me.Label8)
-        Me.GbEmpleado.Controls.Add(Me.TxtDireccion)
-        Me.GbEmpleado.Controls.Add(Me.Label3)
-        Me.GbEmpleado.Controls.Add(Me.Label4)
-        Me.GbEmpleado.Controls.Add(Me.Label2)
-        Me.GbEmpleado.Controls.Add(Me.Label1)
-        Me.GbEmpleado.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GbEmpleado.ForeColor = System.Drawing.Color.Black
-        Me.GbEmpleado.Location = New System.Drawing.Point(16, 42)
-        Me.GbEmpleado.Name = "GbEmpleado"
-        Me.GbEmpleado.Size = New System.Drawing.Size(530, 430)
-        Me.GbEmpleado.TabIndex = 55
-        Me.GbEmpleado.TabStop = False
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(292, 341)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(33, 24)
-        Me.Button2.TabIndex = 53
-        Me.Button2.Text = " ..."
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(495, 268)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(33, 24)
-        Me.Button1.TabIndex = 52
-        Me.Button1.Text = " ..."
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'BtnBusquedaCliente
-        '
-        Me.BtnBusquedaCliente.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBusquedaCliente.Location = New System.Drawing.Point(298, 269)
-        Me.BtnBusquedaCliente.Name = "BtnBusquedaCliente"
-        Me.BtnBusquedaCliente.Size = New System.Drawing.Size(33, 24)
-        Me.BtnBusquedaCliente.TabIndex = 51
-        Me.BtnBusquedaCliente.Text = " ..."
-        Me.BtnBusquedaCliente.UseVisualStyleBackColor = True
-        '
-        'TxtIdEmpleado
-        '
-        Me.TxtIdEmpleado.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.TxtIdEmpleado.Location = New System.Drawing.Point(155, 25)
-        Me.TxtIdEmpleado.Mask = "0000-0000-00000"
-        Me.TxtIdEmpleado.Name = "TxtIdEmpleado"
-        Me.TxtIdEmpleado.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.TxtIdEmpleado.Size = New System.Drawing.Size(131, 21)
-        Me.TxtIdEmpleado.TabIndex = 48
-        Me.TxtIdEmpleado.Tag = ""
-        '
-        'TxtApellidos
-        '
-        Me.TxtApellidos.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.TxtApellidos.Location = New System.Drawing.Point(155, 92)
-        Me.TxtApellidos.Name = "TxtApellidos"
-        Me.TxtApellidos.Size = New System.Drawing.Size(219, 21)
-        Me.TxtApellidos.TabIndex = 50
-        '
-        'TxtNombres
-        '
-        Me.TxtNombres.Font = New System.Drawing.Font("Arial", 9.0!)
-        Me.TxtNombres.Location = New System.Drawing.Point(155, 58)
-        Me.TxtNombres.Name = "TxtNombres"
-        Me.TxtNombres.Size = New System.Drawing.Size(219, 21)
-        Me.TxtNombres.TabIndex = 49
-        '
-        'TxtCelular
-        '
-        Me.TxtCelular.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtCelular.Location = New System.Drawing.Point(386, 199)
-        Me.TxtCelular.Mask = "0000-0000"
-        Me.TxtCelular.Name = "TxtCelular"
-        Me.TxtCelular.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.TxtCelular.Size = New System.Drawing.Size(113, 21)
-        Me.TxtCelular.TabIndex = 6
-        '
-        'TxtTelefono
-        '
-        Me.TxtTelefono.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtTelefono.Location = New System.Drawing.Point(154, 199)
-        Me.TxtTelefono.Mask = "0000-0000"
-        Me.TxtTelefono.Name = "TxtTelefono"
-        Me.TxtTelefono.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.TxtTelefono.Size = New System.Drawing.Size(107, 21)
-        Me.TxtTelefono.TabIndex = 5
-        '
-        'PbEmpleado
-        '
-        Me.PbEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.PbEmpleado.Location = New System.Drawing.Point(388, 23)
-        Me.PbEmpleado.Name = "PbEmpleado"
-        Me.PbEmpleado.Size = New System.Drawing.Size(130, 131)
-        Me.PbEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PbEmpleado.TabIndex = 47
-        Me.PbEmpleado.TabStop = False
-        '
-        'Panel1
-        '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.BtnEliminarImagen)
-        Me.Panel1.Controls.Add(Me.BtnAgregarImagen)
-        Me.Panel1.Location = New System.Drawing.Point(388, 153)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(130, 39)
-        Me.Panel1.TabIndex = 47
-        '
-        'BtnEliminarImagen
-        '
-        Me.BtnEliminarImagen.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.image_remove
-        Me.BtnEliminarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEliminarImagen.Location = New System.Drawing.Point(76, 3)
-        Me.BtnEliminarImagen.Name = "BtnEliminarImagen"
-        Me.BtnEliminarImagen.Size = New System.Drawing.Size(30, 30)
-        Me.BtnEliminarImagen.TabIndex = 46
-        Me.ToolTip1.SetToolTip(Me.BtnEliminarImagen, "Eliminar Imagen")
-        Me.BtnEliminarImagen.UseVisualStyleBackColor = True
-        '
-        'BtnAgregarImagen
-        '
-        Me.BtnAgregarImagen.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.image_add1
-        Me.BtnAgregarImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnAgregarImagen.Location = New System.Drawing.Point(23, 3)
-        Me.BtnAgregarImagen.Name = "BtnAgregarImagen"
-        Me.BtnAgregarImagen.Size = New System.Drawing.Size(30, 30)
-        Me.BtnAgregarImagen.TabIndex = 45
-        Me.BtnAgregarImagen.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.ToolTip1.SetToolTip(Me.BtnAgregarImagen, "Agregar Imagen")
-        Me.BtnAgregarImagen.UseVisualStyleBackColor = True
-        '
-        'CboProfesion
-        '
-        Me.CboProfesion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboProfesion.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboProfesion.FormattingEnabled = True
-        Me.CboProfesion.Location = New System.Drawing.Point(154, 342)
-        Me.CboProfesion.Name = "CboProfesion"
-        Me.CboProfesion.Size = New System.Drawing.Size(132, 23)
-        Me.CboProfesion.TabIndex = 15
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(86, 343)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(67, 19)
-        Me.Label15.TabIndex = 39
-        Me.Label15.Text = "Profesión"
-        '
-        'CboSucursal
-        '
-        Me.CboSucursal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboSucursal.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboSucursal.FormattingEnabled = True
-        Me.CboSucursal.Location = New System.Drawing.Point(386, 343)
-        Me.CboSucursal.Name = "CboSucursal"
-        Me.CboSucursal.Size = New System.Drawing.Size(133, 23)
-        Me.CboSucursal.TabIndex = 16
-        '
-        'CboCargo
-        '
-        Me.CboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CboCargo.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboCargo.FormattingEnabled = True
-        Me.CboCargo.Location = New System.Drawing.Point(386, 269)
-        Me.CboCargo.Name = "CboCargo"
-        Me.CboCargo.Size = New System.Drawing.Size(105, 23)
-        Me.CboCargo.TabIndex = 11
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(324, 343)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(62, 19)
-        Me.Label13.TabIndex = 36
-        Me.Label13.Text = "Sucursal"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(341, 271)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(44, 19)
-        Me.Label14.TabIndex = 35
-        Me.Label14.Text = "Cargo"
-        '
-        'CboAñoC
-        '
-        Me.CboAñoC.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboAñoC.FormattingEnabled = True
-        Me.CboAñoC.Location = New System.Drawing.Point(337, 306)
-        Me.CboAñoC.Name = "CboAñoC"
-        Me.CboAñoC.Size = New System.Drawing.Size(73, 23)
-        Me.CboAñoC.TabIndex = 14
-        Me.CboAñoC.Text = "Año"
-        '
-        'CboMesC
-        '
-        Me.CboMesC.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboMesC.FormattingEnabled = True
-        Me.CboMesC.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"})
-        Me.CboMesC.Location = New System.Drawing.Point(218, 306)
-        Me.CboMesC.Name = "CboMesC"
-        Me.CboMesC.Size = New System.Drawing.Size(113, 23)
-        Me.CboMesC.TabIndex = 13
-        Me.CboMesC.Text = "Mes"
-        '
-        'CboDiaC
-        '
-        Me.CboDiaC.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CboDiaC.FormattingEnabled = True
-        Me.CboDiaC.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.CboDiaC.Location = New System.Drawing.Point(154, 306)
-        Me.CboDiaC.Name = "CboDiaC"
-        Me.CboDiaC.Size = New System.Drawing.Size(58, 23)
-        Me.CboDiaC.TabIndex = 12
-        Me.CboDiaC.Text = "Dia"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(2, 306)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(152, 19)
-        Me.Label12.TabIndex = 31
-        Me.Label12.Text = "Fecha de Contratación"
-        '
-        'RdbFemenino
-        '
-        Me.RdbFemenino.AutoSize = True
-        Me.RdbFemenino.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RdbFemenino.Location = New System.Drawing.Point(247, 406)
-        Me.RdbFemenino.Name = "RdbFemenino"
-        Me.RdbFemenino.Size = New System.Drawing.Size(81, 19)
-        Me.RdbFemenino.TabIndex = 19
-        Me.RdbFemenino.TabStop = True
-        Me.RdbFemenino.Text = "Femenino"
-        Me.RdbFemenino.UseVisualStyleBackColor = True
-        '
-        'CmbAñoN
-        '
-        Me.CmbAñoN.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmbAñoN.FormattingEnabled = True
-        Me.CmbAñoN.Location = New System.Drawing.Point(337, 233)
-        Me.CmbAñoN.Name = "CmbAñoN"
-        Me.CmbAñoN.Size = New System.Drawing.Size(73, 23)
-        Me.CmbAñoN.TabIndex = 9
-        Me.CmbAñoN.Text = "Año"
-        '
-        'RdbMasculino
-        '
-        Me.RdbMasculino.AutoSize = True
-        Me.RdbMasculino.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RdbMasculino.Location = New System.Drawing.Point(160, 406)
-        Me.RdbMasculino.Name = "RdbMasculino"
-        Me.RdbMasculino.Size = New System.Drawing.Size(81, 19)
-        Me.RdbMasculino.TabIndex = 18
-        Me.RdbMasculino.TabStop = True
-        Me.RdbMasculino.Text = "Masculino"
-        Me.RdbMasculino.UseVisualStyleBackColor = True
-        '
-        'CmbMesN
-        '
-        Me.CmbMesN.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmbMesN.FormattingEnabled = True
-        Me.CmbMesN.Items.AddRange(New Object() {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"})
-        Me.CmbMesN.Location = New System.Drawing.Point(218, 233)
-        Me.CmbMesN.Name = "CmbMesN"
-        Me.CmbMesN.Size = New System.Drawing.Size(113, 23)
-        Me.CmbMesN.TabIndex = 8
-        Me.CmbMesN.Text = "Mes"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(114, 405)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(40, 19)
-        Me.Label5.TabIndex = 28
-        Me.Label5.Text = "Sexo"
-        '
-        'CmbDiaN
-        '
-        Me.CmbDiaN.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmbDiaN.FormattingEnabled = True
-        Me.CmbDiaN.Items.AddRange(New Object() {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"})
-        Me.CmbDiaN.Location = New System.Drawing.Point(154, 233)
-        Me.CmbDiaN.Name = "CmbDiaN"
-        Me.CmbDiaN.Size = New System.Drawing.Size(58, 23)
-        Me.CmbDiaN.TabIndex = 7
-        Me.CmbDiaN.Text = "Dia"
-        '
-        'CmbEstadoCivil
-        '
-        Me.CmbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbEstadoCivil.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmbEstadoCivil.FormattingEnabled = True
-        Me.CmbEstadoCivil.Location = New System.Drawing.Point(155, 378)
-        Me.CmbEstadoCivil.Name = "CmbEstadoCivil"
-        Me.CmbEstadoCivil.Size = New System.Drawing.Size(149, 23)
-        Me.CmbEstadoCivil.TabIndex = 17
-        '
-        'CmbMunicipio
-        '
-        Me.CmbMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbMunicipio.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmbMunicipio.FormattingEnabled = True
-        Me.CmbMunicipio.Location = New System.Drawing.Point(154, 269)
-        Me.CmbMunicipio.Name = "CmbMunicipio"
-        Me.CmbMunicipio.Size = New System.Drawing.Size(138, 23)
-        Me.CmbMunicipio.TabIndex = 10
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(72, 379)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(83, 19)
-        Me.Label10.TabIndex = 18
-        Me.Label10.Text = "Estado Civil"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(86, 269)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(67, 19)
-        Me.Label9.TabIndex = 16
-        Me.Label9.Text = "Municipio"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(11, 234)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(143, 19)
-        Me.Label6.TabIndex = 12
-        Me.Label6.Text = "Fecha de Nacimiento"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(334, 199)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(52, 19)
-        Me.Label7.TabIndex = 10
-        Me.Label7.Text = "Celular"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(89, 199)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(64, 19)
-        Me.Label8.TabIndex = 8
-        Me.Label8.Text = "Teléfono"
-        '
-        'TxtDireccion
-        '
-        Me.TxtDireccion.Font = New System.Drawing.Font("Arial", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TxtDireccion.Location = New System.Drawing.Point(155, 121)
-        Me.TxtDireccion.Multiline = True
-        Me.TxtDireccion.Name = "TxtDireccion"
-        Me.TxtDireccion.Size = New System.Drawing.Size(219, 71)
-        Me.TxtDireccion.TabIndex = 4
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(85, 121)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(67, 19)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Dirección"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(86, 86)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(66, 19)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Apellidos"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(88, 55)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(64, 19)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Nombres"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(40, 23)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 19)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Código Empleado"
-        '
         'PictureBox2
         '
         Me.PictureBox2.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources._2
@@ -624,132 +139,750 @@ Partial Class FrmEmpleado
         Me.PictureBox2.TabIndex = 64
         Me.PictureBox2.TabStop = False
         '
-        'PictureBox3
+        'GCPrincipal
         '
-        Me.PictureBox3.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.lapiz1
-        Me.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox3.Location = New System.Drawing.Point(829, 5)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox3.TabIndex = 63
-        Me.PictureBox3.TabStop = False
+        Me.GCPrincipal.Location = New System.Drawing.Point(602, 20)
+        Me.GCPrincipal.MainView = Me.DgvEmpleado
+        Me.GCPrincipal.Name = "GCPrincipal"
+        Me.GCPrincipal.Size = New System.Drawing.Size(748, 447)
+        Me.GCPrincipal.TabIndex = 108
+        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvEmpleado})
         '
-        'PictureBox1
+        'DgvEmpleado
         '
-        Me.PictureBox1.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.search
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Location = New System.Drawing.Point(571, 4)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(32, 32)
-        Me.PictureBox1.TabIndex = 62
-        Me.PictureBox1.TabStop = False
+        Me.DgvEmpleado.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvEmpleado.Appearance.Empty.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvEmpleado.Appearance.Empty.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.FocusedCell.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvEmpleado.Appearance.FocusedCell.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.DgvEmpleado.Appearance.FocusedCell.ForeColor = System.Drawing.Color.White
+        Me.DgvEmpleado.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.FocusedCell.Options.UseFont = True
+        Me.DgvEmpleado.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.DgvEmpleado.Appearance.FocusedRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvEmpleado.Appearance.FocusedRow.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.DgvEmpleado.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.FocusedRow.Options.UseFont = True
+        Me.DgvEmpleado.Appearance.FooterPanel.Options.UseTextOptions = True
+        Me.DgvEmpleado.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.DgvEmpleado.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.DodgerBlue
+        Me.DgvEmpleado.Appearance.HideSelectionRow.Font = New System.Drawing.Font("Arial", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.DgvEmpleado.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.White
+        Me.DgvEmpleado.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.HideSelectionRow.Options.UseFont = True
+        Me.DgvEmpleado.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.DgvEmpleado.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvEmpleado.Appearance.HorzLine.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvEmpleado.Appearance.Row.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DgvEmpleado.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.DgvEmpleado.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.DgvEmpleado.Appearance.VertLine.Options.UseBackColor = True
+        Me.DgvEmpleado.ColumnPanelRowHeight = 26
+        Me.DgvEmpleado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColIdEmpleado, Me.ColNombre, Me.ColApellido, Me.ColDireccion, Me.ColTelefono, Me.ColCel, Me.ColFechaN, Me.ColFechaC, Me.ColCargo, Me.ColMunicipio, Me.ColEstadoC, Me.ColProfesion, Me.ColSexo, Me.ColSucursal})
+        Me.DgvEmpleado.GridControl = Me.GCPrincipal
+        Me.DgvEmpleado.Name = "DgvEmpleado"
+        Me.DgvEmpleado.OptionsBehavior.AllowIncrementalSearch = True
+        Me.DgvEmpleado.OptionsBehavior.AutoSelectAllInEditor = False
+        Me.DgvEmpleado.OptionsBehavior.Editable = False
+        Me.DgvEmpleado.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click
+        Me.DgvEmpleado.OptionsFind.AlwaysVisible = True
+        Me.DgvEmpleado.OptionsFind.FindNullPrompt = "Introduzca municipio a buscar..."
+        Me.DgvEmpleado.OptionsView.ColumnAutoWidth = False
+        Me.DgvEmpleado.OptionsView.EnableAppearanceEvenRow = True
+        Me.DgvEmpleado.OptionsView.EnableAppearanceOddRow = True
+        Me.DgvEmpleado.OptionsView.ShowFooter = True
+        Me.DgvEmpleado.OptionsView.ShowGroupPanel = False
+        Me.DgvEmpleado.RowHeight = 22
         '
-        'BtnNuevoEditar
+        'ColIdEmpleado
         '
-        Me.BtnNuevoEditar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnNuevoEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNuevoEditar.FlatAppearance.BorderSize = 0
-        Me.BtnNuevoEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNuevoEditar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNuevoEditar.Image = Global.INNOVAMASTER.My.Resources.Resources.editar1
-        Me.BtnNuevoEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnNuevoEditar.Location = New System.Drawing.Point(186, 473)
-        Me.BtnNuevoEditar.Name = "BtnNuevoEditar"
-        Me.BtnNuevoEditar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnNuevoEditar.TabIndex = 50
-        Me.BtnNuevoEditar.Text = "&Editar"
-        Me.BtnNuevoEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNuevoEditar.UseVisualStyleBackColor = False
+        Me.ColIdEmpleado.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColIdEmpleado.AppearanceCell.Options.UseFont = True
+        Me.ColIdEmpleado.AppearanceCell.Options.UseTextOptions = True
+        Me.ColIdEmpleado.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.ColIdEmpleado.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColIdEmpleado.AppearanceHeader.Options.UseFont = True
+        Me.ColIdEmpleado.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColIdEmpleado.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColIdEmpleado.Caption = "ID"
+        Me.ColIdEmpleado.FieldName = "Identidad"
+        Me.ColIdEmpleado.Name = "ColIdEmpleado"
+        Me.ColIdEmpleado.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdProveedor", "Total Empleado = {0}")})
+        Me.ColIdEmpleado.Visible = True
+        Me.ColIdEmpleado.VisibleIndex = 0
+        Me.ColIdEmpleado.Width = 156
+        '
+        'ColNombre
+        '
+        Me.ColNombre.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColNombre.AppearanceCell.Options.UseFont = True
+        Me.ColNombre.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColNombre.AppearanceHeader.Options.UseFont = True
+        Me.ColNombre.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColNombre.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColNombre.Caption = "Nombre Empleado"
+        Me.ColNombre.FieldName = "NombreEmpleado"
+        Me.ColNombre.Name = "ColNombre"
+        Me.ColNombre.Visible = True
+        Me.ColNombre.VisibleIndex = 1
+        Me.ColNombre.Width = 209
+        '
+        'ColApellido
+        '
+        Me.ColApellido.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColApellido.AppearanceCell.Options.UseFont = True
+        Me.ColApellido.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColApellido.AppearanceHeader.Options.UseFont = True
+        Me.ColApellido.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColApellido.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColApellido.Caption = "Apellido Empleado"
+        Me.ColApellido.FieldName = "ApellidoEmpleado"
+        Me.ColApellido.Name = "ColApellido"
+        Me.ColApellido.Visible = True
+        Me.ColApellido.VisibleIndex = 2
+        Me.ColApellido.Width = 184
+        '
+        'ColDireccion
+        '
+        Me.ColDireccion.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColDireccion.AppearanceCell.Options.UseFont = True
+        Me.ColDireccion.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColDireccion.AppearanceHeader.Options.UseFont = True
+        Me.ColDireccion.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColDireccion.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColDireccion.Caption = "Direccion Empleado"
+        Me.ColDireccion.FieldName = "DireccionEmpleado"
+        Me.ColDireccion.Name = "ColDireccion"
+        Me.ColDireccion.Visible = True
+        Me.ColDireccion.VisibleIndex = 3
+        Me.ColDireccion.Width = 156
+        '
+        'ColTelefono
+        '
+        Me.ColTelefono.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColTelefono.AppearanceCell.Options.UseFont = True
+        Me.ColTelefono.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColTelefono.AppearanceHeader.Options.UseFont = True
+        Me.ColTelefono.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColTelefono.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColTelefono.Caption = "Telefono Empleado"
+        Me.ColTelefono.FieldName = "TelefonoEmpleado"
+        Me.ColTelefono.Name = "ColTelefono"
+        Me.ColTelefono.Visible = True
+        Me.ColTelefono.VisibleIndex = 4
+        Me.ColTelefono.Width = 141
+        '
+        'ColCel
+        '
+        Me.ColCel.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColCel.AppearanceCell.Options.UseFont = True
+        Me.ColCel.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColCel.AppearanceHeader.Options.UseFont = True
+        Me.ColCel.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColCel.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColCel.Caption = "Celular Empleado"
+        Me.ColCel.FieldName = "CelularEmpleado"
+        Me.ColCel.Name = "ColCel"
+        Me.ColCel.Visible = True
+        Me.ColCel.VisibleIndex = 5
+        Me.ColCel.Width = 134
+        '
+        'ColFechaN
+        '
+        Me.ColFechaN.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColFechaN.AppearanceCell.Options.UseFont = True
+        Me.ColFechaN.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColFechaN.AppearanceHeader.Options.UseFont = True
+        Me.ColFechaN.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColFechaN.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColFechaN.Caption = "Fecha de Nacimiento"
+        Me.ColFechaN.FieldName = "FechaNacimiento"
+        Me.ColFechaN.Name = "ColFechaN"
+        Me.ColFechaN.Visible = True
+        Me.ColFechaN.VisibleIndex = 6
+        Me.ColFechaN.Width = 148
+        '
+        'ColFechaC
+        '
+        Me.ColFechaC.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColFechaC.AppearanceCell.Options.UseFont = True
+        Me.ColFechaC.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColFechaC.AppearanceHeader.Options.UseFont = True
+        Me.ColFechaC.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColFechaC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColFechaC.Caption = "Fecha Contratación"
+        Me.ColFechaC.FieldName = "FechaContratacion"
+        Me.ColFechaC.Name = "ColFechaC"
+        Me.ColFechaC.Visible = True
+        Me.ColFechaC.VisibleIndex = 7
+        Me.ColFechaC.Width = 140
+        '
+        'ColCargo
+        '
+        Me.ColCargo.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColCargo.AppearanceCell.Options.UseFont = True
+        Me.ColCargo.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColCargo.AppearanceHeader.Options.UseFont = True
+        Me.ColCargo.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColCargo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColCargo.Caption = "Cargo"
+        Me.ColCargo.FieldName = "Cargo"
+        Me.ColCargo.Name = "ColCargo"
+        Me.ColCargo.Visible = True
+        Me.ColCargo.VisibleIndex = 8
+        Me.ColCargo.Width = 128
+        '
+        'ColMunicipio
+        '
+        Me.ColMunicipio.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColMunicipio.AppearanceCell.Options.UseFont = True
+        Me.ColMunicipio.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColMunicipio.AppearanceHeader.Options.UseFont = True
+        Me.ColMunicipio.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColMunicipio.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColMunicipio.Caption = "Municipio"
+        Me.ColMunicipio.FieldName = "Municipio"
+        Me.ColMunicipio.Name = "ColMunicipio"
+        Me.ColMunicipio.Visible = True
+        Me.ColMunicipio.VisibleIndex = 10
+        Me.ColMunicipio.Width = 132
+        '
+        'ColEstadoC
+        '
+        Me.ColEstadoC.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColEstadoC.AppearanceCell.Options.UseFont = True
+        Me.ColEstadoC.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColEstadoC.AppearanceHeader.Options.UseFont = True
+        Me.ColEstadoC.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColEstadoC.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColEstadoC.Caption = "Estado Civil"
+        Me.ColEstadoC.FieldName = "EstadoCivil"
+        Me.ColEstadoC.Name = "ColEstadoC"
+        Me.ColEstadoC.Visible = True
+        Me.ColEstadoC.VisibleIndex = 9
+        '
+        'ColProfesion
+        '
+        Me.ColProfesion.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColProfesion.AppearanceCell.Options.UseFont = True
+        Me.ColProfesion.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColProfesion.AppearanceHeader.Options.UseFont = True
+        Me.ColProfesion.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColProfesion.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColProfesion.Caption = "Profesión"
+        Me.ColProfesion.FieldName = "Profesion"
+        Me.ColProfesion.Name = "ColProfesion"
+        Me.ColProfesion.Visible = True
+        Me.ColProfesion.VisibleIndex = 12
+        '
+        'ColSexo
+        '
+        Me.ColSexo.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColSexo.AppearanceCell.Options.UseFont = True
+        Me.ColSexo.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColSexo.AppearanceHeader.Options.UseFont = True
+        Me.ColSexo.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColSexo.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColSexo.Caption = "Sexo"
+        Me.ColSexo.FieldName = "Sexo"
+        Me.ColSexo.Name = "ColSexo"
+        Me.ColSexo.Visible = True
+        Me.ColSexo.VisibleIndex = 11
+        '
+        'ColSucursal
+        '
+        Me.ColSucursal.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 11.25!)
+        Me.ColSucursal.AppearanceCell.Options.UseFont = True
+        Me.ColSucursal.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 11.25!)
+        Me.ColSucursal.AppearanceHeader.Options.UseFont = True
+        Me.ColSucursal.AppearanceHeader.Options.UseTextOptions = True
+        Me.ColSucursal.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.ColSucursal.Caption = "Sucursal"
+        Me.ColSucursal.FieldName = "Sucursal"
+        Me.ColSucursal.Name = "ColSucursal"
+        Me.ColSucursal.Visible = True
+        Me.ColSucursal.VisibleIndex = 13
+        '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.Location = New System.Drawing.Point(672, 473)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton5.TabIndex = 152
+        Me.SimpleButton5.Text = "Actualizar Datos"
+        '
+        'SimpleButton4
+        '
+        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
+        Me.SimpleButton4.Location = New System.Drawing.Point(843, 473)
+        Me.SimpleButton4.Name = "SimpleButton4"
+        Me.SimpleButton4.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton4.TabIndex = 151
+        Me.SimpleButton4.Text = "Exportar PDF"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.Location = New System.Drawing.Point(1014, 473)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton1.TabIndex = 150
+        Me.SimpleButton1.Text = "Exportar Excel"
+        '
+        'SimpleButton6
+        '
+        Me.SimpleButton6.Image = CType(resources.GetObject("SimpleButton6.Image"), System.Drawing.Image)
+        Me.SimpleButton6.Location = New System.Drawing.Point(1185, 473)
+        Me.SimpleButton6.Name = "SimpleButton6"
+        Me.SimpleButton6.Size = New System.Drawing.Size(165, 45)
+        Me.SimpleButton6.TabIndex = 149
+        Me.SimpleButton6.Text = "Vista Previa"
         '
         'BtnCancelar
         '
-        Me.BtnCancelar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnCancelar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnCancelar.FlatAppearance.BorderSize = 0
-        Me.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnCancelar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCancelar.Image = Global.INNOVAMASTER.My.Resources.Resources.cancelb
-        Me.BtnCancelar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnCancelar.Location = New System.Drawing.Point(376, 473)
+        Me.BtnCancelar.Image = CType(resources.GetObject("BtnCancelar.Image"), System.Drawing.Image)
+        Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnCancelar.Location = New System.Drawing.Point(385, 478)
         Me.BtnCancelar.Name = "BtnCancelar"
-        Me.BtnCancelar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnCancelar.TabIndex = 51
-        Me.BtnCancelar.Text = "&Cancelar"
-        Me.BtnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnCancelar.UseVisualStyleBackColor = False
-        '
-        'BtnNuevo
-        '
-        Me.BtnNuevo.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnNuevo.FlatAppearance.BorderSize = 0
-        Me.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnNuevo.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnNuevo.Image = Global.INNOVAMASTER.My.Resources.Resources.nuevo
-        Me.BtnNuevo.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnNuevo.Location = New System.Drawing.Point(91, 473)
-        Me.BtnNuevo.Name = "BtnNuevo"
-        Me.BtnNuevo.Size = New System.Drawing.Size(82, 86)
-        Me.BtnNuevo.TabIndex = 49
-        Me.BtnNuevo.Text = "&Nuevo"
-        Me.BtnNuevo.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnNuevo.UseVisualStyleBackColor = False
+        Me.BtnCancelar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnCancelar.TabIndex = 157
+        Me.BtnCancelar.Text = "Cancelar"
+        Me.BtnCancelar.Visible = False
         '
         'BtnEditar
         '
-        Me.BtnEditar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnEditar.FlatAppearance.BorderSize = 0
-        Me.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnEditar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEditar.Image = Global.INNOVAMASTER.My.Resources.Resources.actualizarb
-        Me.BtnEditar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnEditar.Location = New System.Drawing.Point(282, 473)
+        Me.BtnEditar.Image = CType(resources.GetObject("BtnEditar.Image"), System.Drawing.Image)
+        Me.BtnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEditar.Location = New System.Drawing.Point(177, 478)
         Me.BtnEditar.Name = "BtnEditar"
-        Me.BtnEditar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnEditar.TabIndex = 58
-        Me.BtnEditar.Text = "&Actualizar"
-        Me.BtnEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnEditar.UseVisualStyleBackColor = False
+        Me.BtnEditar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnEditar.TabIndex = 155
+        Me.BtnEditar.Text = "Editar"
+        '
+        'BtnNuevo
+        '
+        Me.BtnNuevo.Image = CType(resources.GetObject("BtnNuevo.Image"), System.Drawing.Image)
+        Me.BtnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnNuevo.Location = New System.Drawing.Point(73, 478)
+        Me.BtnNuevo.Name = "BtnNuevo"
+        Me.BtnNuevo.Size = New System.Drawing.Size(98, 68)
+        Me.BtnNuevo.TabIndex = 154
+        Me.BtnNuevo.Text = "Nuevo"
         '
         'BtnInsertar
         '
-        Me.BtnInsertar.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.BtnInsertar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BtnInsertar.FlatAppearance.BorderSize = 0
-        Me.BtnInsertar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnInsertar.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnInsertar.Image = Global.INNOVAMASTER.My.Resources.Resources.guardar
-        Me.BtnInsertar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.BtnInsertar.Location = New System.Drawing.Point(282, 473)
+        Me.BtnInsertar.Image = CType(resources.GetObject("BtnInsertar.Image"), System.Drawing.Image)
+        Me.BtnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnInsertar.Location = New System.Drawing.Point(281, 480)
         Me.BtnInsertar.Name = "BtnInsertar"
-        Me.BtnInsertar.Size = New System.Drawing.Size(82, 86)
-        Me.BtnInsertar.TabIndex = 52
-        Me.BtnInsertar.Text = "&Guardar"
-        Me.BtnInsertar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.BtnInsertar.UseVisualStyleBackColor = False
+        Me.BtnInsertar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnInsertar.TabIndex = 158
+        Me.BtnInsertar.Text = "Guardar"
+        Me.BtnInsertar.Visible = False
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Image = CType(resources.GetObject("BtnActualizar.Image"), System.Drawing.Image)
+        Me.BtnActualizar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnActualizar.Location = New System.Drawing.Point(281, 478)
+        Me.BtnActualizar.Name = "BtnActualizar"
+        Me.BtnActualizar.Size = New System.Drawing.Size(98, 68)
+        Me.BtnActualizar.TabIndex = 156
+        Me.BtnActualizar.Text = "Actualizar"
+        Me.BtnActualizar.Visible = False
+        '
+        'GbEmpleado
+        '
+        Me.GbEmpleado.Controls.Add(Me.PbEmpleado)
+        Me.GbEmpleado.Controls.Add(Me.PanelControl1)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl13)
+        Me.GbEmpleado.Controls.Add(Me.CboSexo)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl14)
+        Me.GbEmpleado.Controls.Add(Me.CmbEstadoCivil)
+        Me.GbEmpleado.Controls.Add(Me.BtnBProfesion)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl11)
+        Me.GbEmpleado.Controls.Add(Me.CboSucursal)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl12)
+        Me.GbEmpleado.Controls.Add(Me.CboProfesion)
+        Me.GbEmpleado.Controls.Add(Me.BtnBCargo)
+        Me.GbEmpleado.Controls.Add(Me.BtnBusquedaMunicipio)
+        Me.GbEmpleado.Controls.Add(Me.DteFechaC)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl10)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl9)
+        Me.GbEmpleado.Controls.Add(Me.CboCargo)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl8)
+        Me.GbEmpleado.Controls.Add(Me.CmbMunicipio)
+        Me.GbEmpleado.Controls.Add(Me.DteFechaNac)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl7)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl6)
+        Me.GbEmpleado.Controls.Add(Me.TxtCelular)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl5)
+        Me.GbEmpleado.Controls.Add(Me.TxtTelefono)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl4)
+        Me.GbEmpleado.Controls.Add(Me.TxtDireccion)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl3)
+        Me.GbEmpleado.Controls.Add(Me.TxtApellidos)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl2)
+        Me.GbEmpleado.Controls.Add(Me.TxtNombres)
+        Me.GbEmpleado.Controls.Add(Me.LabelControl15)
+        Me.GbEmpleado.Controls.Add(Me.TxtIdEmpleado)
+        Me.GbEmpleado.Location = New System.Drawing.Point(12, 70)
+        Me.GbEmpleado.Name = "GbEmpleado"
+        Me.GbEmpleado.Size = New System.Drawing.Size(580, 383)
+        Me.GbEmpleado.TabIndex = 159
+        Me.GbEmpleado.Text = "Datos Empleado"
+        '
+        'PbEmpleado
+        '
+        Me.PbEmpleado.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PbEmpleado.Location = New System.Drawing.Point(403, 23)
+        Me.PbEmpleado.Name = "PbEmpleado"
+        Me.PbEmpleado.Size = New System.Drawing.Size(130, 131)
+        Me.PbEmpleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PbEmpleado.TabIndex = 47
+        Me.PbEmpleado.TabStop = False
+        '
+        'PanelControl1
+        '
+        Me.PanelControl1.Controls.Add(Me.SimpleButton2)
+        Me.PanelControl1.Controls.Add(Me.SimpleButton3)
+        Me.PanelControl1.Location = New System.Drawing.Point(403, 153)
+        Me.PanelControl1.Name = "PanelControl1"
+        Me.PanelControl1.Size = New System.Drawing.Size(130, 34)
+        Me.PanelControl1.TabIndex = 48
+        '
+        'SimpleButton2
+        '
+        Me.SimpleButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SimpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
+        Me.SimpleButton2.Location = New System.Drawing.Point(74, 1)
+        Me.SimpleButton2.Name = "SimpleButton2"
+        Me.SimpleButton2.Size = New System.Drawing.Size(38, 30)
+        Me.SimpleButton2.TabIndex = 49
+        '
+        'SimpleButton3
+        '
+        Me.SimpleButton3.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources.image_remove
+        Me.SimpleButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.SimpleButton3.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
+        Me.SimpleButton3.Location = New System.Drawing.Point(13, 0)
+        Me.SimpleButton3.Name = "SimpleButton3"
+        Me.SimpleButton3.Size = New System.Drawing.Size(38, 30)
+        Me.SimpleButton3.TabIndex = 0
+        '
+        'LabelControl13
+        '
+        Me.LabelControl13.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl13.Location = New System.Drawing.Point(367, 337)
+        Me.LabelControl13.Name = "LabelControl13"
+        Me.LabelControl13.Size = New System.Drawing.Size(31, 19)
+        Me.LabelControl13.TabIndex = 30
+        Me.LabelControl13.Text = "Sexo"
+        '
+        'CboSexo
+        '
+        Me.CboSexo.Location = New System.Drawing.Point(404, 338)
+        Me.CboSexo.Name = "CboSexo"
+        Me.CboSexo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboSexo.Properties.DisplayMember = "Sexo"
+        Me.CboSexo.Properties.NullText = "Seleccione Sexo"
+        Me.CboSexo.Properties.ValueMember = "IdSexo"
+        Me.CboSexo.Size = New System.Drawing.Size(135, 20)
+        Me.CboSexo.TabIndex = 29
+        '
+        'LabelControl14
+        '
+        Me.LabelControl14.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl14.Location = New System.Drawing.Point(80, 339)
+        Me.LabelControl14.Name = "LabelControl14"
+        Me.LabelControl14.Size = New System.Drawing.Size(74, 19)
+        Me.LabelControl14.TabIndex = 28
+        Me.LabelControl14.Text = "Estado Civil"
+        '
+        'CmbEstadoCivil
+        '
+        Me.CmbEstadoCivil.Location = New System.Drawing.Point(160, 339)
+        Me.CmbEstadoCivil.Name = "CmbEstadoCivil"
+        Me.CmbEstadoCivil.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbEstadoCivil.Properties.DisplayMember = "EstadoCivil"
+        Me.CmbEstadoCivil.Properties.NullText = "Seleccione Estado Civil"
+        Me.CmbEstadoCivil.Properties.ValueMember = "IdEstadoCivil"
+        Me.CmbEstadoCivil.Size = New System.Drawing.Size(135, 20)
+        Me.CmbEstadoCivil.TabIndex = 27
+        '
+        'BtnBProfesion
+        '
+        Me.BtnBProfesion.Location = New System.Drawing.Point(301, 309)
+        Me.BtnBProfesion.Name = "BtnBProfesion"
+        Me.BtnBProfesion.Size = New System.Drawing.Size(29, 23)
+        Me.BtnBProfesion.TabIndex = 26
+        Me.BtnBProfesion.Text = "..."
+        '
+        'LabelControl11
+        '
+        Me.LabelControl11.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl11.Location = New System.Drawing.Point(345, 307)
+        Me.LabelControl11.Name = "LabelControl11"
+        Me.LabelControl11.Size = New System.Drawing.Size(53, 19)
+        Me.LabelControl11.TabIndex = 25
+        Me.LabelControl11.Text = "Sucursal"
+        '
+        'CboSucursal
+        '
+        Me.CboSucursal.Location = New System.Drawing.Point(404, 308)
+        Me.CboSucursal.Name = "CboSucursal"
+        Me.CboSucursal.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboSucursal.Properties.DisplayMember = "Sucursal"
+        Me.CboSucursal.Properties.NullText = "Seleccione Sucursal"
+        Me.CboSucursal.Properties.ValueMember = "IdSucursal"
+        Me.CboSucursal.Size = New System.Drawing.Size(135, 20)
+        Me.CboSucursal.TabIndex = 24
+        '
+        'LabelControl12
+        '
+        Me.LabelControl12.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl12.Location = New System.Drawing.Point(92, 309)
+        Me.LabelControl12.Name = "LabelControl12"
+        Me.LabelControl12.Size = New System.Drawing.Size(58, 19)
+        Me.LabelControl12.TabIndex = 23
+        Me.LabelControl12.Text = "Profesión"
+        '
+        'CboProfesion
+        '
+        Me.CboProfesion.Location = New System.Drawing.Point(160, 310)
+        Me.CboProfesion.Name = "CboProfesion"
+        Me.CboProfesion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboProfesion.Properties.DisplayMember = "Profesion"
+        Me.CboProfesion.Properties.NullText = "Seleccione Profesión"
+        Me.CboProfesion.Properties.ValueMember = "IdProfesion"
+        Me.CboProfesion.Size = New System.Drawing.Size(135, 20)
+        Me.CboProfesion.TabIndex = 22
+        '
+        'BtnBCargo
+        '
+        Me.BtnBCargo.Location = New System.Drawing.Point(545, 250)
+        Me.BtnBCargo.Name = "BtnBCargo"
+        Me.BtnBCargo.Size = New System.Drawing.Size(29, 23)
+        Me.BtnBCargo.TabIndex = 21
+        Me.BtnBCargo.Text = "..."
+        '
+        'BtnBusquedaMunicipio
+        '
+        Me.BtnBusquedaMunicipio.Location = New System.Drawing.Point(301, 253)
+        Me.BtnBusquedaMunicipio.Name = "BtnBusquedaMunicipio"
+        Me.BtnBusquedaMunicipio.Size = New System.Drawing.Size(29, 23)
+        Me.BtnBusquedaMunicipio.TabIndex = 20
+        Me.BtnBusquedaMunicipio.Text = "..."
+        '
+        'DteFechaC
+        '
+        Me.DteFechaC.EditValue = Nothing
+        Me.DteFechaC.Location = New System.Drawing.Point(159, 279)
+        Me.DteFechaC.Name = "DteFechaC"
+        Me.DteFechaC.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DteFechaC.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DteFechaC.Size = New System.Drawing.Size(135, 20)
+        Me.DteFechaC.TabIndex = 19
+        '
+        'LabelControl10
+        '
+        Me.LabelControl10.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl10.Location = New System.Drawing.Point(12, 279)
+        Me.LabelControl10.Name = "LabelControl10"
+        Me.LabelControl10.Size = New System.Drawing.Size(143, 19)
+        Me.LabelControl10.TabIndex = 18
+        Me.LabelControl10.Text = "Fecha de Contratación"
+        '
+        'LabelControl9
+        '
+        Me.LabelControl9.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl9.Location = New System.Drawing.Point(364, 254)
+        Me.LabelControl9.Name = "LabelControl9"
+        Me.LabelControl9.Size = New System.Drawing.Size(35, 19)
+        Me.LabelControl9.TabIndex = 17
+        Me.LabelControl9.Text = "Cargo"
+        '
+        'CboCargo
+        '
+        Me.CboCargo.Location = New System.Drawing.Point(404, 252)
+        Me.CboCargo.Name = "CboCargo"
+        Me.CboCargo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboCargo.Properties.DisplayMember = "Cargo"
+        Me.CboCargo.Properties.NullText = "Seleccione Cargo"
+        Me.CboCargo.Properties.ValueMember = "IdCargo"
+        Me.CboCargo.Size = New System.Drawing.Size(135, 20)
+        Me.CboCargo.TabIndex = 16
+        '
+        'LabelControl8
+        '
+        Me.LabelControl8.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl8.Location = New System.Drawing.Point(92, 253)
+        Me.LabelControl8.Name = "LabelControl8"
+        Me.LabelControl8.Size = New System.Drawing.Size(58, 19)
+        Me.LabelControl8.TabIndex = 15
+        Me.LabelControl8.Text = "Municipio"
+        '
+        'CmbMunicipio
+        '
+        Me.CmbMunicipio.Location = New System.Drawing.Point(160, 254)
+        Me.CmbMunicipio.Name = "CmbMunicipio"
+        Me.CmbMunicipio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CmbMunicipio.Properties.DisplayMember = "Municipio"
+        Me.CmbMunicipio.Properties.NullText = "Seleccione Municipio"
+        Me.CmbMunicipio.Properties.ValueMember = "IdMunicipio"
+        Me.CmbMunicipio.Size = New System.Drawing.Size(135, 20)
+        Me.CmbMunicipio.TabIndex = 14
+        '
+        'DteFechaNac
+        '
+        Me.DteFechaNac.EditValue = Nothing
+        Me.DteFechaNac.Location = New System.Drawing.Point(160, 226)
+        Me.DteFechaNac.Name = "DteFechaNac"
+        Me.DteFechaNac.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DteFechaNac.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DteFechaNac.Size = New System.Drawing.Size(135, 20)
+        Me.DteFechaNac.TabIndex = 13
+        '
+        'LabelControl7
+        '
+        Me.LabelControl7.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl7.Location = New System.Drawing.Point(13, 226)
+        Me.LabelControl7.Name = "LabelControl7"
+        Me.LabelControl7.Size = New System.Drawing.Size(134, 19)
+        Me.LabelControl7.TabIndex = 12
+        Me.LabelControl7.Text = "Fecha de Nacimiento"
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl6.Location = New System.Drawing.Point(366, 201)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(43, 19)
+        Me.LabelControl6.TabIndex = 11
+        Me.LabelControl6.Text = "Celular"
+        '
+        'TxtCelular
+        '
+        Me.TxtCelular.Location = New System.Drawing.Point(415, 200)
+        Me.TxtCelular.Name = "TxtCelular"
+        Me.TxtCelular.Properties.Mask.EditMask = "\d\d?\d?\d?-\d?\d?\d?\d?"
+        Me.TxtCelular.Properties.Mask.IgnoreMaskBlank = False
+        Me.TxtCelular.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular
+        Me.TxtCelular.Properties.Mask.PlaceHolder = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtCelular.Size = New System.Drawing.Size(109, 20)
+        Me.TxtCelular.TabIndex = 10
+        '
+        'LabelControl5
+        '
+        Me.LabelControl5.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl5.Location = New System.Drawing.Point(92, 201)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(55, 19)
+        Me.LabelControl5.TabIndex = 9
+        Me.LabelControl5.Text = "Teléfono"
+        '
+        'TxtTelefono
+        '
+        Me.TxtTelefono.Location = New System.Drawing.Point(160, 200)
+        Me.TxtTelefono.Name = "TxtTelefono"
+        Me.TxtTelefono.Properties.Mask.EditMask = "\d\d?\d?\d?-\d?\d?\d?\d?"
+        Me.TxtTelefono.Properties.Mask.IgnoreMaskBlank = False
+        Me.TxtTelefono.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular
+        Me.TxtTelefono.Properties.Mask.PlaceHolder = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtTelefono.Size = New System.Drawing.Size(109, 20)
+        Me.TxtTelefono.TabIndex = 8
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl4.Location = New System.Drawing.Point(89, 121)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(58, 19)
+        Me.LabelControl4.TabIndex = 7
+        Me.LabelControl4.Text = "Dirección"
+        '
+        'TxtDireccion
+        '
+        Me.TxtDireccion.Location = New System.Drawing.Point(160, 118)
+        Me.TxtDireccion.Name = "TxtDireccion"
+        Me.TxtDireccion.Size = New System.Drawing.Size(226, 69)
+        Me.TxtDireccion.TabIndex = 6
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl3.Location = New System.Drawing.Point(89, 91)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(57, 19)
+        Me.LabelControl3.TabIndex = 5
+        Me.LabelControl3.Text = "Apellidos"
+        '
+        'TxtApellidos
+        '
+        Me.TxtApellidos.Location = New System.Drawing.Point(160, 92)
+        Me.TxtApellidos.Name = "TxtApellidos"
+        Me.TxtApellidos.Size = New System.Drawing.Size(226, 20)
+        Me.TxtApellidos.TabIndex = 4
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl2.Location = New System.Drawing.Point(89, 65)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(55, 19)
+        Me.LabelControl2.TabIndex = 3
+        Me.LabelControl2.Text = "Nombres"
+        '
+        'TxtNombres
+        '
+        Me.TxtNombres.Location = New System.Drawing.Point(160, 66)
+        Me.TxtNombres.Name = "TxtNombres"
+        Me.TxtNombres.Size = New System.Drawing.Size(226, 20)
+        Me.TxtNombres.TabIndex = 2
+        '
+        'LabelControl15
+        '
+        Me.LabelControl15.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl15.Location = New System.Drawing.Point(39, 37)
+        Me.LabelControl15.Name = "LabelControl15"
+        Me.LabelControl15.Size = New System.Drawing.Size(105, 19)
+        Me.LabelControl15.TabIndex = 1
+        Me.LabelControl15.Text = "Código Empleado"
+        '
+        'TxtIdEmpleado
+        '
+        Me.TxtIdEmpleado.Location = New System.Drawing.Point(158, 38)
+        Me.TxtIdEmpleado.Name = "TxtIdEmpleado"
+        Me.TxtIdEmpleado.Properties.Mask.EditMask = "\d?\d?\d?\d?-\d?\d?\d?\d?-\d?\d?\d?\d?\d?"
+        Me.TxtIdEmpleado.Properties.Mask.IgnoreMaskBlank = False
+        Me.TxtIdEmpleado.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Regular
+        Me.TxtIdEmpleado.Properties.Mask.PlaceHolder = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.TxtIdEmpleado.Size = New System.Drawing.Size(137, 20)
+        Me.TxtIdEmpleado.TabIndex = 0
         '
         'FrmEmpleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.LightSeaGreen
-        Me.ClientSize = New System.Drawing.Size(1362, 589)
-        Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox3)
-        Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.TxtBusqueda)
-        Me.Controls.Add(Me.CboBusqueda)
-        Me.Controls.Add(Me.Label16)
-        Me.Controls.Add(Me.BtnNuevoEditar)
-        Me.Controls.Add(Me.BtnCancelar)
-        Me.Controls.Add(Me.BtnNuevo)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.DgvEmpleado)
+        Me.ClientSize = New System.Drawing.Size(1354, 589)
         Me.Controls.Add(Me.GbEmpleado)
+        Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
+        Me.Controls.Add(Me.BtnNuevo)
         Me.Controls.Add(Me.BtnInsertar)
+        Me.Controls.Add(Me.BtnActualizar)
+        Me.Controls.Add(Me.SimpleButton5)
+        Me.Controls.Add(Me.SimpleButton4)
+        Me.Controls.Add(Me.SimpleButton1)
+        Me.Controls.Add(Me.SimpleButton6)
+        Me.Controls.Add(Me.GCPrincipal)
+        Me.Controls.Add(Me.PictureBox2)
+        Me.Controls.Add(Me.Label16)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
@@ -758,74 +891,99 @@ Partial Class FrmEmpleado
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Empleados"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GbEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbEmpleado.ResumeLayout(False)
         Me.GbEmpleado.PerformLayout()
         CType(Me.PbEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl1.ResumeLayout(False)
+        CType(Me.CboSexo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbEstadoCivil.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CboSucursal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CboProfesion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DteFechaC.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DteFechaC.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CboCargo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CmbMunicipio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DteFechaNac.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DteFechaNac.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtCelular.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtTelefono.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtDireccion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtApellidos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtNombres.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtIdEmpleado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents PictureBox1 As PictureBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents TxtBusqueda As TextBox
-    Friend WithEvents CboBusqueda As ComboBox
     Friend WithEvents Label16 As Label
-    Friend WithEvents BtnNuevoEditar As Button
-    Friend WithEvents BtnCancelar As Button
-    Friend WithEvents BtnNuevo As Button
-    Friend WithEvents BtnInsertar As Button
-    Friend WithEvents BtnEditar As Button
-    Friend WithEvents Label11 As Label
-    Friend WithEvents DgvEmpleado As DataGridView
-    Friend WithEvents GbEmpleado As GroupBox
-    Friend WithEvents TxtCelular As MaskedTextBox
-    Friend WithEvents TxtTelefono As MaskedTextBox
-    Friend WithEvents PbEmpleado As PictureBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents BtnEliminarImagen As Button
-    Friend WithEvents BtnAgregarImagen As Button
-    Friend WithEvents CboProfesion As ComboBox
-    Friend WithEvents Label15 As Label
-    Friend WithEvents CboSucursal As ComboBox
-    Friend WithEvents CboCargo As ComboBox
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label14 As Label
-    Friend WithEvents CboAñoC As ComboBox
-    Friend WithEvents CboMesC As ComboBox
-    Friend WithEvents CboDiaC As ComboBox
-    Friend WithEvents Label12 As Label
-    Friend WithEvents RdbFemenino As RadioButton
-    Friend WithEvents CmbAñoN As ComboBox
-    Friend WithEvents RdbMasculino As RadioButton
-    Friend WithEvents CmbMesN As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents CmbDiaN As ComboBox
-    Friend WithEvents CmbEstadoCivil As ComboBox
-    Friend WithEvents CmbMunicipio As ComboBox
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label7 As Label
-    Friend WithEvents Label8 As Label
-    Friend WithEvents TxtDireccion As TextBox
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TxtIdEmpleado As MaskedTextBox
-    Friend WithEvents TxtApellidos As TextBox
-    Friend WithEvents TxtNombres As TextBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents ToolTip1 As ToolTip
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents BtnBusquedaCliente As Button
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
+    Friend WithEvents DgvEmpleado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents ColIdEmpleado As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColNombre As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColApellido As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColDireccion As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColTelefono As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColCel As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColFechaN As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColFechaC As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColCargo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColMunicipio As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColEstadoC As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColProfesion As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColSexo As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ColSucursal As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnCancelar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnEditar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnInsertar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnActualizar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents GbEmpleado As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents PanelControl1 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PbEmpleado As PictureBox
+    Friend WithEvents LabelControl13 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboSexo As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LabelControl14 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CmbEstadoCivil As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents BtnBProfesion As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl11 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboSucursal As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LabelControl12 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboProfesion As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents BtnBCargo As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnBusquedaMunicipio As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents DteFechaC As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents LabelControl10 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl9 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboCargo As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CmbMunicipio As DevExpress.XtraEditors.LookUpEdit
+    Friend WithEvents DteFechaNac As DevExpress.XtraEditors.DateEdit
+    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TxtCelular As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TxtTelefono As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TxtDireccion As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TxtApellidos As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TxtNombres As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents TxtIdEmpleado As DevExpress.XtraEditors.TextEdit
 End Class

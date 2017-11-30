@@ -643,6 +643,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo BUeno.ico" />
+    <None Include="Resources\nula.jpg" />
     <None Include="Resources\Delete Database_32px.png" />
     <None Include="Resources\Receipt_32px.png" />
     <None Include="Resources\Money Box_48px.png" />
