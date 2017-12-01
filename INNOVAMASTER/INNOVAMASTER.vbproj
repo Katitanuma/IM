@@ -219,6 +219,12 @@
     <Compile Include="Formularios\FrmMenuPrincipal.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmParametrosDEI.Designer.vb">
+      <DependentUpon>FrmParametrosDEI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmParametrosDEI.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmPedidos.Designer.vb">
       <DependentUpon>FrmPedidos.vb</DependentUpon>
     </Compile>
@@ -507,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmMenuPrincipal.resx">
       <DependentUpon>FrmMenuPrincipal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmParametrosDEI.resx">
+      <DependentUpon>FrmParametrosDEI.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPedidos.resx">
       <DependentUpon>FrmPedidos.vb</DependentUpon>

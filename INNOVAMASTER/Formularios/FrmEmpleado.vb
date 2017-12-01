@@ -641,7 +641,6 @@ Public Class FrmEmpleado
             PbEmpleado.Image = Image.FromFile(OpenFileDialog1.FileName)
         End If
     End Sub
-
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         PbEmpleado.Image = Nothing
     End Sub

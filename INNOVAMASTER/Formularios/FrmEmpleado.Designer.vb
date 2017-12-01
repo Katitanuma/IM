@@ -90,6 +90,7 @@ Partial Class FrmEmpleado
         Me.TxtNombres = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtIdEmpleado = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,14 +127,13 @@ Partial Class FrmEmpleado
         Me.Label16.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.Location = New System.Drawing.Point(69, 2)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(280, 43)
+        Me.Label16.Size = New System.Drawing.Size(0, 43)
         Me.Label16.TabIndex = 59
-        Me.Label16.Text = "Perfil del Empleado"
         '
         'PictureBox2
         '
         Me.PictureBox2.BackgroundImage = Global.INNOVAMASTER.My.Resources.Resources._2
-        Me.PictureBox2.Location = New System.Drawing.Point(16, -1)
+        Me.PictureBox2.Location = New System.Drawing.Point(16, 5)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(59, 51)
         Me.PictureBox2.TabIndex = 64
@@ -865,11 +865,21 @@ Partial Class FrmEmpleado
         Me.TxtIdEmpleado.Size = New System.Drawing.Size(137, 20)
         Me.TxtIdEmpleado.TabIndex = 0
         '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl1.Location = New System.Drawing.Point(73, 10)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(262, 43)
+        Me.LabelControl1.TabIndex = 160
+        Me.LabelControl1.Text = "Perfil del Empleado"
+        '
         'FrmEmpleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 589)
+        Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.GbEmpleado)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
@@ -886,6 +896,7 @@ Partial Class FrmEmpleado
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmEmpleado"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -986,4 +997,5 @@ Partial Class FrmEmpleado
     Friend WithEvents TxtNombres As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl15 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents TxtIdEmpleado As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
 End Class
