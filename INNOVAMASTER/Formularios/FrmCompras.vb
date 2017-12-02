@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
 
 Public Class FrmCompras
     Dim Conec As New Conexion
@@ -45,7 +46,8 @@ Public Class FrmCompras
                             DgvDetalle.Rows(e.RowIndex).Cells(1).ErrorText = ""
 
                         Else
-                            MsgBox("El estado del producto está inactivo", MsgBoxStyle.Exclamation)
+                            XtraMessageBox.Show("El estado del producto está inactivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
                             DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
                             LlenarTextBox()
 
@@ -53,7 +55,8 @@ Public Class FrmCompras
 
                     Else
                         DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
-                        MsgBox("Producto no registrado", MsgBoxStyle.Information)
+                        XtraMessageBox.Show("Producto no registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
                         DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
                     End If
                     dr.Close()
@@ -71,7 +74,7 @@ Public Class FrmCompras
                 End If
 
             Catch ex As Exception
-                MsgBox(ex.ToString)
+                XtraMessageBox.Show(ex.ToString)
             Finally
                 Conec.Desconectarse()
 
@@ -101,16 +104,10 @@ Public Class FrmCompras
                     If dr.Read Then
                         If dr.GetValue(6).ToString = "Activo" Then
 
-
-
-
                             DgvDetalle.Rows(e.RowIndex).Cells(3).Value = 1
-
                             DgvDetalle.Rows(e.RowIndex).Cells(5).Value = FormatCurrency(CDbl(dr.GetValue(1)), 2)
                             DgvDetalle.Rows(e.RowIndex).Cells(4).Value = FormatCurrency(CDbl(dr.GetValue(3)), 2)
-
                             DgvDetalle.Rows(e.RowIndex).Cells(6).Value = FormatCurrency((DgvDetalle.Rows(e.RowIndex).Cells(4).Value) * CDbl(DgvDetalle.Rows(e.RowIndex).Cells(3).Value), 2)
-
 
                             DgvDetalle.CurrentRow.Cells(1).ReadOnly = True
                             DgvDetalle.CurrentRow.Cells(2).ReadOnly = True
@@ -118,7 +115,7 @@ Public Class FrmCompras
                             DgvDetalle.Rows(e.RowIndex).Cells(1).ErrorText = ""
 
                         Else
-                            MsgBox("El estado del producto está inactivo", MsgBoxStyle.Exclamation)
+                            XtraMessageBox.Show("El estado del producto está inactivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
                             DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
                             LlenarTextBox()
 
@@ -128,7 +125,7 @@ Public Class FrmCompras
 
                         DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
                         DgvDetalle.Rows(e.RowIndex).Cells(2).Value = Nothing
-                        MsgBox("Producto no registrado", MsgBoxStyle.Information)
+                        XtraMessageBox.Show("Producto no registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         DgvDetalle.Rows(e.RowIndex).Cells(2).ErrorText = "Producto No Registrado"
                         DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
                     End If
@@ -149,7 +146,7 @@ Public Class FrmCompras
             Catch ex As Exception
                 DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
                 DgvDetalle.Rows(e.RowIndex).Cells(2).Value = Nothing
-                MsgBox("Producto no registrado", MsgBoxStyle.Information)
+                XtraMessageBox.Show("Producto no registrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
 
             Finally
@@ -186,9 +183,6 @@ Public Class FrmCompras
             cmd.CommandType = CommandType.Text
             cmd.Connection = Conec.Con
             dr2 = cmd.ExecuteReader
-
-
-
 
             If DgvDetalle.CurrentRow.Cells(4).Value = Nothing Or DgvDetalle.CurrentRow.Cells(4).Value = 0 Then
                 If dr2.Read() Then
@@ -265,7 +259,7 @@ Public Class FrmCompras
 
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            XtraMessageBox.Show(ex.Message)
         Finally
             Conec.Desconectarse()
         End Try
@@ -290,7 +284,7 @@ Public Class FrmCompras
 
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            XtraMessageBox.Show(ex.Message)
         Finally
             Conec.Desconectarse()
         End Try
@@ -330,14 +324,14 @@ Public Class FrmCompras
 
     End Sub
     Private Sub LlenarTextBox()
-        TxtTotal.Clear()
-        TxtTotal.Text = 0
-        TxtSubtotal.Clear()
-        TxtSubtotal.Text = 0
-        TxtDescuento.Clear()
-        TxtDescuento.Text = 0
-        TxtImpuesto.Clear()
-        TxtImpuesto.Text = 0
+        TxtTotal.EditValue = Nothing
+        TxtTotal.EditValue = 0
+        TxtSubtotal.EditValue = Nothing
+        TxtSubtotal.EditValue = 0
+        TxtDescuento.EditValue = Nothing
+        TxtDescuento.EditValue = 0
+        TxtImpuesto.EditValue = Nothing
+        TxtImpuesto.EditValue = 0
 
         Dim a, b, c, d As Double
         For Each Fila As DataGridViewRow In DgvDetalle.Rows
@@ -355,26 +349,21 @@ Public Class FrmCompras
 
                 q = CDbl(TxtP.Text)
             End If
-
             w = CDbl(TxtSubtotal.Text)
             TxtDescuentoExtra.Value = (q / 100) * w
-        End If
 
-        If TxtDescuentoExtra.Text = Nothing Then
-            d = 0
-        Else
-            d = CDbl(TxtDescuentoExtra.Text)
         End If
 
 
+        d = CDbl(TxtDescuentoExtra.Value)
 
 
-        If (d >= 0 And d <= CDbl(TxtTotal.Text)) Then
+        If (d >= 0 And d <= a) Then
             TxtDescuento.Text = FormatCurrency(d, 2)
             TxtTotal.Text = FormatCurrency((a + c) - (d), 2)
             TxtImpuesto.Text = FormatCurrency(c, 2)
         Else
-            TxtDescuento.Text = FormatCurrency(d, 2)
+            TxtDescuento.Text = FormatCurrency(0, 2)
             TxtTotal.Text = FormatCurrency((a + c) - (0), 2)
             TxtImpuesto.Text = FormatCurrency(c, 2)
             TxtDescuentoExtra.Value = 0
@@ -385,12 +374,13 @@ Public Class FrmCompras
     End Sub
 
     Private Sub TxtDescuentoExtra_EditValueChanged(sender As Object, e As EventArgs) Handles TxtDescuentoExtra.EditValueChanged
+        If CDbl(TxtDescuentoExtra.Value) < CDbl((TxtSubtotal.Text.Replace("L", ""))) Then
 
-        LlenarTextBox()
-
-
-
-
+            TxtDescuento.EditValue = TxtDescuentoExtra.Value
+            LlenarTextBox()
+        Else
+            TxtDescuento.EditValue = "0.00"
+        End If
     End Sub
 
     Private Sub RdbPorcentaje_CheckedChanged(sender As Object, e As EventArgs) Handles RdbPorcentaje.CheckedChanged
@@ -407,39 +397,13 @@ Public Class FrmCompras
         End If
     End Sub
 
-    Private Sub TxtP_TextChanged(sender As Object, e As EventArgs) Handles TxtP.TextChanged
-        If TxtP.Text <> Nothing Then
-            If CInt(TxtP.Text) >= 0 And CInt(TxtP.Text <= 100) Then
-                Dim a, b As Double
-                If TxtP.Text = Nothing Then
-                    a = 0
-                Else
 
-                    a = CDbl(TxtP.Text)
-                End If
-                If TxtSubtotal.Text <> Nothing Then
-                    b = CDbl(TxtSubtotal.Text)
-                End If
-
-                TxtDescuentoExtra.Value = (a / 100) * b
-            Else
-                TxtP.Text = 0
-            End If
-
-        End If
-
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnFacturar.Click
-
-
-
-
         If DgvDetalle.RowCount = 1 Then
-                MsgBox("Ingresar al menos un producto para realizar la compra", MsgBoxStyle.Information, "INNOVAMASTER")
+            XtraMessageBox.Show("Ingresar al menos un producto para realizar la compra", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
-            Else
+        Else
             If GuardarCompra() = True Then
                 Conec.Conectarse()
 
@@ -457,7 +421,7 @@ Public Class FrmCompras
                         End If
 
                     Catch ex As Exception
-                        MsgBox(ex.Message)
+                        XtraMessageBox.Show(ex.Message)
                     End Try
                 Next
 
@@ -474,7 +438,7 @@ Public Class FrmCompras
                         End If
 
                     Catch ex As Exception
-                        MsgBox(ex.Message)
+                        XtraMessageBox.Show(ex.Message)
                     End Try
 
 
@@ -486,7 +450,7 @@ Public Class FrmCompras
                     cmd.Connection = Conec.Con
                     a = cmd.ExecuteScalar
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    XtraMessageBox.Show(ex.Message)
                 End Try
                 LblId.Text = a
 
@@ -506,15 +470,15 @@ Public Class FrmCompras
                         End If
 
                     Catch ex As Exception
-                        MsgBox(ex.Message)
+                        XtraMessageBox.Show(ex.Message)
                     End Try
 
 
                 Next
-                MsgBox("Compra realizada correctamente", MsgBoxStyle.Information, "INNOVAMASTER")
+                XtraMessageBox.Show("Compra realizada correctamente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 var = 0
-                If MessageBox.Show("¿Desea imprimir el reporte de la compra", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
-                    If MessageBox.Show("¿Desea visualizar el reporte", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
+                If XtraMessageBox.Show("¿Desea imprimir el reporte de la compra", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
+                    If XtraMessageBox.Show("¿Desea visualizar el reporte", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
 
                         FrmRptCompra.var = 2
                         FrmRptCompra.ShowDialog()
@@ -567,7 +531,7 @@ Public Class FrmCompras
 
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar la Compra?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Cancelar la Compra?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If r = DialogResult.Yes Then
 
             If s = 1 Then
@@ -584,31 +548,21 @@ Public Class FrmCompras
                     cmd.Connection = Conec.Con
                     cmd.ExecuteNonQuery()
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    XtraMessageBox.Show(ex.Message)
                 End Try
             End If
             var = 0
             Me.Close()
 
         End If
-
-
-
     End Sub
-
-
-
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Eliminar Todos los Productos de la Compra?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Eliminar Todos los Productos de la Compra?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If r = DialogResult.Yes Then
             LlenarTextBox()
             DgvDetalle.Rows.Clear()
         End If
     End Sub
-
-
-
-
 
     Private Function GuardarCompra() As Boolean
         Dim estado As Boolean
@@ -631,7 +585,7 @@ Public Class FrmCompras
                     estado = True
                     s = 1
                 Catch ex As Exception
-                    MsgBox(ex.Message)
+                    XtraMessageBox.Show(ex.Message)
                     estado = False
                 End Try
             End Using
@@ -644,7 +598,7 @@ Public Class FrmCompras
         If var = 0 Then
 
         Else
-            Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar la Compra?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            Dim r As DialogResult = XtraMessageBox.Show("¿Desea Cancelar la Compra?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If r = DialogResult.Yes Then
                 If s = 1 Then
                     Conec.Conectarse()
@@ -660,12 +614,36 @@ Public Class FrmCompras
                         cmd.Connection = Conec.Con
                         cmd.ExecuteNonQuery()
                     Catch ex As Exception
-                        MsgBox(ex.Message)
+                        XtraMessageBox.Show(ex.Message)
                     End Try
                 End If
             Else
                 e.Cancel = True
             End If
+        End If
+
+    End Sub
+
+
+    Private Sub TxtP_EditValueChanged(sender As Object, e As EventArgs) Handles TxtP.EditValueChanged
+        If TxtP.Text <> Nothing Then
+            If CInt(TxtP.Text) >= 0 And CInt(TxtP.Text <= 100) Then
+                Dim a, b As Double
+                If TxtP.Text = Nothing Then
+                    a = 0
+                Else
+
+                    a = CDbl(TxtP.Text)
+                End If
+                If TxtSubtotal.Text <> Nothing Then
+                    b = CDbl(TxtSubtotal.Text)
+                End If
+
+                TxtDescuentoExtra.Value = (a / 100) * b
+            Else
+                TxtP.Text = 0
+            End If
+
         End If
 
     End Sub

@@ -135,14 +135,14 @@ Partial Class FrmFacturacionVenta
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlTop.Size = New System.Drawing.Size(1362, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1354, 0)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 563)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1362, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1354, 0)
         '
         'barDockControlLeft
         '
@@ -155,7 +155,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1362, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1354, 0)
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 563)
         '
         'BarButtonItem1
@@ -850,7 +850,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1362, 563)
+        Me.ClientSize = New System.Drawing.Size(1354, 563)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.BtnEliminarTodo)
