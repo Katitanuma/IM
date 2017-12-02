@@ -58,6 +58,8 @@ Partial Class FrmMunicipio
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
+        Me.PrintingSystem1 = New DevExpress.XtraPrinting.PrintingSystem(Me.components)
+        Me.PrintableComponentLink1 = New DevExpress.XtraPrinting.PrintableComponentLink(Me.components)
         CType(Me.CboDepartamento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtMunicipio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,6 +70,7 @@ Partial Class FrmMunicipio
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GbMunicipio, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbMunicipio.SuspendLayout()
+        CType(Me.PrintingSystem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LblFilas
@@ -428,6 +431,18 @@ Partial Class FrmMunicipio
         Me.SimpleButton5.TabIndex = 130
         Me.SimpleButton5.Text = "Actualizar Datos"
         '
+        'PrintingSystem1
+        '
+        Me.PrintingSystem1.Links.AddRange(New Object() {Me.PrintableComponentLink1})
+        '
+        'PrintableComponentLink1
+        '
+        Me.PrintableComponentLink1.Component = Me.GCPrincipal
+        Me.PrintableComponentLink1.Landscape = True
+        Me.PrintableComponentLink1.Margins = New System.Drawing.Printing.Margins(30, 30, 30, 30)
+        Me.PrintableComponentLink1.PrintingSystemBase = Me.PrintingSystem1
+        Me.PrintableComponentLink1.RtfReportHeader = resources.GetString("PrintableComponentLink1.RtfReportHeader")
+        '
         'FrmMunicipio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -469,6 +484,7 @@ Partial Class FrmMunicipio
         CType(Me.GbMunicipio, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbMunicipio.ResumeLayout(False)
         Me.GbMunicipio.PerformLayout()
+        CType(Me.PrintingSystem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -507,4 +523,6 @@ Partial Class FrmMunicipio
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PrintingSystem1 As DevExpress.XtraPrinting.PrintingSystem
+    Friend WithEvents PrintableComponentLink1 As DevExpress.XtraPrinting.PrintableComponentLink
 End Class

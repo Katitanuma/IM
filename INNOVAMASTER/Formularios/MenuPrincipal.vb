@@ -296,4 +296,11 @@ Partial Public Class MenuPrincipal
         FrmPermisos.Focus()
         FrmPermisos.Show()
     End Sub
+
+
+
+    Private Sub BarButtonItem33_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem33.ItemClick
+        FrmParametrosDEI.Focus()
+        FrmParametrosDEI.Show()
+    End Sub
 End Class

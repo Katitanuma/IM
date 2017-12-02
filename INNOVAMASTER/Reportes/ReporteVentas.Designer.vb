@@ -130,7 +130,6 @@ Partial Class ReporteVentas
         Me.MostrarBotonReporte = False
         Me.Name = "ReporteVentas"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Ventas"
         Me.TituloEtiqueta = "Reporte de Venta"
         Me.Controls.SetChildIndex(Me.PictureBox2, 0)

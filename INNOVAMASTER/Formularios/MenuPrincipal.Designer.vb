@@ -72,6 +72,7 @@
         Me.BarButtonItem30 = New DevExpress.XtraBars.BarButtonItem()
         Me.SkinRibbonGalleryBarItem1 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
         Me.BarButtonItem31 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem32 = New DevExpress.XtraBars.BarButtonItem()
         Me.mainRibbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.mainRibbonPageGroup = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage12 = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -113,6 +114,7 @@
         Me.pcFondo = New DevExpress.XtraEditors.PanelControl()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.BarButtonItem33 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,9 +124,9 @@
         'mainRibbonControl
         '
         Me.mainRibbonControl.ExpandCollapseItem.Id = 0
-        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BtnRegistroClientes, Me.BarButtonItem2, Me.BtnRegistroEmpleado, Me.BarButtonItem4, Me.BtnRegistroUsuarios, Me.BtnReportesUsuarios, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BtnRegistroVenta, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BtnCambiarUsuario, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BtnProfesion, Me.BtnCargo, Me.BarButtonItem23, Me.BarButtonItem24, Me.BtnF, Me.BarButtonItem1, Me.BarButtonItem3, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarButtonItem16, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem31})
+        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BtnRegistroClientes, Me.BarButtonItem2, Me.BtnRegistroEmpleado, Me.BarButtonItem4, Me.BtnRegistroUsuarios, Me.BtnReportesUsuarios, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BtnRegistroVenta, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BtnCambiarUsuario, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BtnProfesion, Me.BtnCargo, Me.BarButtonItem23, Me.BarButtonItem24, Me.BtnF, Me.BarButtonItem1, Me.BarButtonItem3, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarButtonItem16, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem31, Me.BarButtonItem32, Me.BarButtonItem33})
         Me.mainRibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.mainRibbonControl.MaxItemId = 51
+        Me.mainRibbonControl.MaxItemId = 53
         Me.mainRibbonControl.Name = "mainRibbonControl"
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage, Me.RibbonPage12, Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage5, Me.RibbonPage9, Me.RibbonPage10, Me.RibbonPage4, Me.RibbonPage8, Me.RibbonPage7, Me.PgAuditoria, Me.RibbonPage11})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
@@ -468,6 +470,14 @@
         Me.BarButtonItem31.LargeGlyph = CType(resources.GetObject("BarButtonItem31.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem31.Name = "BarButtonItem31"
         '
+        'BarButtonItem32
+        '
+        Me.BarButtonItem32.Caption = "Pármetros DEI"
+        Me.BarButtonItem32.Glyph = CType(resources.GetObject("BarButtonItem32.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem32.Id = 51
+        Me.BarButtonItem32.LargeGlyph = CType(resources.GetObject("BarButtonItem32.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem32.Name = "BarButtonItem32"
+        '
         'mainRibbonPage
         '
         Me.mainRibbonPage.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.mainRibbonPageGroup})
@@ -617,6 +627,7 @@
         '
         Me.PagConfiguracion.ItemLinks.Add(Me.BarButtonItem14)
         Me.PagConfiguracion.ItemLinks.Add(Me.BarButtonItem15)
+        Me.PagConfiguracion.ItemLinks.Add(Me.BarButtonItem33)
         Me.PagConfiguracion.Name = "PagConfiguracion"
         Me.PagConfiguracion.Text = "Acciones"
         '
@@ -748,6 +759,14 @@
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
+        'BarButtonItem33
+        '
+        Me.BarButtonItem33.Caption = "Parámetros DEI"
+        Me.BarButtonItem33.Glyph = CType(resources.GetObject("BarButtonItem33.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem33.Id = 52
+        Me.BarButtonItem33.LargeGlyph = CType(resources.GetObject("BarButtonItem33.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem33.Name = "BarButtonItem33"
+        '
         'MenuPrincipal
         '
         Me.Appearance.BackColor = System.Drawing.Color.White
@@ -872,4 +891,6 @@
     Friend WithEvents BarButtonItem30 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents SkinRibbonGalleryBarItem1 As DevExpress.XtraBars.SkinRibbonGalleryBarItem
     Friend WithEvents BarButtonItem31 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem32 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem33 As DevExpress.XtraBars.BarButtonItem
 End Class

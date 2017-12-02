@@ -5,10 +5,13 @@ Public Class FrmProducto
     Dim Conec As New Conexion
     Dim cmd As SqlCommand
     Private Sub FrmProducto_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CboBusqueda.Text = CboBusqueda.Items(0).ToString
+
         MostrarProducto()
         Focus()
         LlenarCombos()
+        LlenarCombos2()
+        CboModelo.EditValue = Nothing
+        Validate()
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
@@ -23,108 +26,66 @@ Public Class FrmProducto
 
             If dt.Rows.Count <> 0 Then
                 LblFilas.Visible = False
-                DgvProducto.DataSource = dt
-                DgvProducto.Columns(10).Visible = False
-                CboBusqueda.Enabled = True
-                TxtBusqueda.Enabled = True
+                GCPrincipal.DataSource = dt
             Else
                 LblFilas.Visible = True
-                DgvProducto.DataSource = Nothing
-                CboBusqueda.Enabled = False
-                TxtBusqueda.Enabled = False
+                GCPrincipal.DataSource = Nothing
             End If
         Catch ex As Exception
 
         End Try
     End Sub
-    Private Sub DgvProducto_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvProducto.CellClick
-        DgvProducto.Columns(10).Visible = False
-        TxtIdProducto.Text = DgvProducto.SelectedCells.Item(0).Value
-        TxtDescripcion.Text = DgvProducto.SelectedCells.Item(1).Value
-        TxtCosto.Text = DgvProducto.SelectedCells.Item(2).Value
 
-        TxtGravado.Text = DgvProducto.SelectedCells.Item(3).Value
-        TxtPrecioUnitario.Text = DgvProducto.SelectedCells.Item(4).Value
-        TxtPrecioMayorista.Text = DgvProducto.SelectedCells.Item(5).Value
-        NumericUpDown1.Text = DgvProducto.SelectedCells.Item(6).Value
-        CboCategoria.Text = DgvProducto.SelectedCells.Item(7).Value
-        TxtModelo.Text = DgvProducto.SelectedCells.Item(8).Value
-        PbProducto.Image = DgvProducto.SelectedCells.Item(10).FormattedValue
-
-        If DgvProducto.SelectedCells.Item(9).Value = "Activo" Then
-            ChkEstado.Checked = True
-        Else
-            ChkEstado.Checked = False
-        End If
-        DgvProducto.Columns(10).Visible = False
-    End Sub
-    Private Sub TxtBusqueda_TextChanged(sender As Object, e As EventArgs) Handles TxtBusqueda.TextChanged
-        Dim ds As New DataSet
-        Dim dv As New DataView
-        ds.Tables.Add(dt.Copy)
-        dv = New DataView(ds.Tables(0))
-
-        dv.RowFilter = CboBusqueda.Text & " Like '" & TxtBusqueda.Text & "%'"
-
-        If dv.Count <> 0 Then
-            LblFilas.Visible = False
-            DgvProducto.DataSource = dv
-            DgvProducto.Columns(10).Visible = False
-        Else
-            LblFilas.Visible = True
-            DgvProducto.DataSource = Nothing
-        End If
-
-    End Sub
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         TxtIdProducto.Enabled = True
-        LlenarCombos()
+
         ChkEstado.Checked = True
         GbProducto.Enabled = True
-        TxtIdProducto.Clear()
-        TxtDescripcion.Clear()
-        TxtCosto.Clear()
+        TxtIdProducto.EditValue = Nothing
+        TxtDescripcion.EditValue = Nothing
+        TxtCosto.Value = 0
         TxtGravado.Value = 0
-        TxtPrecioUnitario.Clear()
-        TxtPrecioMayorista.Clear()
-        NumericUpDown1.Value = 0
-        CboCategoria.Text = Nothing
-        TxtModelo.Clear()
+        TxtPrecioUnitario.Value = 0
+        TxtPrecioMayorista.Value = 0
+        TxtExistencia.Value = 0
+        CboCategoria.EditValue = Nothing
+        CboModelo.EditValue = Nothing
         BtnCancelar.Visible = True
         BtnInsertar.Visible = True
-        BtnNuevoEditar.Visible = False
+        BtnEditar.Visible = False
         BtnNuevo.Visible = False
-        DgvProducto.Enabled = False
+        GCPrincipal.Enabled = False
         PbProducto.Image = Nothing
     End Sub
     Private Sub BtnCancelar_Click(sender As Object, e As EventArgs) Handles BtnCancelar.Click
         Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar el Proceso?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If r = DialogResult.Yes Then
-            DgvProducto.Enabled = True
+            GCPrincipal.Enabled = True
             GbProducto.Enabled = False
-            TxtIdProducto.Clear()
-            TxtDescripcion.Clear()
-            TxtCosto.Clear()
-
+            TxtIdProducto.EditValue = Nothing
+            TxtDescripcion.EditValue = Nothing
+            TxtCosto.Value = 0
             TxtGravado.Value = 0
-            TxtPrecioUnitario.Clear()
-            TxtPrecioMayorista.Clear()
-            NumericUpDown1.Value = 0
-            CboCategoria.Text = Nothing
-            TxtModelo.Clear()
+            TxtPrecioUnitario.Value = 0
+            TxtPrecioMayorista.Value = 0
+            TxtExistencia.Value = 0
+            CboCategoria.EditValue = Nothing
+            CboModelo.EditValue = Nothing
             BtnCancelar.Visible = False
             BtnInsertar.Visible = False
             BtnEditar.Visible = False
-            BtnNuevoEditar.Visible = True
+            BtnEditar.Visible = True
             BtnNuevo.Visible = True
             ChkEstado.Checked = True
             Focus()
             BtnCodigoProveedor.Visible = False
+
+            PbProducto.Image = Nothing
         End If
 
 
     End Sub
-    Private Sub BtnNuevoEditar_Click(sender As Object, e As EventArgs) Handles BtnNuevoEditar.Click
+    Private Sub BtnNuevoEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         If TxtIdProducto.Text <> Nothing Then
             TxtIdProducto.Enabled = False
             GbProducto.Enabled = True
@@ -132,8 +93,8 @@ Public Class FrmProducto
             BtnInsertar.Visible = False
             BtnEditar.Visible = True
             BtnNuevo.Visible = False
-            BtnNuevoEditar.Visible = False
-            DgvProducto.Enabled = False
+            BtnEditar.Visible = False
+            GCPrincipal.Enabled = False
             BtnCodigoProveedor.Visible = True
         Else
             MessageBox.Show("Seleccione el Producto a Editar", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -146,15 +107,17 @@ Public Class FrmProducto
             MessageBox.Show("Ingrese el Código del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf TxtDescripcion.Text = Nothing Then
             MessageBox.Show("Ingrese la Descripción del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf TxtCosto.Text = Nothing Then
+        ElseIf CDbl(TxtCosto.Value) <= 0 Then
             MessageBox.Show("Ingrese el Costo del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf TxtPrecioUnitario.Text = Nothing Then
+        ElseIf CDbl(TxtPrecioUnitario.Value) <= 0 Then
             MessageBox.Show("Ingrese el Precio Unitario del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf CboCategoria.SelectedItem = Nothing Then
+        ElseIf CDbl(TxtPrecioMayorista.Value) <= 0 Then
+            MessageBox.Show("Ingrese el Precio Unitario del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf CboCategoria.EditValue = Nothing Then
             MessageBox.Show("Seleccione la Categoria del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf TxtModelo.Text = Nothing Then
+        ElseIf CboModelo.EditValue = Nothing Then
             MessageBox.Show("Ingrese el Modelo del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf NumericUpDown1.Value <= 5 Then
+        ElseIf CInt(TxtExistencia.Value) <= 5 Then
             MessageBox.Show("No se Puede Ingresar Menor de 5 Productos en Existencia", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             Try
@@ -169,9 +132,9 @@ Public Class FrmProducto
                     datos.gGravado = CDbl(TxtGravado.Value)
                 End If
 
-                datos.gPrecioUnitario = CDbl(TxtPrecioUnitario.Text)
-                datos.gPrecioMayorista = CDbl(TxtPrecioMayorista.Text)
-                datos.gExistecia = Int(NumericUpDown1.Value)
+                datos.gPrecioUnitario = CDbl(TxtPrecioUnitario.Value)
+                datos.gPrecioMayorista = CDbl(TxtPrecioMayorista.Value)
+                datos.gExistecia = CInt(TxtExistencia.Value)
 
                 Dim ms As New MemoryStream
 
@@ -185,62 +148,34 @@ Public Class FrmProducto
                 Else
                     datos.gEstado = "Inactivo"
                 End If
-                Conec.Conectarse()
-                Try
-                    Dim dr As SqlDataReader
-                    cmd = New SqlCommand("Select IdCategoria from Categoria Where Categoria= '" & CboCategoria.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
 
-                    dr = cmd.ExecuteReader
+                datos.gIdCategoria = CInt(CboCategoria.EditValue)
 
-                    If dr.Read Then
-                        datos.gIdCategoria = dr(0)
-                    End If
 
-                    dr.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+                datos.gIdModelo = CInt(CboModelo.EditValue)
 
-                Try
-                    Dim dr2 As SqlDataReader
-                    cmd = New SqlCommand("Select IdModelo from ModeloVehiculo Where Modelo= '" & TxtModelo.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
 
-                    dr2 = cmd.ExecuteReader
-
-                    If dr2.Read Then
-                        datos.gIdModelo = dr2(0)
-                    End If
-
-                    dr2.Close()
-
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
 
 
                 If funcion.Insertar(datos) Then
                     MessageBox.Show("Producto Insertado Con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     GbProducto.Enabled = False
-                    TxtIdProducto.Clear()
-                    TxtDescripcion.Clear()
-                    TxtCosto.Clear()
+                    TxtIdProducto.EditValue = Nothing
+                    TxtDescripcion.EditValue = Nothing
+                    TxtCosto.Value = 0
                     TxtGravado.Value = 0
-                    TxtPrecioUnitario.Clear()
-                    TxtPrecioMayorista.Clear()
-                    NumericUpDown1.Value = 0
-                    CboCategoria.Text = Nothing
-                    TxtModelo.Text = Nothing
+                    TxtPrecioUnitario.Value = 0
+                    TxtPrecioMayorista.Value = 0
+                    TxtExistencia.Value = 0
+                    CboCategoria.EditValue = Nothing
+                    CboModelo.EditValue = Nothing
                     BtnCancelar.Visible = False
                     BtnInsertar.Visible = False
                     BtnEditar.Visible = False
-                    BtnNuevoEditar.Visible = True
+                    BtnEditar.Visible = True
                     BtnNuevo.Visible = True
                     ChkEstado.Checked = True
-                    DgvProducto.Enabled = True
+                    GCPrincipal.Enabled = True
                     MostrarProducto()
                     PbProducto.Image = Nothing
                 End If
@@ -259,34 +194,21 @@ Public Class FrmProducto
     Public Sub LlenarCombos()
         Try
             Conec.Conectarse()
-            CboCategoria.Items.Clear()
-            TxtModelo.AutoCompleteCustomSource.Clear()
-            Dim dr As SqlDataReader
-            cmd = New SqlCommand("Select Categoria from Categoria")
-            cmd.CommandType = CommandType.Text
-            cmd.Connection = Conec.Con
-            dr = cmd.ExecuteReader
-            If dr.HasRows Then
-                While dr.Read
-                    CboCategoria.Items.Add(dr(0))
-                End While
-            End If
-
-            dr.Close()
-            Dim dr2 As SqlDataReader
-            cmd = New SqlCommand("Select Modelo from ModeloVehiculo ")
+            Dim da As New SqlDataAdapter
+            Dim _DT2 As New DataTable
+            Dim _DT As New DataTable
+            cmd = New SqlCommand("Select IdCategoria,Categoria from Categoria")
             cmd.CommandType = CommandType.Text
             cmd.Connection = Conec.Con
 
-            dr2 = cmd.ExecuteReader
-
-            If dr2.HasRows Then
-                While dr2.Read
-                    TxtModelo.AutoCompleteCustomSource.Add(dr2(0))
-                End While
+            If cmd.ExecuteNonQuery Then
+                da = New SqlDataAdapter(cmd)
+                da.Fill(_DT2)
+                CboCategoria.Properties.DataSource = _DT2
+                cmd.Dispose()
+                da.Dispose()
             End If
 
-            dr2.Close()
 
         Catch ex As Exception
             MsgBox(ex.ToString)
@@ -294,26 +216,50 @@ Public Class FrmProducto
             Conec.Desconectarse()
         End Try
     End Sub
-    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
+
+    Public Sub LlenarCombos2()
+        Try
+            Conec.Conectarse()
+            Dim _DT As New DataTable
+            Dim cmd2 As New SqlCommand
+            Dim da2 As New SqlDataAdapter
+            cmd2 = New SqlCommand("MostrarModeloVehiculo")
+            cmd2.CommandType = CommandType.StoredProcedure
+            cmd2.Connection = Conec.Con
+
+            If cmd2.ExecuteNonQuery Then
+                da2 = New SqlDataAdapter(cmd2)
+                da2.Fill(_DT)
+                CboModelo.Properties.DataSource = _DT
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+        Finally
+            Conec.Desconectarse()
+        End Try
+    End Sub
+    Private Sub BtnEditar_Click(sender As Object, e As EventArgs) Handles BtnActualizar.Click
         If TxtIdProducto.Text = Nothing Then
             MessageBox.Show("Ingrese el Código del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         ElseIf TxtDescripcion.Text = Nothing Then
             MessageBox.Show("Ingrese la Descripción del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf TxtCosto.Text = Nothing Then
+        ElseIf CDbl(TxtCosto.Value) <= 0 Then
             MessageBox.Show("Ingrese el Costo del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf TxtPrecioUnitario.Text = Nothing Then
+        ElseIf CDbl(TxtPrecioUnitario.Value) <= 0 Then
             MessageBox.Show("Ingrese el Precio Unitario del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf CboCategoria.SelectedItem = Nothing Then
+        ElseIf CDbl(TxtPrecioMayorista.Value) <= 0 Then
+            MessageBox.Show("Ingrese el Precio Unitario del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        ElseIf CboCategoria.EditValue = Nothing Then
             MessageBox.Show("Seleccione la Categoria del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf TxtModelo.Text = Nothing Then
+        ElseIf CboModelo.EditValue = Nothing Then
             MessageBox.Show("Ingrese el Modelo del Producto", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-        ElseIf NumericUpDown1.Value <= 5 Then
+        ElseIf CInt(TxtExistencia.Value) <= 5 Then
             MessageBox.Show("No se Puede Ingresar Menor de 5 Productos en Existencia", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         Else
             Try
                 Dim datos As New DatosProducto
                 Dim funcion As New Fproducto
-
                 datos.gIdProducto = TxtIdProducto.Text
                 datos.gDescripcion = TxtDescripcion.Text
                 datos.gCosto = CDbl(TxtCosto.Text)
@@ -323,10 +269,10 @@ Public Class FrmProducto
                     datos.gGravado = CDbl(TxtGravado.Value)
                 End If
 
+                datos.gPrecioUnitario = CDbl(TxtPrecioUnitario.Value)
+                datos.gPrecioMayorista = CDbl(TxtPrecioMayorista.Value)
+                datos.gExistecia = CInt(TxtExistencia.Value)
 
-                datos.gPrecioUnitario = CDbl(TxtPrecioUnitario.Text)
-                datos.gPrecioMayorista = CDbl(TxtPrecioMayorista.Text)
-                datos.gExistecia = Int(NumericUpDown1.Value)
                 Dim ms As New MemoryStream
 
                 If PbProducto.Image Is Nothing Then
@@ -339,116 +285,185 @@ Public Class FrmProducto
                 Else
                     datos.gEstado = "Inactivo"
                 End If
-                Conec.Conectarse()
-                Try
-                    Dim dr As SqlDataReader
-                    cmd = New SqlCommand("Select IdCategoria from Categoria Where Categoria= '" & CboCategoria.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
 
-                    dr = cmd.ExecuteReader
+                datos.gIdCategoria = CInt(CboCategoria.EditValue)
 
-                    If dr.Read Then
-                        datos.gIdCategoria = dr(0)
-                    End If
 
-                    dr.Close()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
+                datos.gIdModelo = CInt(CboModelo.EditValue)
 
-                Try
-                    Dim dr2 As SqlDataReader
-                    cmd = New SqlCommand("Select IdModelo from ModeloVehiculo Where Modelo= '" & TxtModelo.Text & "'")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
 
-                    dr2 = cmd.ExecuteReader
 
-                    If dr2.Read Then
-                        datos.gIdModelo = dr2(0)
-                    End If
-
-                    dr2.Close()
-
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
 
                 If funcion.Editar(datos) Then
                     MessageBox.Show("Producto Editado Con éxito", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
                     GbProducto.Enabled = False
-                    TxtIdProducto.Clear()
-                    TxtDescripcion.Clear()
-                    TxtCosto.Clear()
-
+                    TxtIdProducto.EditValue = Nothing
+                    TxtDescripcion.EditValue = Nothing
+                    TxtCosto.Value = 0
                     TxtGravado.Value = 0
-                    TxtPrecioUnitario.Clear()
-                    TxtPrecioMayorista.Clear()
-                    NumericUpDown1.Value = 0
-                    CboCategoria.Text = Nothing
-                    TxtModelo.Clear()
+                    TxtPrecioUnitario.Value = 0
+                    TxtPrecioMayorista.Value = 0
+                    TxtExistencia.Value = 0
+                    CboCategoria.EditValue = Nothing
+                    CboModelo.EditValue = Nothing
                     BtnCancelar.Visible = False
                     BtnInsertar.Visible = False
                     BtnEditar.Visible = False
-                    BtnNuevoEditar.Visible = True
+                    BtnEditar.Visible = True
                     BtnNuevo.Visible = True
-                    TxtIdProducto.Enabled = True
-                    DgvProducto.Enabled = True
                     ChkEstado.Checked = True
+                    GCPrincipal.Enabled = True
                     MostrarProducto()
                     PbProducto.Image = Nothing
-                    BtnCodigoProveedor.Visible = False
                 End If
 
             Catch ex As Exception
+
                 MsgBox(ex.ToString)
+
+
             Finally
                 Conec.Desconectarse()
             End Try
 
         End If
     End Sub
-    Private Sub ChkEstado_CheckedChanged(sender As Object, e As EventArgs) Handles ChkEstado.CheckedChanged
+    Private Sub ChkEstado_CheckedChanged(sender As Object, e As EventArgs)
         If ChkEstado.Checked = False Then
             ChkEstado.Text = "Inactivo"
         Else
             ChkEstado.Text = "Activo"
         End If
     End Sub
-    Private Sub BtnAgregarImagen_Click(sender As Object, e As EventArgs) Handles BtnAgregarImagen.Click
+    Private Sub BtnAgregarImagen_Click(sender As Object, e As EventArgs)
         OpenFileDialog1.Filter = "Imagenes JPG|*.jpg|Imagenes GIF|*.gif|Imagenes Bitmasps|*.bmp"
         If OpenFileDialog1.ShowDialog() = DialogResult.OK Then
             PbProducto.Image = Image.FromFile(OpenFileDialog1.FileName)
         End If
     End Sub
-    Private Sub BtnEliminarImagen_Click(sender As Object, e As EventArgs) Handles BtnEliminarImagen.Click
+    Private Sub BtnEliminarImagen_Click(sender As Object, e As EventArgs)
         PbProducto.Image = Nothing
     End Sub
 
-    Private Sub BtnBusquedaCliente_Click(sender As Object, e As EventArgs) Handles BtnBusquedaCliente.Click
-        With FrmCategoria
-            FrmCategoria.var = 1
-            .MdiParent = MenuPrincipal
-            .Dock = DockStyle.Fill
-            .Show()
-        End With
-    End Sub
+
 
 
 
 
     Private Sub BtnCodigoProveedor_Click(sender As Object, e As EventArgs) Handles BtnCodigoProveedor.Click
-        FrmProductoProveedor.ShowDialog()
+
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        With FrmModelo
-            FrmModelo.var = 1
-            .MdiParent = MenuPrincipal
-            .Dock = DockStyle.Fill
-            .Show()
-        End With
+
+
+    Private Sub GCPrincipal_Click(sender As Object, e As EventArgs) Handles GCPrincipal.Click
+        TxtIdProducto.Text = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColIdProducto)
+        TxtDescripcion.Text = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColDescripcion)
+        TxtCosto.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColCosto)
+
+        TxtGravado.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColISV)
+
+        If CDbl(TxtGravado.Value) > 0 Then
+            ChkGravado.Checked = True
+        Else
+            ChkGravado.Checked = False
+        End If
+        TxtPrecioUnitario.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColPrecioUnitario)
+        TxtPrecioMayorista.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColPreciolMayorista)
+        TxtExistencia.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColExistencia)
+        CboCategoria.Text = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColCategoria)
+        Conec.Conectarse()
+        Dim dr As SqlDataReader
+        cmd = New SqlCommand("Select IdModelo From ModeloVehiculo Where Modelo = '" & DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColModelo).ToString & "'")
+        cmd.Connection = Conec.Con
+        cmd.CommandType = CommandType.Text
+
+
+        dr = cmd.ExecuteReader
+        If (dr.Read) Then
+            CboModelo.EditValue = dr(0)
+        End If
+        dr.Close()
+        Conec.Desconectarse()
+
+        Dim Imagen() As Byte = DirectCast(DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColImagen), Byte())
+        Dim ms As New MemoryStream(Imagen)
+        PbProducto.Image = Image.FromStream(ms)
+
+        If DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColEstado).ToString = "Activo" Then
+            ChkEstado.Checked = True
+        Else
+            ChkEstado.Checked = False
+        End If
+
+    End Sub
+
+    Private Sub DgvProductos_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvProductos.FocusedRowChanged
+        TxtIdProducto.Text = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColIdProducto)
+        TxtDescripcion.Text = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColDescripcion)
+        TxtCosto.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColCosto)
+
+        TxtGravado.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColISV)
+
+        If CDbl(TxtGravado.Value) > 0 Then
+            ChkGravado.Checked = True
+        Else
+            ChkGravado.Checked = False
+        End If
+        TxtPrecioUnitario.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColPrecioUnitario)
+        TxtPrecioMayorista.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColPreciolMayorista)
+        TxtExistencia.Value = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColExistencia)
+        CboCategoria.Text = DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColCategoria)
+
+        Conec.Conectarse()
+        Dim dr As SqlDataReader
+        cmd = New SqlCommand("Select IdModelo From ModeloVehiculo Where Modelo = '" & DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColModelo).ToString & "'")
+        cmd.Connection = Conec.Con
+        cmd.CommandType = CommandType.Text
+
+
+        dr = cmd.ExecuteReader
+
+        If dr.Read Then
+            CboModelo.EditValue = dr(0)
+        End If
+        dr.Close()
+        Conec.Desconectarse()
+
+        Dim Imagen() As Byte = DirectCast(DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColImagen), Byte())
+        Dim ms As New MemoryStream(Imagen)
+        PbProducto.Image = Image.FromStream(ms)
+
+        If DgvProductos.GetRowCellValue(DgvProductos.FocusedRowHandle, ColEstado).ToString = "Activo" Then
+            ChkEstado.Checked = True
+        Else
+            ChkEstado.Checked = False
+        End If
+    End Sub
+
+    Private Sub ChkGravado_CheckedChanged(sender As Object, e As EventArgs)
+        If CDbl(TxtPrecioUnitario.Value) > 0 Then
+            TxtGravado.Value = CDbl(TxtPrecioUnitario.Value) * My.Settings.ISV
+        Else
+            TxtGravado.Value = 0
+            ChkGravado.Checked = False
+        End If
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        MostrarProducto()
+    End Sub
+
+    Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
+        Exportar_a_PDF(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
+        Exportar_a_Excel(GCPrincipal, Me.Text)
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        PrintableComponentLink1.CreateDocument()
+        PrintableComponentLink1.ShowPreview()
     End Sub
 End Class
