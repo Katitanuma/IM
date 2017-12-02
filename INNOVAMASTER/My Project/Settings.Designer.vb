@@ -89,6 +89,66 @@ Namespace My
                 Me("Tema") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0.15")>  _
+        Public Property ISV() As Double
+            Get
+                Return CType(Me("ISV"),Double)
+            End Get
+            Set
+                Me("ISV") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property CAI() As String
+            Get
+                Return CType(Me("CAI"),String)
+            End Get
+            Set
+                Me("CAI") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property R1() As String
+            Get
+                Return CType(Me("R1"),String)
+            End Get
+            Set
+                Me("R1") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property R2() As String
+            Get
+                Return CType(Me("R2"),String)
+            End Get
+            Set
+                Me("R2") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property FL() As String
+            Get
+                Return CType(Me("FL"),String)
+            End Get
+            Set
+                Me("FL") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

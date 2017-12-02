@@ -230,7 +230,7 @@ Public Class FrmModelo
     Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
         If var = 1 Then
             FrmProducto.LlenarCombos()
-            FrmProducto.TxtModelo.Text = DgvModelo.GetRowCellValue(DgvModelo.FocusedRowHandle, ColModelo)
+            FrmProducto.CboModelo.Text = DgvModelo.GetRowCellValue(DgvModelo.FocusedRowHandle, ColModelo)
             Me.Close()
         End If
     End Sub

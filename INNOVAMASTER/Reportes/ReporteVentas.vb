@@ -50,6 +50,9 @@ Public Class ReporteVentas
             Else
                 rpt.SetParameterValue("Cambio", "0.00")
             End If
+            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
+            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
+            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
 
             rpt.PrintToPrinter(1, False, 0, 0)
 
@@ -90,5 +93,9 @@ Public Class ReporteVentas
             End Try
 
         End Using
+    End Sub
+
+    Private Sub ReporteVentas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

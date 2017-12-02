@@ -384,4 +384,8 @@ Public Class FrmMenuPrincipal
             conec.Desconectarse()
         End Try
     End Sub
+
+    Private Sub BarButtonItem34_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem34.ItemClick
+        FrmParametrosDEI.ShowDialog()
+    End Sub
 End Class

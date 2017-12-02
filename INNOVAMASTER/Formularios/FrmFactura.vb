@@ -29,6 +29,9 @@ Public Class FrmFactura
             da.Fill(ds, "ReporteVenta")
             rpt.SetDataSource(ds)
             rpt.SetParameterValue("Cambio", FrmFacturacionVenta.LblCambio.Text)
+            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
+            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
+            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
             CrystalReportViewer1.ReportSource = rpt
         ElseIf var = 2 Then
             Dim cmd As SqlCommand
@@ -43,6 +46,9 @@ Public Class FrmFactura
             da.Fill(ds, "ReporteVenta")
             rpt.SetDataSource(ds)
             rpt.SetParameterValue("Cambio", FrmDetalleVenta.LblCambio.Text)
+            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
+            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
+            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
             CrystalReportViewer1.ReportSource = rpt
         ElseIf var = 3 Then
             Dim cmd As SqlCommand
@@ -61,6 +67,9 @@ Public Class FrmFactura
             Else
                 rpt.SetParameterValue("Cambio", "0.00")
             End If
+            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
+            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
+            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
 
             CrystalReportViewer1.ReportSource = rpt
         End If
