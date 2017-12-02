@@ -315,9 +315,9 @@ Public Class FrmCliente
 
     Private Sub GCPrincipal_DoubleClick(sender As Object, e As EventArgs) Handles GCPrincipal.DoubleClick
         If LblRelacionClienteVenta.Text = "1" Then
-            FrmVenta.TxtIdCliente.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente)
-            LblRelacionClienteVenta.Text = "0"
-            Me.Close()
+            '' FrmVenta.TxtIdCliente.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente)
+            '' LblRelacionClienteVenta.Text = "0"
+            ''Me.Close()
         ElseIf LblRelacionClienteVenta.Text = "2" Then
             FrmFacturacionVenta.CboCliente.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColNombreCompleto)
             LblRelacionClienteVenta.Text = "0"

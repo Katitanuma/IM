@@ -78,7 +78,7 @@ Public Class FrmProductoProveedor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        If TxtCodigoProducto.Text <> Nothing And CboProveedor.Text <> Nothing Then
+        If TxtCodigoProducto.Text <> Nothing And CboProveedor.EditValue <> Nothing Then
             Using Cmd As New SqlCommand
                 Try
                     conec.Conectarse()

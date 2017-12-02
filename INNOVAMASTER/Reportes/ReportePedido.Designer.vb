@@ -51,7 +51,7 @@ Partial Class ReportePedido
         '
         Me.CmsReportePedidos.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VisualizarReporteToolStripMenuItem, Me.ImprimirReporteToolStripMenuItem})
         Me.CmsReportePedidos.Name = "CmsReportePedidos"
-        Me.CmsReportePedidos.Size = New System.Drawing.Size(165, 70)
+        Me.CmsReportePedidos.Size = New System.Drawing.Size(165, 48)
         '
         'VisualizarReporteToolStripMenuItem
         '
@@ -126,7 +126,7 @@ Partial Class ReportePedido
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(874, 384)
+        Me.ClientSize = New System.Drawing.Size(874, 396)
         Me.Controls.Add(Me.GCPrincipal)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
@@ -135,7 +135,6 @@ Partial Class ReportePedido
         Me.MostrarBotonReporte = False
         Me.Name = "ReportePedido"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Pedidos"
         Me.TituloEtiqueta = "Reporte de Pedido"
         Me.Controls.SetChildIndex(Me.PictureBox2, 0)

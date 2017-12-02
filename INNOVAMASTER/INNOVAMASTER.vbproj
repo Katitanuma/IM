@@ -573,6 +573,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmMunicipio.resx">
       <DependentUpon>FrmMunicipio.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmPais.resx">
       <DependentUpon>FrmPais.vb</DependentUpon>

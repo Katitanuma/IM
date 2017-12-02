@@ -504,6 +504,7 @@ Partial Class FrmProducto
         Me.BtnCodigoProveedor.Size = New System.Drawing.Size(130, 34)
         Me.BtnCodigoProveedor.TabIndex = 186
         Me.BtnCodigoProveedor.Text = "Código Proveedor"
+        Me.BtnCodigoProveedor.Visible = False
         '
         'ChkGravado
         '
@@ -620,11 +621,11 @@ Partial Class FrmProducto
         Me.ColId.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdModelo", "Total = {0}")})
         Me.ColId.Visible = True
         Me.ColId.VisibleIndex = 0
-        Me.ColId.Width = 242
+        Me.ColId.Width = 146
         '
         'GridColumn2
         '
-        Me.GridColumn2.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridColumn2.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 9.75!)
         Me.GridColumn2.AppearanceCell.Options.UseFont = True
         Me.GridColumn2.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!)
         Me.GridColumn2.AppearanceHeader.Options.UseFont = True
@@ -635,13 +636,13 @@ Partial Class FrmProducto
         Me.GridColumn2.Name = "GridColumn2"
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 1
-        Me.GridColumn2.Width = 836
+        Me.GridColumn2.Width = 245
         '
         'ColMarca
         '
-        Me.ColMarca.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColMarca.AppearanceCell.Font = New System.Drawing.Font("Arial Narrow", 9.75!)
         Me.ColMarca.AppearanceCell.Options.UseFont = True
-        Me.ColMarca.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColMarca.AppearanceHeader.Font = New System.Drawing.Font("Tahoma", 9.75!)
         Me.ColMarca.AppearanceHeader.Options.UseFont = True
         Me.ColMarca.AppearanceHeader.Options.UseTextOptions = True
         Me.ColMarca.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
@@ -650,6 +651,7 @@ Partial Class FrmProducto
         Me.ColMarca.Name = "ColMarca"
         Me.ColMarca.Visible = True
         Me.ColMarca.VisibleIndex = 2
+        Me.ColMarca.Width = 305
         '
         'ChkEstado
         '
@@ -694,6 +696,7 @@ Partial Class FrmProducto
         '
         Me.TxtDescripcion.Location = New System.Drawing.Point(146, 61)
         Me.TxtDescripcion.Name = "TxtDescripcion"
+        Me.TxtDescripcion.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtDescripcion.Size = New System.Drawing.Size(303, 20)
         Me.TxtDescripcion.TabIndex = 175
         '
@@ -701,6 +704,7 @@ Partial Class FrmProducto
         '
         Me.TxtIdProducto.Location = New System.Drawing.Point(146, 22)
         Me.TxtIdProducto.Name = "TxtIdProducto"
+        Me.TxtIdProducto.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtIdProducto.Size = New System.Drawing.Size(174, 20)
         Me.TxtIdProducto.TabIndex = 174
         '

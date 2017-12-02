@@ -13,7 +13,7 @@ Public Class FrmPedidos
         Dim column As Integer = DgvDetalle.CurrentCell.ColumnIndex
         If column = 1 Then
 
-            If CboProveedo.Text = Nothing Then
+            If CboProveedor.EditValue = Nothing Then
                 XtraMessageBox.Show("Seleccione el Proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Dim a, b As Integer
                 a = DgvDetalle.Rows.Count
@@ -32,8 +32,9 @@ Public Class FrmPedidos
                         Dim c As String = DgvDetalle.Rows(e.RowIndex).Cells(1).Value.ToString
                         Dim c2 As String() = c.Split("/")
                         DgvDetalle.Rows(e.RowIndex).Cells(1).Value = c2(0).ToString
+
                         Dim dr2 As SqlDataReader
-                        Dim cmd2 As SqlCommand = New SqlCommand("Select IdProductoProveedor from ProductoProveedor Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "' And IdProveedor='" & CboProveedor.SelectedValue & "' ")
+                        Dim cmd2 As SqlCommand = New SqlCommand("Select IdProductoProveedor from ProductoProveedor Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "' And IdProveedor='" & CboProveedor.EditValue & "' ")
                         cmd2.CommandType = CommandType.Text
                         cmd2.Connection = Conec.Con
                         dr2 = cmd2.ExecuteReader
@@ -44,6 +45,7 @@ Public Class FrmPedidos
                             f = Nothing
                         End If
                         dr2.Close()
+
 
                         Dim dr As SqlDataReader
                         cmd = New SqlCommand("Select Descripcion,Gravado,Gravado,Costo, PrecioMayorista, Existencia, Estado from Producto Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "'")
@@ -133,7 +135,7 @@ Public Class FrmPedidos
             End If
 
         ElseIf column = 2 Then
-            If CboProveedo.Text = Nothing Then
+            If CboProveedor.EditValue = Nothing Then
                 XtraMessageBox.Show("Seleccione el Proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Dim a, b As Integer
                 a = DgvDetalle.Rows.Count
@@ -154,8 +156,9 @@ Public Class FrmPedidos
                         Dim c2 As String() = c.Split("/")
                         DgvDetalle.Rows(e.RowIndex).Cells(1).Value = c2(1).ToString
                         DgvDetalle.Rows(e.RowIndex).Cells(2).Value = c2(0).ToString
+
                         Dim dr2 As SqlDataReader
-                        Dim cmd2 As SqlCommand = New SqlCommand("Select IdProductoProveedor from ProductoProveedor Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "' And IdProveedor='" & CboProveedor.SelectedValue & "' ")
+                        Dim cmd2 As SqlCommand = New SqlCommand("Select IdProductoProveedor from ProductoProveedor Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "' And IdProveedor='" & CboProveedor.EditValue & "' ")
                         cmd2.CommandType = CommandType.Text
                         cmd2.Connection = Conec.Con
                         dr2 = cmd2.ExecuteReader
@@ -166,6 +169,7 @@ Public Class FrmPedidos
                             f = Nothing
                         End If
                         dr2.Close()
+
 
                         Dim dr As SqlDataReader
                         cmd = New SqlCommand("Select IdProducto,Gravado,Gravado,Costo, PrecioMayorista, Existencia, Estado from Producto Where IdProducto='" & DgvDetalle.Rows(e.RowIndex).Cells(1).Value & "'")
@@ -365,7 +369,7 @@ Public Class FrmPedidos
             cmd = New SqlCommand("MostrarIdProducto1")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conec.Con
-            cmd.Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.SelectedValue
+            cmd.Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.editvalue
             dr = cmd.ExecuteReader
 
             If dr.HasRows Then
@@ -391,7 +395,7 @@ Public Class FrmPedidos
             cmd = New SqlCommand("Select   P.Descripcion+'/'+ P.IdProducto
             From Producto P Inner join ProductoProveedor Pp
                                     on P.IdProducto = Pp.IdProducto
-                                    Where Pp.IdProveedor = '" & CboProveedor.SelectedValue.ToString & "'")
+                                    Where Pp.IdProveedor = '" & CboProveedor.editvalue.ToString & "'")
             cmd.CommandType = CommandType.Text
             cmd.Connection = Conec.Con
             dr = cmd.ExecuteReader
@@ -474,7 +478,7 @@ Public Class FrmPedidos
         DgvDetalle.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken
         TxtFechaPedido.Text = DateTime.Now.ToString("dd/MM/yyyy")
         LlenarComboBoxProveedor()
-        CboProveedo.Text = Nothing
+        CboProveedor.EditValue = Nothing
 
         Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
         HelpProvider1.HelpNamespace = NombreArchivo
@@ -533,7 +537,7 @@ Public Class FrmPedidos
                         .CommandType = CommandType.StoredProcedure
                         .Connection = Conec.Con
                         .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(FrmMenuPrincipal.LblIdUsuario.Text)
-                        .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.SelectedValue.ToString
+                        .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.editvalue.ToString
                         .Parameters.Add("@Fecha", SqlDbType.Date).Value = TxtFechaPedido.Text
                         .ExecuteNonQuery()
                     End With
@@ -591,9 +595,8 @@ Public Class FrmPedidos
                 Dim adaptador As New SqlDataAdapter(cmd)
                 Dim dt As New DataTable
                 adaptador.Fill(dt)
-                CboProveedor.DataSource = dt
-                CboProveedor.DisplayMember = dt.Columns("Nombre").ToString
-                CboProveedor.ValueMember = dt.Columns(0).ToString
+                CboProveedor.properties.datasource = dt
+
             Catch ex As Exception
                 XtraMessageBox.Show(ex.Message)
             End Try
@@ -601,23 +604,20 @@ Public Class FrmPedidos
     End Sub
 
     Private Sub CboProveedor_SelectedIndexChanged(sender As Object, e As EventArgs)
-        If CboProveedo.Text <> Nothing Then
-            LlenarTextBox()
-            DgvDetalle.Rows.Clear()
-        End If
+
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs)
         With FrmProveedor
             FrmProveedor.var = 2
-            .MdiParent = MenuPrincipal
+            .MdiParent = FrmMenuPrincipal
             .Dock = DockStyle.Fill
             .Show()
         End With
     End Sub
 
     Private Sub BtnFacturar_Click(sender As Object, e As EventArgs) Handles BtnFacturar.Click
-        If CboProveedo.Text <> Nothing Then
+        If CboProveedor.EditValue <> Nothing Then
 
             If DgvDetalle.RowCount = 1 Then
                 XtraMessageBox.Show("Ingresar al menos un producto para realizar el pedido", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -689,5 +689,13 @@ Public Class FrmPedidos
 
     End Sub
 
-
+    Private Sub CboProveedor_EditValueChanged(sender As Object, e As EventArgs) Handles CboProveedor.EditValueChanged
+        If CboProveedor.EditValue <> Nothing Then
+            LlenarTextBox()
+            DgvDetalle.Rows.Clear()
+            TxtTotal.EditValue = "0.00"
+            TxtSubtotal.EditValue = "0.00"
+            TxtImpuesto.EditValue = "0.00"
+        End If
+    End Sub
 End Class

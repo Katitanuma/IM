@@ -38,7 +38,7 @@ Public Class FrmProducto
 
     Private Sub BtnNuevo_Click(sender As Object, e As EventArgs) Handles BtnNuevo.Click
         TxtIdProducto.Enabled = True
-
+        BtnCodigoProveedor.Visible = False
         ChkEstado.Checked = True
         GbProducto.Enabled = True
         TxtIdProducto.EditValue = Nothing
@@ -88,6 +88,7 @@ Public Class FrmProducto
     Private Sub BtnNuevoEditar_Click(sender As Object, e As EventArgs) Handles BtnEditar.Click
         If TxtIdProducto.Text <> Nothing Then
             TxtIdProducto.Enabled = False
+            BtnCodigoProveedor.Visible = True
             GbProducto.Enabled = True
             BtnCancelar.Visible = True
             BtnInsertar.Visible = False
@@ -178,6 +179,7 @@ Public Class FrmProducto
                     GCPrincipal.Enabled = True
                     MostrarProducto()
                     PbProducto.Image = Nothing
+                    BtnCodigoProveedor.Visible = False
                 End If
 
             Catch ex As Exception
@@ -315,6 +317,7 @@ Public Class FrmProducto
                     GCPrincipal.Enabled = True
                     MostrarProducto()
                     PbProducto.Image = Nothing
+                    BtnCodigoProveedor.Visible = False
                 End If
 
             Catch ex As Exception
@@ -351,7 +354,8 @@ Public Class FrmProducto
 
 
     Private Sub BtnCodigoProveedor_Click(sender As Object, e As EventArgs) Handles BtnCodigoProveedor.Click
-
+        FrmProductoProveedor.ShowDialog()
+        FrmProductoProveedor.Focus()
     End Sub
 
 
@@ -442,12 +446,7 @@ Public Class FrmProducto
     End Sub
 
     Private Sub ChkGravado_CheckedChanged(sender As Object, e As EventArgs)
-        If CDbl(TxtPrecioUnitario.Value) > 0 Then
-            TxtGravado.Value = CDbl(TxtPrecioUnitario.Value) * My.Settings.ISV
-        Else
-            TxtGravado.Value = 0
-            ChkGravado.Checked = False
-        End If
+
     End Sub
 
     Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
@@ -465,5 +464,19 @@ Public Class FrmProducto
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         PrintableComponentLink1.CreateDocument()
         PrintableComponentLink1.ShowPreview()
+    End Sub
+
+    Private Sub ChkGravado_CheckedChanged_1(sender As Object, e As EventArgs) Handles ChkGravado.CheckedChanged
+        If ChkGravado.CheckState = CheckState.Checked Then
+            If CDbl(TxtPrecioUnitario.Value) > 0 Then
+                TxtGravado.Value = CDbl(TxtPrecioUnitario.Value) * My.Settings.ISV
+            Else
+                TxtGravado.Value = 0
+                ChkGravado.Checked = False
+            End If
+        Else
+            TxtGravado.Value = 0
+        End If
+
     End Sub
 End Class

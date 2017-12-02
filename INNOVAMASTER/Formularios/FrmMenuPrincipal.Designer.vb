@@ -56,6 +56,7 @@ Partial Class FrmMenuPrincipal
         Me.BarButtonItem27 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem28 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem29 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem34 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.PagVentas = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -91,7 +92,6 @@ Partial Class FrmMenuPrincipal
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.pcFondo = New DevExpress.XtraEditors.PanelControl()
         Me.LblIdUsuario = New System.Windows.Forms.Label()
-        Me.BarButtonItem34 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,7 +166,7 @@ Partial Class FrmMenuPrincipal
         '
         'BarButtonItem2
         '
-        Me.BarButtonItem2.Caption = "Registro Venta"
+        Me.BarButtonItem2.Caption = "Listado de Ventas"
         Me.BarButtonItem2.Id = 2
         Me.BarButtonItem2.LargeGlyph = Global.INNOVAMASTER.My.Resources.Resources.factur
         Me.BarButtonItem2.Name = "BarButtonItem2"
@@ -360,6 +360,14 @@ Partial Class FrmMenuPrincipal
         Me.BarButtonItem29.Glyph = CType(resources.GetObject("BarButtonItem29.Glyph"), System.Drawing.Image)
         Me.BarButtonItem29.Id = 28
         Me.BarButtonItem29.Name = "BarButtonItem29"
+        '
+        'BarButtonItem34
+        '
+        Me.BarButtonItem34.Caption = "Parámetros DEI"
+        Me.BarButtonItem34.Glyph = CType(resources.GetObject("BarButtonItem34.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem34.Id = 1
+        Me.BarButtonItem34.LargeGlyph = CType(resources.GetObject("BarButtonItem34.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem34.Name = "BarButtonItem34"
         '
         'RibbonPage1
         '
@@ -582,14 +590,6 @@ Partial Class FrmMenuPrincipal
         Me.LblIdUsuario.TabIndex = 24
         Me.LblIdUsuario.Text = "3"
         Me.LblIdUsuario.Visible = False
-        '
-        'BarButtonItem34
-        '
-        Me.BarButtonItem34.Caption = "Parámetros DEI"
-        Me.BarButtonItem34.Glyph = CType(resources.GetObject("BarButtonItem34.Glyph"), System.Drawing.Image)
-        Me.BarButtonItem34.Id = 1
-        Me.BarButtonItem34.LargeGlyph = CType(resources.GetObject("BarButtonItem34.LargeGlyph"), System.Drawing.Image)
-        Me.BarButtonItem34.Name = "BarButtonItem34"
         '
         'FrmMenuPrincipal
         '

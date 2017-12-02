@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FrmPedidos
     Inherits DevExpress.XtraEditors.XtraForm
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class FrmPedidos
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmPedidos))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -41,15 +41,12 @@ Partial Class FrmPedidos
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtFechaPedido = New DevExpress.XtraEditors.TextEdit()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.CboProveedor = New DevExpress.XtraEditors.LookUpEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.Button3 = New DevExpress.XtraEditors.SimpleButton()
-        Me.CboProveedo = New DevExpress.XtraEditors.SearchLookUpEdit()
-        Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.TxtSubtotal = New DevExpress.XtraEditors.TextEdit()
         Me.TxtImpuesto = New DevExpress.XtraEditors.TextEdit()
         Me.TxtTotal = New DevExpress.XtraEditors.TextEdit()
         Me.BtnFacturar = New DevExpress.XtraEditors.SimpleButton()
-        Me.CboProveedor = New System.Windows.Forms.ComboBox()
         Me.DgvDetalle = New System.Windows.Forms.DataGridView()
         Me.Eliminar = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.Codigo = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -66,8 +63,7 @@ Partial Class FrmPedidos
         CType(Me.TxtFechaPedido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
-        CType(Me.CboProveedo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CboProveedor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtSubtotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtImpuesto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtTotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -199,13 +195,24 @@ Partial Class FrmPedidos
         '
         'GroupControl1
         '
+        Me.GroupControl1.Controls.Add(Me.CboProveedor)
         Me.GroupControl1.Controls.Add(Me.LabelControl1)
-        Me.GroupControl1.Controls.Add(Me.Button3)
-        Me.GroupControl1.Controls.Add(Me.CboProveedo)
         Me.GroupControl1.Location = New System.Drawing.Point(5, 11)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.Size = New System.Drawing.Size(513, 70)
         Me.GroupControl1.TabIndex = 0
+        '
+        'CboProveedor
+        '
+        Me.CboProveedor.Location = New System.Drawing.Point(10, 42)
+        Me.CboProveedor.Name = "CboProveedor"
+        Me.CboProveedor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboProveedor.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdProveedor", "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Nombre", "Proveedor")})
+        Me.CboProveedor.Properties.DisplayMember = "Nombre"
+        Me.CboProveedor.Properties.NullText = "Seleccione Proveedor"
+        Me.CboProveedor.Properties.ValueMember = "IdProveedor"
+        Me.CboProveedor.Size = New System.Drawing.Size(399, 20)
+        Me.CboProveedor.TabIndex = 152
         '
         'LabelControl1
         '
@@ -215,31 +222,6 @@ Partial Class FrmPedidos
         Me.LabelControl1.Size = New System.Drawing.Size(61, 19)
         Me.LabelControl1.TabIndex = 2
         Me.LabelControl1.Text = "Proveedor"
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(371, 37)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(32, 23)
-        Me.Button3.TabIndex = 1
-        Me.Button3.Text = "..."
-        '
-        'CboProveedo
-        '
-        Me.CboProveedo.Location = New System.Drawing.Point(6, 39)
-        Me.CboProveedo.Name = "CboProveedo"
-        Me.CboProveedo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CboProveedo.Properties.NullText = "Seleccione Proveedor"
-        Me.CboProveedo.Properties.View = Me.SearchLookUpEdit1View
-        Me.CboProveedo.Size = New System.Drawing.Size(349, 20)
-        Me.CboProveedo.TabIndex = 0
-        '
-        'SearchLookUpEdit1View
-        '
-        Me.SearchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus
-        Me.SearchLookUpEdit1View.Name = "SearchLookUpEdit1View"
-        Me.SearchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = False
-        Me.SearchLookUpEdit1View.OptionsView.ShowGroupPanel = False
         '
         'TxtSubtotal
         '
@@ -282,14 +264,6 @@ Partial Class FrmPedidos
         Me.BtnFacturar.Size = New System.Drawing.Size(167, 63)
         Me.BtnFacturar.TabIndex = 143
         Me.BtnFacturar.Text = "&Pedir"
-        '
-        'CboProveedor
-        '
-        Me.CboProveedor.FormattingEnabled = True
-        Me.CboProveedor.Location = New System.Drawing.Point(922, 20)
-        Me.CboProveedor.Name = "CboProveedor"
-        Me.CboProveedor.Size = New System.Drawing.Size(121, 21)
-        Me.CboProveedor.TabIndex = 146
         '
         'DgvDetalle
         '
@@ -408,7 +382,7 @@ Partial Class FrmPedidos
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LabelControl3.Location = New System.Drawing.Point(83, 6)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(269, 43)
+        Me.LabelControl3.Size = New System.Drawing.Size(270, 43)
         Me.LabelControl3.TabIndex = 151
         Me.LabelControl3.Text = "Pedido de Productos"
         '
@@ -419,7 +393,6 @@ Partial Class FrmPedidos
         Me.ClientSize = New System.Drawing.Size(1354, 549)
         Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.DgvDetalle)
-        Me.Controls.Add(Me.CboProveedor)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.BtnFacturar)
@@ -450,8 +423,7 @@ Partial Class FrmPedidos
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
-        CType(Me.CboProveedo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CboProveedor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtSubtotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtImpuesto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtTotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -474,16 +446,12 @@ Partial Class FrmPedidos
     Friend WithEvents TxtFechaPedido As DevExpress.XtraEditors.TextEdit
     Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents Button3 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents CboProveedo As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents SearchLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents TxtSubtotal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TxtImpuesto As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TxtTotal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents Button1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Button2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnFacturar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents CboProveedor As ComboBox
     Friend WithEvents DgvDetalle As DataGridView
     Friend WithEvents Eliminar As DataGridViewButtonColumn
     Friend WithEvents Codigo As DataGridViewTextBoxColumn
@@ -494,4 +462,5 @@ Partial Class FrmPedidos
     Friend WithEvents Total As DataGridViewTextBoxColumn
     Friend WithEvents ChIdProductoProveedor As DataGridViewTextBoxColumn
     Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboProveedor As DevExpress.XtraEditors.LookUpEdit
 End Class

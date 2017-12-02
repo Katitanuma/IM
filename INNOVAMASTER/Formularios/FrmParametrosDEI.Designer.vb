@@ -25,6 +25,8 @@ Partial Class FrmParametrosDEI
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmParametrosDEI))
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.GBDatos = New DevExpress.XtraEditors.GroupControl()
+        Me.ISV = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtRango2 = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.DteLimite = New DevExpress.XtraEditors.DateEdit()
@@ -36,6 +38,7 @@ Partial Class FrmParametrosDEI
         Me.BtnGuardar = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.GBDatos, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GBDatos.SuspendLayout()
+        CType(Me.ISV.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtRango2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DteLimite.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DteLimite.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +57,8 @@ Partial Class FrmParametrosDEI
         '
         'GBDatos
         '
+        Me.GBDatos.Controls.Add(Me.ISV)
+        Me.GBDatos.Controls.Add(Me.LabelControl3)
         Me.GBDatos.Controls.Add(Me.TxtRango2)
         Me.GBDatos.Controls.Add(Me.LabelControl5)
         Me.GBDatos.Controls.Add(Me.DteLimite)
@@ -64,9 +69,28 @@ Partial Class FrmParametrosDEI
         Me.GBDatos.Controls.Add(Me.LabelControl15)
         Me.GBDatos.Location = New System.Drawing.Point(12, 61)
         Me.GBDatos.Name = "GBDatos"
-        Me.GBDatos.Size = New System.Drawing.Size(528, 180)
+        Me.GBDatos.Size = New System.Drawing.Size(528, 225)
         Me.GBDatos.TabIndex = 2
         Me.GBDatos.Text = "Datos DEI"
+        '
+        'ISV
+        '
+        Me.ISV.Location = New System.Drawing.Point(189, 183)
+        Me.ISV.Name = "ISV"
+        Me.ISV.Properties.Mask.EditMask = "f"
+        Me.ISV.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.ISV.Properties.Mask.PlaceHolder = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.ISV.Size = New System.Drawing.Size(160, 20)
+        Me.ISV.TabIndex = 13
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.LabelControl3.Location = New System.Drawing.Point(76, 182)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(97, 19)
+        Me.LabelControl3.TabIndex = 12
+        Me.LabelControl3.Text = "Porcentaje ISV"
         '
         'TxtRango2
         '
@@ -108,6 +132,7 @@ Partial Class FrmParametrosDEI
         '
         Me.TxtCAI.Location = New System.Drawing.Point(189, 43)
         Me.TxtCAI.Name = "TxtCAI"
+        Me.TxtCAI.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.TxtCAI.Properties.Mask.EditMask = "xxxx-xxxx-xxxx-xx"
         Me.TxtCAI.Size = New System.Drawing.Size(334, 20)
         Me.TxtCAI.TabIndex = 6
@@ -143,7 +168,7 @@ Partial Class FrmParametrosDEI
         '
         Me.BtnGuardar.Enabled = False
         Me.BtnGuardar.Image = CType(resources.GetObject("BtnGuardar.Image"), System.Drawing.Image)
-        Me.BtnGuardar.Location = New System.Drawing.Point(420, 247)
+        Me.BtnGuardar.Location = New System.Drawing.Point(419, 292)
         Me.BtnGuardar.Name = "BtnGuardar"
         Me.BtnGuardar.Size = New System.Drawing.Size(120, 37)
         Me.BtnGuardar.TabIndex = 4
@@ -153,7 +178,7 @@ Partial Class FrmParametrosDEI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(551, 292)
+        Me.ClientSize = New System.Drawing.Size(551, 335)
         Me.Controls.Add(Me.GBDatos)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.BtnGuardar)
@@ -164,6 +189,7 @@ Partial Class FrmParametrosDEI
         CType(Me.GBDatos, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GBDatos.ResumeLayout(False)
         Me.GBDatos.PerformLayout()
+        CType(Me.ISV.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtRango2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DteLimite.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DteLimite.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -185,4 +211,6 @@ Partial Class FrmParametrosDEI
     Friend WithEvents BtnGuardar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents TxtRango2 As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents ISV As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -354,8 +354,8 @@ Public Class FrmProveedor
     End Sub
 
     Private Sub DgvProveedor_DoubleClick(sender As Object, e As EventArgs) Handles DgvProveedor.DoubleClick
-        Dim frm As FrmPedidos
-        frm.CboProveedo.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreContacto)
+        'Dim frm As FrmPedidos
+        'frm.CboProveedor.Text = DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColNombreContacto) & " " & DgvProveedor.GetRowCellValue(DgvProveedor.FocusedRowHandle, ColApellidoContacto)
     End Sub
 
     Private Sub DgvProveedor_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvProveedor.FocusedRowChanged
