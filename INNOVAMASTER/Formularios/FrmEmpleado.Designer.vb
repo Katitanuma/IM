@@ -55,6 +55,7 @@ Partial Class FrmEmpleado
         Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
         Me.GbEmpleado = New DevExpress.XtraEditors.GroupControl()
+        Me.PbEmpleado = New DevExpress.XtraEditors.PictureEdit()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
@@ -90,12 +91,12 @@ Partial Class FrmEmpleado
         Me.LabelControl15 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtIdEmpleado = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
-        Me.PbEmpleado = New DevExpress.XtraEditors.PictureEdit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GbEmpleado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GbEmpleado.SuspendLayout()
+        CType(Me.PbEmpleado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.CboSexo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -114,7 +115,6 @@ Partial Class FrmEmpleado
         CType(Me.TxtApellidos.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtNombres.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdEmpleado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PbEmpleado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -535,6 +535,16 @@ Partial Class FrmEmpleado
         Me.GbEmpleado.TabIndex = 159
         Me.GbEmpleado.Text = "Datos Empleado"
         '
+        'PbEmpleado
+        '
+        Me.PbEmpleado.Location = New System.Drawing.Point(404, 28)
+        Me.PbEmpleado.Name = "PbEmpleado"
+        Me.PbEmpleado.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
+        Me.PbEmpleado.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PbEmpleado.Properties.ZoomAccelerationFactor = 1.0R
+        Me.PbEmpleado.Size = New System.Drawing.Size(129, 124)
+        Me.PbEmpleado.TabIndex = 49
+        '
         'PanelControl1
         '
         Me.PanelControl1.Controls.Add(Me.SimpleButton2)
@@ -864,15 +874,6 @@ Partial Class FrmEmpleado
         Me.LabelControl1.TabIndex = 160
         Me.LabelControl1.Text = "Perfil del Empleado"
         '
-        'PbEmpleado
-        '
-        Me.PbEmpleado.Location = New System.Drawing.Point(404, 28)
-        Me.PbEmpleado.Name = "PbEmpleado"
-        Me.PbEmpleado.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
-        Me.PbEmpleado.Properties.ZoomAccelerationFactor = 1.0R
-        Me.PbEmpleado.Size = New System.Drawing.Size(129, 124)
-        Me.PbEmpleado.TabIndex = 49
-        '
         'FrmEmpleado
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -907,6 +908,7 @@ Partial Class FrmEmpleado
         CType(Me.GbEmpleado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GbEmpleado.ResumeLayout(False)
         Me.GbEmpleado.PerformLayout()
+        CType(Me.PbEmpleado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         CType(Me.CboSexo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -925,7 +927,6 @@ Partial Class FrmEmpleado
         CType(Me.TxtApellidos.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtNombres.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtIdEmpleado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PbEmpleado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
