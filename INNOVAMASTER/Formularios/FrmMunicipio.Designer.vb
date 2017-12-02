@@ -406,7 +406,7 @@ Partial Class FrmMunicipio
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LabelControl3.Location = New System.Drawing.Point(97, 41)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(137, 43)
+        Me.LabelControl3.Size = New System.Drawing.Size(136, 43)
         Me.LabelControl3.TabIndex = 124
         Me.LabelControl3.Text = "Municipio"
         '
@@ -453,6 +453,7 @@ Partial Class FrmMunicipio
         Me.Controls.Add(Me.barDockControlTop)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmMunicipio"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Municipio"

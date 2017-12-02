@@ -40,6 +40,7 @@ Partial Class FrmPermisos
         Me.ColIdUsuario1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColPermiso1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.SplitterControl1 = New DevExpress.XtraEditors.SplitterControl()
@@ -49,7 +50,6 @@ Partial Class FrmPermisos
         Me.ColIdUsuario2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColPermiso2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.SuspendLayout()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +88,7 @@ Partial Class FrmPermisos
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.SplitContainerControl2)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
-        Me.SplitContainerControl1.Size = New System.Drawing.Size(1362, 741)
+        Me.SplitContainerControl1.Size = New System.Drawing.Size(1354, 733)
         Me.SplitContainerControl1.SplitterPosition = 268
         Me.SplitContainerControl1.TabIndex = 0
         Me.SplitContainerControl1.Text = "SplitContainerControl1"
@@ -99,7 +99,7 @@ Partial Class FrmPermisos
         Me.GCPrincipal.Location = New System.Drawing.Point(0, 0)
         Me.GCPrincipal.MainView = Me.DgvUsuario
         Me.GCPrincipal.Name = "GCPrincipal"
-        Me.GCPrincipal.Size = New System.Drawing.Size(1362, 268)
+        Me.GCPrincipal.Size = New System.Drawing.Size(1354, 268)
         Me.GCPrincipal.TabIndex = 103
         Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvUsuario})
         '
@@ -234,7 +234,7 @@ Partial Class FrmPermisos
         Me.SplitContainerControl2.Panel1.Text = "Panel1"
         Me.SplitContainerControl2.Panel2.Controls.Add(Me.GCPD)
         Me.SplitContainerControl2.Panel2.Text = "Panel2"
-        Me.SplitContainerControl2.Size = New System.Drawing.Size(1362, 467)
+        Me.SplitContainerControl2.Size = New System.Drawing.Size(1354, 459)
         Me.SplitContainerControl2.SplitterPosition = 710
         Me.SplitContainerControl2.TabIndex = 0
         Me.SplitContainerControl2.Text = "SplitContainerControl2"
@@ -245,7 +245,7 @@ Partial Class FrmPermisos
         Me.GCPP.Location = New System.Drawing.Point(0, 0)
         Me.GCPP.MainView = Me.DgvD
         Me.GCPP.Name = "GCPP"
-        Me.GCPP.Size = New System.Drawing.Size(647, 467)
+        Me.GCPP.Size = New System.Drawing.Size(647, 459)
         Me.GCPP.TabIndex = 105
         Me.GCPP.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvD})
         '
@@ -349,8 +349,17 @@ Partial Class FrmPermisos
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel1.Location = New System.Drawing.Point(647, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(63, 467)
+        Me.Panel1.Size = New System.Drawing.Size(63, 459)
         Me.Panel1.TabIndex = 0
+        '
+        'SimpleButton3
+        '
+        Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
+        Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.SimpleButton3.Location = New System.Drawing.Point(9, 174)
+        Me.SimpleButton3.Name = "SimpleButton3"
+        Me.SimpleButton3.Size = New System.Drawing.Size(49, 45)
+        Me.SimpleButton3.TabIndex = 3
         '
         'SimpleButton2
         '
@@ -374,7 +383,7 @@ Partial Class FrmPermisos
         '
         Me.SplitterControl1.Location = New System.Drawing.Point(0, 0)
         Me.SplitterControl1.Name = "SplitterControl1"
-        Me.SplitterControl1.Size = New System.Drawing.Size(6, 467)
+        Me.SplitterControl1.Size = New System.Drawing.Size(6, 459)
         Me.SplitterControl1.TabIndex = 0
         Me.SplitterControl1.TabStop = False
         '
@@ -384,7 +393,7 @@ Partial Class FrmPermisos
         Me.GCPD.Location = New System.Drawing.Point(0, 0)
         Me.GCPD.MainView = Me.DgvP
         Me.GCPD.Name = "GCPD"
-        Me.GCPD.Size = New System.Drawing.Size(646, 467)
+        Me.GCPD.Size = New System.Drawing.Size(638, 459)
         Me.GCPD.TabIndex = 106
         Me.GCPD.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvP})
         '
@@ -492,21 +501,13 @@ Partial Class FrmPermisos
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.Width = 470
         '
-        'SimpleButton3
-        '
-        Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
-        Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.SimpleButton3.Location = New System.Drawing.Point(9, 174)
-        Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(49, 45)
-        Me.SimpleButton3.TabIndex = 3
-        '
         'FrmPermisos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1362, 741)
+        Me.ClientSize = New System.Drawing.Size(1354, 733)
         Me.Controls.Add(Me.SplitContainerControl1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmPermisos"
         Me.Text = "Permisos Usuarios"
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()

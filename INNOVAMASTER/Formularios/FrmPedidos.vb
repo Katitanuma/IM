@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmPedidos
     Dim Conec As New Conexion
     Dim cmd As SqlCommand
@@ -7,12 +9,12 @@ Public Class FrmPedidos
     Public var As Integer = 1
     Dim s As Integer = 0
 
-    Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellEndEdit
+    Private Sub DgvDetalle_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellEndEdit
         Dim column As Integer = DgvDetalle.CurrentCell.ColumnIndex
         If column = 1 Then
 
-            If CboProveedor.Text = Nothing Then
-                MsgBox("Seleccione el Proveedor", MsgBoxStyle.Critical, "INNOVAMASTER")
+            If CboProveedo.Text = Nothing Then
+                XtraMessageBox.Show("Seleccione el Proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Dim a, b As Integer
                 a = DgvDetalle.Rows.Count
                 b = e.RowIndex + 1
@@ -73,14 +75,14 @@ Public Class FrmPedidos
 
 
                                 Else
-                                    MsgBox("El estado del producto está inactivo", MsgBoxStyle.Exclamation)
+                                    XtraMessageBox.Show("El estado del producto está inactivo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                                     DgvDetalle.Rows.Remove(DgvDetalle.CurrentRow)
                                     LlenarTextBox()
 
                                 End If
                             Else
                                 DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
-                                MsgBox("Producto no registrado con este proveedor", MsgBoxStyle.Information)
+                                XtraMessageBox.Show("Producto no registrado con este proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
                                 Dim a, b As Integer
                                 a = DgvDetalle.Rows.Count
@@ -96,7 +98,7 @@ Public Class FrmPedidos
 
                         Else
                             DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
-                            MsgBox("Producto no registrado", MsgBoxStyle.Information)
+                            XtraMessageBox.Show("Producto no registrado", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             Dim a, b As Integer
                             a = DgvDetalle.Rows.Count
                             b = e.RowIndex + 1
@@ -123,7 +125,7 @@ Public Class FrmPedidos
                     End If
 
                 Catch ex As Exception
-                    MsgBox(ex.ToString)
+                    XtraMessageBox.Show(ex.ToString)
                 Finally
                     Conec.Desconectarse()
 
@@ -131,8 +133,8 @@ Public Class FrmPedidos
             End If
 
         ElseIf column = 2 Then
-            If CboProveedor.Text = Nothing Then
-                MsgBox("Seleccione el Proveedor", MsgBoxStyle.Critical, "INNOVAMASTER")
+            If CboProveedo.Text = Nothing Then
+                XtraMessageBox.Show("Seleccione el Proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Dim a, b As Integer
                 a = DgvDetalle.Rows.Count
                 b = e.RowIndex + 1
@@ -193,7 +195,7 @@ Public Class FrmPedidos
                                     DgvDetalle.Rows(e.RowIndex).Cells(1).ErrorText = ""
 
                                 Else
-                                    MsgBox("El estado del producto está inactivo", MsgBoxStyle.Exclamation)
+                                    XtraMessageBox.Show("El estado del producto está inactivo", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                                     Dim a, b As Integer
                                     a = DgvDetalle.Rows.Count
                                     b = e.RowIndex + 1
@@ -206,7 +208,7 @@ Public Class FrmPedidos
                                 End If
                             Else
                                 DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
-                                MsgBox("Producto no registrado con este proveedor", MsgBoxStyle.Information)
+                                XtraMessageBox.Show("Producto no registrado con este proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                                 Dim a, b As Integer
                                 a = DgvDetalle.Rows.Count
                                 b = e.RowIndex + 1
@@ -222,7 +224,7 @@ Public Class FrmPedidos
 
                             DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
                             DgvDetalle.Rows(e.RowIndex).Cells(2).Value = Nothing
-                            MsgBox("Producto no registrado", MsgBoxStyle.Information)
+                            XtraMessageBox.Show("Producto no registrado", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             DgvDetalle.Rows(e.RowIndex).Cells(2).ErrorText = "Producto No Registrado"
                             Dim a, b As Integer
                             a = DgvDetalle.Rows.Count
@@ -251,7 +253,7 @@ Public Class FrmPedidos
                 Catch ex As Exception
                     DgvDetalle.Rows(e.RowIndex).Cells(1).Value = Nothing
                     DgvDetalle.Rows(e.RowIndex).Cells(2).Value = Nothing
-                    MsgBox("Producto no registrado", MsgBoxStyle.Information)
+                    XtraMessageBox.Show("Producto no registrado", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Dim a, b As Integer
                     a = DgvDetalle.Rows.Count
                     b = e.RowIndex + 1
@@ -310,7 +312,7 @@ Public Class FrmPedidos
         LlenarTextBox()
 
     End Sub
-    Private Sub DataGridView1_EditingControlShowing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DgvDetalle.EditingControlShowing
+    Private Sub DgvDetalle_EditingControlShowing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewEditingControlShowingEventArgs) Handles DgvDetalle.EditingControlShowing
         Dim column As Integer = DgvDetalle.CurrentCell.ColumnIndex
         If column = 1 Then
 
@@ -409,7 +411,7 @@ Public Class FrmPedidos
             Conec.Desconectarse()
         End Try
     End Sub
-    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellContentClick
+    Private Sub DgvDetalle_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellContentClick
         If e.ColumnIndex = 0 Then
             If (DgvDetalle.CurrentRow.Cells(1).Value <> Nothing And (DgvDetalle.CurrentRow.Cells(2).Value <> Nothing)) Then
                 If ((DgvDetalle.CurrentRow.Cells(1) IsNot Nothing)) Then
@@ -445,13 +447,13 @@ Public Class FrmPedidos
 
     End Sub
     Private Sub LlenarTextBox()
-        TxtTotal.Clear()
-        TxtTotal.Text = 0
-        TxtSubtotal.Clear()
-        TxtSubtotal.Text = 0
+        TxtTotal.EditValue = Nothing
+        TxtTotal.EditValue = 0
+        TxtSubtotal.EditValue = Nothing
+        TxtSubtotal.EditValue = 0
 
-        TxtImpuesto.Clear()
-        TxtImpuesto.Text = 0
+        TxtImpuesto.EditValue = Nothing
+        TxtImpuesto.EditValue = 0
 
         Dim a, b, c, d As Double
         For Each Fila As DataGridViewRow In DgvDetalle.Rows
@@ -461,10 +463,6 @@ Public Class FrmPedidos
 
         Next
         TxtSubtotal.Text = FormatCurrency(a, 2)
-
-
-
-
         TxtTotal.Text = FormatCurrency((a + c), 2)
         TxtImpuesto.Text = FormatCurrency(c, 2)
 
@@ -472,13 +470,157 @@ Public Class FrmPedidos
 
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles BtnFacturar.Click
-        If CboProveedor.Text <> Nothing Then
+    Private Sub FrmDetalleVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DgvDetalle.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken
+        TxtFechaPedido.Text = DateTime.Now.ToString("dd/MM/yyyy")
+        LlenarComboBoxProveedor()
+        CboProveedo.Text = Nothing
+
+        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
+        HelpProvider1.HelpNamespace = NombreArchivo
+        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
+        HelpProvider1.SetHelpKeyword(Me, "Registro Pedidos")
+
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea cancelar el pedido?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If r = DialogResult.Yes Then
+            If s = 1 Then
+                Conec.Conectarse()
+                Dim a As Integer
+
+                cmd = New SqlCommand("Select Top 1 IdPedido From Pedido Order by IdPedido Desc")
+                cmd.CommandType = CommandType.Text
+                cmd.Connection = Conec.Con
+                a = cmd.ExecuteScalar
+                Try
+                    cmd = New SqlCommand("Delete From Pedido Where IdPedido= " & a & "")
+                    cmd.CommandType = CommandType.Text
+                    cmd.Connection = Conec.Con
+                    cmd.ExecuteNonQuery()
+                Catch ex As Exception
+                    XtraMessageBox.Show(ex.Message)
+                End Try
+            End If
+            var = 0
+            Me.Close()
+
+        End If
 
 
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim r As DialogResult = XtraMessageBox.Show("¿Desea Eliminar Todos los Productos del Pedido?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If r = DialogResult.Yes Then
+            LlenarTextBox()
+            DgvDetalle.Rows.Clear()
+        End If
+    End Sub
+
+    Private Function GuardarPedido() As Boolean
+        Dim estado As Boolean
+        If TxtTotal.Text = Nothing Then
+            estado = False
+        Else
+            Conec.Conectarse()
+
+            Using cmd As New SqlCommand
+                Try
+                    With cmd
+                        .CommandText = "InsertarPedido"
+                        .CommandType = CommandType.StoredProcedure
+                        .Connection = Conec.Con
+                        .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(FrmMenuPrincipal.LblIdUsuario.Text)
+                        .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.SelectedValue.ToString
+                        .Parameters.Add("@Fecha", SqlDbType.Date).Value = TxtFechaPedido.Text
+                        .ExecuteNonQuery()
+                    End With
+                    estado = True
+                    s = 1
+                Catch ex As Exception
+                    XtraMessageBox.Show(ex.Message)
+                    estado = False
+                End Try
+            End Using
+
+        End If
+        Return estado
+    End Function
+
+    Private Sub FrmPedidos_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        If var = 0 Then
+
+        Else
+            Dim r As DialogResult = XtraMessageBox.Show("¿Desea cancelar el pedido?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If r = DialogResult.Yes Then
+                If s = 1 Then
+                    Conec.Conectarse()
+                    Dim a As Integer
+
+                    cmd = New SqlCommand("Select Top 1 IdPedido From Pedido Order by IdPedido Desc")
+                    cmd.CommandType = CommandType.Text
+                    cmd.Connection = Conec.Con
+                    a = cmd.ExecuteScalar
+                    Try
+                        cmd = New SqlCommand("Delete From Pedido Where IdPedido= " & a & "")
+                        cmd.CommandType = CommandType.Text
+                        cmd.Connection = Conec.Con
+                        cmd.ExecuteNonQuery()
+                    Catch ex As Exception
+                        XtraMessageBox.Show(ex.Message)
+                    End Try
+                End If
+            Else
+                e.Cancel = True
+            End If
+        End If
+    End Sub
+
+    Public Sub LlenarComboBoxProveedor()
+        Using cmd As New SqlCommand
+            Try
+                Conec.Conectarse()
+                With cmd
+                    .CommandText = "Select IdProveedor, NombreContacto + ' ' +ApellidoContacto as 'Nombre' From Proveedor "
+                    .CommandType = CommandType.Text
+                    .Connection = Conec.Con
+                    .ExecuteNonQuery()
+                End With
+                Dim adaptador As New SqlDataAdapter(cmd)
+                Dim dt As New DataTable
+                adaptador.Fill(dt)
+                CboProveedor.DataSource = dt
+                CboProveedor.DisplayMember = dt.Columns("Nombre").ToString
+                CboProveedor.ValueMember = dt.Columns(0).ToString
+            Catch ex As Exception
+                XtraMessageBox.Show(ex.Message)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub CboProveedor_SelectedIndexChanged(sender As Object, e As EventArgs)
+        If CboProveedo.Text <> Nothing Then
+            LlenarTextBox()
+            DgvDetalle.Rows.Clear()
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        With FrmProveedor
+            FrmProveedor.var = 2
+            .MdiParent = MenuPrincipal
+            .Dock = DockStyle.Fill
+            .Show()
+        End With
+    End Sub
+
+    Private Sub BtnFacturar_Click(sender As Object, e As EventArgs) Handles BtnFacturar.Click
+        If CboProveedo.Text <> Nothing Then
 
             If DgvDetalle.RowCount = 1 Then
-                MsgBox("Ingresar al menos un producto para realizar el pedido", MsgBoxStyle.Information, "INNOVAMASTER")
+                XtraMessageBox.Show("Ingresar al menos un producto para realizar el pedido", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
 
             Else
                 If GuardarPedido() = True Then
@@ -506,14 +648,14 @@ Public Class FrmPedidos
                             End If
 
                         Catch ex As Exception
-                            MsgBox(ex.Message)
+                            XtraMessageBox.Show(ex.Message)
                         End Try
 
 
                     Next
-                    MsgBox("Pedido registrado correctamente", MsgBoxStyle.Information, "INNOVAMASTER")
+                    XtraMessageBox.Show("Pedido registrado correctamente", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     var = 0
-                    If MessageBox.Show("¿Desea visualizar el reporte", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
+                    If XtraMessageBox.Show("¿Desea visualizar el reporte", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) = DialogResult.Yes Then
                         FrmRptPedido.var = 2
                         FrmRptPedido.ShowDialog()
                     Else
@@ -542,166 +684,10 @@ Public Class FrmPedidos
                 End If
             End If
         Else
-            MsgBox("Seleccione el Proveedor", MsgBoxStyle.Critical, "INNOVAMASTER")
+            XtraMessageBox.Show("Seleccione el Proveedor", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
     End Sub
 
-    Private Sub FrmDetalleVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DgvDetalle.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken
-        TxtFechaPedido.Text = DateTime.Now.ToString("dd/MM/yyyy")
-        LlenarComboBoxProveedor()
-        CboProveedor.Text = Nothing
 
-        Dim NombreArchivo As String = HTMLHelpClass.GetLocalHelpFileName("InnovaMasterAyuda2017.chm")
-        HelpProvider1.HelpNamespace = NombreArchivo
-        HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
-        HelpProvider1.SetHelpKeyword(Me, "Registro Pedidos")
-
-    End Sub
-
-
-
-
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea cancelar el pedido?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If r = DialogResult.Yes Then
-            If s = 1 Then
-                Conec.Conectarse()
-                Dim a As Integer
-
-                cmd = New SqlCommand("Select Top 1 IdPedido From Pedido Order by IdPedido Desc")
-                cmd.CommandType = CommandType.Text
-                cmd.Connection = Conec.Con
-                a = cmd.ExecuteScalar
-                Try
-                    cmd = New SqlCommand("Delete From Pedido Where IdPedido= " & a & "")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
-                    cmd.ExecuteNonQuery()
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                End Try
-            End If
-            var = 0
-            Me.Close()
-
-        End If
-
-
-    End Sub
-
-
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim r As DialogResult = MessageBox.Show("¿Desea Eliminar Todos los Productos del Pedido?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If r = DialogResult.Yes Then
-            LlenarTextBox()
-            DgvDetalle.Rows.Clear()
-        End If
-    End Sub
-
-
-
-
-
-    Private Function GuardarPedido() As Boolean
-        Dim estado As Boolean
-        If TxtTotal.Text = Nothing Then
-            estado = False
-        Else
-            Conec.Conectarse()
-
-            Using cmd As New SqlCommand
-                Try
-                    With cmd
-                        .CommandText = "InsertarPedido"
-                        .CommandType = CommandType.StoredProcedure
-                        .Connection = Conec.Con
-                        .Parameters.Add("@IdUsuario", SqlDbType.Int).Value = CInt(FrmMenuPrincipal.LblIdUsuario.Text)
-                        .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.SelectedValue.ToString
-                        .Parameters.Add("@Fecha", SqlDbType.Date).Value = TxtFechaPedido.Text
-                        .ExecuteNonQuery()
-                    End With
-                    estado = True
-                    s = 1
-                Catch ex As Exception
-                    MsgBox(ex.Message)
-                    estado = False
-                End Try
-            End Using
-
-        End If
-        Return estado
-    End Function
-
-    Private Sub FrmPedidos_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        If var = 0 Then
-
-        Else
-            Dim r As DialogResult = MessageBox.Show("¿Desea cancelar el pedido?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If r = DialogResult.Yes Then
-                If s = 1 Then
-                    Conec.Conectarse()
-                    Dim a As Integer
-
-                    cmd = New SqlCommand("Select Top 1 IdPedido From Pedido Order by IdPedido Desc")
-                    cmd.CommandType = CommandType.Text
-                    cmd.Connection = Conec.Con
-                    a = cmd.ExecuteScalar
-                    Try
-                        cmd = New SqlCommand("Delete From Pedido Where IdPedido= " & a & "")
-                        cmd.CommandType = CommandType.Text
-                        cmd.Connection = Conec.Con
-                        cmd.ExecuteNonQuery()
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
-                End If
-            Else
-                e.Cancel = True
-            End If
-        End If
-    End Sub
-
-    Public Sub LlenarComboBoxProveedor()
-        Using cmd As New SqlCommand
-            Try
-                Conec.Conectarse()
-                With cmd
-                    .CommandText = "Select IdProveedor, NombreContacto + ' ' +ApellidoContacto as 'Nombre' From Proveedor "
-                    .CommandType = CommandType.Text
-                    .Connection = Conec.Con
-                    .ExecuteNonQuery()
-                End With
-                Dim adaptador As New SqlDataAdapter(cmd)
-                Dim dt As New DataTable
-                adaptador.Fill(dt)
-                CboProveedor.DataSource = dt
-                CboProveedor.DisplayMember = dt.Columns("Nombre").ToString
-                CboProveedor.ValueMember = dt.Columns(0).ToString
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
-        End Using
-    End Sub
-
-
-
-
-    Private Sub CboProveedor_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CboProveedor.SelectedIndexChanged
-        If CboProveedor.Text <> Nothing Then
-            LlenarTextBox()
-            DgvDetalle.Rows.Clear()
-        End If
-    End Sub
-
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        With FrmProveedor
-            FrmProveedor.var = 2
-            .MdiParent = MenuPrincipal
-            .Dock = DockStyle.Fill
-            .Show()
-        End With
-    End Sub
 End Class

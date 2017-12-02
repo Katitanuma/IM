@@ -23,7 +23,6 @@ Partial Class FrmCategoria
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCategoria))
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.LblFilas = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
@@ -45,6 +44,7 @@ Partial Class FrmCategoria
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvCategoria, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,16 +53,6 @@ Partial Class FrmCategoria
         CType(Me.TxtCategoria.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtIdCategoria.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(87, 34)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(320, 43)
-        Me.Label13.TabIndex = 56
-        Me.Label13.Text = "Categoría del Producto"
         '
         'LblFilas
         '
@@ -302,11 +292,21 @@ Partial Class FrmCategoria
         Me.SimpleButton4.TabIndex = 142
         Me.SimpleButton4.Text = "Exportar PDF"
         '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl3.Location = New System.Drawing.Point(99, 34)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(302, 43)
+        Me.LabelControl3.TabIndex = 150
+        Me.LabelControl3.Text = "Categoría del Producto"
+        '
         'FrmCategoria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 573)
+        Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.SimpleButton5)
         Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.GbDatos)
@@ -319,10 +319,10 @@ Partial Class FrmCategoria
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.GCPrincipal)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.LblFilas)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmCategoria"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Categoría"
@@ -339,7 +339,6 @@ Partial Class FrmCategoria
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Label13 As Label
     Friend WithEvents LblFilas As Label
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents HelpProvider1 As HelpProvider
@@ -361,4 +360,5 @@ Partial Class FrmCategoria
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -381,6 +381,7 @@ Partial Class FrmDepartamento
         Me.Controls.Add(Me.GCPrincipal)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmDepartamento"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Departamento"

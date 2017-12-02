@@ -30,7 +30,6 @@ Partial Class FrmCompras
         Me.LblNombre = New System.Windows.Forms.Label()
         Me.LblCambio = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.Descuento = New DevExpress.XtraEditors.LabelControl()
         Me.TxtDescuentoExtra = New DevExpress.XtraEditors.CalcEdit()
@@ -62,6 +61,7 @@ Partial Class FrmCompras
         Me.Precio = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ISV = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
@@ -107,18 +107,6 @@ Partial Class FrmCompras
         Me.PictureBox2.Size = New System.Drawing.Size(62, 51)
         Me.PictureBox2.TabIndex = 104
         Me.PictureBox2.TabStop = False
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Monotype Corsiva", 24.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.Color.Black
-        Me.Label6.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label6.Location = New System.Drawing.Point(70, 9)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(275, 39)
-        Me.Label6.TabIndex = 103
-        Me.Label6.Text = "Compra de Productos"
         '
         'GroupControl1
         '
@@ -213,7 +201,7 @@ Partial Class FrmCompras
         Me.Button2.Appearance.Options.UseFont = True
         Me.Button2.Image = Global.INNOVAMASTER.My.Resources.Resources.Delete_Database_32px
         Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(963, 481)
+        Me.Button2.Location = New System.Drawing.Point(992, 481)
         Me.Button2.Name = "Button2"
         Me.HelpProvider1.SetShowHelp(Me.Button2, True)
         Me.Button2.Size = New System.Drawing.Size(167, 63)
@@ -226,7 +214,7 @@ Partial Class FrmCompras
         Me.Button1.Appearance.Options.UseFont = True
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
         Me.Button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(1133, 481)
+        Me.Button1.Location = New System.Drawing.Point(1162, 481)
         Me.Button1.Name = "Button1"
         Me.HelpProvider1.SetShowHelp(Me.Button1, True)
         Me.Button1.Size = New System.Drawing.Size(167, 63)
@@ -341,7 +329,7 @@ Partial Class FrmCompras
         Me.BtnFacturar.Appearance.Options.UseFont = True
         Me.BtnFacturar.Image = CType(resources.GetObject("BtnFacturar.Image"), System.Drawing.Image)
         Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.BtnFacturar.Location = New System.Drawing.Point(790, 481)
+        Me.BtnFacturar.Location = New System.Drawing.Point(819, 481)
         Me.BtnFacturar.Name = "BtnFacturar"
         Me.BtnFacturar.Size = New System.Drawing.Size(167, 63)
         Me.BtnFacturar.TabIndex = 120
@@ -443,11 +431,21 @@ Partial Class FrmCompras
         Me.Total.Name = "Total"
         Me.Total.ReadOnly = True
         '
+        'LabelControl6
+        '
+        Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl6.Location = New System.Drawing.Point(75, 10)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(280, 43)
+        Me.LabelControl6.TabIndex = 151
+        Me.LabelControl6.Text = "Compra de Productos"
+        '
         'FrmCompras
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 553)
+        Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.DgvDetalle)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Button2)
@@ -465,10 +463,10 @@ Partial Class FrmCompras
         Me.Controls.Add(Me.LblNombre)
         Me.Controls.Add(Me.LblCambio)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label6)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmCompras"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Compras"
@@ -496,7 +494,6 @@ Partial Class FrmCompras
     Friend WithEvents LblNombre As Label
     Friend WithEvents LblCambio As Label
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label6 As Label
     Friend WithEvents TxtDescuentoExtra As DevExpress.XtraEditors.CalcEdit
     Friend WithEvents RdbCantidad As RadioButton
     Friend WithEvents RdbPorcentaje As RadioButton
@@ -528,4 +525,5 @@ Partial Class FrmCompras
     Friend WithEvents Precio As DataGridViewTextBoxColumn
     Friend WithEvents ISV As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
 End Class

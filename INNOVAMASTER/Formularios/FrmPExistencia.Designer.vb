@@ -28,8 +28,8 @@ Partial Class FrmPExistencia
         Me.DigitalBackgroundLayerComponent1 = New DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent()
         Me.DigitalBackgroundLayerComponent2 = New DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent()
         Me.GaugeControl1 = New DevExpress.XtraGauges.Win.GaugeControl()
-        Me.DigitalBackgroundLayerComponent3 = New DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent()
         Me.DigitalGauge1 = New DevExpress.XtraGauges.Win.Gauges.Digital.DigitalGauge()
+        Me.DigitalBackgroundLayerComponent3 = New DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent()
         Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnExportarPDF = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnExportarExcel = New DevExpress.XtraEditors.SimpleButton()
@@ -38,8 +38,8 @@ Partial Class FrmPExistencia
         CType(Me.DgvProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DigitalBackgroundLayerComponent1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DigitalBackgroundLayerComponent2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DigitalBackgroundLayerComponent3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DigitalGauge1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DigitalBackgroundLayerComponent3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GCPrincipal
@@ -121,14 +121,6 @@ Partial Class FrmPExistencia
         Me.GaugeControl1.Size = New System.Drawing.Size(710, 65)
         Me.GaugeControl1.TabIndex = 142
         '
-        'DigitalBackgroundLayerComponent3
-        '
-        Me.DigitalBackgroundLayerComponent3.BottomRight = New DevExpress.XtraGauges.Core.Base.PointF2D(1225.063!, 99.9625!)
-        Me.DigitalBackgroundLayerComponent3.Name = "digitalBackgroundLayerComponent1"
-        Me.DigitalBackgroundLayerComponent3.ShapeType = DevExpress.XtraGauges.Core.Model.DigitalBackgroundShapeSetType.Style17
-        Me.DigitalBackgroundLayerComponent3.TopLeft = New DevExpress.XtraGauges.Core.Base.PointF2D(26.0!, 0!)
-        Me.DigitalBackgroundLayerComponent3.ZOrder = 1000
-        '
         'DigitalGauge1
         '
         Me.DigitalGauge1.AppearanceOff.ContentBrush = New DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:#0D8097")
@@ -139,6 +131,14 @@ Partial Class FrmPExistencia
         Me.DigitalGauge1.Name = "DigitalGauge1"
         Me.DigitalGauge1.Padding = New DevExpress.XtraGauges.Core.Base.TextSpacing(26, 20, 26, 20)
         Me.DigitalGauge1.Text = "PRODUCTOS BAJO EXISTENCIA"
+        '
+        'DigitalBackgroundLayerComponent3
+        '
+        Me.DigitalBackgroundLayerComponent3.BottomRight = New DevExpress.XtraGauges.Core.Base.PointF2D(1225.063!, 99.9625!)
+        Me.DigitalBackgroundLayerComponent3.Name = "digitalBackgroundLayerComponent1"
+        Me.DigitalBackgroundLayerComponent3.ShapeType = DevExpress.XtraGauges.Core.Model.DigitalBackgroundShapeSetType.Style17
+        Me.DigitalBackgroundLayerComponent3.TopLeft = New DevExpress.XtraGauges.Core.Base.PointF2D(26.0!, 0!)
+        Me.DigitalBackgroundLayerComponent3.ZOrder = 1000
         '
         'BtnActualizar
         '
@@ -187,6 +187,7 @@ Partial Class FrmPExistencia
         Me.Controls.Add(Me.BtnExportarExcel)
         Me.Controls.Add(Me.GaugeControl1)
         Me.Controls.Add(Me.GCPrincipal)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmPExistencia"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Productos Baja Existencia"
@@ -194,8 +195,8 @@ Partial Class FrmPExistencia
         CType(Me.DgvProducto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DigitalBackgroundLayerComponent1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DigitalBackgroundLayerComponent2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DigitalBackgroundLayerComponent3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DigitalGauge1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DigitalBackgroundLayerComponent3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

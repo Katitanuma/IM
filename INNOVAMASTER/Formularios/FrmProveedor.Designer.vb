@@ -24,7 +24,6 @@ Partial Class FrmProveedor
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmProveedor))
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.LblRelacionClienteVenta = New System.Windows.Forms.Label()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
@@ -73,6 +72,7 @@ Partial Class FrmProveedor
         Me.BtnNuevo = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnInsertar = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnActualizar = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,18 +100,6 @@ Partial Class FrmProveedor
         Me.PictureBox2.Size = New System.Drawing.Size(59, 59)
         Me.PictureBox2.TabIndex = 69
         Me.PictureBox2.TabStop = False
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
-        Me.Label13.ForeColor = System.Drawing.Color.Black
-        Me.Label13.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label13.Location = New System.Drawing.Point(63, 19)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(279, 43)
-        Me.Label13.TabIndex = 66
-        Me.Label13.Text = "Perfil del Proveedor"
         '
         'LblRelacionClienteVenta
         '
@@ -703,11 +691,21 @@ Partial Class FrmProveedor
         Me.BtnActualizar.Text = "Actualizar"
         Me.BtnActualizar.Visible = False
         '
+        'LabelControl3
+        '
+        Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl3.Location = New System.Drawing.Point(72, 21)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(266, 43)
+        Me.LabelControl3.TabIndex = 151
+        Me.LabelControl3.Text = "Perfil del Proveedor"
+        '
         'FrmProveedor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1362, 579)
+        Me.ClientSize = New System.Drawing.Size(1354, 579)
+        Me.Controls.Add(Me.LabelControl3)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
         Me.Controls.Add(Me.BtnNuevo)
@@ -720,10 +718,10 @@ Partial Class FrmProveedor
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.GCPrincipal)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.LblRelacionClienteVenta)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmProveedor"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Proveedor"
@@ -751,7 +749,6 @@ Partial Class FrmProveedor
     End Sub
 
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents LblRelacionClienteVenta As Label
     Friend WithEvents HelpProvider1 As HelpProvider
     Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
@@ -800,4 +797,5 @@ Partial Class FrmProveedor
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnInsertar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnActualizar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
 End Class

@@ -323,6 +323,7 @@ Partial Class FrmMarca
         Me.Controls.Add(Me.LblFilas)
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmMarca"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Marca"

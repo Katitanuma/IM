@@ -1,9 +1,11 @@
 ﻿Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmProductoProveedor
     Dim conec As New Conexion
     Private Sub FrmProductoProveedor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LlenarComboBox()
-        TxtCodigoProducto.Clear()
+        TxtCodigoProducto.EditValue = 0
         CboProveedor.Text = Nothing
         MostrarDatos()
     End Sub
@@ -21,11 +23,10 @@ Public Class FrmProductoProveedor
                 Dim Adaptador As New SqlDataAdapter(Cmd)
                 Dim dt As New DataTable
                 Adaptador.Fill(dt)
-                CboProveedor.DataSource = dt
-                CboProveedor.DisplayMember = dt.Columns("Nombre").ToString
-                CboProveedor.ValueMember = dt.Columns("IdProveedor").ToString
+                CboProveedor.Properties.DataSource = dt
+
             Catch ex As Exception
-                MsgBox(ex.Message)
+                XtraMessageBox.Show(ex.Message)
             End Try
         End Using
     End Sub
@@ -40,13 +41,16 @@ Public Class FrmProductoProveedor
                     .Connection = conec.Con
                     .ExecuteNonQuery()
                 End With
+
                 Dim Adaptador As New SqlDataAdapter(Cmd)
                 Dim dt As New DataTable
                 Adaptador.Fill(dt)
-                DgvProductoProveedor.DataSource = dt
-                DgvProductoProveedor.Columns(3).Visible = False
+                GCPrincipal.DataSource = dt
+
+
+
             Catch ex As Exception
-                MsgBox(ex.Message)
+                XtraMessageBox.Show(ex.Message)
             End Try
         End Using
     End Sub
@@ -58,14 +62,14 @@ Public Class FrmProductoProveedor
                 With Cmd
                     .CommandText = "EliminarProductoProveedor"
                     .CommandType = CommandType.StoredProcedure
-                    .Parameters.Add("@IdProductoProveedor", SqlDbType.NVarChar, 50).Value = DgvProductoProveedor.CurrentRow.Cells(0).Value.ToString
-                    .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = DgvProductoProveedor.CurrentRow.Cells(3).Value.ToString
+                    .Parameters.Add("@IdProductoProveedor", SqlDbType.NVarChar, 50).Value = DgvProductoProveedor.GetRowCellValue(DgvProductoProveedor.FocusedRowHandle, ColIdProvPro)
+                    .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = DgvProductoProveedor.GetRowCellValue(DgvProductoProveedor.FocusedRowHandle, ColIdProv)
                     .Connection = conec.Con
                     .ExecuteNonQuery()
                 End With
                 MostrarDatos()
                 LlenarComboBox()
-                TxtCodigoProducto.Clear()
+                TxtCodigoProducto.EditValue = Nothing
                 CboProveedor.Text = Nothing
             Catch ex As Exception
                 MsgBox(ex.Message)
@@ -83,20 +87,20 @@ Public Class FrmProductoProveedor
                         .CommandType = CommandType.StoredProcedure
                         .Parameters.Add("@IdProductoProveedor", SqlDbType.NVarChar, 50).Value = TxtCodigoProducto.Text.Trim
                         .Parameters.Add("@IdProducto", SqlDbType.NVarChar, 50).Value = FrmProducto.TxtIdProducto.Text.Trim
-                        .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.SelectedValue.ToString
+                        .Parameters.Add("@IdProveedor", SqlDbType.VarChar, 15).Value = CboProveedor.EditValue.ToString
                         .Connection = conec.Con
                         .ExecuteNonQuery()
                     End With
                     MostrarDatos()
                     LlenarComboBox()
-                    TxtCodigoProducto.Clear()
+                    TxtCodigoProducto.EditValue = Nothing
                     CboProveedor.Text = Nothing
                 Catch ex As Exception
                     MsgBox(ex.Message)
                 End Try
             End Using
         Else
-            MsgBox("Ingrese o seleccione los valores", MsgBoxStyle.Information, "INNOVAMASTER")
+            XtraMessageBox.Show("Ingrese o seleccione los valores", "INNOVAMASTER", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 

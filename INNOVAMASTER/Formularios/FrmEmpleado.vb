@@ -695,7 +695,7 @@ Public Class FrmEmpleado
     End Sub
 
     Private Sub DgvEmpleado_Click(sender As Object, e As EventArgs) Handles DgvEmpleado.Click
-        Dim c As Int16
+
 
         TxtIdEmpleado.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColIdEmpleado)
         TxtNombres.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColNombre)
@@ -738,4 +738,39 @@ Public Class FrmEmpleado
         Return Image.FromStream(ms)
 
     End Function
+
+    Private Sub DgvEmpleado_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles DgvEmpleado.FocusedRowChanged
+        TxtIdEmpleado.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColIdEmpleado)
+        TxtNombres.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColNombre)
+        TxtApellidos.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColApellido)
+        TxtDireccion.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColDireccion)
+        TxtTelefono.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColTelefono)
+        TxtCelular.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColCel)
+        DteFechaNac.EditValue = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColFechaN)
+        CmbMunicipio.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColMunicipio)
+        CboCargo.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColCargo)
+        DteFechaC.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColFechaC)
+        CboProfesion.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColProfesion)
+        CboSucursal.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColSucursal)
+        CmbEstadoCivil.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColEstadoC)
+        CboSexo.Text = DgvEmpleado.GetRowCellValue(DgvEmpleado.FocusedRowHandle, ColSexo)
+
+
+        Try
+            conec.Conectarse()
+            cmd = New SqlCommand("Select Imagen From Empleado Where IdEmpleado= '" & TxtIdEmpleado.Text & "'")
+            cmd.CommandType = CommandType.Text
+            cmd.Connection = conec.Con
+            Dim dr As SqlDataReader
+            dr = cmd.ExecuteReader
+
+            If dr.Read Then
+                Dim img() As Byte = DirectCast(dr(0), Byte())
+                PbEmpleado.Image = ByteArrayToImage(img)
+            End If
+            dr.Close()
+        Catch ex As Exception
+            XtraMessageBox.Show(ex.Message)
+        End Try
+    End Sub
 End Class

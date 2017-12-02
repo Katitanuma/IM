@@ -28,7 +28,6 @@ Partial Class FrmUsuario
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmUsuario))
         Me.ColEstado = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
         Me.layoutViewField_ColEstado = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.LblRespaldo = New System.Windows.Forms.Label()
         Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
@@ -83,6 +82,7 @@ Partial Class FrmUsuario
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.layoutViewField_ColEstado, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -131,16 +131,6 @@ Partial Class FrmUsuario
         Me.layoutViewField_ColEstado.TextLocation = DevExpress.Utils.Locations.Left
         Me.layoutViewField_ColEstado.TextSize = New System.Drawing.Size(89, 13)
         '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(81, 24)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(256, 43)
-        Me.Label13.TabIndex = 71
-        Me.Label13.Text = "Perfil del Usuario"
-        '
         'LblRespaldo
         '
         Me.LblRespaldo.AutoSize = True
@@ -185,14 +175,14 @@ Partial Class FrmUsuario
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlTop.Size = New System.Drawing.Size(1362, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(1354, 0)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.barDockControlBottom.Location = New System.Drawing.Point(0, 573)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(1362, 0)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(1354, 0)
         '
         'barDockControlLeft
         '
@@ -205,7 +195,7 @@ Partial Class FrmUsuario
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(1362, 0)
+        Me.barDockControlRight.Location = New System.Drawing.Point(1354, 0)
         Me.barDockControlRight.Size = New System.Drawing.Size(0, 573)
         '
         'LblFilas
@@ -746,11 +736,21 @@ Partial Class FrmUsuario
         Me.Label1.TabIndex = 112
         Me.Label1.Text = "Código Usuario"
         '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
+        Me.LabelControl1.Location = New System.Drawing.Point(90, 24)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(238, 43)
+        Me.LabelControl1.TabIndex = 149
+        Me.LabelControl1.Text = "Perfil del Usuario"
+        '
         'FrmUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1362, 573)
+        Me.ClientSize = New System.Drawing.Size(1354, 573)
+        Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.GbUsuario)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
@@ -763,7 +763,6 @@ Partial Class FrmUsuario
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.GCPrincipal)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.LblRespaldo)
         Me.Controls.Add(Me.LblFilas)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -773,6 +772,7 @@ Partial Class FrmUsuario
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.HelpButton = True
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmUsuario"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -805,7 +805,6 @@ Partial Class FrmUsuario
 
     End Sub
     Friend WithEvents PictureBox2 As PictureBox
-    Friend WithEvents Label13 As Label
     Friend WithEvents LblRespaldo As Label
     Friend WithEvents LblFilas As Label
     Friend WithEvents HelpProvider1 As HelpProvider
@@ -861,4 +860,5 @@ Partial Class FrmUsuario
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
 End Class
