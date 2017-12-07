@@ -40,6 +40,7 @@ Public Class FrmProducto
         TxtIdProducto.Enabled = True
         BtnCodigoProveedor.Visible = False
         ChkEstado.Checked = True
+        ChkGravado.Checked = False
         GbProducto.Enabled = True
         TxtIdProducto.EditValue = Nothing
         TxtDescripcion.EditValue = Nothing
