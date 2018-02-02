@@ -4,25 +4,27 @@ Imports System.Data.SqlClient
 Public Class FrmParametrosDEI
 
     Private Sub FrmParametrosDEI_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TxtCAI.EditValue = My.Settings.CAI
-        TxtRango1.EditValue = My.Settings.R1
-        TxtRango2.EditValue = My.Settings.R2
-        If My.Settings.FL.ToString <> Nothing Then
-            DteLimite.EditValue = CDate(My.Settings.FL)
+
+        Dim archivo As New FileIni
+        TxtCAI.EditValue = archivo.IniGet(RUTA_INI, "SAR", "CAI", "")
+        TxtRango1.EditValue = archivo.IniGet(RUTA_INI, "SAR", "R1", "")
+        TxtRango2.EditValue = archivo.IniGet(RUTA_INI, "SAR", "R2", "")
+        If archivo.IniGet(RUTA_INI, "SAR", "CAI", "") <> Nothing Then
+            DteLimite.EditValue = CDate(archivo.IniGet(RUTA_INI, "SAR", "Fecha", ""))
         End If
-        ISV.EditValue = My.Settings.ISV.ToString
+        ISV.EditValue = archivo.IniGet(RUTA_INI, "SAR", "ISV", "")
 
     End Sub
 
     Private Sub BtnGuardar_Click(sender As Object, e As EventArgs) Handles BtnGuardar.Click
-        My.Settings.CAI = TxtCAI.EditValue
-        My.Settings.R1 = TxtRango1.EditValue
-        My.Settings.R2 = TxtRango2.EditValue
-        My.Settings.FL = DteLimite.EditValue
-        My.Settings.ISV = ISV.EditValue
-        My.Settings.Save()
-        ActualizarISV(My.Settings.ISV)
 
+        Dim archivo As New FileIni
+        archivo.IniWrite(RUTA_INI, "SAR", "CAI", TxtCAI.EditValue)
+        archivo.IniWrite(RUTA_INI, "SAR", "R1", TxtRango1.EditValue)
+        archivo.IniWrite(RUTA_INI, "SAR", "R2", TxtRango2.EditValue)
+        archivo.IniWrite(RUTA_INI, "SAR", "Fecha", DteLimite.EditValue)
+        archivo.IniWrite(RUTA_INI, "SAR", "ISV", ISV.EditValue)
+        ActualizarISV(ISV.EditValue)
 
     End Sub
 

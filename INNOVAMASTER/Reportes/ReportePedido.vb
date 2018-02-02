@@ -32,8 +32,13 @@ Public Class ReportePedido
     End Sub
 
     Private Sub VisualizarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VisualizarReporteToolStripMenuItem.Click
-        FrmRptPedido.var = 1
-        FrmRptPedido.Show()
+        'FrmRptPedido.var = 1
+        'FrmRptPedido.MdiParent = FrmMenuPrincipal
+        'FrmRptPedido.Show()
+        Dim frm As New FrmPedidos
+        frm.var = 1
+        frm.MdiParent = FrmMenuPrincipal
+        frm.Show()
     End Sub
 
     Private Sub ImprimirReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImprimirReporteToolStripMenuItem.Click
@@ -86,4 +91,6 @@ Public Class ReportePedido
     Protected Overrides Sub ExportarPDF()
         Exportar_a_PDF(GCPrincipal, Me.Text)
     End Sub
+
+
 End Class

@@ -30,19 +30,42 @@ Partial Class ReporteProductos
         CType(Me.DgvPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
+        'BtnExportarPDF
+        '
+        Me.BtnExportarPDF.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'BtnExportarExcel
+        '
+        Me.BtnExportarExcel.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'BtnReporte
+        '
+        Me.BtnReporte.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'BtnImprimir
+        '
+        Me.BtnImprimir.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
         'PictureBox2
         '
+        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox2.Location = New System.Drawing.Point(291, 8)
         '
         'LblEtiqueta
         '
+        Me.LblEtiqueta.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.LblEtiqueta.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LblEtiqueta.Location = New System.Drawing.Point(347, 12)
-        Me.LblEtiqueta.Size = New System.Drawing.Size(282, 43)
+        Me.LblEtiqueta.Size = New System.Drawing.Size(283, 43)
         Me.LblEtiqueta.Text = "Reporte de Productos"
         '
         'GCPrincipal
         '
+        Me.GCPrincipal.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.GCPrincipal.Location = New System.Drawing.Point(14, 68)
         Me.GCPrincipal.MainView = Me.DgvPrincipal
         Me.GCPrincipal.Name = "GCPrincipal"
@@ -105,8 +128,12 @@ Partial Class ReporteProductos
         Me.HelpProvider1.SetHelpNavigator(Me, System.Windows.Forms.HelpNavigator.TableOfContents)
         Me.Name = "ReporteProductos"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Productos"
+        Me.Controls.SetChildIndex(Me.BtnExportarExcel, 0)
+        Me.Controls.SetChildIndex(Me.BtnReporte, 0)
+        Me.Controls.SetChildIndex(Me.BtnActualizar, 0)
+        Me.Controls.SetChildIndex(Me.BtnImprimir, 0)
+        Me.Controls.SetChildIndex(Me.BtnExportarPDF, 0)
         Me.Controls.SetChildIndex(Me.PictureBox2, 0)
         Me.Controls.SetChildIndex(Me.LblEtiqueta, 0)
         Me.Controls.SetChildIndex(Me.GCPrincipal, 0)

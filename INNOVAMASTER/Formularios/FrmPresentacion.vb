@@ -4,7 +4,18 @@
         Timer1.Interval = 200
         Timer1.Start()
         i = 0
-        My.Settings.Conect1 = My.Settings.Item("Conect").ToString
+
+        Dim Archivo As New FileIni
+
+        Ip = Desencriptar(Archivo.IniGet(RUTA_INI, "Configuracion", "IP", ""))
+        BaseDatos = Desencriptar(Archivo.IniGet(RUTA_INI, "Configuracion", "BASE_DATOS", ""))
+        Usuario = Desencriptar(Archivo.IniGet(RUTA_INI, "Configuracion", "USUARIO", ""))
+        Contrasena = Desencriptar(Archivo.IniGet(RUTA_INI, "Configuracion", "CONTRASENA", ""))
+        con = ("Data Source=" & Ip & ";Initial Catalog=" & BaseDatos & ";User ID=" & Usuario & ";Password=" & Contrasena & "")
+
+
+        'My.Settings.Conect1 = My.Settings.Item("Conect").ToString
+        My.Settings.Conect1 = con
         My.Settings.Save()
     End Sub
 

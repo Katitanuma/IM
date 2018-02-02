@@ -62,8 +62,16 @@ Public Class ReporteVentas
     End Sub
 
     Private Sub VerReporeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VerReporeToolStripMenuItem.Click
-        FrmFactura.var = 3
-        FrmFactura.ShowDialog()
+
+
+        'FrmFactura.var = 3
+        'FrmFactura.MdiParent = FrmMenuPrincipal
+        'FrmFactura.Show()
+        Dim frm As New FrmFactura
+        frm.var = 3
+        frm.MdiParent = FrmMenuPrincipal
+        frm.Show()
+
     End Sub
 
     Protected Overrides Sub ExportarExcel()

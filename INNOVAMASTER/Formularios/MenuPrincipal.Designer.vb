@@ -73,6 +73,7 @@
         Me.SkinRibbonGalleryBarItem1 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
         Me.BarButtonItem31 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem32 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem33 = New DevExpress.XtraBars.BarButtonItem()
         Me.mainRibbonPage = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.mainRibbonPageGroup = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage12 = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -114,24 +115,31 @@
         Me.pcFondo = New DevExpress.XtraEditors.PanelControl()
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.BarButtonItem33 = New DevExpress.XtraBars.BarButtonItem()
+        Me.RibbonStatusBar1 = New DevExpress.XtraBars.Ribbon.RibbonStatusBar()
+        Me.BarButtonUsuario = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonCalculadora = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonServidor = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonBaseDatos = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonVersion = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pcFondo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pcFondo.SuspendLayout()
         Me.SuspendLayout()
         '
         'mainRibbonControl
         '
         Me.mainRibbonControl.ExpandCollapseItem.Id = 0
-        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BtnRegistroClientes, Me.BarButtonItem2, Me.BtnRegistroEmpleado, Me.BarButtonItem4, Me.BtnRegistroUsuarios, Me.BtnReportesUsuarios, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BtnRegistroVenta, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BtnCambiarUsuario, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BtnProfesion, Me.BtnCargo, Me.BarButtonItem23, Me.BarButtonItem24, Me.BtnF, Me.BarButtonItem1, Me.BarButtonItem3, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarButtonItem16, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem31, Me.BarButtonItem32, Me.BarButtonItem33})
+        Me.mainRibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.mainRibbonControl.ExpandCollapseItem, Me.bbiSave, Me.bbiSaveAndClose, Me.bbiSaveAndNew, Me.bbiReset, Me.bbiDelete, Me.bbiClose, Me.BtnRegistroClientes, Me.BarButtonItem2, Me.BtnRegistroEmpleado, Me.BarButtonItem4, Me.BtnRegistroUsuarios, Me.BtnReportesUsuarios, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BtnRegistroVenta, Me.BarButtonItem12, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BtnCambiarUsuario, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BtnProfesion, Me.BtnCargo, Me.BarButtonItem23, Me.BarButtonItem24, Me.BtnF, Me.BarButtonItem1, Me.BarButtonItem3, Me.BarButtonItem5, Me.BarButtonItem6, Me.BarButtonItem11, Me.BarButtonItem16, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem25, Me.BarButtonItem26, Me.BarButtonItem27, Me.BarButtonItem28, Me.BarButtonItem29, Me.BarButtonItem30, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem31, Me.BarButtonItem32, Me.BarButtonItem33, Me.BarButtonUsuario, Me.BarButtonCalculadora, Me.BarButtonServidor, Me.BarButtonBaseDatos, Me.BarButtonVersion})
         Me.mainRibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.mainRibbonControl.MaxItemId = 53
+        Me.mainRibbonControl.MaxItemId = 58
         Me.mainRibbonControl.Name = "mainRibbonControl"
         Me.mainRibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.mainRibbonPage, Me.RibbonPage12, Me.RibbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage5, Me.RibbonPage9, Me.RibbonPage10, Me.RibbonPage4, Me.RibbonPage8, Me.RibbonPage7, Me.PgAuditoria, Me.RibbonPage11})
         Me.mainRibbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013
         Me.mainRibbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.[False]
         Me.mainRibbonControl.Size = New System.Drawing.Size(871, 146)
+        Me.mainRibbonControl.StatusBar = Me.RibbonStatusBar1
         Me.mainRibbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden
         '
         'bbiSave
@@ -478,6 +486,14 @@
         Me.BarButtonItem32.LargeGlyph = CType(resources.GetObject("BarButtonItem32.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem32.Name = "BarButtonItem32"
         '
+        'BarButtonItem33
+        '
+        Me.BarButtonItem33.Caption = "Parámetros DEI"
+        Me.BarButtonItem33.Glyph = CType(resources.GetObject("BarButtonItem33.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem33.Id = 52
+        Me.BarButtonItem33.LargeGlyph = CType(resources.GetObject("BarButtonItem33.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem33.Name = "BarButtonItem33"
+        '
         'mainRibbonPage
         '
         Me.mainRibbonPage.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.mainRibbonPageGroup})
@@ -744,6 +760,7 @@
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.pcFondo.ContentImage = Global.INNOVAMASTER.My.Resources.Resources.Logito3
+        Me.pcFondo.Controls.Add(Me.RibbonStatusBar1)
         Me.pcFondo.Location = New System.Drawing.Point(0, 153)
         Me.pcFondo.Name = "pcFondo"
         Me.pcFondo.Size = New System.Drawing.Size(871, 251)
@@ -759,13 +776,53 @@
         Me.Button1.UseVisualStyleBackColor = True
         Me.Button1.Visible = False
         '
-        'BarButtonItem33
+        'RibbonStatusBar1
         '
-        Me.BarButtonItem33.Caption = "Parámetros DEI"
-        Me.BarButtonItem33.Glyph = CType(resources.GetObject("BarButtonItem33.Glyph"), System.Drawing.Image)
-        Me.BarButtonItem33.Id = 52
-        Me.BarButtonItem33.LargeGlyph = CType(resources.GetObject("BarButtonItem33.LargeGlyph"), System.Drawing.Image)
-        Me.BarButtonItem33.Name = "BarButtonItem33"
+        Me.RibbonStatusBar1.ItemLinks.Add(Me.BarButtonUsuario)
+        Me.RibbonStatusBar1.ItemLinks.Add(Me.BarButtonCalculadora)
+        Me.RibbonStatusBar1.ItemLinks.Add(Me.BarButtonServidor)
+        Me.RibbonStatusBar1.ItemLinks.Add(Me.BarButtonBaseDatos)
+        Me.RibbonStatusBar1.ItemLinks.Add(Me.BarButtonVersion)
+        Me.RibbonStatusBar1.Location = New System.Drawing.Point(3, 225)
+        Me.RibbonStatusBar1.Name = "RibbonStatusBar1"
+        Me.RibbonStatusBar1.Ribbon = Me.mainRibbonControl
+        Me.RibbonStatusBar1.Size = New System.Drawing.Size(865, 23)
+        '
+        'BarButtonUsuario
+        '
+        Me.BarButtonUsuario.Caption = "Usuario"
+        Me.BarButtonUsuario.Glyph = CType(resources.GetObject("BarButtonUsuario.Glyph"), System.Drawing.Image)
+        Me.BarButtonUsuario.Id = 53
+        Me.BarButtonUsuario.Name = "BarButtonUsuario"
+        '
+        'BarButtonCalculadora
+        '
+        Me.BarButtonCalculadora.Glyph = CType(resources.GetObject("BarButtonCalculadora.Glyph"), System.Drawing.Image)
+        Me.BarButtonCalculadora.Id = 54
+        Me.BarButtonCalculadora.Name = "BarButtonCalculadora"
+        '
+        'BarButtonServidor
+        '
+        Me.BarButtonServidor.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.BarButtonServidor.Caption = "Servidor"
+        Me.BarButtonServidor.Glyph = CType(resources.GetObject("BarButtonServidor.Glyph"), System.Drawing.Image)
+        Me.BarButtonServidor.Id = 55
+        Me.BarButtonServidor.Name = "BarButtonServidor"
+        '
+        'BarButtonBaseDatos
+        '
+        Me.BarButtonBaseDatos.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.BarButtonBaseDatos.Caption = "bd"
+        Me.BarButtonBaseDatos.Glyph = CType(resources.GetObject("BarButtonBaseDatos.Glyph"), System.Drawing.Image)
+        Me.BarButtonBaseDatos.Id = 56
+        Me.BarButtonBaseDatos.Name = "BarButtonBaseDatos"
+        '
+        'BarButtonVersion
+        '
+        Me.BarButtonVersion.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
+        Me.BarButtonVersion.Caption = "Versión"
+        Me.BarButtonVersion.Id = 57
+        Me.BarButtonVersion.Name = "BarButtonVersion"
         '
         'MenuPrincipal
         '
@@ -791,11 +848,13 @@
         Me.Name = "MenuPrincipal"
         Me.Ribbon = Me.mainRibbonControl
         Me.HelpProvider1.SetShowHelp(Me, True)
+        Me.StatusBar = Me.RibbonStatusBar1
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.mainRibbonControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pcFondo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.pcFondo.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -893,4 +952,10 @@
     Friend WithEvents BarButtonItem31 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem32 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem33 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonUsuario As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonCalculadora As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonServidor As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonBaseDatos As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonVersion As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonStatusBar1 As DevExpress.XtraBars.Ribbon.RibbonStatusBar
 End Class

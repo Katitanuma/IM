@@ -183,10 +183,17 @@
     <Compile Include="Datos\DatosProveedor.vb" />
     <Compile Include="Datos\DatosUsuario.vb" />
     <Compile Include="Datos\DatosVenta.vb" />
+    <Compile Include="FileIni.vb" />
     <Compile Include="Formularios\Acerca de InnovaMaster.Designer.vb">
       <DependentUpon>Acerca de InnovaMaster.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Acerca de InnovaMaster.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FormularioDocument.Designer.vb">
+      <DependentUpon>FormularioDocument.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FormularioDocument.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\FrmCompras.Designer.vb">
@@ -499,6 +506,9 @@
     <EmbeddedResource Include="Formularios\Acerca de InnovaMaster.resx">
       <DependentUpon>Acerca de InnovaMaster.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FormularioDocument.resx">
+      <DependentUpon>FormularioDocument.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmCompras.resx">
       <DependentUpon>FrmCompras.vb</DependentUpon>
     </EmbeddedResource>
@@ -608,9 +618,9 @@
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmReportesBase.resx">
       <DependentUpon>FrmReportesBase.vb</DependentUpon>
@@ -653,6 +663,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo BUeno.ico" />
+    <None Include="Resources\reporte pedidos 48x48.png" />
+    <None Include="Resources\reporte compras 48x48.png" />
+    <None Include="Resources\reporte producto 48x482.png" />
+    <None Include="Resources\reporte producto 48x481.png" />
+    <None Include="Resources\reporte producto 48x48.png" />
+    <None Include="Resources\reporte cliente 48x482.png" />
+    <None Include="Resources\reporte cliente 48x481.png" />
+    <None Include="Resources\reporte cliente 48x48.png" />
+    <None Include="Resources\reporte ventas 48 x 48.png" />
+    <None Include="Resources\reporte ventas 32 x 32.png" />
     <None Include="Resources\nula.jpg" />
     <None Include="Resources\Delete Database_32px.png" />
     <None Include="Resources\Receipt_32px.png" />

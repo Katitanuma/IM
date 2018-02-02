@@ -1,5 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports DevExpress.XtraEditors
+
 Public Class FrmFacturacionVenta
     Dim Conec As New Conexion
     Dim cmd As SqlCommand
@@ -834,6 +836,20 @@ Public Class FrmFacturacionVenta
                 ElseIf dr.GetValue(0) < 100000000 Then
                     TxtIdVenta.Text = "0" + Str(Int(dr.GetValue(0)) + 1)
                 End If
+
+                Dim archivo As New FileIni
+
+                Dim a As String = archivo.IniGet(RUTA_INI, "SAR", "R2", "").Trim
+
+
+                If TxtIdVenta.Text.Replace(" ", "") = a Then
+                    XtraMessageBox.Show("Se supero el limite del correlativo")
+                    Close()
+                ElseIf DateTime.Compare(DateTime.Now.ToShortDateString, archivo.IniGet(RUTA_INI, "SAR", "Fecha", "")) = 0 Then
+                    XtraMessageBox.Show("Se supero el fecha limite del correlativo")
+                    Close()
+                End If
+                TxtIdVenta.Text = "000-001-01-" & TxtIdVenta.Text
             End If
             dr.Close()
             TxtIdVenta.Text = Replace(TxtIdVenta.Text, " ", "")

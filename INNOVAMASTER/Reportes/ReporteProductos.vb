@@ -34,7 +34,12 @@ Public Class ReporteProductos
     End Sub
 
     Protected Overrides Sub Reporte()
-        FrmRptProducto.ShowDialog()
+        'FrmRptProducto.MdiParent = FrmMenuPrincipal
+        'FrmRptProducto.Show()
+
+        Dim frm As New FrmRptProducto
+        frm.MdiParent = FrmMenuPrincipal
+        frm.Show()
     End Sub
 
     Protected Overrides Sub Imprimir()
@@ -87,4 +92,6 @@ Public Class ReporteProductos
 
         End Using
     End Sub
+
+
 End Class

@@ -81,13 +81,28 @@ Public Class FrmConfiguracion
             EC = Estado_Conexion.Establecida
             lblConnStatus.Text = "Conexión establecida exitosamente."
             Dim nuevaCadenaConexion As String = "Data Source=" & txtServer.Text & ";Initial Catalog=" & txtDB.Text & ";User ID=" & txtUsername.Text & ";Password=" & txtPassword.Text & ""
-            Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath)
 
-            Dim connectionStringsSection As ConnectionStringsSection = DirectCast(config.GetSection("connectionStrings"), ConnectionStringsSection)
+            Dim guardarIni As New FileIni
+            guardarIni.IniWrite(RUTA_INI, "Configuracion", "IP", Encriptar(txtServer.Text))
+            guardarIni.IniWrite(RUTA_INI, "Configuracion", "BASE_DATOS", Encriptar(txtDB.Text))
+            guardarIni.IniWrite(RUTA_INI, "Configuracion", "USUARIO", Encriptar(txtUsername.Text))
+            guardarIni.IniWrite(RUTA_INI, "Configuracion", "CONTRASENA", Encriptar(txtPassword.Text))
 
-            connectionStringsSection.ConnectionStrings("INNOVAMASTER.My.MySettings.Conect").ConnectionString = nuevaCadenaConexion
 
-            config.Save(ConfigurationSaveMode.Modified, False)
+            Ip = txtServer.Text.Trim
+            BaseDatos = txtDB.Text.Trim
+            Usuario = txtUsername.Text.Trim
+            Contrasena = txtPassword.Text.Trim
+            FrmMenuPrincipal.BarButtonBaseDatos.Caption = BaseDatos
+            FrmMenuPrincipal.BarButtonServidor.Caption = Ip
+            FrmMenuPrincipal.BarButtonUsuario.Caption = Usuario.Trim.ToUpper
+            FrmMenuPrincipal.BarButtonVersion.Caption = FrmMenuPrincipal.BarButtonVersion.Caption & ": " & Application.ProductVersion
+
+
+            'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath)
+            'Dim connectionStringsSection As ConnectionStringsSection = DirectCast(config.GetSection("connectionStrings"), ConnectionStringsSection)
+            'connectionStringsSection.ConnectionStrings("INNOVAMASTER.My.MySettings.Conect").ConnectionString = nuevaCadenaConexion
+            'config.Save(ConfigurationSaveMode.Modified, False)
 
             My.Settings.Conect1 = nuevaCadenaConexion
             My.Settings.Save()

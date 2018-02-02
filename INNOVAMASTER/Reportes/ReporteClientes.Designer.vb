@@ -24,32 +24,69 @@ Partial Class ReporteClientes
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ReporteClientes))
         Me.HelpProvider1 = New System.Windows.Forms.HelpProvider()
+        Me.GridView1 = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GCPrincipal = New DevExpress.XtraGrid.GridControl()
         Me.DgvPrincipal = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridView2 = New DevExpress.XtraGrid.Views.Grid.GridView()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DgvPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'BtnExportarPDF
+        '
+        Me.BtnExportarPDF.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BtnExportarPDF.Location = New System.Drawing.Point(188, 340)
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BtnActualizar.Location = New System.Drawing.Point(17, 340)
+        '
+        'BtnExportarExcel
+        '
+        Me.BtnExportarExcel.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BtnExportarExcel.Location = New System.Drawing.Point(359, 340)
+        '
+        'BtnReporte
+        '
+        Me.BtnReporte.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BtnReporte.Location = New System.Drawing.Point(701, 340)
+        '
+        'BtnImprimir
+        '
+        Me.BtnImprimir.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BtnImprimir.Location = New System.Drawing.Point(530, 340)
         '
         'PictureBox2
         '
+        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PictureBox2.Location = New System.Drawing.Point(290, 8)
         '
         'LblEtiqueta
         '
+        Me.LblEtiqueta.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.LblEtiqueta.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LblEtiqueta.Location = New System.Drawing.Point(346, 12)
         Me.LblEtiqueta.Size = New System.Drawing.Size(256, 43)
         Me.LblEtiqueta.Text = "Reporte de Clientes"
         '
+        'GridView1
+        '
+        Me.GridView1.GridControl = Me.GCPrincipal
+        Me.GridView1.Name = "GridView1"
+        '
         'GCPrincipal
         '
-        Me.GCPrincipal.Location = New System.Drawing.Point(14, 65)
+        Me.GCPrincipal.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.GCPrincipal.Location = New System.Drawing.Point(17, 61)
         Me.GCPrincipal.MainView = Me.DgvPrincipal
         Me.GCPrincipal.Name = "GCPrincipal"
         Me.GCPrincipal.Size = New System.Drawing.Size(849, 265)
         Me.GCPrincipal.TabIndex = 139
-        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvPrincipal})
+        Me.GCPrincipal.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DgvPrincipal, Me.GridView2, Me.GridView1})
         '
         'DgvPrincipal
         '
@@ -96,6 +133,11 @@ Partial Class ReporteClientes
         Me.DgvPrincipal.OptionsView.ShowGroupPanel = False
         Me.DgvPrincipal.RowHeight = 22
         '
+        'GridView2
+        '
+        Me.GridView2.GridControl = Me.GCPrincipal
+        Me.GridView2.Name = "GridView2"
+        '
         'ReporteClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -108,20 +150,28 @@ Partial Class ReporteClientes
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ReporteClientes"
         Me.HelpProvider1.SetShowHelp(Me, True)
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clientes"
         Me.TituloEtiqueta = "Reporte de Clientes"
+        Me.Controls.SetChildIndex(Me.BtnImprimir, 0)
+        Me.Controls.SetChildIndex(Me.BtnExportarExcel, 0)
+        Me.Controls.SetChildIndex(Me.BtnExportarPDF, 0)
+        Me.Controls.SetChildIndex(Me.BtnActualizar, 0)
+        Me.Controls.SetChildIndex(Me.BtnReporte, 0)
         Me.Controls.SetChildIndex(Me.PictureBox2, 0)
         Me.Controls.SetChildIndex(Me.LblEtiqueta, 0)
         Me.Controls.SetChildIndex(Me.GCPrincipal, 0)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GCPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DgvPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents HelpProvider1 As HelpProvider
+    Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GCPrincipal As DevExpress.XtraGrid.GridControl
     Friend WithEvents DgvPrincipal As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridView2 As DevExpress.XtraGrid.Views.Grid.GridView
 End Class

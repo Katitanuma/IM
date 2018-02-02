@@ -158,7 +158,7 @@ Partial Class FrmPedidos
         '
         Me.Button2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Appearance.Options.UseFont = True
-        Me.Button2.Image = Global.INNOVAMASTER.My.Resources.Resources.Delete_Database_32px
+        Me.Button2.Image = Global.INNOVAMASTER.My.Resources.Resources.delete_delete_deleteusers_delete_male_user_maleclient_2348
         Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
         Me.Button2.Location = New System.Drawing.Point(980, 477)
         Me.Button2.Name = "Button2"

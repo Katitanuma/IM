@@ -35,7 +35,13 @@ Public Class ReporteClientes
     End Sub
 
     Protected Overrides Sub Reporte()
-        FrmRptCliente.ShowDialog()
+        'FrmRptCliente.MdiParent = FrmMenuPrincipal
+        'FrmRptCliente.Show()
+
+        Dim frm As New FrmRptCliente
+        frm.MdiParent = Me
+        frm.Show()
+
     End Sub
 
     Protected Overrides Sub Imprimir()
@@ -87,4 +93,10 @@ Public Class ReporteClientes
     Protected Overrides Sub ExportarPDF()
         Exportar_a_PDF(GCPrincipal, Me.Text)
     End Sub
+
+    Private Sub BtnReporte_Click(sender As Object, e As EventArgs) Handles BtnReporte.Click
+
+    End Sub
+
+
 End Class

@@ -301,7 +301,7 @@ Public Class FrmEmpleado
                 Dim ms As New System.IO.MemoryStream
 
                 If PbEmpleado.Image Is Nothing Then
-                    PbEmpleado.Image = INNOVAMASTER.My.Resources.nula
+                    PbEmpleado.Image = INNOVAMASTER.My.Resources.NULLA
                 End If
                 PbEmpleado.Image.Save(ms, PbEmpleado.Image.RawFormat)
 

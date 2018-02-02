@@ -36,8 +36,25 @@ Partial Class ReporteCompras
         CType(Me.DgvPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
+        'BtnExportarPDF
+        '
+        Me.BtnExportarPDF.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'BtnActualizar
+        '
+        Me.BtnActualizar.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'BtnExportarExcel
+        '
+        Me.BtnExportarExcel.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
+        'PictureBox2
+        '
+        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None
+        '
         'LblEtiqueta
         '
+        Me.LblEtiqueta.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.LblEtiqueta.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LblEtiqueta.Size = New System.Drawing.Size(251, 43)
         Me.LblEtiqueta.Text = "Reporte de Compra"
@@ -64,6 +81,7 @@ Partial Class ReporteCompras
         '
         'GCPrincipal
         '
+        Me.GCPrincipal.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.GCPrincipal.ContextMenuStrip = Me.CmsReporteCompras
         Me.GCPrincipal.Location = New System.Drawing.Point(12, 66)
         Me.GCPrincipal.MainView = Me.DgvPrincipal
@@ -131,6 +149,11 @@ Partial Class ReporteCompras
         Me.Name = "ReporteCompras"
         Me.HelpProvider1.SetShowHelp(Me, True)
         Me.Text = "Compras"
+        Me.Controls.SetChildIndex(Me.BtnExportarExcel, 0)
+        Me.Controls.SetChildIndex(Me.BtnReporte, 0)
+        Me.Controls.SetChildIndex(Me.BtnActualizar, 0)
+        Me.Controls.SetChildIndex(Me.BtnImprimir, 0)
+        Me.Controls.SetChildIndex(Me.BtnExportarPDF, 0)
         Me.Controls.SetChildIndex(Me.PictureBox2, 0)
         Me.Controls.SetChildIndex(Me.LblEtiqueta, 0)
         Me.Controls.SetChildIndex(Me.GCPrincipal, 0)

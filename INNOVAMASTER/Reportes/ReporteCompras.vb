@@ -58,8 +58,14 @@ Public Class ReporteCompras
     End Sub
 
     Private Sub VisualizarReporteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VisualizarReporteToolStripMenuItem.Click
-        FrmRptCompra.var = 1
-        FrmRptCompra.ShowDialog()
+        'FrmRptCompra.var = 1
+        'FrmRptCompra.MdiParent = FrmMenuPrincipal
+        'FrmRptCompra.Show()
+
+        Dim frm As New FrmCompras
+        frm.var = 1
+        frm.MdiParent = FrmMenuPrincipal
+        frm.Show()
     End Sub
 
     Protected Overrides Sub ActualizarDatos()
@@ -93,4 +99,6 @@ Public Class ReporteCompras
     Protected Overrides Sub ExportarPDF()
         Exportar_a_PDF(GCPrincipal, Me.Text)
     End Sub
+
+
 End Class

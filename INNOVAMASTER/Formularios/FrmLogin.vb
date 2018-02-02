@@ -73,6 +73,10 @@ Public Class FrmLogin
                 If dr.Read Then
                     If dr("Estado").ToString = "Activo" Then
                         FrmMenuPrincipal.LblIdUsuario.Text = dr.GetValue(0).ToString
+                        FrmMenuPrincipal.BarButtonBaseDatos.Caption = BaseDatos
+                        FrmMenuPrincipal.BarButtonServidor.Caption = Ip
+                        FrmMenuPrincipal.BarButtonUsuario.Caption = TxtUsuario.Text.Trim.ToUpper
+                        FrmMenuPrincipal.BarButtonVersion.Caption = FrmMenuPrincipal.BarButtonVersion.Caption & ": " & ProductVersion
                         If dr.GetValue(1).ToString = "Administrador" Then
                             Permisos()
                             Acerca_de_InnovaMaster.Close()
@@ -227,34 +231,34 @@ Public Class FrmLogin
                     FrmMenuPrincipal.PagVentas.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "CLIENTES" Then
-                    FrmMenuPrincipal.PagClientes.Enabled = False
+                    FrmMenuPrincipal.RibbonPageGroupCliente.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "EMPLEADOS" Then
-                    FrmMenuPrincipal.PagEmpleados.Enabled = False
+                    FrmMenuPrincipal.RibbonGroupEmpleados.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "USUARIOS" Then
-                    FrmMenuPrincipal.PagUsuarios.Enabled = False
+                    FrmMenuPrincipal.RibbonPageGroupUsuario.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "PRODUCTOS" Then
                     FrmMenuPrincipal.PagProductos.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "COMPRAS" Then
-                    FrmMenuPrincipal.PagCompras.Enabled = False
-                End If
-                If dr.GetValue(2).ToString = "PEDIDOS" Then
-                    FrmMenuPrincipal.PagPedidos.Enabled = False
+                    FrmMenuPrincipal.PagComprasPedidos.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "PROVEEDORES" Then
-                    FrmMenuPrincipal.PagProveedores.Enabled = False
+                    FrmMenuPrincipal.RibbonPageGroupProveedores.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "UBICACIÓN" Then
-                    FrmMenuPrincipal.PagUbicacion.Enabled = False
+                    FrmMenuPrincipal.RibbonGroupUbucacion.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "CONFIGURACIÓN" Then
                     FrmMenuPrincipal.PagConfiguracion.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "AUDITORÍA" Then
                     FrmMenuPrincipal.PagAuditoria.Enabled = False
+                End If
+                If dr.GetValue(2).ToString = "REPORTES" Then
+                    FrmMenuPrincipal.RibbonPageGroupReportes.Enabled = True
                 End If
 
             End While
@@ -284,34 +288,35 @@ Public Class FrmLogin
                     FrmMenuPrincipal.PagVentas.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "CLIENTES" Then
-                    FrmMenuPrincipal.PagClientes.Enabled = True
+                    FrmMenuPrincipal.RibbonPageGroupCliente.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "EMPLEADOS" Then
-                    FrmMenuPrincipal.PagEmpleados.Enabled = True
+                    FrmMenuPrincipal.RibbonGroupEmpleados.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "USUARIOS" Then
-                    FrmMenuPrincipal.PagUsuarios.Enabled = True
+                    FrmMenuPrincipal.RibbonPageGroupUsuario.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "PRODUCTOS" Then
                     FrmMenuPrincipal.PagProductos.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "COMPRAS" Then
-                    FrmMenuPrincipal.PagCompras.Enabled = True
+                    FrmMenuPrincipal.PagComprasPedidos.Enabled = True
                 End If
-                If dr.GetValue(2).ToString = "PEDIDOS" Then
-                    FrmMenuPrincipal.PagPedidos.Enabled = True
-                End If
+
                 If dr.GetValue(2).ToString = "PROVEEDORES" Then
-                    FrmMenuPrincipal.PagProveedores.Enabled = True
+                    FrmMenuPrincipal.RibbonPageGroupProveedores.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "UBICACIÓN" Then
-                    FrmMenuPrincipal.PagUbicacion.Enabled = True
+                    FrmMenuPrincipal.RibbonGroupUbucacion.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "CONFIGURACIÓN" Then
                     FrmMenuPrincipal.PagConfiguracion.Enabled = True
                 End If
                 If dr.GetValue(2).ToString = "AUDITORÍA" Then
                     FrmMenuPrincipal.PagAuditoria.Enabled = True
+                End If
+                If dr.GetValue(2).ToString = "REPORTES" Then
+                    FrmMenuPrincipal.RibbonPageGroupReportes.Enabled = True
                 End If
 
             End While

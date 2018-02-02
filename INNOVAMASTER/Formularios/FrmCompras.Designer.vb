@@ -148,7 +148,7 @@ Partial Class FrmCompras
         Me.LblP.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
         Me.LblP.Location = New System.Drawing.Point(497, 38)
         Me.LblP.Name = "LblP"
-        Me.LblP.Size = New System.Drawing.Size(11, 19)
+        Me.LblP.Size = New System.Drawing.Size(12, 19)
         Me.LblP.TabIndex = 39
         Me.LblP.Text = "%"
         Me.LblP.Visible = False
@@ -199,7 +199,7 @@ Partial Class FrmCompras
         '
         Me.Button2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Appearance.Options.UseFont = True
-        Me.Button2.Image = Global.INNOVAMASTER.My.Resources.Resources.Delete_Database_32px
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
         Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
         Me.Button2.Location = New System.Drawing.Point(992, 481)
         Me.Button2.Name = "Button2"
@@ -353,7 +353,7 @@ Partial Class FrmCompras
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -436,7 +436,7 @@ Partial Class FrmCompras
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Monotype Corsiva", 26.25!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle))
         Me.LabelControl6.Location = New System.Drawing.Point(75, 10)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(280, 43)
+        Me.LabelControl6.Size = New System.Drawing.Size(281, 43)
         Me.LabelControl6.TabIndex = 151
         Me.LabelControl6.Text = "Compra de Productos"
         '

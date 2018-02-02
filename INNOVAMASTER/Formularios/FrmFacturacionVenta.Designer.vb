@@ -221,7 +221,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.BtnEliminarTodo.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEliminarTodo.Appearance.Options.UseFont = True
-        Me.BtnEliminarTodo.Image = Global.INNOVAMASTER.My.Resources.Resources.Delete_Database_32px
+        Me.BtnEliminarTodo.Image = CType(resources.GetObject("BtnEliminarTodo.Image"), System.Drawing.Image)
         Me.BtnEliminarTodo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
         Me.BtnEliminarTodo.Location = New System.Drawing.Point(1013, 487)
         Me.BtnEliminarTodo.Name = "BtnEliminarTodo"
@@ -325,7 +325,7 @@ Partial Class FrmFacturacionVenta
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]

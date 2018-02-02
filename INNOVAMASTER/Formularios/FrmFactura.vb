@@ -29,9 +29,11 @@ Public Class FrmFactura
             da.Fill(ds, "ReporteVenta")
             rpt.SetDataSource(ds)
             rpt.SetParameterValue("Cambio", FrmFacturacionVenta.LblCambio.Text)
-            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
-            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
-            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
+
+            Dim archivo As New FileIni
+            rpt.SetParameterValue("CAI", archivo.IniGet(RUTA_INI, "SAR", "CAI", "").ToUpper)
+            rpt.SetParameterValue("R1", archivo.IniGet(RUTA_INI, "SAR", "R1", "") & " A " & archivo.IniGet(RUTA_INI, "SAR", "R2", ""))
+            rpt.SetParameterValue("FL", archivo.IniGet(RUTA_INI, "SAR", "Fecha", ""))
             CrystalReportViewer1.ReportSource = rpt
         ElseIf var = 2 Then
             Dim cmd As SqlCommand
@@ -45,10 +47,11 @@ Public Class FrmFactura
             Dim da As New SqlDataAdapter(cmd)
             da.Fill(ds, "ReporteVenta")
             rpt.SetDataSource(ds)
+            Dim archivo As New FileIni
             rpt.SetParameterValue("Cambio", FrmDetalleVenta.LblCambio.Text)
-            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
-            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
-            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
+            rpt.SetParameterValue("CAI", archivo.IniGet(RUTA_INI, "SAR", "CAI", "").ToUpper)
+            rpt.SetParameterValue("R1", archivo.IniGet(RUTA_INI, "SAR", "R1", "") & " A " & archivo.IniGet(RUTA_INI, "SAR", "R2", ""))
+            rpt.SetParameterValue("FL", archivo.IniGet(RUTA_INI, "SAR", "Fecha", ""))
             CrystalReportViewer1.ReportSource = rpt
         ElseIf var = 3 Then
             Dim cmd As SqlCommand
@@ -67,9 +70,10 @@ Public Class FrmFactura
             Else
                 rpt.SetParameterValue("Cambio", "0.00")
             End If
-            rpt.SetParameterValue("CAI", My.Settings.CAI.Trim.ToUpper)
-            rpt.SetParameterValue("R1", My.Settings.R1 & " A " & My.Settings.R2)
-            rpt.SetParameterValue("FL", My.Settings.FL.Trim.ToUpper)
+            Dim archivo As New FileIni
+            rpt.SetParameterValue("CAI", archivo.IniGet(RUTA_INI, "SAR", "CAI", "").ToUpper)
+            rpt.SetParameterValue("R1", archivo.IniGet(RUTA_INI, "SAR", "R1", "") & " A " & archivo.IniGet(RUTA_INI, "SAR", "R2", ""))
+            rpt.SetParameterValue("FL", archivo.IniGet(RUTA_INI, "SAR", "Fecha", ""))
 
             CrystalReportViewer1.ReportSource = rpt
         End If

@@ -17,7 +17,9 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+        ReporteVentas.MdiParent = Me
         ReporteVentas.Show()
+        ReporteVentas.Focus()
     End Sub
 
     Private Sub BarButtonItem4_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem4.ItemClick
@@ -28,7 +30,10 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem5_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
+        ReporteClientes.MdiParent = Me
         ReporteClientes.Show()
+        ReporteClientes.Focus()
+
     End Sub
 
     Private Sub BarButtonItem6_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem6.ItemClick
@@ -86,7 +91,9 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem15_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem15.ItemClick
+        ReporteProductos.MdiParent = Me
         ReporteProductos.Show()
+        ReporteProductos.Focus()
     End Sub
 
     Private Sub BarButtonItem16_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem16.ItemClick
@@ -102,7 +109,9 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem18_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem18.ItemClick
+        ReporteCompras.MdiParent = Me
         ReporteCompras.Show()
+        ReporteCompras.Focus()
     End Sub
 
     Private Sub BarButtonItem19_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem19.ItemClick
@@ -112,7 +121,9 @@ Public Class FrmMenuPrincipal
     End Sub
 
     Private Sub BarButtonItem20_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem20.ItemClick
+        ReportePedido.MdiParent = Me
         ReportePedido.Show()
+        ReportePedido.Focus()
     End Sub
 
     Private Sub BarButtonItem21_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem21.ItemClick
@@ -151,14 +162,7 @@ Public Class FrmMenuPrincipal
         FrmLogAuditoria.Show()
     End Sub
 
-    Private Sub BarButtonItem30_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem30.ItemClick
-        FrmLogin.Show()
-        FrmLogin.TxtUsuario.Text = Nothing
-        FrmLogin.TxtContrasena.Clear()
-        FrmLogin.ChkVer.Checked = False
-        FrmLogin.TxtUsuario.Focus()
-        Me.Hide()
-    End Sub
+
 
     Private Sub FrmMenuPrincipal_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DevExpress.Skins.SkinManager.EnableMdiFormSkins()
@@ -166,7 +170,7 @@ Public Class FrmMenuPrincipal
 
         DevExpress.Skins.SkinManager.EnableFormSkins()
         DevExpress.UserSkins.BonusSkins.Register()
-        SkinHelper.InitSkinGallery(SkinRibbonGalleryBarItem1, True)
+        SkinHelper.InitSkinGallery(SkinRibbonGalleryBarItem3, True)
 
         'Me.LookAndFeel.SkinName = "Office 2007 Silver"
         'Me.DefaultLookAndFeel1.LookAndFeel.SkinName = "Office 2007 Silver"
@@ -265,15 +269,15 @@ Public Class FrmMenuPrincipal
 
                 End If
                 If dr.GetValue(2).ToString = "CLIENTES" Then
-                    PagClientes.Enabled = False
+                    RibbonPageGroupCliente.Enabled = False
 
                 End If
                 If dr.GetValue(2).ToString = "EMPLEADOS" Then
-                    PagEmpleados.Enabled = False
+                    RibbonGroupEmpleados.Enabled = False
 
                 End If
                 If dr.GetValue(2).ToString = "USUARIOS" Then
-                    PagUsuarios.Enabled = False
+                    RibbonPageGroupUsuario.Enabled = False
 
                 End If
                 If dr.GetValue(2).ToString = "PRODUCTOS" Then
@@ -281,19 +285,19 @@ Public Class FrmMenuPrincipal
 
                 End If
                 If dr.GetValue(2).ToString = "COMPRAS" Then
-                    PagCompras.Enabled = False
+                    PagComprasPedidos.Enabled = False
 
                 End If
-                If dr.GetValue(2).ToString = "PEDIDOS" Then
-                    PagPedidos.Enabled = False
+                If dr.GetValue(2).ToString = "REPORTES" Then
+                    RibbonPageGroupReportes.Enabled = False
 
                 End If
                 If dr.GetValue(2).ToString = "PROVEEDORES" Then
-                    PagProveedores.Enabled = False
+                    RibbonPageGroupProveedores.Enabled = False
 
                 End If
                 If dr.GetValue(2).ToString = "UBICACIÓN" Then
-                    PagUbicacion.Enabled = False
+                    RibbonGroupUbucacion.Enabled = False
 
                 End If
                 If dr.GetValue(2).ToString = "CONFIGURACIÓN" Then
@@ -336,15 +340,15 @@ Public Class FrmMenuPrincipal
 
                 End If
                 If dr.GetValue(2).ToString = "CLIENTES" Then
-                    PagClientes.Enabled = True
+                    RibbonPageGroupCliente.Enabled = True
 
                 End If
                 If dr.GetValue(2).ToString = "EMPLEADOS" Then
-                    PagEmpleados.Enabled = True
+                    RibbonGroupEmpleados.Enabled = True
 
                 End If
                 If dr.GetValue(2).ToString = "USUARIOS" Then
-                    PagUsuarios.Enabled = True
+                    RibbonPageGroupUsuario.Enabled = True
 
                 End If
                 If dr.GetValue(2).ToString = "PRODUCTOS" Then
@@ -352,19 +356,19 @@ Public Class FrmMenuPrincipal
 
                 End If
                 If dr.GetValue(2).ToString = "COMPRAS" Then
-                    PagCompras.Enabled = True
+                    PagComprasPedidos.Enabled = True
 
                 End If
-                If dr.GetValue(2).ToString = "PEDIDOS" Then
-                    PagPedidos.Enabled = True
+                If dr.GetValue(2).ToString = "REPORTES" Then
+                    RibbonPageGroupReportes.Enabled = True
 
                 End If
                 If dr.GetValue(2).ToString = "PROVEEDORES" Then
-                    PagProveedores.Enabled = True
+                    RibbonPageGroupProveedores.Enabled = True
 
                 End If
                 If dr.GetValue(2).ToString = "UBICACIÓN" Then
-                    PagUbicacion.Enabled = True
+                    RibbonGroupUbucacion.Enabled = True
 
                 End If
                 If dr.GetValue(2).ToString = "CONFIGURACIÓN" Then
@@ -387,5 +391,37 @@ Public Class FrmMenuPrincipal
 
     Private Sub BarButtonItem34_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem34.ItemClick
         FrmParametrosDEI.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonCalculadora_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs)
+        Shell("calc.exe", AppWinStyle.MaximizedFocus, False)
+    End Sub
+
+    Private Sub BarButtonCalculadora_ItemClick_1(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonCalculadora.ItemClick
+        Shell("calc.exe", AppWinStyle.MaximizedFocus, False)
+    End Sub
+
+    Private Sub BarButtonItem40_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem40.ItemClick
+        FrmLogin.Show()
+        FrmLogin.TxtUsuario.Text = Nothing
+        FrmLogin.TxtContrasena.Clear()
+        FrmLogin.ChkVer.Checked = False
+        FrmLogin.TxtUsuario.Focus()
+        Me.Hide()
+    End Sub
+
+    Private Sub BarButtonItem41_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem41.ItemClick
+        FrmConfiguracion.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonItem42_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem42.ItemClick
+        MostrarPermisosDenegados(CInt(LblIdUsuario.Text))
+        MostrarPermisosPermitidos(CInt(LblIdUsuario.Text))
+    End Sub
+
+    Private Sub BarButtonItem43_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem43.ItemClick
+        My.Settings.Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
+        My.Settings.Save()
+        Application.Exit()
     End Sub
 End Class
