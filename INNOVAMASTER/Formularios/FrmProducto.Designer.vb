@@ -43,7 +43,6 @@ Partial Class FrmProducto
         Me.ColModelo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColEstado = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.ColImagen = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
@@ -107,6 +106,7 @@ Partial Class FrmProducto
         CType(Me.PbProducto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtGravado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PrintingSystem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PrintableComponentLink1.ImageCollection, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'OpenFileDialog1
@@ -184,7 +184,7 @@ Partial Class FrmProducto
         Me.DgvProductos.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
         Me.DgvProductos.Appearance.VertLine.Options.UseBackColor = True
         Me.DgvProductos.ColumnPanelRowHeight = 26
-        Me.DgvProductos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColIdProducto, Me.ColDescripcion, Me.ColCosto, Me.ColPrecioUnitario, Me.ColPreciolMayorista, Me.ColISV, Me.ColExistencia, Me.ColCategoria, Me.ColModelo, Me.ColEstado, Me.ColImagen, Me.GridColumn1})
+        Me.DgvProductos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.ColIdProducto, Me.ColDescripcion, Me.ColCosto, Me.ColPrecioUnitario, Me.ColPreciolMayorista, Me.ColISV, Me.ColExistencia, Me.ColCategoria, Me.ColModelo, Me.ColEstado, Me.ColImagen})
         Me.DgvProductos.GridControl = Me.GCPrincipal
         Me.DgvProductos.Name = "DgvProductos"
         Me.DgvProductos.OptionsBehavior.AllowIncrementalSearch = True
@@ -213,10 +213,10 @@ Partial Class FrmProducto
         Me.ColIdProducto.Caption = "Código"
         Me.ColIdProducto.FieldName = "IdProducto"
         Me.ColIdProducto.Name = "ColIdProducto"
-        Me.ColIdProducto.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdMunicipio", "Total Productos = {0}")})
+        Me.ColIdProducto.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "IdProducto", "Total Productos = {0}")})
         Me.ColIdProducto.Visible = True
         Me.ColIdProducto.VisibleIndex = 0
-        Me.ColIdProducto.Width = 141
+        Me.ColIdProducto.Width = 150
         '
         'ColDescripcion
         '
@@ -336,7 +336,7 @@ Partial Class FrmProducto
         Me.ColModelo.Name = "ColModelo"
         Me.ColModelo.Visible = True
         Me.ColModelo.VisibleIndex = 8
-        Me.ColModelo.Width = 184
+        Me.ColModelo.Width = 174
         '
         'ColEstado
         '
@@ -358,12 +358,6 @@ Partial Class FrmProducto
         Me.ColImagen.Caption = "Imagen"
         Me.ColImagen.FieldName = "Imagen"
         Me.ColImagen.Name = "ColImagen"
-        '
-        'GridColumn1
-        '
-        Me.GridColumn1.Name = "GridColumn1"
-        Me.GridColumn1.Visible = True
-        Me.GridColumn1.VisibleIndex = 10
         '
         'SimpleButton5
         '
@@ -844,16 +838,24 @@ Partial Class FrmProducto
         'PrintableComponentLink1
         '
         Me.PrintableComponentLink1.Component = Me.GCPrincipal
+        '
+        '
+        '
+        Me.PrintableComponentLink1.ImageCollection.ImageStream = CType(resources.GetObject("PrintableComponentLink1.ImageCollection.ImageStream"), DevExpress.Utils.ImageCollectionStreamer)
+        Me.PrintableComponentLink1.ImageCollection.Images.SetKeyName(0, "toyota_corolla_rojo_7282904_0.jpg")
+        Me.PrintableComponentLink1.ImageCollection.Images.SetKeyName(1, "logo2.png")
         Me.PrintableComponentLink1.Landscape = True
         Me.PrintableComponentLink1.Margins = New System.Drawing.Printing.Margins(30, 30, 30, 30)
         Me.PrintableComponentLink1.PrintingSystemBase = Me.PrintingSystem1
+        Me.PrintableComponentLink1.RtfReportFooter = resources.GetString("PrintableComponentLink1.RtfReportFooter")
         Me.PrintableComponentLink1.RtfReportHeader = resources.GetString("PrintableComponentLink1.RtfReportHeader")
+        Me.PrintableComponentLink1.SkipArea = CType((DevExpress.XtraPrinting.BrickModifier.MarginalHeader Or DevExpress.XtraPrinting.BrickModifier.MarginalFooter), DevExpress.XtraPrinting.BrickModifier)
         '
         'FrmProducto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1362, 573)
+        Me.ClientSize = New System.Drawing.Size(1354, 573)
         Me.Controls.Add(Me.GbProducto)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.BtnEditar)
@@ -897,6 +899,7 @@ Partial Class FrmProducto
         CType(Me.PbProducto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtGravado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PrintingSystem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PrintableComponentLink1.ImageCollection, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -929,7 +932,6 @@ Partial Class FrmProducto
     Friend WithEvents BtnNuevo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnInsertar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnActualizar As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GbProducto As DevExpress.XtraEditors.GroupControl
     Friend WithEvents BtnCodigoProveedor As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents ChkGravado As DevExpress.XtraEditors.CheckEdit
