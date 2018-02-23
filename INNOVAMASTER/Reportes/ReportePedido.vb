@@ -35,7 +35,7 @@ Public Class ReportePedido
         'FrmRptPedido.var = 1
         'FrmRptPedido.MdiParent = FrmMenuPrincipal
         'FrmRptPedido.Show()
-        Dim frm As New FrmPedidos
+        Dim frm As New FrmRptPedido
         frm.var = 1
         frm.MdiParent = FrmMenuPrincipal
         frm.Show()

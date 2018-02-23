@@ -258,7 +258,7 @@ Public Class FrmLogin
                     FrmMenuPrincipal.PagAuditoria.Enabled = False
                 End If
                 If dr.GetValue(2).ToString = "REPORTES" Then
-                    FrmMenuPrincipal.RibbonPageGroupReportes.Enabled = True
+                    FrmMenuPrincipal.RibbonPageGroupReportes.Enabled = False
                 End If
 
             End While

@@ -105,6 +105,8 @@ Partial Class FrmMenuPrincipal
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
         Me.pcFondo = New DevExpress.XtraEditors.PanelControl()
         Me.LblIdUsuario = New System.Windows.Forms.Label()
+        Me.TxtIdVenta = New System.Windows.Forms.Label()
+        Me.BarButtonItem44 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.RibbonControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ApplicationMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,9 +118,9 @@ Partial Class FrmMenuPrincipal
         Me.RibbonControl.ApplicationButtonDropDownControl = Me.ApplicationMenu1
         Me.RibbonControl.ApplicationIcon = Global.INNOVAMASTER.My.Resources.Resources.Logo_BUeno
         Me.RibbonControl.ExpandCollapseItem.Id = 0
-        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem29, Me.SkinRibbonGalleryBarItem2, Me.BarButtonItem35, Me.BarButtonItem36, Me.BarButtonItem37, Me.BarButtonItem38, Me.BarButtonItem39, Me.SkinRibbonGalleryBarItem3, Me.BarButtonItem40, Me.BarButtonItem41, Me.BarButtonItem42, Me.BarButtonItem43})
+        Me.RibbonControl.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.RibbonControl.ExpandCollapseItem, Me.BarButtonItem29, Me.SkinRibbonGalleryBarItem2, Me.BarButtonItem35, Me.BarButtonItem36, Me.BarButtonItem37, Me.BarButtonItem38, Me.BarButtonItem39, Me.SkinRibbonGalleryBarItem3, Me.BarButtonItem40, Me.BarButtonItem41, Me.BarButtonItem42, Me.BarButtonItem43, Me.BarButtonItem44})
         Me.RibbonControl.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonControl.MaxItemId = 7
+        Me.RibbonControl.MaxItemId = 8
         Me.RibbonControl.Name = "RibbonControl"
         Me.RibbonControl.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.RibbonPage1, Me.RibbonPage5, Me.RibbonPage3, Me.RibbonPage6, Me.RibbonPage8, Me.RibbonPage10, Me.RibbonPage11})
         Me.RibbonControl.QuickToolbarItemLinks.Add(Me.BarButtonItem29)
@@ -403,6 +405,7 @@ Partial Class FrmMenuPrincipal
         '
         Me.PagComprasPedidos.AllowTextClipping = False
         Me.PagComprasPedidos.ItemLinks.Add(Me.BarButtonItem17)
+        Me.PagComprasPedidos.ItemLinks.Add(Me.BarButtonItem44)
         Me.PagComprasPedidos.Name = "PagComprasPedidos"
         Me.PagComprasPedidos.Text = "Acciones"
         '
@@ -707,12 +710,31 @@ Partial Class FrmMenuPrincipal
         Me.LblIdUsuario.Text = "3"
         Me.LblIdUsuario.Visible = False
         '
+        'TxtIdVenta
+        '
+        Me.TxtIdVenta.AutoSize = True
+        Me.TxtIdVenta.Location = New System.Drawing.Point(275, 77)
+        Me.TxtIdVenta.Name = "TxtIdVenta"
+        Me.TxtIdVenta.Size = New System.Drawing.Size(38, 13)
+        Me.TxtIdVenta.TabIndex = 26
+        Me.TxtIdVenta.Text = "Label1"
+        Me.TxtIdVenta.Visible = False
+        '
+        'BarButtonItem44
+        '
+        Me.BarButtonItem44.Caption = "Pedidos"
+        Me.BarButtonItem44.Glyph = CType(resources.GetObject("BarButtonItem44.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem44.Id = 7
+        Me.BarButtonItem44.LargeGlyph = CType(resources.GetObject("BarButtonItem44.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem44.Name = "BarButtonItem44"
+        '
         'FrmMenuPrincipal
         '
         Me.AllowFormGlass = DevExpress.Utils.DefaultBoolean.[False]
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(951, 499)
+        Me.Controls.Add(Me.TxtIdVenta)
         Me.Controls.Add(Me.RibbonStatusBar1)
         Me.Controls.Add(Me.LblIdUsuario)
         Me.Controls.Add(Me.pcFondo)
@@ -816,4 +838,6 @@ Partial Class FrmMenuPrincipal
     Friend WithEvents BarButtonItem41 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem42 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem43 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents TxtIdVenta As Label
+    Friend WithEvents BarButtonItem44 As DevExpress.XtraBars.BarButtonItem
 End Class

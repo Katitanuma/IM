@@ -6,6 +6,7 @@ Public Class FrmFacturacionVenta
     Dim Conec As New Conexion
     Dim cmd As SqlCommand
     Dim x As Integer = 0
+    Dim h As Boolean = False
 
     Private Sub DataGridView1_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellEndEdit
         Dim column As Integer = DgvDetalle.CurrentCell.ColumnIndex
@@ -766,12 +767,13 @@ Public Class FrmFacturacionVenta
         End If
     End Sub
 
-    Private Sub FrmDetalleVenta_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub FrmDetalleVenta_Load(sender As Object, e As EventArgs) Handles Me.Load
+        If GenerarCodigoVenta() = True Then
+            Me.Close()
+            Exit Sub
+        End If
         DgvDetalle.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Sunken
         TxtDescuentoExtra.Value = 0
-
-
-        GenerarCodigoVenta()
 
         TxtFechaVenta.Text = DateTime.Now.ToString("dd/MM/yyyy")
         LlenarIdCliente()
@@ -810,7 +812,7 @@ Public Class FrmFacturacionVenta
             Conec.Desconectarse()
         End Try
     End Sub
-    Private Sub GenerarCodigoVenta()
+    Private Function GenerarCodigoVenta() As Boolean
         Try
             Conec.Conectarse()
             Dim dr As SqlDataReader
@@ -844,19 +846,26 @@ Public Class FrmFacturacionVenta
 
                 If TxtIdVenta.Text.Replace(" ", "") = a Then
                     XtraMessageBox.Show("Se supero el limite del correlativo")
-                    Close()
+                    h = True
+
                 ElseIf DateTime.Compare(DateTime.Now.ToShortDateString, archivo.IniGet(RUTA_INI, "SAR", "Fecha", "")) = 0 Then
                     XtraMessageBox.Show("Se supero el fecha limite del correlativo")
-                    Close()
+                    h = True
+
+
                 End If
-                TxtIdVenta.Text = "000-001-01-" & TxtIdVenta.Text
+
             End If
-            dr.Close()
+            TxtIdVenta.Text = "000-001-01-" & TxtIdVenta.Text
             TxtIdVenta.Text = Replace(TxtIdVenta.Text, " ", "")
+            dr.Close()
+
         Catch ex As Exception
             MsgBox(ex.Message)
+
         End Try
-    End Sub
+        Return h
+    End Function
 
     Private Sub DgvDetalle_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DgvDetalle.CellClick
         If e.ColumnIndex = 3 Then
@@ -904,42 +913,7 @@ Public Class FrmFacturacionVenta
 
     End Sub
 
-    Private Sub FrmDetalleVenta_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        If Label7.Text = "0" Then
-            Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar la Venta?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-            If r = DialogResult.Yes Then
-                Conec.Conectarse()
-                For Each fila As DataGridViewRow In DgvDetalle.Rows
-                    Try
-                        If fila.Cells(1).Value <> Nothing Then
 
-
-                            cmd = New SqlCommand("AumentarInventario", Conec.Con)
-                            cmd.CommandType = CommandType.StoredProcedure
-                            cmd.Parameters.AddWithValue("@IdProducto", fila.Cells(1).Value.ToString)
-                            cmd.Parameters.AddWithValue("@Cantidad", CDbl(fila.Cells(3).Value))
-                            cmd.ExecuteNonQuery()
-                        End If
-
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
-
-
-                Next
-                cmd = New SqlCommand("Delete from Venta Where IdVenta= '" & TxtIdVenta.Text & "'", Conec.Con)
-                cmd.CommandType = CommandType.Text
-                cmd.ExecuteNonQuery()
-            Else
-                e.Cancel = True
-            End If
-
-
-
-        End If
-
-
-    End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles BtnEliminarTodo.Click
         Dim r As DialogResult = MessageBox.Show("¿Desea Eliminar Todos los Productos de la Venta?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -1220,5 +1194,42 @@ Public Class FrmFacturacionVenta
 
     Private Sub BarButtonItem5_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem5.ItemClick
         CboTV.Text = "Crédito"
+    End Sub
+
+    Private Sub FrmFacturacionVenta_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If h = True Then
+
+        ElseIf Label7.Text = "0" Then
+            Dim r As DialogResult = MessageBox.Show("¿Desea Cancelar la Venta?", "INNOVAMASTER", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If r = DialogResult.Yes Then
+                Conec.Conectarse()
+                For Each fila As DataGridViewRow In DgvDetalle.Rows
+                    Try
+                        If fila.Cells(1).Value <> Nothing Then
+
+
+                            cmd = New SqlCommand("AumentarInventario", Conec.Con)
+                            cmd.CommandType = CommandType.StoredProcedure
+                            cmd.Parameters.AddWithValue("@IdProducto", fila.Cells(1).Value.ToString)
+                            cmd.Parameters.AddWithValue("@Cantidad", CDbl(fila.Cells(3).Value))
+                            cmd.ExecuteNonQuery()
+                        End If
+
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                    End Try
+
+
+                Next
+                cmd = New SqlCommand("Delete from Venta Where IdVenta= '" & TxtIdVenta.Text & "'", Conec.Con)
+                cmd.CommandType = CommandType.Text
+                cmd.ExecuteNonQuery()
+            Else
+                e.Cancel = True
+            End If
+
+
+
+        End If
     End Sub
 End Class

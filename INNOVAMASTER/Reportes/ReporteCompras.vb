@@ -62,7 +62,7 @@ Public Class ReporteCompras
         'FrmRptCompra.MdiParent = FrmMenuPrincipal
         'FrmRptCompra.Show()
 
-        Dim frm As New FrmCompras
+        Dim frm As New FrmRptCompra
         frm.var = 1
         frm.MdiParent = FrmMenuPrincipal
         frm.Show()

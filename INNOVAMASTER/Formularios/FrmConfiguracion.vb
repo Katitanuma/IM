@@ -96,7 +96,7 @@ Public Class FrmConfiguracion
             FrmMenuPrincipal.BarButtonBaseDatos.Caption = BaseDatos
             FrmMenuPrincipal.BarButtonServidor.Caption = Ip
             FrmMenuPrincipal.BarButtonUsuario.Caption = Usuario.Trim.ToUpper
-            FrmMenuPrincipal.BarButtonVersion.Caption = FrmMenuPrincipal.BarButtonVersion.Caption & ": " & Application.ProductVersion
+            FrmMenuPrincipal.BarButtonVersion.Caption = "Versión" & ": " & Application.ProductVersion
 
 
             'Dim config As Configuration = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath)

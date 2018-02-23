@@ -4,12 +4,74 @@ Imports DevExpress.XtraEditors
 Imports System.Data.SqlClient
 
 Public Class FrmMenuPrincipal
+    Dim conec As New Conexion
+    Dim h As Boolean = False
     Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
-        FrmFacturacionVenta.MdiParent = Me
-        FrmFacturacionVenta.Focus()
-        FrmFacturacionVenta.Show()
-    End Sub
+        If GenerarCodigoVenta() Then
+            h = False
+        Else
+            FrmFacturacionVenta.MdiParent = Me
+            FrmFacturacionVenta.Focus()
+            FrmFacturacionVenta.Show()
+        End If
 
+
+    End Sub
+    Private Function GenerarCodigoVenta() As Boolean
+        Try
+            Dim cmd As New SqlCommand
+            conec.Conectarse()
+            Dim dr As SqlDataReader
+            cmd = New SqlCommand("Select Count(*) as Total From Venta", Conec.Con)
+            cmd.CommandType = CommandType.Text
+            dr = cmd.ExecuteReader
+
+            If dr.Read Then
+                If dr.GetValue(0) < 10 Then
+                    TxtIdVenta.Text = "00000000" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 100 Then
+                    TxtIdVenta.Text = "0000000" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 1000 Then
+                    TxtIdVenta.Text = "000000" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 10000 Then
+                    TxtIdVenta.Text = "00000" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 100000 Then
+                    TxtIdVenta.Text = "0000" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 1000000 Then
+                    TxtIdVenta.Text = "000" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 10000000 Then
+                    TxtIdVenta.Text = "00" + Str(Int(dr.GetValue(0)) + 1)
+                ElseIf dr.GetValue(0) < 100000000 Then
+                    TxtIdVenta.Text = "0" + Str(Int(dr.GetValue(0)) + 1)
+                End If
+
+                Dim archivo As New FileIni
+
+                Dim a As String = archivo.IniGet(RUTA_INI, "SAR", "R2", "").Trim
+
+
+                If TxtIdVenta.Text.Replace(" ", "") = a Then
+                    XtraMessageBox.Show("Se supero el limite del correlativo")
+                    h = True
+
+                ElseIf DateTime.Compare(DateTime.Now.ToShortDateString, archivo.IniGet(RUTA_INI, "SAR", "Fecha", "")) = 0 Then
+                    XtraMessageBox.Show("Se supero el fecha limite del correlativo")
+                    h = True
+
+
+                End If
+
+            End If
+            TxtIdVenta.Text = "000-001-01-" & TxtIdVenta.Text
+            TxtIdVenta.Text = Replace(TxtIdVenta.Text, " ", "")
+            dr.Close()
+
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+        Return h
+    End Function
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
         FrmVenta.MdiParent = Me
         FrmVenta.Focus()
@@ -254,10 +316,10 @@ Public Class FrmMenuPrincipal
             conec.Conectarse()
             Dim cmd As New SqlCommand
             Dim dr As SqlClient.SqlDataReader
-            Conec.Conectarse()
+            conec.Conectarse()
             cmd = New SqlCommand("SP_MostraPermisosDenegados")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = Conec.Con
+            cmd.Connection = conec.Con
 
             cmd.Parameters.Add("@IdUsuario", SqlDbType.Int).Value = IdUsuario
 
@@ -314,7 +376,7 @@ Public Class FrmMenuPrincipal
         Catch ex As Exception
             XtraMessageBox.Show(ex.ToString)
         Finally
-            Conec.Desconectarse()
+            conec.Desconectarse()
         End Try
     End Sub
 
@@ -423,5 +485,11 @@ Public Class FrmMenuPrincipal
         My.Settings.Tema = DevExpress.LookAndFeel.UserLookAndFeel.Default.SkinName
         My.Settings.Save()
         Application.Exit()
+    End Sub
+
+    Private Sub BarButtonItem44_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem44.ItemClick
+        FrmPedidos.MdiParent = Me
+        FrmPedidos.Focus()
+        FrmPedidos.Show()
     End Sub
 End Class

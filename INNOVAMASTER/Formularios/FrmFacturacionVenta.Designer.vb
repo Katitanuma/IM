@@ -70,7 +70,6 @@ Partial Class FrmFacturacionVenta
         Me.TxtDescuento = New DevExpress.XtraEditors.TextEdit()
         Me.TxtImpuesto = New DevExpress.XtraEditors.TextEdit()
         Me.TxtTotal = New DevExpress.XtraEditors.TextEdit()
-        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.BtnBusqueda = New DevExpress.XtraEditors.SimpleButton()
         Me.TxtFechaVencimiento = New DevExpress.XtraEditors.DateEdit()
@@ -95,6 +94,7 @@ Partial Class FrmFacturacionVenta
         Me.SearchLookUpEdit1View = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,8 +104,6 @@ Partial Class FrmFacturacionVenta
         CType(Me.TxtDescuento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtImpuesto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtTotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupControl1.SuspendLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.TxtFechaVencimiento.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,6 +116,8 @@ Partial Class FrmFacturacionVenta
         CType(Me.TxtIdVenta.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CboCliente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelControl2.SuspendLayout()
         Me.SuspendLayout()
         '
         'BarManager1
@@ -209,11 +209,11 @@ Partial Class FrmFacturacionVenta
         Me.BtnCancelar.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCancelar.Appearance.Options.UseFont = True
         Me.BtnCancelar.Image = CType(resources.GetObject("BtnCancelar.Image"), System.Drawing.Image)
-        Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.BtnCancelar.Location = New System.Drawing.Point(840, 487)
         Me.BtnCancelar.Name = "BtnCancelar"
         Me.HelpProvider1.SetShowHelp(Me.BtnCancelar, True)
-        Me.BtnCancelar.Size = New System.Drawing.Size(167, 68)
+        Me.BtnCancelar.Size = New System.Drawing.Size(167, 46)
         Me.BtnCancelar.TabIndex = 141
         Me.BtnCancelar.Text = "&Cancelar"
         '
@@ -222,11 +222,11 @@ Partial Class FrmFacturacionVenta
         Me.BtnEliminarTodo.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnEliminarTodo.Appearance.Options.UseFont = True
         Me.BtnEliminarTodo.Image = CType(resources.GetObject("BtnEliminarTodo.Image"), System.Drawing.Image)
-        Me.BtnEliminarTodo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnEliminarTodo.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.BtnEliminarTodo.Location = New System.Drawing.Point(1013, 487)
         Me.BtnEliminarTodo.Name = "BtnEliminarTodo"
         Me.HelpProvider1.SetShowHelp(Me.BtnEliminarTodo, True)
-        Me.BtnEliminarTodo.Size = New System.Drawing.Size(167, 68)
+        Me.BtnEliminarTodo.Size = New System.Drawing.Size(167, 46)
         Me.BtnEliminarTodo.TabIndex = 140
         Me.BtnEliminarTodo.Text = "&Eliminar Todos"
         '
@@ -235,11 +235,11 @@ Partial Class FrmFacturacionVenta
         Me.BtnFacturar.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnFacturar.Appearance.Options.UseFont = True
         Me.BtnFacturar.Image = Global.INNOVAMASTER.My.Resources.Resources.Receipt_32px
-        Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.BtnFacturar.Location = New System.Drawing.Point(1186, 487)
         Me.BtnFacturar.Name = "BtnFacturar"
         Me.HelpProvider1.SetShowHelp(Me.BtnFacturar, True)
-        Me.BtnFacturar.Size = New System.Drawing.Size(164, 68)
+        Me.BtnFacturar.Size = New System.Drawing.Size(164, 46)
         Me.BtnFacturar.TabIndex = 142
         Me.BtnFacturar.Text = "&Facturar"
         '
@@ -325,13 +325,13 @@ Partial Class FrmFacturacionVenta
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgvDetalle.DefaultCellStyle = DataGridViewCellStyle2
         Me.DgvDetalle.GridColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.DgvDetalle.Location = New System.Drawing.Point(12, 157)
+        Me.DgvDetalle.Location = New System.Drawing.Point(12, 154)
         Me.DgvDetalle.MultiSelect = False
         Me.DgvDetalle.Name = "DgvDetalle"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -438,7 +438,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(5, 21)
+        Me.Label1.Location = New System.Drawing.Point(4, 3)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(63, 19)
         Me.Label1.TabIndex = 97
@@ -448,7 +448,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(210, 22)
+        Me.Label2.Location = New System.Drawing.Point(209, 3)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(72, 19)
         Me.Label2.TabIndex = 98
@@ -458,7 +458,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(417, 22)
+        Me.Label3.Location = New System.Drawing.Point(416, 5)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(66, 19)
         Me.Label3.TabIndex = 99
@@ -468,7 +468,7 @@ Partial Class FrmFacturacionVenta
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(623, 22)
+        Me.Label4.Location = New System.Drawing.Point(622, 5)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 19)
         Me.Label4.TabIndex = 100
@@ -477,7 +477,7 @@ Partial Class FrmFacturacionVenta
         'TxtSubtotal
         '
         Me.TxtSubtotal.EditValue = "0.00"
-        Me.TxtSubtotal.Location = New System.Drawing.Point(9, 39)
+        Me.TxtSubtotal.Location = New System.Drawing.Point(8, 22)
         Me.TxtSubtotal.MenuManager = Me.BarManager1
         Me.TxtSubtotal.Name = "TxtSubtotal"
         Me.TxtSubtotal.Properties.ReadOnly = True
@@ -487,7 +487,7 @@ Partial Class FrmFacturacionVenta
         'TxtDescuento
         '
         Me.TxtDescuento.EditValue = "0.00"
-        Me.TxtDescuento.Location = New System.Drawing.Point(214, 39)
+        Me.TxtDescuento.Location = New System.Drawing.Point(213, 22)
         Me.TxtDescuento.MenuManager = Me.BarManager1
         Me.TxtDescuento.Name = "TxtDescuento"
         Me.TxtDescuento.Properties.ReadOnly = True
@@ -497,7 +497,7 @@ Partial Class FrmFacturacionVenta
         'TxtImpuesto
         '
         Me.TxtImpuesto.EditValue = "0.00"
-        Me.TxtImpuesto.Location = New System.Drawing.Point(421, 39)
+        Me.TxtImpuesto.Location = New System.Drawing.Point(420, 22)
         Me.TxtImpuesto.MenuManager = Me.BarManager1
         Me.TxtImpuesto.Name = "TxtImpuesto"
         Me.TxtImpuesto.Properties.ReadOnly = True
@@ -507,28 +507,12 @@ Partial Class FrmFacturacionVenta
         'TxtTotal
         '
         Me.TxtTotal.EditValue = "0.00"
-        Me.TxtTotal.Location = New System.Drawing.Point(627, 39)
+        Me.TxtTotal.Location = New System.Drawing.Point(626, 22)
         Me.TxtTotal.MenuManager = Me.BarManager1
         Me.TxtTotal.Name = "TxtTotal"
         Me.TxtTotal.Properties.ReadOnly = True
         Me.TxtTotal.Size = New System.Drawing.Size(165, 20)
         Me.TxtTotal.TabIndex = 104
-        '
-        'GroupControl1
-        '
-        Me.GroupControl1.Controls.Add(Me.TxtTotal)
-        Me.GroupControl1.Controls.Add(Me.TxtImpuesto)
-        Me.GroupControl1.Controls.Add(Me.TxtDescuento)
-        Me.GroupControl1.Controls.Add(Me.TxtSubtotal)
-        Me.GroupControl1.Controls.Add(Me.Label4)
-        Me.GroupControl1.Controls.Add(Me.Label3)
-        Me.GroupControl1.Controls.Add(Me.Label2)
-        Me.GroupControl1.Controls.Add(Me.Label1)
-        Me.GroupControl1.Location = New System.Drawing.Point(12, 487)
-        Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(822, 68)
-        Me.GroupControl1.TabIndex = 97
-        Me.GroupControl1.Text = "Calculos"
         '
         'PanelControl1
         '
@@ -846,15 +830,30 @@ Partial Class FrmFacturacionVenta
         Me.GridColumn2.VisibleIndex = 1
         Me.GridColumn2.Width = 836
         '
+        'PanelControl2
+        '
+        Me.PanelControl2.Controls.Add(Me.TxtTotal)
+        Me.PanelControl2.Controls.Add(Me.Label1)
+        Me.PanelControl2.Controls.Add(Me.Label2)
+        Me.PanelControl2.Controls.Add(Me.TxtImpuesto)
+        Me.PanelControl2.Controls.Add(Me.Label3)
+        Me.PanelControl2.Controls.Add(Me.TxtDescuento)
+        Me.PanelControl2.Controls.Add(Me.Label4)
+        Me.PanelControl2.Controls.Add(Me.TxtSubtotal)
+        Me.PanelControl2.Location = New System.Drawing.Point(12, 485)
+        Me.PanelControl2.Name = "PanelControl2"
+        Me.PanelControl2.Size = New System.Drawing.Size(822, 48)
+        Me.PanelControl2.TabIndex = 147
+        '
         'FrmFacturacionVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 563)
+        Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.PanelControl1)
         Me.Controls.Add(Me.BtnEliminarTodo)
-        Me.Controls.Add(Me.GroupControl1)
         Me.Controls.Add(Me.BtnFacturar)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label10)
@@ -886,9 +885,6 @@ Partial Class FrmFacturacionVenta
         CType(Me.TxtDescuento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtImpuesto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtTotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupControl1.ResumeLayout(False)
-        Me.GroupControl1.PerformLayout()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
@@ -903,6 +899,9 @@ Partial Class FrmFacturacionVenta
         CType(Me.TxtIdVenta.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CboCliente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SearchLookUpEdit1View, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PanelControl2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelControl2.ResumeLayout(False)
+        Me.PanelControl2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -943,7 +942,6 @@ Partial Class FrmFacturacionVenta
     Friend WithEvents SearchLookUpEdit1View As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
     Friend WithEvents TxtTotal As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TxtImpuesto As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TxtDescuento As DevExpress.XtraEditors.TextEdit
@@ -974,4 +972,5 @@ Partial Class FrmFacturacionVenta
     Friend WithEvents BtnCancelar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnEliminarTodo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnFacturar As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
 End Class
