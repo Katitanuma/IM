@@ -23,10 +23,10 @@ Partial Class FrmCompras
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmCompras))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.LblNombre = New System.Windows.Forms.Label()
         Me.LblCambio = New System.Windows.Forms.Label()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
@@ -42,6 +42,7 @@ Partial Class FrmCompras
         Me.Button2 = New DevExpress.XtraEditors.SimpleButton()
         Me.Button1 = New DevExpress.XtraEditors.SimpleButton()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
+        Me.CboPedido = New DevExpress.XtraEditors.LookUpEdit()
         Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
         Me.TxtFechaCompra = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
@@ -69,6 +70,7 @@ Partial Class FrmCompras
         CType(Me.TxtP.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
+        CType(Me.CboPedido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtFechaCompra.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtSubtotal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TxtDescuento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -200,11 +202,11 @@ Partial Class FrmCompras
         Me.Button2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Appearance.Options.UseFont = True
         Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.Button2.Location = New System.Drawing.Point(992, 481)
         Me.Button2.Name = "Button2"
         Me.HelpProvider1.SetShowHelp(Me.Button2, True)
-        Me.Button2.Size = New System.Drawing.Size(167, 63)
+        Me.Button2.Size = New System.Drawing.Size(167, 44)
         Me.Button2.TabIndex = 141
         Me.Button2.Text = "&Eliminar Todos"
         '
@@ -213,16 +215,17 @@ Partial Class FrmCompras
         Me.Button1.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Appearance.Options.UseFont = True
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.Button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.Button1.Location = New System.Drawing.Point(1162, 481)
         Me.Button1.Name = "Button1"
         Me.HelpProvider1.SetShowHelp(Me.Button1, True)
-        Me.Button1.Size = New System.Drawing.Size(167, 63)
+        Me.Button1.Size = New System.Drawing.Size(167, 44)
         Me.Button1.TabIndex = 142
         Me.Button1.Text = "&Cancelar"
         '
         'PanelControl1
         '
+        Me.PanelControl1.Controls.Add(Me.CboPedido)
         Me.PanelControl1.Controls.Add(Me.LabelControl2)
         Me.PanelControl1.Controls.Add(Me.TxtFechaCompra)
         Me.PanelControl1.Controls.Add(Me.GroupControl1)
@@ -231,10 +234,22 @@ Partial Class FrmCompras
         Me.PanelControl1.Size = New System.Drawing.Size(1294, 83)
         Me.PanelControl1.TabIndex = 112
         '
+        'CboPedido
+        '
+        Me.CboPedido.Location = New System.Drawing.Point(543, 49)
+        Me.CboPedido.Name = "CboPedido"
+        Me.CboPedido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CboPedido.Properties.Columns.AddRange(New DevExpress.XtraEditors.Controls.LookUpColumnInfo() {New DevExpress.XtraEditors.Controls.LookUpColumnInfo("IdPedido", 10, "ID"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Proveedor", 30, "Proveedor"), New DevExpress.XtraEditors.Controls.LookUpColumnInfo("Fecha", "Fecha")})
+        Me.CboPedido.Properties.DisplayMember = "Proveedor"
+        Me.CboPedido.Properties.NullText = "Seleccione Pedido"
+        Me.CboPedido.Properties.ValueMember = "IdPedido"
+        Me.CboPedido.Size = New System.Drawing.Size(399, 20)
+        Me.CboPedido.TabIndex = 153
+        '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.LabelControl2.Location = New System.Drawing.Point(589, 20)
+        Me.LabelControl2.Location = New System.Drawing.Point(545, 0)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(109, 19)
         Me.LabelControl2.TabIndex = 85
@@ -242,7 +257,7 @@ Partial Class FrmCompras
         '
         'TxtFechaCompra
         '
-        Me.TxtFechaCompra.Location = New System.Drawing.Point(568, 42)
+        Me.TxtFechaCompra.Location = New System.Drawing.Point(543, 23)
         Me.TxtFechaCompra.Name = "TxtFechaCompra"
         Me.TxtFechaCompra.Size = New System.Drawing.Size(155, 20)
         Me.TxtFechaCompra.TabIndex = 84
@@ -328,55 +343,55 @@ Partial Class FrmCompras
         Me.BtnFacturar.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!)
         Me.BtnFacturar.Appearance.Options.UseFont = True
         Me.BtnFacturar.Image = CType(resources.GetObject("BtnFacturar.Image"), System.Drawing.Image)
-        Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.BtnFacturar.Location = New System.Drawing.Point(819, 481)
         Me.BtnFacturar.Name = "BtnFacturar"
-        Me.BtnFacturar.Size = New System.Drawing.Size(167, 63)
+        Me.BtnFacturar.Size = New System.Drawing.Size(167, 44)
         Me.BtnFacturar.TabIndex = 120
-        Me.BtnFacturar.Text = "&Comprar"
+        Me.BtnFacturar.Text = "&Guardar"
         '
         'DgvDetalle
         '
         Me.DgvDetalle.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(246, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DgvDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DgvDetalle.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Blue
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvDetalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Blue
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvDetalle.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DgvDetalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DgvDetalle.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Eliminar, Me.Codigo, Me.Descripcion, Me.Cantidad, Me.Precio, Me.ISV, Me.Total})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DgvDetalle.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DgvDetalle.DefaultCellStyle = DataGridViewCellStyle6
         Me.DgvDetalle.GridColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.DgvDetalle.Location = New System.Drawing.Point(10, 150)
+        Me.DgvDetalle.Location = New System.Drawing.Point(10, 151)
         Me.DgvDetalle.MultiSelect = False
         Me.DgvDetalle.Name = "DgvDetalle"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DgvDetalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
-        Me.DgvDetalle.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.DgvDetalle.Size = New System.Drawing.Size(1338, 328)
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.Gray
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DgvDetalle.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Arial", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        Me.DgvDetalle.RowsDefaultCellStyle = DataGridViewCellStyle8
+        Me.DgvDetalle.Size = New System.Drawing.Size(1338, 327)
         Me.DgvDetalle.TabIndex = 143
         '
         'Eliminar
@@ -480,6 +495,7 @@ Partial Class FrmCompras
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelControl1.ResumeLayout(False)
         Me.PanelControl1.PerformLayout()
+        CType(Me.CboPedido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtFechaCompra.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtSubtotal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TxtDescuento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -526,4 +542,5 @@ Partial Class FrmCompras
     Friend WithEvents ISV As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboPedido As DevExpress.XtraEditors.LookUpEdit
 End Class

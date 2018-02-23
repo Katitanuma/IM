@@ -146,11 +146,11 @@ Partial Class FrmPedidos
         Me.Button1.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Appearance.Options.UseFont = True
         Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.Button1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.Button1.Location = New System.Drawing.Point(1150, 477)
         Me.Button1.Name = "Button1"
         Me.HelpProvider1.SetShowHelp(Me.Button1, True)
-        Me.Button1.Size = New System.Drawing.Size(167, 63)
+        Me.Button1.Size = New System.Drawing.Size(167, 49)
         Me.Button1.TabIndex = 145
         Me.Button1.Text = "&Cancelar"
         '
@@ -158,12 +158,12 @@ Partial Class FrmPedidos
         '
         Me.Button2.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.Appearance.Options.UseFont = True
-        Me.Button2.Image = Global.INNOVAMASTER.My.Resources.Resources.delete_delete_deleteusers_delete_male_user_maleclient_2348
-        Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
+        Me.Button2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.Button2.Location = New System.Drawing.Point(980, 477)
         Me.Button2.Name = "Button2"
         Me.HelpProvider1.SetShowHelp(Me.Button2, True)
-        Me.Button2.Size = New System.Drawing.Size(167, 63)
+        Me.Button2.Size = New System.Drawing.Size(167, 49)
         Me.Button2.TabIndex = 144
         Me.Button2.Text = "&Eliminar Todos"
         '
@@ -258,10 +258,10 @@ Partial Class FrmPedidos
         Me.BtnFacturar.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!)
         Me.BtnFacturar.Appearance.Options.UseFont = True
         Me.BtnFacturar.Image = CType(resources.GetObject("BtnFacturar.Image"), System.Drawing.Image)
-        Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.BtnFacturar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
         Me.BtnFacturar.Location = New System.Drawing.Point(807, 477)
         Me.BtnFacturar.Name = "BtnFacturar"
-        Me.BtnFacturar.Size = New System.Drawing.Size(167, 63)
+        Me.BtnFacturar.Size = New System.Drawing.Size(167, 49)
         Me.BtnFacturar.TabIndex = 143
         Me.BtnFacturar.Text = "&Pedir"
         '
@@ -283,7 +283,7 @@ Partial Class FrmPedidos
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(32, Byte), Integer), CType(CType(31, Byte), Integer), CType(CType(53, Byte), Integer))
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
@@ -349,6 +349,7 @@ Partial Class FrmPedidos
         Me.Precio.HeaderText = "Costo"
         Me.Precio.MinimumWidth = 212
         Me.Precio.Name = "Precio"
+        Me.Precio.ReadOnly = True
         Me.Precio.Width = 212
         '
         'ISV
@@ -453,6 +454,8 @@ Partial Class FrmPedidos
     Friend WithEvents Button2 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnFacturar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents DgvDetalle As DataGridView
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents CboProveedor As DevExpress.XtraEditors.LookUpEdit
     Friend WithEvents Eliminar As DataGridViewButtonColumn
     Friend WithEvents Codigo As DataGridViewTextBoxColumn
     Friend WithEvents Descripcion As DataGridViewTextBoxColumn
@@ -461,6 +464,4 @@ Partial Class FrmPedidos
     Friend WithEvents ISV As DataGridViewTextBoxColumn
     Friend WithEvents Total As DataGridViewTextBoxColumn
     Friend WithEvents ChIdProductoProveedor As DataGridViewTextBoxColumn
-    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents CboProveedor As DevExpress.XtraEditors.LookUpEdit
 End Class

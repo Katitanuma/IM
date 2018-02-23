@@ -582,6 +582,27 @@ Public Class FrmPedidos
         End If
     End Sub
 
+    Public Sub LlenarDetallesPedido()
+        Using cmd As New SqlCommand
+            Try
+                Conec.Conectarse()
+                With cmd
+                    .CommandText = "Select IdProveedor, NombreContacto + ' ' +ApellidoContacto as 'Nombre' From Proveedor "
+                    .CommandType = CommandType.Text
+                    .Connection = Conec.Con
+                    .ExecuteNonQuery()
+                End With
+                Dim adaptador As New SqlDataAdapter(cmd)
+                Dim dt As New DataTable
+                adaptador.Fill(dt)
+                CboProveedor.Properties.DataSource = dt
+
+            Catch ex As Exception
+                XtraMessageBox.Show(ex.Message)
+            End Try
+        End Using
+    End Sub
+
     Public Sub LlenarComboBoxProveedor()
         Using cmd As New SqlCommand
             Try
@@ -595,7 +616,7 @@ Public Class FrmPedidos
                 Dim adaptador As New SqlDataAdapter(cmd)
                 Dim dt As New DataTable
                 adaptador.Fill(dt)
-                CboProveedor.properties.datasource = dt
+                CboProveedor.Properties.DataSource = dt
 
             Catch ex As Exception
                 XtraMessageBox.Show(ex.Message)

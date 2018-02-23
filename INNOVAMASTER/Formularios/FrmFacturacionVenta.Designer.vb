@@ -23,11 +23,11 @@ Partial Class FrmFacturacionVenta
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmFacturacionVenta))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmFacturacionVenta))
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
@@ -95,6 +95,8 @@ Partial Class FrmFacturacionVenta
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.PanelControl2 = New DevExpress.XtraEditors.PanelControl()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.LblSaberCredito = New System.Windows.Forms.Label()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -331,7 +333,7 @@ Partial Class FrmFacturacionVenta
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DgvDetalle.DefaultCellStyle = DataGridViewCellStyle2
         Me.DgvDetalle.GridColor = System.Drawing.Color.FromArgb(CType(CType(104, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(251, Byte), Integer))
-        Me.DgvDetalle.Location = New System.Drawing.Point(12, 154)
+        Me.DgvDetalle.Location = New System.Drawing.Point(12, 181)
         Me.DgvDetalle.MultiSelect = False
         Me.DgvDetalle.Name = "DgvDetalle"
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -348,7 +350,7 @@ Partial Class FrmFacturacionVenta
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White
         Me.DgvDetalle.RowsDefaultCellStyle = DataGridViewCellStyle4
-        Me.DgvDetalle.Size = New System.Drawing.Size(1338, 328)
+        Me.DgvDetalle.Size = New System.Drawing.Size(1338, 301)
         Me.DgvDetalle.TabIndex = 63
         '
         'Label6
@@ -532,7 +534,7 @@ Partial Class FrmFacturacionVenta
         Me.PanelControl1.Controls.Add(Me.CboCliente)
         Me.PanelControl1.Location = New System.Drawing.Point(12, 49)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(1338, 102)
+        Me.PanelControl1.Size = New System.Drawing.Size(1338, 97)
         Me.PanelControl1.TabIndex = 98
         '
         'BtnBusqueda
@@ -679,7 +681,7 @@ Partial Class FrmFacturacionVenta
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label14.Location = New System.Drawing.Point(352, 47)
+        Me.Label14.Location = New System.Drawing.Point(352, 44)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(99, 19)
         Me.Label14.TabIndex = 105
@@ -691,7 +693,7 @@ Partial Class FrmFacturacionVenta
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label15.Location = New System.Drawing.Point(354, 5)
+        Me.Label15.Location = New System.Drawing.Point(354, 2)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(110, 19)
         Me.Label15.TabIndex = 104
@@ -703,7 +705,7 @@ Partial Class FrmFacturacionVenta
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label11.Location = New System.Drawing.Point(1044, 5)
+        Me.Label11.Location = New System.Drawing.Point(1044, 2)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(148, 19)
         Me.Label11.TabIndex = 103
@@ -715,7 +717,7 @@ Partial Class FrmFacturacionVenta
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Comic Sans MS", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.Label9.Location = New System.Drawing.Point(1047, 46)
+        Me.Label9.Location = New System.Drawing.Point(1043, 43)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(109, 19)
         Me.Label9.TabIndex = 102
@@ -845,11 +847,31 @@ Partial Class FrmFacturacionVenta
         Me.PanelControl2.Size = New System.Drawing.Size(822, 48)
         Me.PanelControl2.TabIndex = 147
         '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 148)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(41, 31)
+        Me.SimpleButton1.TabIndex = 114
+        '
+        'LblSaberCredito
+        '
+        Me.LblSaberCredito.AutoSize = True
+        Me.LblSaberCredito.Location = New System.Drawing.Point(326, 21)
+        Me.LblSaberCredito.Name = "LblSaberCredito"
+        Me.LblSaberCredito.Size = New System.Drawing.Size(44, 13)
+        Me.LblSaberCredito.TabIndex = 152
+        Me.LblSaberCredito.Text = "Label16"
+        Me.LblSaberCredito.Visible = False
+        '
         'FrmFacturacionVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1354, 563)
+        Me.Controls.Add(Me.LblSaberCredito)
+        Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.PanelControl2)
         Me.Controls.Add(Me.BtnCancelar)
         Me.Controls.Add(Me.PanelControl1)
@@ -973,4 +995,6 @@ Partial Class FrmFacturacionVenta
     Friend WithEvents BtnEliminarTodo As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnFacturar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PanelControl2 As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LblSaberCredito As Label
 End Class

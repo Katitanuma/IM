@@ -525,6 +525,8 @@ Public Class FrmCompras
         HelpProvider1.SetHelpNavigator(Me, HelpNavigator.KeywordIndex)
         HelpProvider1.SetHelpKeyword(Me, "Registro Compra")
 
+        LlenarComboBoxPedidos()
+
     End Sub
 
 
@@ -594,6 +596,76 @@ Public Class FrmCompras
         Return estado
     End Function
 
+    Public Sub LlenarDetallePedidos()
+
+        If CboPedido.EditValue IsNot Nothing Then
+            Using cmd As New SqlCommand
+                Try
+                    Conec.Conectarse()
+                    With cmd
+                        .CommandText = "SP_DetallesPedido"
+                        .CommandType = CommandType.StoredProcedure
+                        .Parameters.Add("@IdPedido", SqlDbType.Int).Value = CInt(CboPedido.EditValue)
+                        .Connection = Conec.Con
+                        .ExecuteNonQuery()
+                    End With
+                    Dim adaptador As New SqlDataAdapter(cmd)
+                    Dim dt As New DataTable
+                    adaptador.Fill(dt)
+
+
+                    DgvDetalle.Rows.Clear()
+
+                    For Each row As DataRow In dt.Rows
+                        DgvDetalle.Rows.Add()
+                        DgvDetalle.Rows(DgvDetalle.RowCount - 2).Cells(1).Value = row(0).ToString
+                        DgvDetalle.Rows(DgvDetalle.RowCount - 2).Cells(2).Value = row(1).ToString
+                        DgvDetalle.Rows(DgvDetalle.RowCount - 2).Cells(3).Value = row(2).ToString
+                        DgvDetalle.Rows(DgvDetalle.RowCount - 2).Cells(4).Value = FormatCurrency(CDbl(row(3).ToString))
+                        DgvDetalle.Rows(DgvDetalle.RowCount - 2).Cells(5).Value = FormatCurrency(CDbl(row(4).ToString))
+                        DgvDetalle.Rows(DgvDetalle.RowCount - 2).Cells(6).Value = FormatCurrency(CDbl(row(5).ToString))
+                        DgvDetalle.EndEdit()
+
+                    Next
+                    LlenarTextBox()
+
+
+                Catch ex As Exception
+                    XtraMessageBox.Show(ex.Message)
+                End Try
+            End Using
+        End If
+
+    End Sub
+
+    Public Sub LlenarComboBoxPedidos()
+
+
+        Using cmd As New SqlCommand
+                Try
+                    Conec.Conectarse()
+                    With cmd
+                        .CommandText = "SP_ListadoPedidos"
+                        .CommandType = CommandType.StoredProcedure
+                        .Connection = Conec.Con
+                        .ExecuteNonQuery()
+                    End With
+                    Dim adaptador As New SqlDataAdapter(cmd)
+                    Dim dt As New DataTable
+                adaptador.Fill(dt)
+                CboPedido.Properties.DataSource = dt
+
+
+
+
+            Catch ex As Exception
+                    XtraMessageBox.Show(ex.Message)
+                End Try
+            End Using
+
+
+    End Sub
+
     Private Sub FrmCompras_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         If var = 0 Then
 
@@ -646,5 +718,9 @@ Public Class FrmCompras
 
         End If
 
+    End Sub
+
+    Private Sub CboPedido_EditValueChanged(sender As Object, e As EventArgs) Handles CboPedido.EditValueChanged
+        LlenarDetallePedidos()
     End Sub
 End Class

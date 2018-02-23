@@ -364,6 +364,12 @@
     <Compile Include="Formularios\FrmRptProducto.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\FrmSeleccionarProducto.Designer.vb">
+      <DependentUpon>FrmSeleccionarProducto.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmSeleccionarProducto.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\FrmUsuario.Designer.vb">
       <DependentUpon>FrmUsuario.vb</DependentUpon>
     </Compile>
@@ -611,6 +617,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmRptProducto.resx">
       <DependentUpon>FrmRptProducto.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmSeleccionarProducto.resx">
+      <DependentUpon>FrmSeleccionarProducto.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FrmUsuario.resx">
       <DependentUpon>FrmUsuario.vb</DependentUpon>

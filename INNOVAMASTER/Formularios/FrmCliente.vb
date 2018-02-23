@@ -319,7 +319,7 @@ Public Class FrmCliente
             '' LblRelacionClienteVenta.Text = "0"
             ''Me.Close()
         ElseIf LblRelacionClienteVenta.Text = "2" Then
-            FrmFacturacionVenta.CboCliente.Text = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColNombreCompleto)
+            FrmFacturacionVenta.CboCliente.EditValue = DgvClientes.GetRowCellValue(DgvClientes.FocusedRowHandle, ColIdCliente)
             LblRelacionClienteVenta.Text = "0"
             Me.Close()
 

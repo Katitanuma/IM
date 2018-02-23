@@ -449,7 +449,7 @@ Public Class FrmFacturacionVenta
         End If
 
     End Sub
-    Private Sub LlenarTextBox()
+    Public Sub LlenarTextBox()
         TxtTotal.EditValue = Nothing
         TxtTotal.Text = 0
         TxtSubtotal.EditValue = Nothing
@@ -557,6 +557,7 @@ Public Class FrmFacturacionVenta
                 Else
                     LblCambio.Text = monto - CDbl(TxtTotal.Text)
                 End If
+                MessageBox.Show("Cambio: L." + LblCambio.Text)
                 Conec.Conectarse()
                 Dim estado As Boolean = True
                 DgvDetalle.AllowUserToAddRows = False
@@ -1229,6 +1230,16 @@ Public Class FrmFacturacionVenta
             End If
 
 
+
+        End If
+    End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        FrmSeleccionarProducto.ShowDialog()
+    End Sub
+
+    Private Sub CboCliente_EditValueChanged(sender As Object, e As EventArgs) Handles CboCliente.EditValueChanged
+        If CboCliente.EditValue IsNot Nothing Then
 
         End If
     End Sub

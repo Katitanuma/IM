@@ -480,4 +480,17 @@ Public Class FrmProducto
         End If
 
     End Sub
+
+    Private Sub TxtPrecioUnitario_EditValueChanged(sender As Object, e As EventArgs) Handles TxtPrecioUnitario.EditValueChanged
+        If ChkGravado.CheckState = CheckState.Checked Then
+            If CDbl(TxtPrecioUnitario.Value) > 0 Then
+                TxtGravado.Value = CDbl(TxtPrecioUnitario.Value) * My.Settings.ISV
+            Else
+                TxtGravado.Value = 0
+                ChkGravado.Checked = False
+            End If
+        Else
+            TxtGravado.Value = 0
+        End If
+    End Sub
 End Class
